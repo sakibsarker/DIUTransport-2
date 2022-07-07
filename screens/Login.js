@@ -57,7 +57,7 @@ const Login = ({ navigation }) => {
                     marginTop: 20,
                 }}
             >
-                Or
+                Don't Have a Account Yet ?
             </Text>
             <TouchableOpacity onPress={() => navigation.navigate("register")}>
                 <Text
