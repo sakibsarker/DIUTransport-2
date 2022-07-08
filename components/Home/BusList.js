@@ -9,9 +9,10 @@ const BusList = () => {
 
     const dispatch = useDispatch();
     const { buses } = useSelector((state) => state.bus)
+    console.log(buses)
     useEffect(() => {
         dispatch(fetchBuses());
-    },[dispatch])
+    },[])
 
     return(
     <View style={styles.container}>

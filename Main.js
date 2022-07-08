@@ -19,7 +19,7 @@ import { PreferencesContext } from './contexts/PreferencesContext ';
 import Register from "./screens/register";
 import ForgetPassword from "./screens/ForgotPassword";
 import ResetPassword from "./screens/ResetPassword";
-import {  useSelector } from 'react-redux';
+
 
 
 const CombinedDefaultTheme = merge(PaperDefaultTheme, NavigationDefaultTheme);
@@ -53,7 +53,7 @@ const Main = () => {
 
                 <NavigationContainer theme={theme}> 
 
-                        <Stack.Navigator initialRouteName={isAuthenticated ? "home" : "login"}>
+                        <Stack.Navigator initialRouteName={"home"}>
                         <Stack.Screen name='register' component={Register} options={{ headerShown: false }} />
                         <Stack.Screen name='login' component={Login} options={{ headerShown: false }} />
                         <Stack.Screen name='mymap' component={MyMap} options={{ headerShown: false }} />
