@@ -7,9 +7,10 @@ import {
   StatusBar,
   ImageBackground,
 } from "react-native";
-import BusList from "../components/Home/BusList";
+
 import SearchBar from "../components/Home/SearchBar";
 import { useTheme, Divider, Button, Text } from "react-native-paper";
+import RouteList from "../components/Home/RouteList";
 
 const Home = ({ navigation }) => {
   const theme = useTheme();
@@ -34,7 +35,7 @@ const Home = ({ navigation }) => {
           </Button>
         </View>
         <Divider />
-        <BusList navigation={navigation} />
+        <RouteList navigation={navigation} />
       </SafeAreaView>
     </View>
   );

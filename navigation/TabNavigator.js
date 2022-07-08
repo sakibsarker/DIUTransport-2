@@ -9,13 +9,14 @@ import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import { useTheme } from "react-native-paper";
 import NoticeBoard from "../screens/NoticeBoard";
 import BusDetails from "../screens/BusDetails";
+import BusList from "../components/Home/BusList";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 const HomeStack = () => {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
+    <Stack.Navigator>
       <Stack.Screen
         name="home"
         component={Home}
@@ -24,7 +25,16 @@ const HomeStack = () => {
       <Stack.Screen
         name="BusDetails"
         component={BusDetails}
-        options={{ headerShown: false }}
+        options={({ route }) => ({
+          title: route.params?.busId,
+        })}
+      />
+      <Stack.Screen
+        name="BusList"
+        component={BusList}
+        options={({ route }) => ({
+          title: route.params?.routeId,
+        })}
       />
     </Stack.Navigator>
   );
