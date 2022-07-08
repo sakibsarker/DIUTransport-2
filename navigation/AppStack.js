@@ -1,15 +1,13 @@
 import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import Home from "../screens/Home";
-import MyMap from "../screens/MyMap";
+
 import Profile from "../screens/Profile";
 import CustomDrawer from "../components/CustomDrawer";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { useTheme } from "react-native-paper";
 import TabNavigator from "./TabNavigator";
 import NoticeBoard from "../screens/NoticeBoard";
+import Tickets from "../screens/Tickets";
 
 const Drawer = createDrawerNavigator();
 const AppStack = () => {
@@ -35,17 +33,17 @@ const AppStack = () => {
           name="Home"
           component={TabNavigator}
           options={{
-            drawerIcon: ({ color }) => (
-              <Ionicons name="home-outline" size={22} color={color} />
+            drawerIcon: ({ size, color }) => (
+              <Ionicons name="home-outline" size={size} color={color} />
             ),
           }}
         />
         <Drawer.Screen
           name="Tickets"
-          component={Home}
+          component={Tickets}
           options={{
-            drawerIcon: ({ color }) => (
-              <FontAwesome name="ticket" size={14} color="#fff" />
+            drawerIcon: ({ size, color }) => (
+              <Ionicons name="ios-pricetags" size={size} color={color} />
             ),
           }}
         />
@@ -54,8 +52,8 @@ const AppStack = () => {
           name="Notice Board"
           component={NoticeBoard}
           options={{
-            drawerIcon: ({ color }) => (
-              <Ionicons name="notifications" size={22} color={color} />
+            drawerIcon: ({ size, color }) => (
+              <Ionicons name="notifications" size={size} color={color} />
             ),
           }}
         />

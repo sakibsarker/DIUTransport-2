@@ -1,16 +1,10 @@
 import React from "react";
-import {
-  View,
-  Text,
-  ImageBackground,
-  Image,
-  TouchableOpacity,
-} from "react-native";
+import { View, ImageBackground, Image, TouchableOpacity } from "react-native";
 import {
   DrawerContentScrollView,
   DrawerItemList,
 } from "@react-navigation/drawer";
-import { useTheme, Appbar, TouchableRipple, Switch } from "react-native-paper";
+import { useTheme, Text, TouchableRipple, Switch } from "react-native-paper";
 
 import Ionicons from "react-native-vector-icons/Ionicons";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";

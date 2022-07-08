@@ -1,6 +1,6 @@
-import { View, Text, StatusBar, Platform, SafeAreaView } from "react-native";
+import { View, StatusBar, Platform, SafeAreaView } from "react-native";
 import React from "react";
-import { useTheme } from "react-native-paper";
+import { useTheme, Text } from "react-native-paper";
 const NoticeBoard = () => {
   const theme = useTheme();
   return (

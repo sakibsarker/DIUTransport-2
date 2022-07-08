@@ -1,5 +1,6 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "../screens/Home";
 import MyMap from "../screens/MyMap";
 import Profile from "../screens/Profile";
@@ -7,8 +8,27 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import { useTheme } from "react-native-paper";
 import NoticeBoard from "../screens/NoticeBoard";
+import BusDetails from "../screens/BusDetails";
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
+
+const HomeStack = () => {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen
+        name="home"
+        component={Home}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="BusDetails"
+        component={BusDetails}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
+  );
+};
 
 const TabNavigator = () => {
   const theme = useTheme();
@@ -19,24 +39,24 @@ const TabNavigator = () => {
         tabBarShowLabel: false,
         tabBarStyle: { backgroundColor: theme.colors.accent },
         tabBarInactiveTintColor: "#fff",
-        tabBarActiveTintColor: "black",
+        tabBarActiveTintColor: "green",
       }}
     >
+      <Tab.Screen
+        name="Home2"
+        component={HomeStack}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="home-outline" size={size} color={color} />
+          ),
+        }}
+      />
       <Tab.Screen
         name="mymap"
         component={MyMap}
         options={{
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5 name="map" size={size} color={color} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="home2"
-        component={Home}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home-outline" size={size} color={color} />
           ),
         }}
       />

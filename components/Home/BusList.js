@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { List, useTheme } from "react-native-paper";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { fetchBuses } from "../../redux/ApiCalls/bus";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../components/Loader";
-const BusList = () => {
+const BusList = ({ navigation }) => {
   const theme = useTheme();
 
   const dispatch = useDispatch();
@@ -21,6 +21,7 @@ const BusList = () => {
   return (
     <>
       <List.Item
+        onPress={() => navigation.navigate("BusDetails", { busId: 1 })}
         key="1"
         style={styles.item}
         title="সূর্যমুখি ১"
@@ -28,6 +29,7 @@ const BusList = () => {
         left={(props) => <List.Icon {...props} icon="bus" />}
       />
       <List.Item
+        onPress={() => navigation.navigate("BusDetails", { busId: 2 })}
         key="2"
         style={styles.item}
         title="সূর্যমুখি ২"
@@ -35,6 +37,7 @@ const BusList = () => {
         left={(props) => <List.Icon {...props} icon="bus" />}
       />
       <List.Item
+        onPress={() => navigation.navigate("BusDetails", { busId: 3 })}
         key="3"
         style={styles.item}
         title="সূর্যমুখি ৩"
@@ -42,6 +45,7 @@ const BusList = () => {
         left={(props) => <List.Icon {...props} icon="bus" />}
       />
       <List.Item
+        onPress={() => navigation.navigate("BusDetails", { busId: 4 })}
         key="4"
         style={styles.item}
         title="সূর্যমুখি ৪"

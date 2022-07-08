@@ -1,8 +1,8 @@
-import { View, StatusBar, Platform, SafeAreaView } from "react-native";
+import { View, SafeAreaView } from "react-native";
 import React from "react";
 import { useTheme, Text } from "react-native-paper";
 
-const Profile = () => {
+const BusDetails = ({ navigation, route }) => {
   const theme = useTheme();
   return (
     <View
@@ -13,10 +13,10 @@ const Profile = () => {
       }}
     >
       <SafeAreaView>
-        <Text>Profile</Text>
+        <Text>BusDetails of {route.params?.busId}</Text>
       </SafeAreaView>
     </View>
   );
 };
 
-export default Profile;
+export default BusDetails;

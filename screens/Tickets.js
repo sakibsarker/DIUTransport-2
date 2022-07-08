@@ -1,8 +1,7 @@
-import { View, StatusBar, Platform, SafeAreaView } from "react-native";
+import { View, SafeAreaView } from "react-native";
 import React from "react";
 import { useTheme, Text } from "react-native-paper";
-
-const Profile = () => {
+const Tickets = () => {
   const theme = useTheme();
   return (
     <View
@@ -13,10 +12,10 @@ const Profile = () => {
       }}
     >
       <SafeAreaView>
-        <Text>Profile</Text>
+        <Text>Tickets</Text>
       </SafeAreaView>
     </View>
   );
 };
 
-export default Profile;
+export default Tickets;

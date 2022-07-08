@@ -1,7 +1,6 @@
 import React from "react";
 import {
   View,
-  Text,
   StyleSheet,
   SafeAreaView,
   Platform,
@@ -10,9 +9,9 @@ import {
 } from "react-native";
 import BusList from "../components/Home/BusList";
 import SearchBar from "../components/Home/SearchBar";
-import { useTheme, Divider, Button } from "react-native-paper";
+import { useTheme, Divider, Button, Text } from "react-native-paper";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   const theme = useTheme();
   return (
     <View
@@ -35,7 +34,7 @@ const Home = () => {
           </Button>
         </View>
         <Divider />
-        <BusList />
+        <BusList navigation={navigation} />
       </SafeAreaView>
     </View>
   );
