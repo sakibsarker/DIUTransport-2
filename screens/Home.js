@@ -1,40 +1,57 @@
-import React from 'react'
-import {View,Text,StyleSheet} from "react-native"
-import BusList from '../components/Home/BusList';
-import SearchBar from '../components/Home/SearchBar';
-import { useTheme,Divider,Button} from 'react-native-paper'
+import React from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  SafeAreaView,
+  Platform,
+  StatusBar,
+  ImageBackground,
+} from "react-native";
+import BusList from "../components/Home/BusList";
+import SearchBar from "../components/Home/SearchBar";
+import { useTheme, Divider, Button } from "react-native-paper";
 
 const Home = () => {
   const theme = useTheme();
   return (
     <View
-    style={{
-      flex: 1,
-      backgroundColor: theme?.colors.surface,
-  }}
+      style={{
+        flex: 1,
+        backgroundColor: theme?.colors.surface,
+        paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+      }}
     >
-    <SearchBar/>
-    <View style={styles.container}>
-      <Text style={styles.col2}>All Transports</Text>
-      <Button style={styles.col2}><Text style={{color:theme?.colors.accent}}>View All</Text></Button>
+      <ImageBackground
+        source={require("../assets/images/dark-map.jpeg")}
+        style={{ padding: 60 }}
+      />
+      <SafeAreaView>
+        <SearchBar />
+        <View style={styles.container}>
+          <Text style={styles.col2}>All Transports</Text>
+          <Button style={styles.col2}>
+            <Text style={{ color: theme?.colors.accent }}>View All</Text>
+          </Button>
+        </View>
+        <Divider />
+        <BusList />
+      </SafeAreaView>
     </View>
-    <Divider/>
-    <BusList/>
-      </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'center' ,
-    marginTop:15,
-    paddingLeft:25
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "center",
+    marginTop: 15,
+    paddingLeft: 25,
   },
   col2: {
-    width: '50%' 
-  }
-})
+    width: "50%",
+  },
+});
 
-export default Home
+export default Home;
