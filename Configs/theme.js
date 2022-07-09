@@ -10,8 +10,8 @@ export const themeLight = {
   myOwnProperty: true,
   // Specify custom property in nested object
   colors: {
-    accent: "#636e72",
-    tabActiveColor: "#fff",
+    accent: "#182C61",
+    tabActiveColor: "#74b9ff",
     tabInactiveColor: "#dfe6e9",
     accentLight: "#b2bec3",
   },
@@ -23,8 +23,8 @@ export const themeDark = {
   myOwnProperty: true,
   // Specify custom property in nested object
   colors: {
-    accent: "#636e72",
-    tabActiveColor: "#fff",
-    tabInactiveColor: "#dfe6e9",
+    accent: "#000",
+    tabActiveColor: "#FFF",
+    tabInactiveColor: "#2C3A47",
   },
 };

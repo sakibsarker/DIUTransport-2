@@ -2,14 +2,14 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
-import Home from "../screens/Home";
-import MyMap from "../screens/MyMap";
-import Profile from "../screens/Profile";
+import Home from "../screens/Student/Home";
+import MyMap from "../screens/Student/MyMap";
+import Profile from "../screens/Student/Profile";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import { useTheme } from "react-native-paper";
 import NoticeBoard from "../screens/NoticeBoard";
-import BusDetails from "../screens/BusDetails";
+import BusDetails from "../screens/Student/BusDetails";
 import BusList from "../components/Home/BusList";
 
 const Tab = createBottomTabNavigator();
