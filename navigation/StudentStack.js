@@ -1,13 +1,13 @@
 import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
-import Profile from "../screens/Profile";
+import Profile from "../screens/Student/Profile";
 import CustomDrawer from "../components/CustomDrawer";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useTheme } from "react-native-paper";
 import StudentTabNavigator from "./StudentTabNavigator";
 import NoticeBoard from "../screens/NoticeBoard";
-import Tickets from "../screens/Tickets";
+import Tickets from "../screens/Student/Tickets";
 
 const Drawer = createDrawerNavigator();
 const StudentStack = () => {

@@ -15,8 +15,8 @@ import { Text, useTheme } from "react-native-paper";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // height: Dimensions.get("window").width,
-    // width: Dimensions.get("window").height,
+    height: Dimensions.get("window").width,
+    width: Dimensions.get("window").height,
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   map: {
@@ -28,12 +28,7 @@ const MapMarker = ({ coordinates }) => {
   const theme = useTheme();
   return (
     <View
-      style={{
-        ...styles.container,
-        backgroundColor: theme.colors.surface,
-        alignItems: "center",
-        justifyContent: "center",
-      }}
+      style={{ ...styles.container, backgroundColor: theme.colors.surface }}
     >
       <SafeAreaView>
         {Platform.OS == "ios" ? (

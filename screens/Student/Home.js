@@ -6,11 +6,12 @@ import {
   Platform,
   StatusBar,
   ImageBackground,
+  TouchableOpacity,
 } from "react-native";
 
-import SearchBar from "../components/Home/SearchBar";
+import SearchBar from "../../components/Home/SearchBar";
 import { useTheme, Divider, Button, Text } from "react-native-paper";
-import RouteList from "../components/Home/RouteList";
+import RouteList from "../../components/Home/RouteList";
 
 const Home = ({ navigation }) => {
   const theme = useTheme();
@@ -23,19 +24,22 @@ const Home = ({ navigation }) => {
       }}
     >
       <ImageBackground
-        source={require("../assets/images/dark-map.jpeg")}
+        source={require("../../assets/images/dark-map.jpeg")}
         style={{ padding: 60 }}
       />
       <SafeAreaView>
         <SearchBar />
         <View style={styles.container}>
-          <Text style={styles.col2}>All Transports</Text>
-          <Button style={styles.col2}>
+          <Text>All Transports</Text>
+          <TouchableOpacity>
             <Text style={{ color: theme?.colors.accent }}>View All</Text>
-          </Button>
+          </TouchableOpacity>
         </View>
         <Divider />
-        <RouteList navigation={navigation} />
+        <View style={styles.container}>
+          <RouteList navigation={navigation} />
+        </View>
+        <Divider />
       </SafeAreaView>
     </View>
   );
@@ -46,11 +50,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     alignItems: "center",
+    justifyContent: "space-between",
     marginTop: 15,
     paddingLeft: 25,
-  },
-  col2: {
-    width: "50%",
+    paddingRight: 25,
+    paddingBottom: 25,
   },
 });
 

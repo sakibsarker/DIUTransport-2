@@ -43,8 +43,8 @@ const Home = ({ navigation }) => {
         </View>
         <Divider />
         <View style={styles.container}>
-          <Text style={styles.col2}>How it works?</Text>
-          <TouchableOpacity style={styles.col2}>
+          <Text>How it works?</Text>
+          <TouchableOpacity>
             <Text style={{ color: theme?.colors.accent }}>View All</Text>
           </TouchableOpacity>
         </View>
