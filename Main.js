@@ -12,8 +12,9 @@ import {
 import merge from "deepmerge";
 import { PreferencesContext } from "./contexts/PreferencesContext ";
 import AuthStack from "./navigation/AuthStack";
-import AppStack from "./navigation/AppStack";
+import StudentStack from "./navigation/StudentStack";
 import { themeLight, themeDark } from "./Configs/theme";
+import TicketManStack from "./navigation/TicketManStack";
 const CombinedDefaultTheme = merge(themeLight, NavigationDefaultTheme);
 const CombinedDarkTheme = merge(themeDark, NavigationDarkTheme);
 
@@ -37,8 +38,9 @@ const Main = () => {
     <PreferencesContext.Provider value={preferences}>
       <PaperProvider theme={theme}>
         <NavigationContainer theme={theme}>
-          <AuthStack />
-          {/* <AppStack /> */}
+          {/* <AuthStack /> */}
+          <StudentStack />
+          {/* <TicketManStack /> */}
         </NavigationContainer>
       </PaperProvider>
     </PreferencesContext.Provider>

@@ -3,7 +3,7 @@ import React from "react";
 import { useTheme, Text } from "react-native-paper";
 import { Tab, TabView } from "@rneui/themed";
 import Student from "../components/Login/Student";
-import Employee from "../components/Login/Employee";
+import TicketMan from "../components/Login/TicketMan";
 
 const Login = ({ navigation }) => {
   const theme = useTheme();
@@ -80,7 +80,7 @@ const Login = ({ navigation }) => {
                   : theme.colors.surface,
                 borderTopRightRadius: 35,
               })}
-              title="Employee"
+              title="TicketMan"
               titleStyle={(active) => ({
                 color: active ? "#FFFFFF" : theme.colors.surface,
               })}
@@ -104,7 +104,7 @@ const Login = ({ navigation }) => {
                 alignItems: "center",
               }}
             >
-              <Employee />
+              <TicketMan />
             </TabView.Item>
           </TabView>
         </View>

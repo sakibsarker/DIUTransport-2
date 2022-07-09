@@ -41,7 +41,7 @@ const HomeStack = () => {
   );
 };
 
-const TabNavigator = () => {
+const StudentTabNavigator = () => {
   const theme = useTheme();
   return (
     <Tab.Navigator
@@ -101,11 +101,11 @@ const TabNavigator = () => {
 
 const getTabBarVisibility = (route) => {
   const routeName = getFocusedRouteNameFromRoute(route) ?? "Feed";
-  console.log(routeName);
+
   if (routeName == "home" || routeName == "Feed") {
     return "flex";
   }
   return "none";
 };
 
-export default TabNavigator;
+export default StudentTabNavigator;

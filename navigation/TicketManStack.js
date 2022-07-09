@@ -1,18 +1,17 @@
 import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-
-import Profile from "../screens/Profile";
+import Home from "../screens/TicketMan/Home";
 import CustomDrawer from "../components/CustomDrawer";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useTheme } from "react-native-paper";
-import TabNavigator from "./TabNavigator";
+
 import NoticeBoard from "../screens/NoticeBoard";
-import Tickets from "../screens/Tickets";
+import TicketScan from "../screens/TicketMan/TicketScan";
 
 const Drawer = createDrawerNavigator();
-const AppStack = () => {
-  const theme = useTheme();
 
+const TicketManStack = () => {
+  const theme = useTheme();
   return (
     <>
       <Drawer.Navigator
@@ -31,7 +30,7 @@ const AppStack = () => {
       >
         <Drawer.Screen
           name="Home"
-          component={TabNavigator}
+          component={Home}
           options={{
             drawerIcon: ({ size, color }) => (
               <Ionicons name="home-outline" size={size} color={color} />
@@ -39,8 +38,8 @@ const AppStack = () => {
           }}
         />
         <Drawer.Screen
-          name="Tickets"
-          component={Tickets}
+          name="TicketScan"
+          component={TicketScan}
           options={{
             drawerIcon: ({ size, color }) => (
               <Ionicons name="ios-pricetags" size={size} color={color} />
@@ -49,21 +48,11 @@ const AppStack = () => {
         />
 
         <Drawer.Screen
-          name="Notice Board"
+          name="NoticeBoard"
           component={NoticeBoard}
           options={{
             drawerIcon: ({ size, color }) => (
               <Ionicons name="notifications" size={size} color={color} />
-            ),
-          }}
-        />
-
-        <Drawer.Screen
-          name="Settings"
-          component={Profile}
-          options={{
-            drawerIcon: ({ color }) => (
-              <Ionicons name="settings" size={22} color={color} />
             ),
           }}
         />
@@ -72,4 +61,4 @@ const AppStack = () => {
   );
 };
 
-export default AppStack;
+export default TicketManStack;

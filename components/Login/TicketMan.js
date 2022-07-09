@@ -2,13 +2,13 @@ import { View, TextInput, StyleSheet, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import { Button, useTheme, Text } from "react-native-paper";
 
-const Employee = () => {
+const TicketMan = () => {
   const theme = useTheme();
-  const [employeeId, setEmployeeId] = useState("");
+  const [TicketManId, setTicketManId] = useState("");
   const [password, setPassword] = useState("");
 
   const loginHandler = () => {
-    console.log(employeeId, password);
+    console.log(TicketManId, password);
   };
 
   return (
@@ -20,9 +20,9 @@ const Employee = () => {
       <View>
         <TextInput
           style={Styles.input}
-          placeholder="Employee ID"
-          value={employeeId}
-          onChangeText={setEmployeeId}
+          placeholder="TicketMan ID"
+          value={TicketManId}
+          onChangeText={setTicketManId}
           keyboardType="number-pad"
         />
 
@@ -36,7 +36,7 @@ const Employee = () => {
       </View>
 
       <Button
-        disabled={!employeeId || !password}
+        disabled={!TicketManId || !password}
         style={{ ...Styles.btn, backgroundColor: theme?.colors.accent }}
         onPress={loginHandler}
       >
@@ -63,4 +63,4 @@ const Styles = StyleSheet.create({
   },
 });
 
-export default Employee;
+export default TicketMan;
