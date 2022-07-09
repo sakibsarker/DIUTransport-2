@@ -1,4 +1,5 @@
 import { View, SafeAreaView,StatusBar } from "react-native";
+
 import React from "react";
 import { useTheme, Text, List, Surface } from "react-native-paper";
 import QRCode from "react-native-qrcode-svg";
