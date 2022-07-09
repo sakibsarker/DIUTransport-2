@@ -13,6 +13,7 @@ import { PreferencesContext } from "../contexts/PreferencesContext ";
 const CustomDrawer = (props) => {
   const theme = useTheme();
   const { toggleTheme, isThemeDark } = React.useContext(PreferencesContext);
+
   return (
     <View style={{ flex: 1 }}>
       <DrawerContentScrollView
@@ -36,7 +37,6 @@ const CustomDrawer = (props) => {
             style={{
               color: "#fff",
               fontSize: 18,
-
               marginBottom: 5,
             }}
           >

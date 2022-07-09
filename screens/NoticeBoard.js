@@ -9,6 +9,8 @@ const NoticeBoard = () => {
         flex: 1,
         backgroundColor: theme?.colors.surface,
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <SafeAreaView>

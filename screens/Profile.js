@@ -10,6 +10,8 @@ const Profile = () => {
         flex: 1,
         backgroundColor: theme?.colors.surface,
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
       <SafeAreaView>

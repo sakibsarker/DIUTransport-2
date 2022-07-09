@@ -1,6 +1,7 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import Home from "../screens/Home";
 import MyMap from "../screens/MyMap";
 import Profile from "../screens/Profile";
@@ -48,18 +49,22 @@ const TabNavigator = () => {
         headerShown: false,
         tabBarShowLabel: false,
         tabBarStyle: { backgroundColor: theme.colors.accent },
-        tabBarInactiveTintColor: "#fff",
-        tabBarActiveTintColor: "green",
+        tabBarInactiveTintColor: theme.colors.tabInactiveColor,
+        tabBarActiveTintColor: theme.colors.tabActiveColor,
       }}
     >
       <Tab.Screen
         name="Home2"
         component={HomeStack}
-        options={{
+        options={({ route }) => ({
+          tabBarStyle: {
+            display: getTabBarVisibility(route),
+            backgroundColor: theme.colors.accent,
+          },
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home-outline" size={size} color={color} />
+            <Ionicons name="home-outline" color={color} size={size} />
           ),
-        }}
+        })}
       />
       <Tab.Screen
         name="mymap"
@@ -92,6 +97,14 @@ const TabNavigator = () => {
       />
     </Tab.Navigator>
   );
+};
+
+const getTabBarVisibility = (route) => {
+  const routeName = getFocusedRouteNameFromRoute(route) ?? "Feed";
+  if (routeName == "home") {
+    return "flex";
+  }
+  return "none";
 };
 
 export default TabNavigator;

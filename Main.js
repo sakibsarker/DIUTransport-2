@@ -13,9 +13,9 @@ import merge from "deepmerge";
 import { PreferencesContext } from "./contexts/PreferencesContext ";
 import AuthStack from "./navigation/AuthStack";
 import AppStack from "./navigation/AppStack";
-
-const CombinedDefaultTheme = merge(PaperDefaultTheme, NavigationDefaultTheme);
-const CombinedDarkTheme = merge(PaperDarkTheme, NavigationDarkTheme);
+import { themeLight, themeDark } from "./Configs/theme";
+const CombinedDefaultTheme = merge(themeLight, NavigationDefaultTheme);
+const CombinedDarkTheme = merge(themeDark, NavigationDarkTheme);
 
 const Main = () => {
   const [isThemeDark, setIsThemeDark] = React.useState(false);
