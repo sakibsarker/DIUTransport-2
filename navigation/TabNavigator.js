@@ -101,7 +101,8 @@ const TabNavigator = () => {
 
 const getTabBarVisibility = (route) => {
   const routeName = getFocusedRouteNameFromRoute(route) ?? "Feed";
-  if (routeName == "home") {
+  console.log(routeName);
+  if (routeName == "home" || routeName == "Feed") {
     return "flex";
   }
   return "none";

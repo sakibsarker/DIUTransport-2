@@ -13,6 +13,7 @@ export const themeLight = {
     accent: "#636e72",
     tabActiveColor: "#fff",
     tabInactiveColor: "#dfe6e9",
+    accentLight: "#b2bec3",
   },
 };
 

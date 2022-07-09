@@ -14,7 +14,7 @@ const Employee = () => {
   return (
     <View
       style={{
-        width: "100%",
+        width: "80%",
       }}
     >
       <View>

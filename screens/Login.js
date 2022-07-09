@@ -1,4 +1,4 @@
-import { View, StyleSheet, SafeAreaView } from "react-native";
+import { View, StyleSheet } from "react-native";
 import React from "react";
 import { useTheme, Text } from "react-native-paper";
 import { Tab, TabView } from "@rneui/themed";
@@ -10,47 +10,91 @@ const Login = ({ navigation }) => {
   const [index, setIndex] = React.useState(0);
 
   return (
-    <View style={{ flex: 1, backgroundColor: theme.colors.surface }}>
+    <View style={{ flex: 1 }}>
+      <Text
+        style={{
+          textAlign: "center",
+          marginBottom: 20,
+          fontSize: 22,
+          fontWeight: "bold",
+          paddingTop: "40%",
+        }}
+      >
+        DIU Smart Transport
+      </Text>
       <View
         style={{
           height: "45%",
-          marginTop: "40%",
           marginBottom: "15%",
+          backgroundColor: "#FFFFFF",
+          marginLeft: "10%",
+          marginRight: "10%",
+          width: "80%",
+          borderRadius: 35,
         }}
       >
-        <Text
-          style={{
-            textAlign: "center",
-            marginBottom: 20,
-            fontSize: 22,
-            fontWeight: "bold",
-          }}
-        >
-          DIU Smart Transport
-        </Text>
         <View
           style={{
             flex: 1,
-            justifyContent: "center",
-            justifyContent: "center",
-            marginLeft: "15%",
-            marginRight: "15%",
             overflow: "hidden",
           }}
         >
-          <Tab value={index} onChange={(e) => setIndex(e)} variant="primary">
+          <Tab
+            indicatorStyle={{
+              backgroundColor: theme.colors.accent,
+              height: 3,
+            }}
+            containerStyle={(active) => ({
+              color: theme.colors.text,
+              borderTopLeftRadius: 35,
+              borderTopRightRadius: 35,
+            })}
+            value={index}
+            onChange={(e) => setIndex(e)}
+            variant="default"
+          >
             <Tab.Item
               title="Student"
-              icon={{ name: "moon", type: "ionicon", color: "white" }}
+              style={{
+                borderTopLeftRadius: 35,
+                borderTopRightRadius: 35,
+              }}
+              containerStyle={(active) => ({
+                backgroundColor: active
+                  ? theme.colors.accent
+                  : theme.colors.surface,
+                borderTopLeftRadius: 35,
+              })}
+              titleStyle={(active) => ({
+                color: active ? "#FFFFFF" : theme.colors.surface,
+              })}
             />
             <Tab.Item
+              style={{
+                borderTopLeftRadius: 35,
+                borderTopRightRadius: 35,
+              }}
+              containerStyle={(active) => ({
+                backgroundColor: active
+                  ? theme.colors.accent
+                  : theme.colors.surface,
+                borderTopRightRadius: 35,
+              })}
               title="Employee"
-              icon={{ name: "man", type: "ionicon", color: "white" }}
+              titleStyle={(active) => ({
+                color: active ? "#FFFFFF" : theme.colors.surface,
+              })}
             />
           </Tab>
 
           <TabView value={index} onChange={setIndex} animationType="spring">
-            <TabView.Item>
+            <TabView.Item
+              style={{
+                justifyContent: "center",
+                flex: 1,
+                alignItems: "center",
+              }}
+            >
               <Student />
             </TabView.Item>
             <TabView.Item

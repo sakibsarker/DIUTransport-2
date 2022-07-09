@@ -37,8 +37,8 @@ const Main = () => {
     <PreferencesContext.Provider value={preferences}>
       <PaperProvider theme={theme}>
         <NavigationContainer theme={theme}>
-          {/* <AuthStack /> */}
-          <AppStack />
+          <AuthStack />
+          {/* <AppStack /> */}
         </NavigationContainer>
       </PaperProvider>
     </PreferencesContext.Provider>

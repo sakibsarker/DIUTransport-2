@@ -15,7 +15,7 @@ const Student = () => {
       <Image
         source={{
           uri: "https://onymos.com/wp-content/uploads/2020/10/google-signin-button.png",
-          width: 276,
+          width: 273,
           height: 70,
           resizeMode: "center",
         }}
