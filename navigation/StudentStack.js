@@ -8,8 +8,31 @@ import { useTheme } from "react-native-paper";
 import StudentTabNavigator from "./StudentTabNavigator";
 import NoticeBoard from "../screens/NoticeBoard";
 import Tickets from "../screens/Student/Tickets";
+import TicketDetails from "../screens/Student/TicketDetails";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Drawer = createDrawerNavigator();
+const Stack = createNativeStackNavigator();
+
+const TicketStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Tickets"
+        component={Tickets}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="TicketDetails"
+        component={TicketDetails}
+        options={({ route }) => ({
+          title: route.params?.value,
+        })}
+      />
+    </Stack.Navigator>
+  );
+};
+
 const StudentStack = () => {
   const theme = useTheme();
 
@@ -24,7 +47,6 @@ const StudentStack = () => {
           drawerInactiveTintColor: "#333",
           drawerLabelStyle: {
             marginLeft: -25,
-
             fontSize: 15,
           },
         }}
@@ -40,7 +62,7 @@ const StudentStack = () => {
         />
         <Drawer.Screen
           name="Tickets"
-          component={Tickets}
+          component={TicketStack}
           options={{
             drawerIcon: ({ size, color }) => (
               <Ionicons name="ios-pricetags" size={size} color={color} />

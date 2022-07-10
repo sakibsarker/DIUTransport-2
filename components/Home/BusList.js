@@ -33,7 +33,6 @@ const BusList = ({ navigation, route }) => {
             })
           }
           key="1"
-          style={styles.item}
           title="সূর্যমুখি 22"
           description="22"
           left={(props) => <List.Icon {...props} icon="bus" />}
@@ -48,7 +47,6 @@ const BusList = ({ navigation, route }) => {
             })
           }
           key="2"
-          style={styles.item}
           title="সূর্যমুখি 10"
           description="10"
           left={(props) => <List.Icon {...props} icon="bus" />}
@@ -63,7 +61,6 @@ const BusList = ({ navigation, route }) => {
             })
           }
           key="3"
-          style={styles.item}
           title="সূর্যমুখি 5"
           description="5"
           left={(props) => <List.Icon {...props} icon="bus" />}
@@ -78,7 +75,6 @@ const BusList = ({ navigation, route }) => {
             })
           }
           key="4"
-          style={styles.item}
           title="সূর্যমুখি 1"
           description="1"
           left={(props) => <List.Icon {...props} icon="bus" />}
@@ -87,14 +83,5 @@ const BusList = ({ navigation, route }) => {
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    alignItems: "flex-start",
-  },
-});
 
 export default BusList;
