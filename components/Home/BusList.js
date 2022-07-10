@@ -7,12 +7,15 @@ import Loader from "../../components/Loader";
 const BusList = ({ navigation, route }) => {
   const theme = useTheme();
 
-  const dispatch = useDispatch();
-  // const { buses, loading } = useSelector((state) => state.bus);
+  // const dispatch = useDispatch();
+  // const { buses, loading, error } = useSelector((state) => state.bus);
 
   // useEffect(() => {
   //   dispatch(fetchBuses());
-  // }, []);
+  //   if (error) {
+  //     console.log(error);
+  //   }
+  // }, [error]);
 
   // if (loading) {
   //   return <Loader />;

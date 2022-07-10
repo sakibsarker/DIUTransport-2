@@ -4,11 +4,7 @@ import {
   DarkTheme as NavigationDarkTheme,
   DefaultTheme as NavigationDefaultTheme,
 } from "@react-navigation/native";
-import {
-  DarkTheme as PaperDarkTheme,
-  DefaultTheme as PaperDefaultTheme,
-  Provider as PaperProvider,
-} from "react-native-paper";
+import { Provider as PaperProvider } from "react-native-paper";
 import merge from "deepmerge";
 import { PreferencesContext } from "./contexts/PreferencesContext ";
 import AuthStack from "./navigation/AuthStack";
