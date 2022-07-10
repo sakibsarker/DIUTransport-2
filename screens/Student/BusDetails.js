@@ -18,7 +18,7 @@ const BusDetails = ({ navigation, route }) => {
   );
 
   useEffect(() => {
-    dispatch(fetchBusCurrentLocation("surjomukhi22"));
+    dispatch(fetchBusCurrentLocation(route.params["busId"]));
     if (error) {
       console.log(error);
     }
@@ -46,24 +46,22 @@ const BusDetails = ({ navigation, route }) => {
             backgroundColor: theme.colors.surface,
           }}
         >
-          <View>
-            <Text
-              variant="headlineLarge"
-              style={{ paddingTop: 60, paddingBottom: 30 }}
-            >
-              Ticket Price: 25 BDT
-            </Text>
-            <Divider />
-            <Text>Bus : {route.params?.busId}</Text>
-            <Text>Route : {route.params?.routeId}</Text>
-            <Text>Options: </Text>
-            <TouchableOpacity>
-              <Button>1: BKash</Button>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Button>2: OneCard</Button>
-            </TouchableOpacity>
-          </View>
+          <Text
+            variant="headlineLarge"
+            style={{ paddingTop: 60, paddingBottom: 30 }}
+          >
+            Ticket Price: 25 BDT
+          </Text>
+          <Divider />
+          <Text>Bus : {route.params?.busId}</Text>
+          <Text>Route : {route.params?.routeId}</Text>
+          <Text>Options: </Text>
+          <TouchableOpacity>
+            <Button>1: BKash</Button>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Button>2: OneCard</Button>
+          </TouchableOpacity>
         </BottomSheetView>
       </BottomSheet>
     </View>

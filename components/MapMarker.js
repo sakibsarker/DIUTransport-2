@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import {
   View,
@@ -33,12 +33,16 @@ const MapMarker = ({ coordinates, title, contact }) => {
             provider={PROVIDER_GOOGLE}
             showsTraffic={true}
             showsUserLocation={true}
+            followsUserLocation={true}
+            showsCompass={true}
+            pitchEnabled={true}
+            cacheEnabled={true}
             customMapStyle={isThemeDark ? mapNight : null}
-            initialRegion={{
+            region={{
               latitude: coordinates[1],
               longitude: coordinates[0],
-              latitudeDelta: 0.0922,
-              longitudeDelta: 0.0421,
+              latitudeDelta: 0.1,
+              longitudeDelta: 0.1,
             }}
             style={styles.map}
           >

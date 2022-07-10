@@ -28,14 +28,14 @@ const BusList = ({ navigation, route }) => {
         <List.Item
           onPress={() =>
             navigation.navigate("BusDetails", {
-              busId: "সূর্যমুখি ১",
+              busId: "surjomukhi22",
               routeId: route.params?.routeId,
             })
           }
           key="1"
           style={styles.item}
-          title="সূর্যমুখি ১"
-          description="১"
+          title="সূর্যমুখি 22"
+          description="22"
           left={(props) => <List.Icon {...props} icon="bus" />}
         />
       </Surface>
@@ -43,14 +43,14 @@ const BusList = ({ navigation, route }) => {
         <List.Item
           onPress={() =>
             navigation.navigate("BusDetails", {
-              busId: "সূর্যমুখি ২",
+              busId: "surjomukhi10",
               routeId: route.params?.routeId,
             })
           }
           key="2"
           style={styles.item}
-          title="সূর্যমুখি ২"
-          description="২"
+          title="সূর্যমুখি 10"
+          description="10"
           left={(props) => <List.Icon {...props} icon="bus" />}
         />
       </Surface>
@@ -58,14 +58,14 @@ const BusList = ({ navigation, route }) => {
         <List.Item
           onPress={() =>
             navigation.navigate("BusDetails", {
-              busId: "সূর্যমুখি ৩",
+              busId: "surjomukhi5",
               routeId: route.params?.routeId,
             })
           }
           key="3"
           style={styles.item}
-          title="সূর্যমুখি ৩"
-          description="৩"
+          title="সূর্যমুখি 5"
+          description="5"
           left={(props) => <List.Icon {...props} icon="bus" />}
         />
       </Surface>
@@ -73,14 +73,14 @@ const BusList = ({ navigation, route }) => {
         <List.Item
           onPress={() =>
             navigation.navigate("BusDetails", {
-              busId: "সূর্যমুখি ৪",
+              busId: "surjomukhi1",
               routeId: route.params?.routeId,
             })
           }
           key="4"
           style={styles.item}
-          title="সূর্যমুখি ৪"
-          description="৪"
+          title="সূর্যমুখি 1"
+          description="1"
           left={(props) => <List.Icon {...props} icon="bus" />}
         />
       </Surface>
