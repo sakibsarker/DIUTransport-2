@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchBuses } from "../ApiCalls/bus";
+import { fetchBusCurrentLocation, fetchBuses } from "../ApiCalls/bus";
 
 const busSlice = createSlice({
   name: "bus",
@@ -7,6 +7,7 @@ const busSlice = createSlice({
     buses: [],
     loading: false,
     error: null,
+    currentBusLocation: {},
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -17,7 +18,18 @@ const busSlice = createSlice({
       state.buses = action.payload;
       state.loading = false;
     });
-    builder.addCase(fetchBuses.rejected, (state) => {
+    builder.addCase(fetchBuses.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    });
+    builder.addCase(fetchBusCurrentLocation.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(fetchBusCurrentLocation.fulfilled, (state, action) => {
+      state.loading = false;
+      state.currentBusLocation = action.payload;
+    });
+    builder.addCase(fetchBusCurrentLocation.rejected, (state, action) => {
       state.loading = false;
       state.error = action.payload;
     });

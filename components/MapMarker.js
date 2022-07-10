@@ -10,9 +10,15 @@ import {
 } from "react-native";
 import { Text, useTheme } from "react-native-paper";
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
+import Loader from "./Loader";
 
-const MapMarker = ({ coordinates }) => {
+const MapMarker = ({ coordinates, title, contact }) => {
   const theme = useTheme();
+
+  if (!coordinates) {
+    return <Loader />;
+  }
+
   return (
     <View
       style={{ ...styles.container, backgroundColor: theme.colors.surface }}
@@ -34,8 +40,8 @@ const MapMarker = ({ coordinates }) => {
                 latitude: coordinates[1],
                 longitude: coordinates[0],
               }}
-              title="সূর্যমুখি - ১"
-              description="ড্রাইভার: ০১৬১৬৩৪৬৮৩৫"
+              title={title || "সূর্যমুখি - ১"}
+              description={contact || "ড্রাইভার: ০১৬১৬৩৪৬৮৩৫"}
             >
               <Image
                 source={require("../assets/images/bus.png")}

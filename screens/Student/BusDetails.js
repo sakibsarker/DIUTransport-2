@@ -1,16 +1,37 @@
 import { View, SafeAreaView, StyleSheet, TouchableOpacity } from "react-native";
-import React, { useMemo, useRef, useCallback } from "react";
+import React, { useMemo, useRef, useCallback, useEffect } from "react";
 import { useTheme, Text, Divider } from "react-native-paper";
 import BottomSheet from "@gorhom/bottom-sheet";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchBusCurrentLocation } from "../../redux/ApiCalls/bus";
+import Loader from "../../components/Loader";
+import MapMarker from "../../components/MapMarker";
 
 const BusDetails = ({ navigation, route }) => {
   const bottomSheetRef = useRef(null);
   const snapPoints = useMemo(() => ["50%", "10%"]);
   const theme = useTheme();
+  const dispatch = useDispatch();
+
+  const { currentBusLocation, loading, error } = useSelector(
+    (state) => state.bus
+  );
 
   const handleSheetChanges = useCallback((index) => {
     console.log("handleSheetChanges", index);
   }, []);
+
+  useEffect(() => {
+    dispatch(fetchBusCurrentLocation("surjomukhi22"));
+    if (error) {
+      console.log(error);
+    }
+    console.log(currentBusLocation);
+  }, []);
+
+  if (loading && currentBusLocation?.location?.coordinates == undefined) {
+    return <Loader />;
+  }
 
   return (
     <View
@@ -20,9 +41,8 @@ const BusDetails = ({ navigation, route }) => {
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
       }}
     >
-      <SafeAreaView>
-        <Text>BusDetails of {route.params?.busId}</Text>
-      </SafeAreaView>
+      <MapMarker coordinates={currentBusLocation?.location?.coordinates} />
+
       <BottomSheet
         ref={bottomSheetRef}
         index={1}
