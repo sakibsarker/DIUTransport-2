@@ -8,20 +8,91 @@ import {
   StatusBar,
   Image,
 } from "react-native";
-import { Text, useTheme } from "react-native-paper";
+import { Button, Text, useTheme } from "react-native-paper";
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import { mapNight } from "../Configs/MapNightStyle";
 import Loader from "./Loader";
 import { PreferencesContext } from "../contexts/PreferencesContext ";
-
+import getDirections from "../Utils/DirectionPackage";
+import * as Location from "expo-location";
+let foregroundSubscription = null;
 const MapMarker = ({ coordinates, title, contact }) => {
   const { isThemeDark } = useContext(PreferencesContext);
+  const [position, setPosition] = useState(null);
+
+  useEffect(() => {
+    const requestPermissions = async () => {
+      const foreground = await Location.requestForegroundPermissionsAsync();
+      if (foreground.granted)
+        await Location.requestBackgroundPermissionsAsync();
+    };
+    requestPermissions();
+  }, []);
+
+  // Start location tracking in foreground
+  const startForegroundUpdate = async () => {
+    // Check if foreground permission is granted
+    const { granted } = await Location.getForegroundPermissionsAsync();
+    if (!granted) {
+      console.log("location tracking denied");
+      return;
+    }
+
+    // Make sure that foreground location tracking is not running
+    foregroundSubscription?.remove();
+
+    // Start watching position in real-time
+    foregroundSubscription = await Location.watchPositionAsync(
+      {
+        // For better logs, we set the accuracy to the most sensitive option
+        accuracy: Location.Accuracy.BestForNavigation,
+      },
+      (location) => {
+        setPosition(location.coords);
+      }
+    );
+  };
 
   const theme = useTheme();
 
   if (!coordinates) {
     return <Loader />;
   }
+
+  const coords = {
+    latitude: coordinates[1],
+    longitude: coordinates[0],
+  };
+
+  const handleGetDirections = () => {
+    startForegroundUpdate();
+    const data = {
+      source: {
+        latitude: 23.935161957802864 || position.coords.latitude,
+        longitude: 90.27736475418259 || position.coords.longitude,
+      },
+      destination: coords,
+      params: [
+        {
+          key: "travelmode",
+          value: "driving", // may be "walking", "bicycling" or "transit" as well
+        },
+        {
+          key: "dir_action",
+          value: "navigate", // this instantly initializes navigation using the given travel mode
+        },
+      ],
+      waypoints: [
+        {
+          latitude: 23.935161957802864 || position.coords.latitude,
+          longitude: 90.27736475418259 || position.coords.longitude,
+        },
+        coords,
+      ],
+    };
+
+    getDirections(data);
+  };
 
   return (
     <View
@@ -57,6 +128,36 @@ const MapMarker = ({ coordinates, title, contact }) => {
               <Image source={require("../assets/images/bus.png")} />
             </Marker>
           </MapView>
+
+          <View
+            style={{
+              position: "absolute",
+              bottom: 80,
+              right: 20,
+              padding: 8,
+              borderRadius: 50,
+              height: 45,
+            }}
+          >
+            <Button
+              style={{
+                backgroundColor: theme.colors.accent,
+              }}
+              mode="contained"
+              onPress={handleGetDirections}
+            >
+              <View>
+                <Text
+                  style={{
+                    color: "#FFFFFF",
+                    height: 45,
+                  }}
+                >
+                  GET DIRECTIONS
+                </Text>
+              </View>
+            </Button>
+          </View>
         </View>
       </SafeAreaView>
     </View>
@@ -66,9 +167,9 @@ const MapMarker = ({ coordinates, title, contact }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    position: "relative",
   },
   map: {
     width: Dimensions.get("window").width,
