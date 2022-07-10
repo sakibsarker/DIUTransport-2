@@ -41,8 +41,8 @@ const MapMarker = ({ coordinates, title, contact }) => {
             region={{
               latitude: coordinates[1],
               longitude: coordinates[0],
-              latitudeDelta: 0.1,
-              longitudeDelta: 0.1,
+              latitudeDelta: 0.01,
+              longitudeDelta: 0.01,
             }}
             style={styles.map}
           >
@@ -54,10 +54,7 @@ const MapMarker = ({ coordinates, title, contact }) => {
               title={title || "সূর্যমুখি - ১"}
               description={contact || "ড্রাইভার: ০১৬১৬৩৪৬৮৩৫"}
             >
-              <Image
-                source={require("../assets/images/bus.png")}
-                style={{ height: 80, width: 80 }}
-              />
+              <Image source={require("../assets/images/bus.png")} />
             </Marker>
           </MapView>
         </View>

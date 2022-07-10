@@ -37,7 +37,10 @@ const BusDetails = ({ navigation, route }) => {
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
       }}
     >
-      <MapMarker coordinates={currentBusLocation?.location?.coordinates} />
+      <MapMarker
+        title={route.params["busId"]}
+        coordinates={currentBusLocation?.location?.coordinates}
+      />
 
       <BottomSheet ref={bottomSheetRef} index={1} snapPoints={snapPoints}>
         <BottomSheetView
@@ -55,7 +58,6 @@ const BusDetails = ({ navigation, route }) => {
           <Divider />
           <Text>Bus : {route.params?.busId}</Text>
           <Text>Route : {route.params?.routeId}</Text>
-          <Text>Options: </Text>
           <TouchableOpacity>
             <Button>1: BKash</Button>
           </TouchableOpacity>
