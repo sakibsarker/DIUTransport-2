@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import {
   View,
@@ -10,9 +10,13 @@ import {
 } from "react-native";
 import { Text, useTheme } from "react-native-paper";
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
+import { mapNight } from "../Configs/MapNightStyle";
 import Loader from "./Loader";
+import { PreferencesContext } from "../contexts/PreferencesContext ";
 
 const MapMarker = ({ coordinates, title, contact }) => {
+  const { isThemeDark } = useContext(PreferencesContext);
+
   const theme = useTheme();
 
   if (!coordinates) {
@@ -27,6 +31,9 @@ const MapMarker = ({ coordinates, title, contact }) => {
         <View style={styles.container}>
           <MapView
             provider={PROVIDER_GOOGLE}
+            showsTraffic={true}
+            showsUserLocation={true}
+            customMapStyle={isThemeDark ? mapNight : null}
             initialRegion={{
               latitude: coordinates[1],
               longitude: coordinates[0],

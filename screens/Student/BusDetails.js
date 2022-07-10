@@ -1,7 +1,7 @@
-import { View, SafeAreaView, StyleSheet, TouchableOpacity } from "react-native";
-import React, { useMemo, useRef, useCallback, useEffect } from "react";
-import { useTheme, Text, Divider } from "react-native-paper";
-import BottomSheet from "@gorhom/bottom-sheet";
+import { View, StyleSheet, TouchableOpacity } from "react-native";
+import React, { useMemo, useRef, useEffect } from "react";
+import { useTheme, Text, Divider, Button } from "react-native-paper";
+import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchBusCurrentLocation } from "../../redux/ApiCalls/bus";
 import Loader from "../../components/Loader";
@@ -16,10 +16,6 @@ const BusDetails = ({ navigation, route }) => {
   const { currentBusLocation, loading, error } = useSelector(
     (state) => state.bus
   );
-
-  const handleSheetChanges = useCallback((index) => {
-    console.log("handleSheetChanges", index);
-  }, []);
 
   useEffect(() => {
     dispatch(fetchBusCurrentLocation("surjomukhi22"));
@@ -43,24 +39,32 @@ const BusDetails = ({ navigation, route }) => {
     >
       <MapMarker coordinates={currentBusLocation?.location?.coordinates} />
 
-      <BottomSheet
-        ref={bottomSheetRef}
-        index={1}
-        snapPoints={snapPoints}
-        onChange={handleSheetChanges}
-      >
-        <View style={styles.contentContainer}>
-          <Text style={{ borderBottomColor: "#000", borderBottomWidth: 50 }}>
-            Ticket Price: 25 BDT
-          </Text>
-          <Text>Options: </Text>
-          <TouchableOpacity>
-            <Text>1: BKash</Text>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Text>2: OneCard</Text>
-          </TouchableOpacity>
-        </View>
+      <BottomSheet ref={bottomSheetRef} index={1} snapPoints={snapPoints}>
+        <BottomSheetView
+          style={{
+            ...styles.contentContainer,
+            backgroundColor: theme.colors.surface,
+          }}
+        >
+          <View>
+            <Text
+              variant="headlineLarge"
+              style={{ paddingTop: 60, paddingBottom: 30 }}
+            >
+              Ticket Price: 25 BDT
+            </Text>
+            <Divider />
+            <Text>Bus : {route.params?.busId}</Text>
+            <Text>Route : {route.params?.routeId}</Text>
+            <Text>Options: </Text>
+            <TouchableOpacity>
+              <Button>1: BKash</Button>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Button>2: OneCard</Button>
+            </TouchableOpacity>
+          </View>
+        </BottomSheetView>
       </BottomSheet>
     </View>
   );
@@ -68,8 +72,8 @@ const BusDetails = ({ navigation, route }) => {
 
 const styles = StyleSheet.create({
   contentContainer: {
-    flex: 1,
     alignItems: "center",
+    justifyContent: "center",
   },
 });
 

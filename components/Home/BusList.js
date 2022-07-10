@@ -27,7 +27,10 @@ const BusList = ({ navigation, route }) => {
       <Surface elevation={4}>
         <List.Item
           onPress={() =>
-            navigation.navigate("BusDetails", { busId: "সূর্যমুখি ১" })
+            navigation.navigate("BusDetails", {
+              busId: "সূর্যমুখি ১",
+              routeId: route.params?.routeId,
+            })
           }
           key="1"
           style={styles.item}
@@ -39,7 +42,10 @@ const BusList = ({ navigation, route }) => {
       <Surface elevation={4}>
         <List.Item
           onPress={() =>
-            navigation.navigate("BusDetails", { busId: "সূর্যমুখি ২" })
+            navigation.navigate("BusDetails", {
+              busId: "সূর্যমুখি ২",
+              routeId: route.params?.routeId,
+            })
           }
           key="2"
           style={styles.item}
@@ -51,7 +57,10 @@ const BusList = ({ navigation, route }) => {
       <Surface elevation={4}>
         <List.Item
           onPress={() =>
-            navigation.navigate("BusDetails", { busId: "সূর্যমুখি ৩" })
+            navigation.navigate("BusDetails", {
+              busId: "সূর্যমুখি ৩",
+              routeId: route.params?.routeId,
+            })
           }
           key="3"
           style={styles.item}
@@ -63,7 +72,10 @@ const BusList = ({ navigation, route }) => {
       <Surface elevation={4}>
         <List.Item
           onPress={() =>
-            navigation.navigate("BusDetails", { busId: "সূর্যমুখি ৪" })
+            navigation.navigate("BusDetails", {
+              busId: "সূর্যমুখি ৪",
+              routeId: route.params?.routeId,
+            })
           }
           key="4"
           style={styles.item}
