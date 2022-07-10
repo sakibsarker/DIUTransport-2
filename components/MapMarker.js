@@ -6,6 +6,7 @@ import {
   Dimensions,
   SafeAreaView,
   StatusBar,
+  Image,
 } from "react-native";
 import { Text, useTheme } from "react-native-paper";
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
@@ -33,9 +34,14 @@ const MapMarker = ({ coordinates }) => {
                 latitude: coordinates[1],
                 longitude: coordinates[0],
               }}
-              title="bus1"
-              description="bus 1: 01616346835"
-            />
+              title="সূর্যমুখি - ১"
+              description="ড্রাইভার: ০১৬১৬৩৪৬৮৩৫"
+            >
+              <Image
+                source={require("../assets/images/bus.png")}
+                style={{ height: 80, width: 80 }}
+              />
+            </Marker>
           </MapView>
         </View>
       </SafeAreaView>
