@@ -1,28 +1,14 @@
 import React, { useState } from "react";
-//import MapboxGL from "@react-native-mapbox-gl/maps";
-//const token = "sk.eyJ1Ijoic3Jqb3kiLCJhIjoiY2w1YzY1ZDJoMGVrZDNjc2VxNHQyMGJycCJ9.TzkF1ZZvOamM4o73e_brpg"
-//MapBoxGL.setAccessToken(token)
+
 import {
   View,
   StyleSheet,
   Dimensions,
-  Platform,
   SafeAreaView,
   StatusBar,
 } from "react-native";
 import { Text, useTheme } from "react-native-paper";
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    height: Dimensions.get("window").width,
-    width: Dimensions.get("window").height,
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-  },
-  map: {
-    flex: 1,
-  },
-});
+import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 
 const MapMarker = ({ coordinates }) => {
   const theme = useTheme();
@@ -31,44 +17,43 @@ const MapMarker = ({ coordinates }) => {
       style={{ ...styles.container, backgroundColor: theme.colors.surface }}
     >
       <SafeAreaView>
-        {Platform.OS == "ios" || Platform.OS =="android" ? (
-          <Text>Map</Text>
-        ) : (
-          <>
-            <MapBoxGL.MapView
-              styleURL={`mapbox://styles/mapbox/streets-v11`}
-              style={styles.map}
-              zoomLevel={14}
-              centerCoordinate={coordinates}
-              onDidFinishLoadingStyle={onDidFinishLoadingStyle}
-            >
-              {styleLoaded.hasFinishedLoadingStyle ? (
-                <>
-                  <MapBoxGL.Camera
-                    zoomLevel={16}
-                    animationMode={"flyTo"}
-                    animationDuration={500}
-                    centerCoordinate={coordinates}
-                  />
-                  <MapBoxGL.MarkerView coordinate={coordinates}>
-                    <View
-                      style={{
-                        flex: 1,
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}
-                    >
-                      <Text>GG</Text>
-                    </View>
-                  </MapBoxGL.MarkerView>
-                </>
-              ) : null}
-            </MapBoxGL.MapView>
-          </>
-        )}
+        <View style={styles.container}>
+          <MapView
+            provider={PROVIDER_GOOGLE}
+            initialRegion={{
+              latitude: coordinates[1],
+              longitude: coordinates[0],
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421,
+            }}
+            style={styles.map}
+          >
+            <Marker
+              coordinate={{
+                latitude: coordinates[1],
+                longitude: coordinates[0],
+              }}
+              title="bus1"
+              description="bus 1: 01616346835"
+            />
+          </MapView>
+        </View>
       </SafeAreaView>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  map: {
+    width: Dimensions.get("window").width,
+    height: Dimensions.get("window").height,
+  },
+});
 
 export default MapMarker;
