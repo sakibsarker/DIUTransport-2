@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react';
 import {
   NavigationContainer,
   DarkTheme as NavigationDarkTheme,
   DefaultTheme as NavigationDefaultTheme,
-} from "@react-navigation/native";
-import { Provider as PaperProvider } from "react-native-paper";
-import merge from "deepmerge";
-import { PreferencesContext } from "./contexts/PreferencesContext ";
-import AuthStack from "./navigation/AuthStack";
-import StudentStack from "./navigation/StudentStack";
-import { themeLight, themeDark } from "./Configs/theme";
-import TicketManStack from "./navigation/TicketManStack";
+} from '@react-navigation/native';
+import { Provider as PaperProvider } from 'react-native-paper';
+import merge from 'deepmerge';
+import { PreferencesContext } from './contexts/PreferencesContext ';
+import AuthStack from './navigation/AuthStack';
+import StudentStack from './navigation/StudentStack';
+import { themeLight, themeDark } from './Configs/theme';
+import TicketManStack from './navigation/TicketManStack';
 const CombinedDefaultTheme = merge(themeLight, NavigationDefaultTheme);
 const CombinedDarkTheme = merge(themeDark, NavigationDarkTheme);
 
@@ -35,8 +35,8 @@ const Main = () => {
       <PaperProvider theme={theme}>
         <NavigationContainer theme={theme}>
           {/* <AuthStack /> */}
-          <StudentStack />
-          {/* <TicketManStack /> */}
+          {/* <StudentStack /> */}
+          <TicketManStack />
         </NavigationContainer>
       </PaperProvider>
     </PreferencesContext.Provider>

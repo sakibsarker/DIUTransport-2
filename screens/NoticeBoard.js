@@ -1,6 +1,6 @@
-import { View, StatusBar, Platform, SafeAreaView } from "react-native";
-import React from "react";
-import { useTheme, Text } from "react-native-paper";
+import { View, StatusBar, Platform, SafeAreaView } from 'react-native';
+import React from 'react';
+import { useTheme, Text } from 'react-native-paper';
 const NoticeBoard = () => {
   const theme = useTheme();
   return (
@@ -8,9 +8,9 @@ const NoticeBoard = () => {
       style={{
         flex: 1,
         backgroundColor: theme?.colors.surface,
-        paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-        justifyContent: "center",
-        alignItems: "center",
+        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
     >
       <SafeAreaView>
