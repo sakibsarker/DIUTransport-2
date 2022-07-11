@@ -4,11 +4,11 @@ import {
   Platform,
   SafeAreaView,
   StyleSheet,
-} from 'react-native';
-import React from 'react';
-import { useTheme, Text } from 'react-native-paper';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+} from "react-native";
+import React from "react";
+import { useTheme, Text } from "react-native-paper";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 const Profile = () => {
   const theme = useTheme();
@@ -17,17 +17,17 @@ const Profile = () => {
       style={{
         flex: 1,
         backgroundColor: theme?.colors.surface,
-        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-        alignItems: 'center',
-        justifyContent: 'center',
+        paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
       <SafeAreaView>
         <View style={styles.container}>
           <View
             style={{
-              alignItems: 'center',
-              flexDirection: 'column',
+              alignItems: "center",
+              flexDirection: "column",
               marginBottom: 20,
             }}
           >
@@ -36,21 +36,21 @@ const Profile = () => {
           </View>
           <View
             style={{
-              alignItems: 'center',
-              flexDirection: 'column',
+              alignItems: "center",
+              flexDirection: "column",
               marginBottom: 20,
             }}
           >
-            <Text style={{ fontWeight: 'bold' }}>
+            <Text style={{ fontWeight: "bold" }}>
               Date: {new Date().toLocaleString()}
             </Text>
           </View>
           <View style={{}}>
             <View
               style={{
-                justifyContent: 'flex-start',
-                flexDirection: 'row',
-                alignItems: 'center',
+                justifyContent: "flex-start",
+                flexDirection: "row",
+                alignItems: "center",
               }}
             >
               <View>
@@ -66,9 +66,9 @@ const Profile = () => {
             </View>
             <View
               style={{
-                justifyContent: 'flex-start',
-                flexDirection: 'row',
-                alignItems: 'center',
+                justifyContent: "flex-start",
+                flexDirection: "row",
+                alignItems: "center",
               }}
             >
               <View>
@@ -79,9 +79,7 @@ const Profile = () => {
                 />
               </View>
               <View style={{ marginLeft: 10 }}>
-                <Text style={{ fontSize: 20, fontWeight: 'bold' }}>
-                  Logout{' '}
-                </Text>
+                <Text style={{ fontSize: 20, fontWeight: "bold" }}>Logout</Text>
               </View>
             </View>
           </View>
@@ -96,7 +94,7 @@ const styles = StyleSheet.create({
   profileName: {
     marginTop: 15,
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 });
 

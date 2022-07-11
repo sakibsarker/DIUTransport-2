@@ -1,11 +1,11 @@
 only for 1st time : git remote add upstream https://github.com/srj101/DIUTransport.git
 
 //before work start
-git fetch upstream master
+go github and fetch upstream
+git pull origin master
 yarn
 
 //after work
-git fetch upstream master
 git add.
 git commit -m "Comment"
 git push origin master
