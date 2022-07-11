@@ -1,4 +1,4 @@
-import { View, SafeAreaView } from "react-native";
+import { View, SafeAreaView, StatusBar } from "react-native";
 import React from "react";
 import QRCode from "react-native-qrcode-svg";
 import { useTheme, Text, List, Surface } from "react-native-paper";
@@ -18,9 +18,7 @@ const TicketDetails = ({ route }) => {
     >
       <Surface elevation={4}>
         <QRCode value={route.params?.ticketId} size={250} />
-        <Text style={{ textAlign: "center", marginTop: 20 }}>
-          {route.params?.value}
-        </Text>
+        <Text style={{ textAlign: "center", marginTop: 20 }}>50 BDT</Text>
       </Surface>
     </View>
   );
