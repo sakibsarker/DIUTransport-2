@@ -9,12 +9,13 @@ import {
   Image,
 } from "react-native";
 import { Button, Text, useTheme } from "react-native-paper";
-import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
+import MapView, { Marker, PROVIDER_GOOGLE, Polyline } from "react-native-maps";
 import { mapNight } from "../Configs/MapNightStyle";
 import Loader from "./Loader";
 import { PreferencesContext } from "../contexts/PreferencesContext ";
 import getDirections from "../Utils/DirectionPackage";
 import * as Location from "expo-location";
+
 let foregroundSubscription = null;
 const MapMarker = ({ coordinates, title, contact }) => {
   const { isThemeDark } = useContext(PreferencesContext);
@@ -94,6 +95,19 @@ const MapMarker = ({ coordinates, title, contact }) => {
     getDirections(data);
   };
 
+  const [cd, setCd] = useState({
+    coordinates: [
+      {
+        latitude: 37.3317876,
+        longitude: -122.0054812,
+      },
+      {
+        latitude: 37.771707,
+        longitude: -122.4053769,
+      },
+    ],
+  });
+
   return (
     <View
       style={{ ...styles.container, backgroundColor: theme.colors.surface }}
@@ -103,6 +117,12 @@ const MapMarker = ({ coordinates, title, contact }) => {
           <MapView
             provider={PROVIDER_GOOGLE}
             showsTraffic={true}
+            showsIndoorLevelPicker={true}
+            showsBuildings={true}
+            showsIndoors={true}
+            showsPointsOfInterest={true}
+            showsMyLocationButton={true}
+            showsScale={true}
             showsUserLocation={true}
             followsUserLocation={true}
             showsCompass={true}
@@ -117,6 +137,25 @@ const MapMarker = ({ coordinates, title, contact }) => {
             }}
             style={styles.map}
           >
+            <Polyline
+              coordinates={[
+                { latitude: 23.8769005, longitude: 90.3179705 },
+                { latitude: 23.8575108, longitude: 90.3091192 },
+                { latitude: 23.8243941, longitude: 90.3346313 },
+                { latitude: 23.8237739, longitude: 90.3490509 },
+                { latitude: 23.7542285, longitude: 90.3741734 },
+              ]}
+              strokeColor="#000" // fallback for when `strokeColors` is not supported by the map-provider
+              strokeColors={[
+                "#7F0000",
+                "#00000000", // no color, creates a "long" gradient between the previous and next coordinate
+                "#B24112",
+                "#E5845C",
+                "#238C23",
+                "#7F0000",
+              ]}
+              strokeWidth={6}
+            />
             <Marker
               coordinate={{
                 latitude: coordinates[1],
@@ -127,6 +166,14 @@ const MapMarker = ({ coordinates, title, contact }) => {
             >
               <Image source={require("../assets/images/bus.png")} />
             </Marker>
+
+            {/* <MapViewDirections
+              origin={cd.coordinates[0]}
+              destination={cd.coordinates[1]}
+              apikey={`AIzaSyCYvMpmVhFc0ydILEuXGJNYNGFnBoKPCL8`}
+              strokeWidth={3}
+              strokeColor="hotpink"
+            /> */}
           </MapView>
 
           <View
