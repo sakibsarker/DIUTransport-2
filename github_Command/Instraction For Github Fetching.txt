@@ -6,6 +6,6 @@ git fetch upstream master
 //after work
 git fetch upstream master
 git add.
-git add commit -m "Comment"
+git commit -m "Comment"
 git push origin master
 then go to github and send a pull req;
