@@ -2,6 +2,7 @@ only for 1st time : git remote add upstream https://github.com/srj101/DIUTranspo
 
 //before work start
 git fetch upstream master
+yarn
 
 //after work
 git fetch upstream master

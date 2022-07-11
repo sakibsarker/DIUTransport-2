@@ -18,7 +18,9 @@ const TicketDetails = ({ route }) => {
     >
       <Surface elevation={4}>
         <QRCode value={route.params?.ticketId} size={250} />
-        <Text style={{ textAlign: "center", marginTop: 20 }}>50 BDT</Text>
+        <Text style={{ textAlign: "center", marginTop: 20 }}>
+          {route.params?.value}
+        </Text>
       </Surface>
     </View>
   );
