@@ -95,7 +95,7 @@ const Login = ({ navigation }) => {
                 alignItems: "center",
               }}
             >
-              <Student />
+              <Student navigation={navigation} />
             </TabView.Item>
             <TabView.Item
               style={{
@@ -104,7 +104,7 @@ const Login = ({ navigation }) => {
                 alignItems: "center",
               }}
             >
-              <TicketMan />
+              <TicketMan navigation={navigation} />
             </TabView.Item>
           </TabView>
         </View>

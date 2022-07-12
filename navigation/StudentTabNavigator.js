@@ -1,16 +1,16 @@
-import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
-import Home from '../screens/Student/Home';
-import MyMap from '../screens/Student/MyMap';
-import Profile from '../screens/Student/Profile';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { useTheme } from 'react-native-paper';
-import NoticeBoard from '../screens/NoticeBoard';
-import BusDetails from '../screens/Student/BusDetails';
-import BusList from '../components/Home/BusList';
+import React from "react";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
+import Home from "../screens/Student/Home";
+import MyMap from "../screens/Student/MyMap";
+import Profile from "../screens/Student/Profile";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
+import { useTheme } from "react-native-paper";
+import NoticeBoard from "../screens/NoticeBoard";
+import BusDetails from "../screens/Student/BusDetails";
+import BusList from "../components/Home/BusList";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -80,7 +80,7 @@ const StudentTabNavigator = () => {
         component={NoticeBoard}
         options={{
           tabBarBadge: 7,
-          tabBarBadgeStyle: { backgroundColor: 'tomato' },
+          tabBarBadgeStyle: { backgroundColor: "tomato" },
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="notifications" size={size} color={color} />
           ),
@@ -100,12 +100,12 @@ const StudentTabNavigator = () => {
 };
 
 const getTabBarVisibility = (route) => {
-  const routeName = getFocusedRouteNameFromRoute(route) ?? 'Feed';
-
-  if (routeName == 'home' || routeName == 'Feed') {
-    return 'flex';
+  const routeName = getFocusedRouteNameFromRoute(route) ?? "Feed";
+  console.log(routeName);
+  if (routeName == "home" || routeName == "Feed") {
+    return "flex";
   }
-  return 'none';
+  return "none";
 };
 
 export default StudentTabNavigator;

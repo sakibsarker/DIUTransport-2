@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   NavigationContainer,
   DarkTheme as NavigationDarkTheme,
@@ -11,6 +11,7 @@ import AuthStack from "./navigation/AuthStack";
 import StudentStack from "./navigation/StudentStack";
 import { themeLight, themeDark } from "./Configs/theme";
 import TicketManStack from "./navigation/TicketManStack";
+
 const CombinedDefaultTheme = merge(themeLight, NavigationDefaultTheme);
 const CombinedDarkTheme = merge(themeDark, NavigationDarkTheme);
 
@@ -34,8 +35,8 @@ const Main = () => {
     <PreferencesContext.Provider value={preferences}>
       <PaperProvider theme={theme}>
         <NavigationContainer theme={theme}>
-          {/* <AuthStack /> */}
-          <StudentStack />
+          <AuthStack />
+          {/* <StudentStack /> */}
           {/* <TicketManStack /> */}
         </NavigationContainer>
       </PaperProvider>

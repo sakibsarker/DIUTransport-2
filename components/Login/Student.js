@@ -1,8 +1,8 @@
-import { View, Image } from "react-native";
+import { View, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { Text } from "react-native-paper";
 
-const Student = () => {
+const Student = ({ navigation }) => {
   return (
     <View
       style={{
@@ -12,14 +12,16 @@ const Student = () => {
       }}
     >
       <Text>Only University Email is allowed</Text>
-      <Image
-        source={{
-          uri: "https://onymos.com/wp-content/uploads/2020/10/google-signin-button.png",
-          width: 273,
-          height: 70,
-          resizeMode: "center",
-        }}
-      />
+      <TouchableOpacity onPress={() => navigation.replace("HomeStudent")}>
+        <Image
+          source={{
+            uri: "https://onymos.com/wp-content/uploads/2020/10/google-signin-button.png",
+            width: 273,
+            height: 70,
+            resizeMode: "center",
+          }}
+        />
+      </TouchableOpacity>
     </View>
   );
 };

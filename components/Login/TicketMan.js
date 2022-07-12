@@ -2,13 +2,14 @@ import { View, TextInput, StyleSheet, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import { Button, useTheme, Text } from "react-native-paper";
 
-const TicketMan = () => {
+const TicketMan = ({ navigation }) => {
   const theme = useTheme();
   const [TicketManId, setTicketManId] = useState("");
   const [password, setPassword] = useState("");
 
   const loginHandler = () => {
     console.log(TicketManId, password);
+    navigation.replace("HomeTicketMan");
   };
 
   return (
