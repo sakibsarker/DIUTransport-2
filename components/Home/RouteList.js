@@ -1,6 +1,7 @@
 import React from "react";
 import { List, useTheme, Surface } from "react-native-paper";
 import { StyleSheet, View } from "react-native";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 const RouteList = ({ navigation, route }) => {
   const theme = useTheme();
@@ -12,9 +13,16 @@ const RouteList = ({ navigation, route }) => {
             navigation.navigate("BusList", { routeId: "রাস্তা ১" })
           }
           key="1"
-          title="রাস্তা ১"
-          description="১"
-          left={(props) => <List.Icon {...props} icon="bus" />}
+          title="DSC"
+          description="Ashulia"
+          left={(props) => (
+            <MaterialIcons
+              size={25}
+              color={theme.colors.White}
+              {...props}
+              name="alt-route"
+            />
+          )}
         />
       </Surface>
       <Surface style={styles.item}>
@@ -23,9 +31,16 @@ const RouteList = ({ navigation, route }) => {
             navigation.navigate("BusList", { routeId: "রাস্তা ৩" })
           }
           key="3"
-          title="রাস্তা ৩"
-          description="৩"
-          left={(props) => <List.Icon {...props} icon="bus" />}
+          title="DSC"
+          description="Dhanmondi"
+          left={(props) => (
+            <MaterialIcons
+              size={25}
+              color={theme.colors.White}
+              {...props}
+              name="alt-route"
+            />
+          )}
         />
       </Surface>
       <Surface style={styles.item}>
@@ -34,9 +49,16 @@ const RouteList = ({ navigation, route }) => {
             navigation.navigate("BusList", { routeId: "রাস্তা ৪" })
           }
           key="4"
-          title="রাস্তা ৪"
-          description="৪"
-          left={(props) => <List.Icon {...props} icon="bus" />}
+          title="DSC"
+          description="Dhamrai"
+          left={(props) => (
+            <MaterialIcons
+              size={25}
+              color={theme.colors.White}
+              {...props}
+              name="alt-route"
+            />
+          )}
         />
       </Surface>
       <Surface style={styles.item}>
@@ -45,9 +67,16 @@ const RouteList = ({ navigation, route }) => {
             navigation.navigate("BusList", { routeId: "রাস্তা ৪" })
           }
           key="4"
-          title="রাস্তা ৪"
-          description="৪"
-          left={(props) => <List.Icon {...props} icon="bus" />}
+          title="DSC"
+          description="Uttara"
+          left={(props) => (
+            <MaterialIcons
+              size={25}
+              color={theme.colors.White}
+              {...props}
+              name="alt-route"
+            />
+          )}
         />
       </Surface>
       <Surface style={styles.item}>
@@ -56,9 +85,16 @@ const RouteList = ({ navigation, route }) => {
             navigation.navigate("BusList", { routeId: "রাস্তা ৪" })
           }
           key="4"
-          title="রাস্তা ৪"
-          description="৪"
-          left={(props) => <List.Icon {...props} icon="bus" />}
+          title="DSC"
+          description="Kashimpur"
+          left={(props) => (
+            <MaterialIcons
+              size={25}
+              color={theme.colors.White}
+              {...props}
+              name="alt-route"
+            />
+          )}
         />
       </Surface>
       <Surface style={styles.item}>
@@ -67,9 +103,16 @@ const RouteList = ({ navigation, route }) => {
             navigation.navigate("BusList", { routeId: "রাস্তা ৪" })
           }
           key="4"
-          title="রাস্তা ৪"
-          description="৪"
-          left={(props) => <List.Icon {...props} icon="bus" />}
+          title="DSC"
+          description="Narayanganj"
+          left={(props) => (
+            <MaterialIcons
+              size={25}
+              color={theme.colors.White}
+              {...props}
+              name="alt-route"
+            />
+          )}
         />
       </Surface>
     </View>

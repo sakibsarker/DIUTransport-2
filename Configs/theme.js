@@ -14,6 +14,7 @@ export const themeLight = {
     tabActiveColor: "#74b9ff",
     tabInactiveColor: "#dfe6e9",
     accentLight: "#b2bec3",
+    White: "#FFFFFF",
   },
 };
 
@@ -26,5 +27,6 @@ export const themeDark = {
     accent: "#000",
     tabActiveColor: "#FFF",
     tabInactiveColor: "#2C3A47",
+    White: "#FFFFFF",
   },
 };
