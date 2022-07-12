@@ -11,9 +11,7 @@
       "distribution": "internal"
     },
     "production": {
-      "env": {
-        "MAPBOX_API_KEY": "sk.eyJ1Ijoic3Jqb3kiLCJhIjoiY2w1YzY1ZDJoMGVrZDNjc2VxNHQyMGJycCJ9.TzkF1ZZvOamM4o73e_brpg"
-      }
+      "env": {}
     }
   },
   "submit": {

@@ -32,7 +32,18 @@ const Home = ({ navigation }) => {
         <View style={styles.container}>
           <Text>All Transports</Text>
           <TouchableOpacity>
-            <Text style={{ color: theme?.colors.accent }}>View All</Text>
+            <Text
+              style={{
+                backgroundColor: theme?.colors.accent,
+                color: theme.colors.White,
+                paddingLeft: 15,
+                paddingRight: 15,
+                paddingTop: 5,
+                paddingBottom: 5,
+              }}
+            >
+              View All
+            </Text>
           </TouchableOpacity>
         </View>
         <Divider />

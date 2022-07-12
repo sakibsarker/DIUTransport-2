@@ -1,4 +1,10 @@
-import { View, StyleSheet, TouchableOpacity, StatusBar } from "react-native";
+import {
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  StatusBar,
+  Image,
+} from "react-native";
 import React, { useMemo, useRef, useEffect } from "react";
 import { useTheme, Text, Divider, Button } from "react-native-paper";
 import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
@@ -35,11 +41,23 @@ const BusDetails = ({ navigation, route }) => {
         flex: 1,
         backgroundColor: theme?.colors.surface,
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+        position: "relative",
       }}
     >
       <MapMarker
         title={route.params["busId"]}
         coordinates={currentBusLocation?.location?.coordinates}
+      />
+
+      <Image
+        style={{
+          maxHeight: 30,
+          position: "absolute",
+          zIndex: 1,
+          width: 35,
+          right: 15,
+        }}
+        source={require("../../assets/images/live.png")}
       />
 
       <BottomSheet ref={bottomSheetRef} index={1} snapPoints={snapPoints}>
