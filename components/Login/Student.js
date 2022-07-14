@@ -12,7 +12,7 @@ const Student = ({ navigation }) => {
       }}
     >
       <Text>Only University Email is allowed</Text>
-      <TouchableOpacity onPress={() => navigation.replace("HomeStudent")}>
+      <TouchableOpacity onPress={() => navigation.replace("StudentStack")}>
         <Image
           source={{
             uri: "https://onymos.com/wp-content/uploads/2020/10/google-signin-button.png",

@@ -9,10 +9,25 @@ import { useTheme, Text, Switch } from "react-native-paper";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import { PreferencesContext } from "../contexts/PreferencesContext ";
+import { useDispatch } from "react-redux";
+import { logout } from "../redux/Reducers/user";
 
 const CustomDrawer = (props) => {
   const theme = useTheme();
+  const dispatch = useDispatch();
   const { toggleTheme, isThemeDark } = React.useContext(PreferencesContext);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    props.navigation.reset({
+      index: 0,
+      routes: [
+        {
+          name: "login",
+        },
+      ],
+    });
+  };
 
   return (
     <View style={{ flex: 1 }}>
@@ -108,7 +123,10 @@ const CustomDrawer = (props) => {
             </Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => {}} style={{ paddingVertical: 15 }}>
+        <TouchableOpacity
+          onPress={handleLogout}
+          style={{ paddingVertical: 15 }}
+        >
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <Ionicons name="exit-outline" size={22} color={theme.colors.text} />
             <Text

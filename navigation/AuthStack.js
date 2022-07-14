@@ -2,7 +2,6 @@ import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "../screens/Login";
 import OnboardingScreen from "../screens/Student/OnboardingScreen";
-import { useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import StudentStack from "./StudentStack";
 import TicketManStack from "./TicketManStack";
@@ -12,7 +11,7 @@ const Stack = createNativeStackNavigator();
 const AuthStack = () => {
   const [isFirstLaunch, setIsFirstLaunch] = React.useState(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     AsyncStorage.getItem("alreadyLaunched").then((value) => {
       if (value == null) {
         AsyncStorage.setItem("alreadyLaunched", "true");
@@ -44,12 +43,12 @@ const AuthStack = () => {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="HomeStudent"
+          name="StudentStack"
           component={StudentStack}
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="HomeTicketMan"
+          name="TicketManStack"
           component={TicketManStack}
           options={{ headerShown: false }}
         />

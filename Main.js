@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   NavigationContainer,
   DarkTheme as NavigationDarkTheme,
@@ -7,10 +7,8 @@ import {
 import { Provider as PaperProvider } from "react-native-paper";
 import merge from "deepmerge";
 import { PreferencesContext } from "./contexts/PreferencesContext ";
-import AuthStack from "./navigation/AuthStack";
-import StudentStack from "./navigation/StudentStack";
 import { themeLight, themeDark } from "./Configs/theme";
-import TicketManStack from "./navigation/TicketManStack";
+import Root from "./navigation/Root";
 
 const CombinedDefaultTheme = merge(themeLight, NavigationDefaultTheme);
 const CombinedDarkTheme = merge(themeDark, NavigationDarkTheme);
@@ -35,9 +33,7 @@ const Main = () => {
     <PreferencesContext.Provider value={preferences}>
       <PaperProvider theme={theme}>
         <NavigationContainer theme={theme}>
-          <AuthStack />
-          {/* <StudentStack /> */}
-          {/* <TicketManStack /> */}
+          <Root />
         </NavigationContainer>
       </PaperProvider>
     </PreferencesContext.Provider>

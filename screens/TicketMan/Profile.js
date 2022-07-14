@@ -4,14 +4,37 @@ import {
   Platform,
   SafeAreaView,
   StyleSheet,
+  TouchableOpacity,
 } from "react-native";
 import React from "react";
 import { useTheme, Text } from "react-native-paper";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
+import { useDispatch, useSelector } from "react-redux";
+import Loader from "../../components/Loader";
+import { logout } from "../../redux/Reducers/user";
 
-const Profile = () => {
+const Profile = ({ navigation }) => {
   const theme = useTheme();
+  const dispatch = useDispatch();
+  const { user, loading, error } = useSelector((state) => state.user);
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigation.reset({
+      index: 0,
+      routes: [
+        {
+          name: "login",
+        },
+      ],
+    });
+  };
+
   return (
     <View
       style={{
@@ -33,6 +56,8 @@ const Profile = () => {
           >
             <FontAwesome5 size={40} color={theme.colors.accent} name="bus" />
             <Text style={styles.profileName}>SurjoMukhi-15</Text>
+            <Text style={styles.profileName}>{user.name}</Text>
+            <Text style={styles.profileName}>ID: {user.employeeId}</Text>
           </View>
           <View
             style={{
@@ -64,7 +89,8 @@ const Profile = () => {
                 <Text style={{ fontSize: 20 }}>Total Student : 30 </Text>
               </View>
             </View>
-            <View
+            <TouchableOpacity
+              onPress={handleLogout}
               style={{
                 justifyContent: "flex-start",
                 flexDirection: "row",
@@ -81,7 +107,7 @@ const Profile = () => {
               <View style={{ marginLeft: 10 }}>
                 <Text style={{ fontSize: 20, fontWeight: "bold" }}>Logout</Text>
               </View>
-            </View>
+            </TouchableOpacity>
           </View>
         </View>
       </SafeAreaView>

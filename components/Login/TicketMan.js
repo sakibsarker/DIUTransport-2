@@ -1,16 +1,44 @@
-import { View, TextInput, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  TextInput,
+  StyleSheet,
+  TouchableOpacity,
+  Alert,
+} from "react-native";
 import React, { useState } from "react";
 import { Button, useTheme, Text } from "react-native-paper";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useDispatch, useSelector } from "react-redux";
+import { loginEmployee } from "../../redux/ApiCalls/user";
+import Loader from "../Loader";
 
 const TicketMan = ({ navigation }) => {
   const theme = useTheme();
+  const dispatch = useDispatch();
+
+  const { user, loading, error } = useSelector((state) => state.user);
+
   const [TicketManId, setTicketManId] = useState("");
   const [password, setPassword] = useState("");
 
   const loginHandler = () => {
-    console.log(TicketManId, password);
-    navigation.replace("HomeTicketMan");
+    dispatch(loginEmployee({ employeeId: TicketManId, password }));
   };
+
+  React.useEffect(() => {
+    if (loading) {
+      console.log("Loading..");
+    } else if (!loading && user) {
+      console.log(user);
+      navigation.replace("TicketManStack", { user });
+    } else if (error) {
+      Alert.alert("Error!", error);
+    }
+  }, [error, user, navigation, loading]);
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <View

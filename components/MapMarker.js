@@ -132,8 +132,8 @@ const MapMarker = ({ coordinates, title, contact }) => {
             region={{
               latitude: coordinates[1],
               longitude: coordinates[0],
-              latitudeDelta: 0.01,
-              longitudeDelta: 0.01,
+              latitudeDelta: 0.001,
+              longitudeDelta: 0.001,
             }}
             style={styles.map}
           >
@@ -160,6 +160,8 @@ const MapMarker = ({ coordinates, title, contact }) => {
               coordinate={{
                 latitude: coordinates[1],
                 longitude: coordinates[0],
+                latitudeDelta: 0.001,
+                longitudeDelta: 0.001,
               }}
               title={title || "সূর্যমুখি - ১"}
               description={contact || "ড্রাইভার: ০১৬১৬৩৪৬৮৩৫"}
