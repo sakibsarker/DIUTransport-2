@@ -1,50 +1,155 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, StyleSheet, Button } from "react-native";
+import { View, StyleSheet, Animated, TouchableOpacity } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
+import { Text, Button } from "react-native-paper";
 
 const TicketScan = () => {
-  const [hasPermission, setHasPermission] = useState(null);
+  const [hasCameraPermission, setCameraPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
 
+  const [value, setValue] = useState(null);
+
+  const [animationLineHeight, setAnimationLineHeight] = useState(0);
+  const [focusLineAnimation, setFocusLineAnimation] = useState(
+    new Animated.Value(0)
+  );
+
   useEffect(() => {
-    (async () => {
-      const { status } = await BarCodeScanner.requestPermissionsAsync();
-      setHasPermission(status === "granted");
-    })();
+    getPermissionsAsync();
+    animateLine();
   }, []);
+
+  const animateLine = () => {
+    Animated.sequence([
+      Animated.timing(focusLineAnimation, {
+        toValue: 1,
+        duration: 1000,
+        useNativeDriver: true,
+      }),
+      Animated.timing(focusLineAnimation, {
+        toValue: 0,
+        duration: 1000,
+        useNativeDriver: true,
+      }),
+    ]).start(animateLine);
+  };
+
+  const getPermissionsAsync = async () => {
+    const { status } = await BarCodeScanner.requestPermissionsAsync();
+    const isPermissionGranted = status === "granted";
+    console.log(isPermissionGranted);
+    setCameraPermission(isPermissionGranted);
+  };
 
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
+    setValue(data);
     console.log(`${data}`);
   };
 
-  if (hasPermission === null) {
-    return <Text>Requesting for camera permission</Text>;
+  if (hasCameraPermission === null) {
+    return (
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Text>Requesting for camera permission</Text>
+      </View>
+    );
   }
-  if (hasPermission === false) {
-    return <Text>No access to camera</Text>;
+  if (hasCameraPermission === false) {
+    return (
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Text>No access to camera</Text>
+      </View>
+    );
   }
 
-  return (
-    <View style={styles.container}>
-      <BarCodeScanner
-        onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-        style={StyleSheet.absoluteFillObject}
-      />
-      {scanned && (
-        <Button
-          title={"Tap to Scan Again ?"}
-          onPress={() => setScanned(false)}
+  if (value && scanned) {
+    return (
+      <View style={styles.container}>
+        <Text>{value}</Text>
+        <View>
+          <TouchableOpacity onPress={() => setScanned(false)}>
+            <Button>Tap to Scan Again ?</Button>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+  } else {
+    return (
+      <View style={styles.container}>
+        <BarCodeScanner
+          onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+          style={StyleSheet.absoluteFillObject}
         />
-      )}
-    </View>
-  );
+        <View style={styles.overlay}>
+          <View style={styles.unfocusedContainer}></View>
+          <View style={styles.middleContainer}>
+            <View style={styles.unfocusedContainer}></View>
+            <View
+              onLayout={(e) =>
+                setAnimationLineHeight(e.nativeEvent.layout.height)
+              }
+              style={styles.focusedContainer}
+            >
+              {!scanned && (
+                <Animated.View
+                  style={[
+                    styles.animationLineStyle,
+                    {
+                      transform: [
+                        {
+                          translateY: focusLineAnimation.interpolate({
+                            inputRange: [0, 1],
+                            outputRange: [0, animationLineHeight],
+                          }),
+                        },
+                      ],
+                    },
+                  ]}
+                />
+              )}
+            </View>
+            <View style={styles.unfocusedContainer}></View>
+          </View>
+          <View style={styles.unfocusedContainer}></View>
+        </View>
+      </View>
+    );
+  }
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column",
+    position: "relative",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  overlay: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
+  unfocusedContainer: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.7)",
+  },
+  middleContainer: {
+    flexDirection: "row",
+    flex: 1.5,
+  },
+  focusedContainer: {
+    flex: 6,
+  },
+  animationLineStyle: {
+    height: 2,
+    width: "100%",
+    backgroundColor: "red",
+  },
+  rescanIconContainer: {
+    flex: 1,
+    alignItems: "center",
     justifyContent: "center",
   },
 });

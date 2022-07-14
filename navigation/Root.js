@@ -1,26 +1,23 @@
-import { View } from "react-native";
-import { Text, useTheme } from "react-native-paper";
-import React from "react";
+import { Alert } from "react-native";
+import { useTheme } from "react-native-paper";
+import React, { useState } from "react";
 import AuthStack from "./AuthStack";
 import StudentStack from "./StudentStack";
 import TicketManStack from "./TicketManStack";
+import { useSelector } from "react-redux";
+import Loader from "../components/Loader";
 
 const root = () => {
-  const [token, setToken] = React.useState(null);
-  const [userType, setUserType] = React.useState("student");
+  const { token, userType } = useSelector((state) => state.user);
 
-  const theme = useTheme();
+  console.log(token);
 
-  if (token == null) {
-    return (
-      <>
-        <AuthStack />
-      </>
-    );
+  if (token == null && (userType != "student" || userType != "employee")) {
+    return <AuthStack />;
   } else {
     if (userType && userType == "student") {
       return <StudentStack />;
-    } else if (userType && userType == "ticketman") {
+    } else if (userType == "employee") {
       return <TicketManStack />;
     }
   }

@@ -32,7 +32,7 @@ const Main = () => {
   return (
     <PreferencesContext.Provider value={preferences}>
       <PaperProvider theme={theme}>
-        <NavigationContainer theme={theme}>
+        <NavigationContainer theme={theme} independent={true}>
           <Root />
         </NavigationContainer>
       </PaperProvider>

@@ -7,9 +7,9 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { Button, useTheme, Text } from "react-native-paper";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useDispatch, useSelector } from "react-redux";
 import { loginEmployee } from "../../redux/ApiCalls/user";
+import Icon from "react-native-vector-icons/Ionicons";
 import Loader from "../Loader";
 
 const TicketMan = ({ navigation }) => {
@@ -20,6 +20,7 @@ const TicketMan = ({ navigation }) => {
 
   const [TicketManId, setTicketManId] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const loginHandler = () => {
     dispatch(loginEmployee({ employeeId: TicketManId, password }));
@@ -47,21 +48,29 @@ const TicketMan = ({ navigation }) => {
       }}
     >
       <View>
-        <TextInput
-          style={Styles.input}
-          placeholder="TicketMan ID"
-          value={TicketManId}
-          onChangeText={setTicketManId}
-          keyboardType="number-pad"
-        />
-
-        <TextInput
-          secureTextEntry
-          style={Styles.input}
-          placeholder="Password"
-          value={password}
-          onChangeText={setPassword}
-        />
+        <View style={Styles.field}>
+          <TextInput
+            style={Styles.input}
+            placeholder="TicketMan ID"
+            value={TicketManId}
+            onChangeText={setTicketManId}
+            keyboardType="number-pad"
+          />
+        </View>
+        <View style={Styles.field}>
+          <TextInput
+            secureTextEntry={!showPassword}
+            style={Styles.input}
+            placeholder="Password"
+            value={password}
+            onChangeText={setPassword}
+          />
+          <Icon
+            onPress={() => setShowPassword(!showPassword)}
+            style={Styles.eye}
+            name={showPassword ? "md-eye-off" : "md-eye"}
+          />
+        </View>
       </View>
 
       <Button
@@ -89,6 +98,18 @@ const Styles = StyleSheet.create({
 
   btn: {
     padding: 5,
+  },
+  eye: {
+    position: "absolute",
+    right: 0,
+    bottom: 25,
+    fontSize: 25,
+    padding: 10,
+    paddingRight: 15,
+  },
+  field: {
+    paddingVertical: 14,
+    position: "relative",
   },
 });
 

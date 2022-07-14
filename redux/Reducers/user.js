@@ -6,7 +6,7 @@ const usersSlice = createSlice({
   initialState: {
     token: null,
     user: null,
-    userType: "employee",
+    userType: null,
     loading: false,
     error: null,
   },
@@ -17,6 +17,7 @@ const usersSlice = createSlice({
       state.token = null;
       state.user = null;
       state.error = null;
+      state.userType = null;
     },
   },
   extraReducers: (builder) => {
@@ -28,6 +29,7 @@ const usersSlice = createSlice({
       state.loading = false;
       state.user = action.payload.user;
       state.token = action.payload.token;
+      state.userType = "employee";
     });
     builder.addCase(loginEmployee.rejected, (state, action) => {
       state.loading = false;

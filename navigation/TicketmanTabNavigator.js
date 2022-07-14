@@ -1,16 +1,16 @@
-import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
+import React from "react";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { useTheme } from 'react-native-paper';
-import Home from '../screens/TicketMan/Home';
-import MyMap from '../screens/Student/MyMap';
-import TicketScan from '../screens/TicketMan/TicketScan';
-import Profile from '../screens/TicketMan/Profile';
+import Ionicons from "react-native-vector-icons/Ionicons";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import { useTheme } from "react-native-paper";
+import Home from "../screens/TicketMan/Home";
+import MyMap from "../screens/Student/MyMap";
+import TicketScan from "../screens/TicketMan/TicketScan";
+import Profile from "../screens/TicketMan/Profile";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -28,7 +28,7 @@ const TicketmanTabNavigator = () => {
       }}
     >
       <Tab.Screen
-        name="Home2"
+        name="Home4"
         component={Home}
         options={({ route }) => ({
           tabBarStyle: {
@@ -88,12 +88,12 @@ const TicketmanTabNavigator = () => {
 };
 
 const getTabBarVisibility = (route) => {
-  const routeName = getFocusedRouteNameFromRoute(route) ?? 'Feed';
+  const routeName = getFocusedRouteNameFromRoute(route) ?? "Feed";
 
-  if (routeName == 'Home' || routeName == 'Feed') {
-    return 'flex';
+  if (routeName == "Home" || routeName == "Feed") {
+    return "flex";
   }
-  return 'none';
+  return "none";
 };
 
 export default TicketmanTabNavigator;

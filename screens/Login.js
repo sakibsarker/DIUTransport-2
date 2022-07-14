@@ -42,7 +42,7 @@ const Login = ({ navigation }) => {
           <Tab
             indicatorStyle={{
               backgroundColor: theme.colors.accent,
-              height: 3,
+              height: 5,
             }}
             containerStyle={(active) => ({
               color: theme.colors.text,
@@ -61,12 +61,12 @@ const Login = ({ navigation }) => {
               }}
               containerStyle={(active) => ({
                 backgroundColor: active
-                  ? theme.colors.accent
-                  : theme.colors.surface,
+                  ? theme.colors.surface
+                  : theme.colors.accent,
                 borderTopLeftRadius: 35,
               })}
               titleStyle={(active) => ({
-                color: active ? "#FFFFFF" : theme.colors.surface,
+                color: active ? theme.colors.accent : theme.colors.White,
               })}
             />
             <Tab.Item
@@ -76,13 +76,13 @@ const Login = ({ navigation }) => {
               }}
               containerStyle={(active) => ({
                 backgroundColor: active
-                  ? theme.colors.accent
-                  : theme.colors.surface,
+                  ? theme.colors.surface
+                  : theme.colors.accent,
                 borderTopRightRadius: 35,
               })}
               title="TicketMan"
               titleStyle={(active) => ({
-                color: active ? "#FFFFFF" : theme.colors.surface,
+                color: active ? theme.colors.accent : theme.colors.White,
               })}
             />
           </Tab>

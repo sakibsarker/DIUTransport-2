@@ -12,9 +12,24 @@ import { useTheme, Text } from "react-native-paper";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import { useDispatch } from "react-redux";
+import { logout } from "../../redux/Reducers/user";
 
-const Profile = () => {
+const Profile = ({ navigation }) => {
   const theme = useTheme();
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logout());
+    navigation.reset({
+      index: 0,
+      routes: [
+        {
+          name: "login",
+        },
+      ],
+    });
+  };
+
   return (
     <View
       style={{
@@ -193,6 +208,7 @@ const Profile = () => {
                 flexDirection: "row",
                 alignItems: "center",
               }}
+              onPress={handleLogout}
             >
               <View
                 style={{

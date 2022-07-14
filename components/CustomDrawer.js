@@ -5,7 +5,7 @@ import {
   DrawerItemList,
 } from "@react-navigation/drawer";
 import { useTheme, Text, Switch } from "react-native-paper";
-
+import { StackActions } from "@react-navigation/native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import { PreferencesContext } from "../contexts/PreferencesContext ";
