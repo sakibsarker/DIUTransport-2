@@ -29,23 +29,53 @@ const Home = ({ navigation }) => {
       <SafeAreaView>
         <SearchBar />
         <View style={styles.container}>
-          <Text style={styles.col2}>How to Scan?</Text>
-          <TouchableOpacity style={styles.col2}>
-            <Text style={{ color: theme?.colors.accent }}>View All</Text>
+          <Text>Latest Scans</Text>
+        </View>
+        <View style={styles.container}>
+          <TouchableOpacity style={styles.col2(theme.colors.surface)}>
+            <Text>201-15-3117</Text>
+            <Text style={{ color: theme?.colors.success }}>+50</Text>
           </TouchableOpacity>
         </View>
         <Divider />
         <View style={styles.container}>
-          <Text style={styles.col2}>When To Go?</Text>
-          <TouchableOpacity style={styles.col2}>
-            <Text style={{ color: theme?.colors.accent }}>View All</Text>
+          <TouchableOpacity style={styles.col2(theme.colors.surface)}>
+            <Text>201-15-3442</Text>
+            <Text style={{ color: theme?.colors.success }}>+25</Text>
           </TouchableOpacity>
         </View>
         <Divider />
         <View style={styles.container}>
-          <Text>How it works?</Text>
-          <TouchableOpacity>
-            <Text style={{ color: theme?.colors.accent }}>View All</Text>
+          <TouchableOpacity style={styles.col2(theme.colors.surface)}>
+            <Text>201-15-3470</Text>
+            <Text style={{ color: theme?.colors.success }}>+35</Text>
+          </TouchableOpacity>
+        </View>
+        <Divider />
+        <View style={styles.container}>
+          <TouchableOpacity style={styles.col2(theme.colors.surface)}>
+            <Text>201-15-3126</Text>
+            <Text style={{ color: theme?.colors.success }}>+25</Text>
+          </TouchableOpacity>
+        </View>
+        <Divider />
+        <View style={styles.container}>
+          <TouchableOpacity style={styles.col2(theme.colors.surface)}>
+            <Text>201-15-3442</Text>
+            <Text style={{ color: theme?.colors.success }}>+20</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.container}>
+          <TouchableOpacity style={styles.centerCol}>
+            <Text
+              style={{
+                backgroundColor: theme.colors.primary,
+                color: theme.colors.White,
+                padding: 15,
+              }}
+            >
+              Tap To View More
+            </Text>
           </TouchableOpacity>
         </View>
       </SafeAreaView>
@@ -62,7 +92,23 @@ const styles = StyleSheet.create({
     marginTop: 15,
     paddingLeft: 25,
     paddingRight: 25,
-    paddingBottom: 25,
+  },
+  col2: (surfaceColor) => ({
+    flex: 1,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "center",
+    justifyContent: "space-between",
+    backgroundColor: surfaceColor,
+    padding: 25,
+  }),
+  centerCol: {
+    flex: 1,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 25,
   },
 });
 

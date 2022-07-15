@@ -47,99 +47,95 @@ const Profile = ({ navigation }) => {
       }}
     >
       <SafeAreaView>
-        <View style={styles.container}>
+        <View
+          style={{
+            backgroundColor: theme.colors.surface,
+            padding: 40,
+            borderRadius: 20,
+            position: "relative",
+          }}
+        >
           <View
             style={{
-              backgroundColor: theme.colors.White,
-              padding: 40,
-              borderRadius: 20,
-              position: "relative",
+              position: "absolute",
+              backgroundColor: theme.colors.surface,
+              left: "50%",
+              marginLeft: 24,
+              width: 32,
+              height: 32,
+              top: -16,
+              borderRadius: 100,
             }}
           >
+            <Text style={{ display: "none" }}>dsfg</Text>
+          </View>
+          <View
+            style={{
+              alignItems: "center",
+              flexDirection: "column",
+              marginBottom: 20,
+            }}
+          >
+            <FontAwesome5 size={40} color={theme.colors.accent} name="bus" />
+            <Text style={styles.profileName}>SurjoMukhi-15</Text>
+            <Text style={{}}>{user?.name}</Text>
+            <Text style={{}}>ID: {user?.employeeId}</Text>
+          </View>
+          <View
+            style={{
+              alignItems: "center",
+              flexDirection: "column",
+              marginBottom: 20,
+            }}
+          >
+            <Text style={{ fontWeight: "bold" }}>
+              Date:{" "}
+              {new Date().toLocaleDateString("en-US", {
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </Text>
+          </View>
+          <View style={{}}>
             <View
               style={{
-                position: "absolute",
-                backgroundColor: "rgb(242, 242, 242)",
-                left: "50%",
-                marginLeft: 24,
-                width: 32,
-                height: 32,
-                top: -16,
-                borderRadius: 100,
-              }}
-            >
-              <Text style={{ display: "none" }}>dsfg</Text>
-            </View>
-            <View
-              style={{
+                justifyContent: "flex-start",
+                flexDirection: "row",
                 alignItems: "center",
-                flexDirection: "column",
-                marginBottom: 20,
               }}
             >
-              <FontAwesome5 size={40} color={theme.colors.accent} name="bus" />
-              <Text style={styles.profileName}>SurjoMukhi-15</Text>
-              <Text style={{}}>{user?.name}</Text>
-              <Text style={{}}>ID: {user?.employeeId}</Text>
-            </View>
-            <View
-              style={{
-                alignItems: "center",
-                flexDirection: "column",
-                marginBottom: 20,
-              }}
-            >
-              <Text style={{ fontWeight: "bold" }}>
-                Date:{" "}
-                {new Date().toLocaleDateString("en-US", {
-                  weekday: "long",
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </Text>
-            </View>
-            <View style={{}}>
-              <View
-                style={{
-                  justifyContent: "flex-start",
-                  flexDirection: "row",
-                  alignItems: "center",
-                }}
-              >
-                <View>
-                  <FontAwesome5
-                    size={25}
-                    color={theme.colors.accent}
-                    name="user"
-                  />
-                </View>
-                <View style={{ marginLeft: 10 }}>
-                  <Text style={{ fontSize: 20 }}>Total Student : 30 </Text>
-                </View>
+              <View>
+                <FontAwesome5
+                  size={25}
+                  color={theme.colors.accent}
+                  name="user"
+                />
               </View>
-              <TouchableOpacity
-                onPress={handleLogout}
-                style={{
-                  justifyContent: "flex-start",
-                  flexDirection: "row",
-                  alignItems: "center",
-                }}
-              >
-                <View>
-                  <FontAwesome
-                    size={25}
-                    color={theme.colors.accent}
-                    name="sign-out"
-                  />
-                </View>
-                <View style={{ marginLeft: 10 }}>
-                  <Text style={{ fontSize: 20, fontWeight: "bold" }}>
-                    Logout
-                  </Text>
-                </View>
-              </TouchableOpacity>
+              <View style={{ marginLeft: 10 }}>
+                <Text style={{ fontSize: 20 }}>Total Student : 30 </Text>
+              </View>
             </View>
+            <TouchableOpacity
+              onPress={handleLogout}
+              style={{
+                justifyContent: "flex-start",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              <View>
+                <FontAwesome
+                  size={25}
+                  color={theme.colors.accent}
+                  name="sign-out"
+                />
+              </View>
+              <View style={{ marginLeft: 10 }}>
+                <Text style={{ fontSize: 20, fontWeight: "bold" }}>Logout</Text>
+              </View>
+            </TouchableOpacity>
           </View>
         </View>
       </SafeAreaView>
@@ -148,7 +144,6 @@ const Profile = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {},
   profileName: {
     marginTop: 15,
     fontSize: 20,

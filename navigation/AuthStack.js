@@ -5,6 +5,7 @@ import OnboardingScreen from "../screens/Student/OnboardingScreen";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import StudentStack from "./StudentStack";
 import TicketManStack from "./TicketManStack";
+import { Text } from "react-native-paper";
 
 const Stack = createNativeStackNavigator();
 
@@ -23,7 +24,7 @@ const AuthStack = () => {
   }, []);
 
   if (isFirstLaunch == null) {
-    return null;
+    return <Text>GG</Text>;
   } else if (isFirstLaunch === true) {
     return (
       <Stack.Navigator screenOptions={{ headerShown: false }}>

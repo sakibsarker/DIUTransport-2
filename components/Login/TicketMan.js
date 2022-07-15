@@ -24,9 +24,6 @@ const TicketMan = ({ navigation }) => {
 
   const loginHandler = () => {
     dispatch(loginEmployee({ employeeId: TicketManId, password }));
-  };
-
-  React.useEffect(() => {
     if (loading) {
       console.log("Loading..");
     } else if (!loading && user) {
@@ -35,7 +32,7 @@ const TicketMan = ({ navigation }) => {
     } else if (error) {
       Alert.alert("Error!", error);
     }
-  }, [error, user, navigation, loading]);
+  };
 
   if (loading) {
     return <Loader />;
@@ -50,6 +47,7 @@ const TicketMan = ({ navigation }) => {
       <View>
         <View style={Styles.field}>
           <TextInput
+            name="employeeId"
             style={Styles.input}
             placeholder="TicketMan ID"
             value={TicketManId}
@@ -64,6 +62,7 @@ const TicketMan = ({ navigation }) => {
             placeholder="Password"
             value={password}
             onChangeText={setPassword}
+            autoCapitalize="none"
           />
           <Icon
             onPress={() => setShowPassword(!showPassword)}

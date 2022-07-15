@@ -1,18 +1,23 @@
 import { Alert } from "react-native";
 import { useTheme } from "react-native-paper";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AuthStack from "./AuthStack";
 import StudentStack from "./StudentStack";
 import TicketManStack from "./TicketManStack";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Loader from "../components/Loader";
+import { employeeProfile } from "../redux/ApiCalls/user";
 
 const root = () => {
-  const { token, userType } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const { token, userType, error } = useSelector((state) => state.user);
 
-  console.log(token);
+  React.useEffect(() => {
+    console.log(token);
+    dispatch(employeeProfile({ token: token && token }));
+  }, [dispatch]);
 
-  if (token == null && (userType != "student" || userType != "employee")) {
+  if (token == null && userType == null) {
     return <AuthStack />;
   } else {
     if (userType && userType == "student") {
