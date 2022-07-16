@@ -7,7 +7,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/srj101/DIUTransport">
-    <img src="assets/images/D.png" alt="Logo" width="120" height="120">
+    <img src="assets/images/tlogo.png" alt="Logo" width="120" height="120">
   </a>
 
   <h3 align="center">DIU Transport Application</h3>
