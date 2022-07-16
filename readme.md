@@ -84,7 +84,6 @@ Contributions are what make the open source community such an amazing place to b
   <img src="https://i.ibb.co/XVkJkgR/ezgif-com-gif-maker.gif" width=200 height=400 />
   <img src="https://i.ibb.co/VTKdmbh/Simulator-Screen-Shot-i-Phone-13-Pro-Max-2022-07-16-at-14-16-25.png" width=200 height=400 />
   <img src="https://i.ibb.co/1mX58gY/Simulator-Screen-Shot-i-Phone-13-Pro-Max-2022-07-16-at-14-11-54.png" width=200 height=400 />
-  <img src="https://i.ibb.co/WPzp5Nx/Simulator-Screen-Shot-i-Phone-13-Pro-Max-2022-07-16-at-14-18-20.png" width=200 height=400 />
   <img src="https://i.ibb.co/8NycK1w/Simulator-Screen-Shot-i-Phone-13-Pro-Max-2022-07-16-at-14-18-00.png" width=200 height=400 />
 </p>
 
