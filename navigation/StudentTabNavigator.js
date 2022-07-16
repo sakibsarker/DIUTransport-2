@@ -11,6 +11,7 @@ import { useTheme } from "react-native-paper";
 import NoticeBoard from "../screens/NoticeBoard";
 import BusDetails from "../screens/Student/BusDetails";
 import BusList from "../components/Home/BusList";
+import TicketHistory from "../screens/Student/TicketHistory";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -36,6 +37,23 @@ const HomeStack = () => {
         options={({ route }) => ({
           title: route.params?.routeId,
         })}
+      />
+    </Stack.Navigator>
+  );
+};
+
+const ProfileStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Profile7"
+        component={Profile}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="TripHistory"
+        component={TicketHistory}
+        options={{ title: "Trip History" }}
       />
     </Stack.Navigator>
   );
@@ -88,7 +106,7 @@ const StudentTabNavigator = () => {
       />
       <Tab.Screen
         name="profile2"
-        component={Profile}
+        component={ProfileStack}
         options={{
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5 name="user" size={size} color={color} />
