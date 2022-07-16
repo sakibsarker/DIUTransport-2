@@ -78,7 +78,9 @@ Contributions are what make the open source community such an amazing place to b
 - Make Pull Request
 
 
-### 🔥 Screenshots
+<!-- SCREENSHORTS -->
+
+## 🔥 Screenshots
 
 <p align="center">
   <img src="https://i.ibb.co/XVkJkgR/ezgif-com-gif-maker.gif" width=200 height=400 />
