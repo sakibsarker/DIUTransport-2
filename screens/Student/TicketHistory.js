@@ -1,13 +1,6 @@
 import React, { useState } from "react";
-import {
-  Button,
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-  SafeAreaView,
-} from "react-native";
-import { useTheme } from "react-native-paper";
+import { StyleSheet, View, ScrollView, SafeAreaView } from "react-native";
+import { useTheme, Surface, Text, Button } from "react-native-paper";
 const TicketHistory = () => {
   const theme = useTheme();
   return (
@@ -21,9 +14,7 @@ const TicketHistory = () => {
       <SafeAreaView>
         <ScrollView>
           <View style={styles.body}>
-            <View
-              style={{ ...styles.ticket, backgroundColor: theme.colors.White }}
-            >
+            <Surface style={{ ...styles.ticket }}>
               <View style={styles.date}>
                 <Text>19 June-2022</Text>
               </View>
@@ -51,12 +42,15 @@ const TicketHistory = () => {
                 </View>
               </View>
               <View style={styles.buttn}>
-                <Button title="Show Ticket" color={"black"}></Button>
+                <Button
+                  style={{ backgroundColor: theme.colors.accent }}
+                  color="#FFFFFF"
+                >
+                  Show Ticket
+                </Button>
               </View>
-            </View>
-            <View
-              style={{ ...styles.ticket, backgroundColor: theme.colors.White }}
-            >
+            </Surface>
+            <Surface style={{ ...styles.ticket }}>
               <View style={styles.date}>
                 <Text>19 June-2022</Text>
               </View>
@@ -84,12 +78,15 @@ const TicketHistory = () => {
                 </View>
               </View>
               <View style={styles.buttn}>
-                <Button title="Show Ticket" color={"black"}></Button>
+                <Button
+                  style={{ backgroundColor: theme.colors.accent }}
+                  color="#FFFFFF"
+                >
+                  Show Ticket
+                </Button>
               </View>
-            </View>
-            <View
-              style={{ ...styles.ticket, backgroundColor: theme.colors.White }}
-            >
+            </Surface>
+            <Surface style={{ ...styles.ticket }}>
               <View style={styles.date}>
                 <Text>19 June-2022</Text>
               </View>
@@ -117,9 +114,14 @@ const TicketHistory = () => {
                 </View>
               </View>
               <View style={styles.buttn}>
-                <Button title="Show Ticket" color={"black"}></Button>
+                <Button
+                  style={{ backgroundColor: theme.colors.accent }}
+                  color="#FFFFFF"
+                >
+                  Show Ticket
+                </Button>
               </View>
-            </View>
+            </Surface>
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -138,11 +140,9 @@ const styles = StyleSheet.create({
   ticket: {
     height: "35%",
     width: "80%",
-    marginTop: 20,
-    borderTopWidth: 10,
-    borderLeftWidth: 20,
-    borderColor: "white",
     borderRadius: 20,
+    padding: 20,
+    marginBottom: 15,
   },
   timestus: {
     flexDirection: "row",

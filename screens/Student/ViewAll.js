@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, View } from "react-native";
+import { SafeAreaView, View, StatusBar } from "react-native";
 import { Text, useTheme } from "react-native-paper";
 
 const ViewAll = () => {
