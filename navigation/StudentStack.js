@@ -12,6 +12,7 @@ import TicketDetails from "../screens/Student/TicketDetails";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Settings from "../screens/Student/Settings";
 import TicketHistory from "../screens/Student/TicketHistory";
+import ViewAll from "../screens/Student/ViewAll";
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
@@ -59,6 +60,15 @@ const StudentStack = () => {
           }}
         />
         <Drawer.Screen
+          name="Routes"
+          component={ViewAll}
+          options={{
+            drawerIcon: ({ size, color }) => (
+              <Ionicons name="ios-pricetags" size={size} color={color} />
+            ),
+          }}
+        />
+        <Drawer.Screen
           name="Tickets"
           component={TicketStack}
           options={{
@@ -67,7 +77,7 @@ const StudentStack = () => {
             ),
           }}
         />
-         <Drawer.Screen
+        <Drawer.Screen
           name="Trip History"
           component={TicketHistory}
           options={{

@@ -31,7 +31,7 @@ const Home = ({ navigation }) => {
         <SearchBar />
         <View style={styles.container}>
           <Text>All Transports</Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("Routes")}>
             <Text
               style={{
                 backgroundColor: theme?.colors.accent,
