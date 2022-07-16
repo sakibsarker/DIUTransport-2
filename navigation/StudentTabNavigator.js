@@ -12,6 +12,7 @@ import NoticeBoard from "../screens/NoticeBoard";
 import BusDetails from "../screens/Student/BusDetails";
 import BusList from "../components/Home/BusList";
 import TicketHistory from "../screens/Student/TicketHistory";
+import ViewAll from "../screens/Student/ViewAll";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -38,6 +39,7 @@ const HomeStack = () => {
           title: route.params?.routeId,
         })}
       />
+      <Stack.Screen name="Routes" component={ViewAll} />
     </Stack.Navigator>
   );
 };
