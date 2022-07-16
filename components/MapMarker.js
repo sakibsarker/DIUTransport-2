@@ -15,6 +15,7 @@ import Loader from "./Loader";
 import { PreferencesContext } from "../contexts/PreferencesContext ";
 import getDirections from "../Utils/DirectionPackage";
 import * as Location from "expo-location";
+import { getDirectionsFromSourceToDest } from "../Utils/getDirections";
 
 let foregroundSubscription = null;
 const MapMarker = ({ coordinates, title, contact }) => {
@@ -30,22 +31,16 @@ const MapMarker = ({ coordinates, title, contact }) => {
     requestPermissions();
   }, []);
 
-  // Start location tracking in foreground
   const startForegroundUpdate = async () => {
-    // Check if foreground permission is granted
     const { granted } = await Location.getForegroundPermissionsAsync();
     if (!granted) {
       console.log("location tracking denied");
       return;
     }
-
-    // Make sure that foreground location tracking is not running
     foregroundSubscription?.remove();
 
-    // Start watching position in real-time
     foregroundSubscription = await Location.watchPositionAsync(
       {
-        // For better logs, we set the accuracy to the most sensitive option
         accuracy: Location.Accuracy.BestForNavigation,
       },
       (location) => {
@@ -76,11 +71,11 @@ const MapMarker = ({ coordinates, title, contact }) => {
       params: [
         {
           key: "travelmode",
-          value: "driving", // may be "walking", "bicycling" or "transit" as well
+          value: "driving",
         },
         {
           key: "dir_action",
-          value: "navigate", // this instantly initializes navigation using the given travel mode
+          value: "navigate",
         },
       ],
       waypoints: [
@@ -95,18 +90,13 @@ const MapMarker = ({ coordinates, title, contact }) => {
     getDirections(data);
   };
 
-  const [cd, setCd] = useState({
-    coordinates: [
-      {
-        latitude: 37.3317876,
-        longitude: -122.0054812,
-      },
-      {
-        latitude: 37.771707,
-        longitude: -122.4053769,
-      },
-    ],
-  });
+  // const [ccds, setCcds] = useState("40.1884979, 29.061018", "41.0082,28.9784");
+
+  // useEffect(() => {
+  //   setCcds(
+  //     getDirectionsFromSourceToDest("40.1884979, 29.061018", "41.0082,28.9784")
+  //   );
+  // }, []);
 
   return (
     <View
@@ -137,25 +127,8 @@ const MapMarker = ({ coordinates, title, contact }) => {
             }}
             style={styles.map}
           >
-            <Polyline
-              coordinates={[
-                { latitude: 23.8769005, longitude: 90.3179705 },
-                { latitude: 23.8575108, longitude: 90.3091192 },
-                { latitude: 23.8243941, longitude: 90.3346313 },
-                { latitude: 23.8237739, longitude: 90.3490509 },
-                { latitude: 23.7542285, longitude: 90.3741734 },
-              ]}
-              strokeColor="#000" // fallback for when `strokeColors` is not supported by the map-provider
-              strokeColors={[
-                "#7F0000",
-                "#00000000", // no color, creates a "long" gradient between the previous and next coordinate
-                "#B24112",
-                "#E5845C",
-                "#238C23",
-                "#7F0000",
-              ]}
-              strokeWidth={6}
-            />
+            {/* <Polyline coordinates={ccds} strokeWidth={2} strokeColor="red" /> */}
+
             <Marker
               coordinate={{
                 latitude: coordinates[1],
@@ -168,14 +141,6 @@ const MapMarker = ({ coordinates, title, contact }) => {
             >
               <Image source={require("../assets/images/bus.png")} />
             </Marker>
-
-            {/* <MapViewDirections
-              origin={cd.coordinates[0]}
-              destination={cd.coordinates[1]}
-              apikey={`AIzaSyCYvMpmVhFc0ydILEuXGJNYNGFnBoKPCL8`}
-              strokeWidth={3}
-              strokeColor="hotpink"
-            /> */}
           </MapView>
 
           <View

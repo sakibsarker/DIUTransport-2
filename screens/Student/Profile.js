@@ -12,10 +12,13 @@ import { useTheme, Text } from "react-native-paper";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/Reducers/user";
+import Loader from "../../components/Loader";
 
 const Profile = ({ navigation }) => {
+  const { user, loading } = useSelector((state) => state.user);
+  console.log(user);
   const theme = useTheme();
   const dispatch = useDispatch();
   const handleLogout = () => {
@@ -29,6 +32,10 @@ const Profile = ({ navigation }) => {
       ],
     });
   };
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <View
@@ -50,7 +57,7 @@ const Profile = ({ navigation }) => {
             }}
           >
             <Image
-              source={require("../../assets/images/avatar.png")}
+              source={{ uri: user?.photoURL }}
               style={{
                 height: 80,
                 width: 80,
@@ -58,8 +65,8 @@ const Profile = ({ navigation }) => {
                 marginBottom: 10,
               }}
             />
-            <Text style={styles.profileName}>Sakir Hossain Faruqi</Text>
-            <Text style={styles.profileName}>201-15-3442</Text>
+            <Text style={styles.profileName}>{user?.displayName}</Text>
+            <Text style={styles.profileName}>{user?.email}</Text>
           </View>
 
           <View

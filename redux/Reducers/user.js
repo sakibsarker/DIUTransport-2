@@ -13,11 +13,17 @@ const usersSlice = createSlice({
   reducers: {
     logout: (state, action) => {
       state.loading = false;
-      state.error = action.payload;
+      state.error = null;
       state.token = null;
       state.user = null;
-      state.error = null;
       state.userType = null;
+    },
+    googleLogin: (state, action) => {
+      state.loading = false;
+      state.token = action.payload.token;
+      state.user = action.payload.user;
+      state.userType = "student";
+      state.error = action.payload.error;
     },
   },
   extraReducers: (builder) => {
@@ -51,6 +57,6 @@ const usersSlice = createSlice({
     });
   },
 });
-export const { logout } = usersSlice.actions;
+export const { logout, googleLogin } = usersSlice.actions;
 
 export default usersSlice.reducer;

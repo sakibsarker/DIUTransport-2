@@ -6,6 +6,7 @@ import { Text, Button } from "react-native-paper";
 const TicketScan = () => {
   const [hasCameraPermission, setCameraPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
+  const [count, setCount] = useState(0);
 
   const [value, setValue] = useState(null);
 
@@ -44,6 +45,7 @@ const TicketScan = () => {
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
     setValue(data);
+    setCount(count + 1);
     console.log(`${data}`);
   };
 
@@ -65,7 +67,10 @@ const TicketScan = () => {
   if (value && scanned) {
     return (
       <View style={styles.container}>
-        <Text>{value}</Text>
+        <View>
+          <Text>{value}</Text>
+          <Text>Count: {count}</Text>
+        </View>
         <View>
           <TouchableOpacity onPress={() => setScanned(false)}>
             <Button>Tap to Scan Again ?</Button>
