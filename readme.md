@@ -107,5 +107,5 @@ This project is for Daffodil International University . All right reserved.
 
 | **SR JOY** | **Sakib Sarkar** | **Sakir Hossain Faruqi** | **Sheikh Foysal** |
 | ---------- | ---------- | ---------- | ---------- |
-| - Facebook: [@srjoy01](https://facebook.com/srjoy01) | - Facebook: [@sakibsarkar (https://facebook.com/srjoy01) | - Facebook: [@sakirfaruqi](https://facebook.com/srjoy01) | - Facebook: [@sheikhfoysal](https://facebook.com/srjoy01)|
+| - Facebook: [@srjoy01](https://facebook.com/srjoy01) | - Facebook: [@sakibsarkar](https://facebook.com/srjoy01) | - Facebook: [@sakirfaruqi](https://facebook.com/srjoy01) | - Facebook: [@sheikhfoysal](https://facebook.com/srjoy01)|
 
