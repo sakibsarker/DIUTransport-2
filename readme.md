@@ -97,7 +97,7 @@ Give a ⭐️ if this project inspires you!
 
 ## 📝 License
 
-Copyright © 2022 [srj101](https://github.com/srj101).
+Copyright © 2022 [DIU Transport](https://github.com/srj101/DIUTransport).
 
 This project is for Daffodil International University . All right reserved.
 
