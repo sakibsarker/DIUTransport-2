@@ -68,7 +68,7 @@ const StudentStack = () => {
           }}
         />
          <Drawer.Screen
-          name="Ticket History"
+          name="Trip History"
           component={TicketHistory}
           options={{
             drawerIcon: ({ size, color }) => (
