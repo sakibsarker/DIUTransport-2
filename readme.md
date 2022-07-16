@@ -9,12 +9,12 @@
 - Real Time Updates
 
 <p align="center">
-  <img src="https://i.ibb.co/XVkJkgR/ezgif-com-gif-maker.gif" />
+  <img src="https://i.ibb.co/XVkJkgR/ezgif-com-gif-maker.gif" width=360 />
 </p>
 
 <p align="center">
-  <img src="https://i.ibb.co/VTKdmbh/Simulator-Screen-Shot-i-Phone-13-Pro-Max-2022-07-16-at-14-16-25.png" width=50 height=50 />
-  <img src="https://i.ibb.co/1mX58gY/Simulator-Screen-Shot-i-Phone-13-Pro-Max-2022-07-16-at-14-11-54.png" />
+  <img src="https://i.ibb.co/VTKdmbh/Simulator-Screen-Shot-i-Phone-13-Pro-Max-2022-07-16-at-14-16-25.png" width=360 />
+  <img src="https://i.ibb.co/1mX58gY/Simulator-Screen-Shot-i-Phone-13-Pro-Max-2022-07-16-at-14-11-54.png" width=360 />
 </p>
 
 ## Install & Build
