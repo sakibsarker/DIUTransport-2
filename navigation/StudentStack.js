@@ -72,7 +72,7 @@ const StudentStack = () => {
           component={TicketHistory}
           options={{
             drawerIcon: ({ size, color }) => (
-              <Ionicons name="ios-pricetags" size={size} color={color} />
+              <Ionicons name="md-time" size={size} color={color} />
             ),
           }}
         />
