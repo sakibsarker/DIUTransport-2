@@ -7,7 +7,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/srj101/DIUTransport">
-    <img src="assets/images/D.png" alt="Logo" width="120" height="120">
+    <img src="assets/images/tlogo.png" alt="Logo" width="120" height="120">
   </a>
 
   <h3 align="center">DIU Transport Application</h3>
@@ -78,7 +78,9 @@ Contributions are what make the open source community such an amazing place to b
 - Make Pull Request
 
 
-### 🔥 Screenshots
+<!-- SCREENSHORTS -->
+
+## 🔥 Screenshots
 
 <p align="center">
   <img src="https://i.ibb.co/XVkJkgR/ezgif-com-gif-maker.gif" width=200 height=400 />
@@ -95,7 +97,7 @@ Give a ⭐️ if this project inspires you!
 
 ## 📝 License
 
-Copyright © 2022 [srj101](https://github.com/srj101).
+Copyright © 2022 [DIU Transport](https://github.com/srj101/DIUTransport).
 
 This project is for Daffodil International University . All right reserved.
 
@@ -103,22 +105,7 @@ This project is for Daffodil International University . All right reserved.
 
 ## 👤 Contact
 
-**SR JOY**
+| **SR JOY** | **Sakib Sarkar** | **Sakir Hossain Faruqi** | **Sheikh Foysal** |
+| ---------- | ---------- | ---------- | ---------- |
+| - Facebook: [@srjoy01](https://facebook.com/srjoy01) | - Facebook: [@sakibsarkar](https://facebook.com/srjoy01) | - Facebook: [@sakirfaruqi](https://facebook.com/srjoy01) | - Facebook: [@sheikhfoysal](https://facebook.com/srjoy01)|
 
-- Facebook: [@srjoy01](https://facebook.com/srjoy01)
-- Github: [@srj101](https://github.com/srj101)
-
-**Sakib Sarkar**
-
-- Facebook: [@srjoy01](https://facebook.com/srjoy01)
-- Github: [@srj101](https://github.com/srj101)
-
-**Sakir Hossain Faruqi**
-
-- Facebook: [@srjoy01](https://facebook.com/srjoy01)
-- Github: [@srj101](https://github.com/srj101)
-
-**Sheikh Foysal**
-
-- Facebook: [@srjoy01](https://facebook.com/srjoy01)
-- Github: [@srj101](https://github.com/srj101)
