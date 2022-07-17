@@ -7,7 +7,10 @@ const RouteList = ({ navigation, route }) => {
   const theme = useTheme();
   return (
     <View style={styles.container}>
-      <Surface style={styles.item} elevation={5}>
+      <Surface
+        style={{ ...styles.item, backgroundColor: theme.colors.cardToggle }}
+        elevation={5}
+      >
         <List.Item
           onPress={() =>
             navigation.navigate("BusList", { routeId: "রাস্তা ১" })
@@ -28,7 +31,9 @@ const RouteList = ({ navigation, route }) => {
           left={(props) => <List.Icon {...props} icon="bus" />}
         />
       </Surface>
-      <Surface style={styles.item}>
+      <Surface
+        style={{ ...styles.item, backgroundColor: theme.colors.cardToggle }}
+      >
         <List.Item
           onPress={() =>
             navigation.navigate("BusList", { routeId: "রাস্তা ৩" })
@@ -49,7 +54,9 @@ const RouteList = ({ navigation, route }) => {
           left={(props) => <List.Icon {...props} icon="bus" />}
         />
       </Surface>
-      <Surface style={styles.item}>
+      <Surface
+        style={{ ...styles.item, backgroundColor: theme.colors.cardToggle }}
+      >
         <List.Item
           onPress={() =>
             navigation.navigate("BusList", { routeId: "রাস্তা ৪" })
@@ -70,7 +77,9 @@ const RouteList = ({ navigation, route }) => {
           left={(props) => <List.Icon {...props} icon="bus" />}
         />
       </Surface>
-      <Surface style={styles.item}>
+      <Surface
+        style={{ ...styles.item, backgroundColor: theme.colors.cardToggle }}
+      >
         <List.Item
           onPress={() =>
             navigation.navigate("BusList", { routeId: "রাস্তা ৪" })
@@ -91,7 +100,9 @@ const RouteList = ({ navigation, route }) => {
           left={(props) => <List.Icon {...props} icon="bus" />}
         />
       </Surface>
-      <Surface style={styles.item}>
+      <Surface
+        style={{ ...styles.item, backgroundColor: theme.colors.cardToggle }}
+      >
         <List.Item
           onPress={() =>
             navigation.navigate("BusList", { routeId: "রাস্তা ৪" })
@@ -112,7 +123,9 @@ const RouteList = ({ navigation, route }) => {
           left={(props) => <List.Icon {...props} icon="bus" />}
         />
       </Surface>
-      <Surface style={styles.item}>
+      <Surface
+        style={{ ...styles.item, backgroundColor: theme.colors.cardToggle }}
+      >
         <List.Item
           onPress={() =>
             navigation.navigate("BusList", { routeId: "রাস্তা ৪" })

@@ -14,11 +14,26 @@ const TicketHistory = () => {
       <SafeAreaView>
         <ScrollView>
           <View style={styles.body}>
-            <Surface style={{ ...styles.ticket }}>
+            <Surface
+              style={{
+                ...styles.ticket,
+                backgroundColor: theme.colors.cardToggle,
+              }}
+            >
               <View style={styles.date}>
                 <Text>19 June-2022</Text>
+                <Text
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: 18,
+                    marginBottom: 15,
+                    marginTop: 10,
+                  }}
+                >
+                  25.00 TK
+                </Text>
               </View>
-              <Text>25.00 TK</Text>
+              <Divider style={{ marginBottom: 15 }} />
               <View style={styles.timestus}>
                 <View style={styles.tilocation}>
                   <Text style={styles.tilocationname1}>Ashulia</Text>
@@ -46,15 +61,31 @@ const TicketHistory = () => {
                   style={{ backgroundColor: theme.colors.accent }}
                   color="#FFFFFF"
                 >
-                  Show Ticket
+                  Buy Again
                 </Button>
               </View>
             </Surface>
-            <Surface style={{ ...styles.ticket }}>
+            <Surface
+              style={{
+                ...styles.ticket,
+                backgroundColor: theme.colors.cardToggle,
+              }}
+            >
               <View style={styles.date}>
                 <Text>19 June-2022</Text>
+                <Text
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: 18,
+                    marginBottom: 15,
+                    marginTop: 10,
+                  }}
+                >
+                  25.00 TK
+                </Text>
               </View>
-              <Text>25.00 TK</Text>
+
+              <Divider style={{ marginBottom: 15 }} />
               <View style={styles.timestus}>
                 <View style={styles.tilocation}>
                   <Text style={styles.tilocationname1}>Ashulia</Text>
@@ -82,15 +113,31 @@ const TicketHistory = () => {
                   style={{ backgroundColor: theme.colors.accent }}
                   color="#FFFFFF"
                 >
-                  Show Ticket
+                  Buy Again
                 </Button>
               </View>
             </Surface>
-            <Surface style={{ ...styles.ticket }}>
+            <Surface
+              style={{
+                ...styles.ticket,
+                backgroundColor: theme.colors.cardToggle,
+              }}
+            >
               <View style={styles.date}>
                 <Text>19 June-2022</Text>
+                <Text
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: 18,
+                    marginBottom: 15,
+                    marginTop: 10,
+                  }}
+                >
+                  25.00 TK
+                </Text>
               </View>
-              <Text>25.00 TK</Text>
+
+              <Divider style={{ marginBottom: 15 }} />
               <View style={styles.timestus}>
                 <View style={styles.tilocation}>
                   <Text style={styles.tilocationname1}>Ashulia</Text>
@@ -118,7 +165,7 @@ const TicketHistory = () => {
                   style={{ backgroundColor: theme.colors.accent }}
                   color="#FFFFFF"
                 >
-                  Show Ticket
+                  Buy Again
                 </Button>
               </View>
             </Surface>
