@@ -1,9 +1,9 @@
-import { View, StyleSheet, KeyboardAvoidingView } from "react-native";
-import React from "react";
-import { useTheme, Text } from "react-native-paper";
-import { Tab, TabView } from "@rneui/themed";
-import Student from "../components/Login/Student";
-import TicketMan from "../components/Login/TicketMan";
+import { View, StyleSheet, KeyboardAvoidingView } from 'react-native';
+import React from 'react';
+import { useTheme, Text } from 'react-native-paper';
+import { Tab, TabView } from '@rneui/themed';
+import Student from '../components/Login/Student';
+import TicketMan from '../components/Login/TicketMan';
 
 const Login = ({ navigation }) => {
   const theme = useTheme();
@@ -14,30 +14,30 @@ const Login = ({ navigation }) => {
       <KeyboardAvoidingView>
         <Text
           style={{
-            textAlign: "center",
-            marginBottom: 20,
+            textAlign: 'center',
+            marginBottom: 10,
             fontSize: 22,
-            fontWeight: "bold",
-            paddingTop: "40%",
+            fontWeight: 'bold',
+            paddingTop: '30%',
           }}
         >
           DIU Smart Transport
         </Text>
         <View
           style={{
-            height: "50%",
-            marginBottom: "15%",
-            backgroundColor: "#FFFFFF",
-            marginLeft: "10%",
-            marginRight: "10%",
-            width: "80%",
-            borderRadius: 35,
+            height: '55%',
+            marginBottom: '25%',
+            backgroundColor: '#FFFFFF',
+            marginLeft: '10%',
+            marginRight: '10%',
+            width: '80%',
+            borderRadius: 30,
           }}
         >
           <View
             style={{
               flex: 1,
-              overflow: "hidden",
+              overflow: 'hidden',
             }}
           >
             <Tab
@@ -47,8 +47,8 @@ const Login = ({ navigation }) => {
               }}
               containerStyle={(active) => ({
                 color: theme.colors.text,
-                borderTopLeftRadius: 35,
-                borderTopRightRadius: 35,
+                borderTopLeftRadius: 30,
+                borderTopRightRadius: 30,
               })}
               value={index}
               onChange={(e) => setIndex(e)}
@@ -62,12 +62,12 @@ const Login = ({ navigation }) => {
                 }}
                 containerStyle={(active) => ({
                   backgroundColor: active
-                    ? theme.colors.surface
-                    : theme.colors.accent,
+                    ? theme.colors.accent
+                    : theme.colors.surface,
                   borderTopLeftRadius: 35,
                 })}
                 titleStyle={(active) => ({
-                  color: active ? theme.colors.accent : theme.colors.White,
+                  color: active ? theme.colors.White : theme.colors.accent,
                 })}
               />
               <Tab.Item
@@ -77,13 +77,13 @@ const Login = ({ navigation }) => {
                 }}
                 containerStyle={(active) => ({
                   backgroundColor: active
-                    ? theme.colors.surface
-                    : theme.colors.accent,
+                    ? theme.colors.accent
+                    : theme.colors.surface,
                   borderTopRightRadius: 35,
                 })}
                 title="TicketMan"
                 titleStyle={(active) => ({
-                  color: active ? theme.colors.accent : theme.colors.White,
+                  color: active ? theme.colors.White : theme.colors.accent,
                 })}
               />
             </Tab>
@@ -91,18 +91,18 @@ const Login = ({ navigation }) => {
             <TabView value={index} onChange={setIndex} animationType="spring">
               <TabView.Item
                 style={{
-                  justifyContent: "center",
+                  justifyContent: 'center',
                   flex: 1,
-                  alignItems: "center",
+                  alignItems: 'center',
                 }}
               >
                 <Student navigation={navigation} />
               </TabView.Item>
               <TabView.Item
                 style={{
-                  justifyContent: "center",
+                  justifyContent: 'center',
                   flex: 1,
-                  alignItems: "center",
+                  alignItems: 'center',
                 }}
               >
                 <TicketMan navigation={navigation} />
