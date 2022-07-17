@@ -11,8 +11,8 @@ import { useTheme } from "react-native-paper";
 import NoticeBoard from "../screens/NoticeBoard";
 import BusDetails from "../screens/Student/BusDetails";
 import BusList from "../components/Home/BusList";
-import TicketHistory from "../screens/Student/TicketHistory";
 import ViewAll from "../screens/Student/ViewAll";
+import TicketHistory from "../screens/Student/TicketHistory";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();

@@ -1,3 +1,4 @@
+import React from "react";
 import {
   View,
   StatusBar,
@@ -7,7 +8,6 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-import React from "react";
 import { useTheme, Text } from "react-native-paper";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
