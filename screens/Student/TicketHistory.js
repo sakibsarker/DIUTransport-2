@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { StyleSheet, View, ScrollView, SafeAreaView } from "react-native";
-import { useTheme, Surface, Text, Button, Divider } from "react-native-paper";
+import { StyleSheet, View, ScrollView, SafeAreaView,StatusBar,Divider } from "react-native";
+import { useTheme, Surface, Text, Button } from "react-native-paper";
 const TicketHistory = () => {
   const theme = useTheme();
   return (
