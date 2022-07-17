@@ -18,6 +18,7 @@ export const themeLight = {
     White: "#FFFFFF",
     surfaceToggle: "#F3F3F3",
     cardToggle: "#FFFFFF",
+    btnToggle: "#182C61",
   },
 };
 
@@ -34,5 +35,6 @@ export const themeDark = {
     White: "#FFFFFF",
     surfaceToggle: "#000",
     cardToggle: "#272727",
+    btnToggle: "#272727",
   },
 };
