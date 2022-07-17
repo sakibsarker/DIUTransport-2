@@ -12,7 +12,6 @@ import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../components/Loader";
-import { StackActions } from "@react-navigation/native";
 import { logout } from "../../redux/Reducers/user";
 
 const Profile = ({ navigation }) => {
@@ -26,14 +25,6 @@ const Profile = ({ navigation }) => {
 
   const handleLogout = () => {
     dispatch(logout());
-    navigation.reset({
-      index: 0,
-      routes: [
-        {
-          name: "login",
-        },
-      ],
-    });
   };
 
   return (

@@ -107,7 +107,7 @@ const StudentTabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="profile2"
+        name="StuduentProfile"
         component={ProfileStack}
         options={{
           tabBarIcon: ({ color, size }) => (
@@ -122,10 +122,10 @@ const StudentTabNavigator = () => {
 const getTabBarVisibility = (route) => {
   const routeName = getFocusedRouteNameFromRoute(route) ?? "Feed";
   console.log(routeName);
-  if (routeName == "home" || routeName == "Feed") {
-    return "flex";
-  }
-  return "none";
+  // if (routeName == "home" || routeName == "Feed") {
+  //   return "flex";
+  // }
+  return "flex";
 };
 
 export default StudentTabNavigator;

@@ -23,14 +23,6 @@ const Profile = ({ navigation }) => {
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(logout());
-    navigation.reset({
-      index: 0,
-      routes: [
-        {
-          name: "login",
-        },
-      ],
-    });
   };
 
   if (loading) {

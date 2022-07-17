@@ -17,7 +17,7 @@ const root = () => {
     dispatch(employeeProfile({ token: token && token }));
   }, [dispatch]);
 
-  if (token == null && userType == null) {
+  if (token == null || userType == null) {
     return <AuthStack />;
   } else {
     if (userType && userType == "student") {
