@@ -28,7 +28,9 @@ const RouteList = ({ navigation, route }) => {
               />
             </>
           )}
-          left={(props) => <List.Icon {...props} icon="bus" />}
+          left={(props) => (
+            <List.Icon {...props} icon="bus" style={{ marginRight: 0 }} />
+          )}
         />
       </Surface>
       <Surface
@@ -51,7 +53,9 @@ const RouteList = ({ navigation, route }) => {
               />
             </>
           )}
-          left={(props) => <List.Icon {...props} icon="bus" />}
+          left={(props) => (
+            <List.Icon {...props} icon="bus" style={{ marginRight: 0 }} />
+          )}
         />
       </Surface>
       <Surface
@@ -74,7 +78,9 @@ const RouteList = ({ navigation, route }) => {
               />
             </>
           )}
-          left={(props) => <List.Icon {...props} icon="bus" />}
+          left={(props) => (
+            <List.Icon {...props} icon="bus" style={{ marginRight: 0 }} />
+          )}
         />
       </Surface>
       <Surface
@@ -97,7 +103,9 @@ const RouteList = ({ navigation, route }) => {
               />
             </>
           )}
-          left={(props) => <List.Icon {...props} icon="bus" />}
+          left={(props) => (
+            <List.Icon {...props} icon="bus" style={{ marginRight: 0 }} />
+          )}
         />
       </Surface>
       <Surface
@@ -120,7 +128,9 @@ const RouteList = ({ navigation, route }) => {
               />
             </>
           )}
-          left={(props) => <List.Icon {...props} icon="bus" />}
+          left={(props) => (
+            <List.Icon {...props} icon="bus" style={{ marginRight: 0 }} />
+          )}
         />
       </Surface>
       <Surface
@@ -143,7 +153,9 @@ const RouteList = ({ navigation, route }) => {
               />
             </>
           )}
-          left={(props) => <List.Icon {...props} icon="bus" />}
+          left={(props) => (
+            <List.Icon {...props} icon="bus" style={{ marginRight: 0 }} />
+          )}
         />
       </Surface>
     </View>
@@ -161,6 +173,7 @@ const styles = StyleSheet.create({
   item: {
     width: "44%",
     margin: "3%",
+    borderRadius: 15,
   },
 });
 
