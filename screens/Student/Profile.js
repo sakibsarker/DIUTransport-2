@@ -71,7 +71,7 @@ const Profile = ({ navigation }) => {
 
           <View
             style={{
-              backgroundColor: theme.colors.White,
+              backgroundColor: theme.colors.cardToggle,
               padding: 40,
               borderRadius: 20,
               position: "relative",
@@ -80,7 +80,7 @@ const Profile = ({ navigation }) => {
             <View
               style={{
                 position: "absolute",
-                backgroundColor: "rgb(242, 242, 242)",
+                backgroundColor: theme.colors.surfaceToggle,
                 left: "50%",
                 marginLeft: 24,
                 width: 32,
@@ -135,7 +135,6 @@ const Profile = ({ navigation }) => {
                 <Text
                   style={{
                     fontSize: 15,
-                    color: theme.colors.accent,
                     fontWeight: "bold",
                   }}
                 >
@@ -143,39 +142,7 @@ const Profile = ({ navigation }) => {
                 </Text>
               </TouchableOpacity>
             </View>
-            <View
-              style={{
-                justifyContent: "flex-start",
-                flexDirection: "row",
-                alignItems: "center",
-                marginBottom: 15,
-              }}
-            >
-              <View
-                style={{
-                  backgroundColor: theme.colors.accent,
-                  borderRadius: 100,
-                  padding: 10,
-                }}
-              >
-                <FontAwesome5
-                  size={15}
-                  color={theme.colors.White}
-                  name="unlock"
-                />
-              </View>
-              <TouchableOpacity style={{ marginLeft: 10 }}>
-                <Text
-                  style={{
-                    fontSize: 15,
-                    color: theme.colors.accent,
-                    fontWeight: "bold",
-                  }}
-                >
-                  Change Password
-                </Text>
-              </TouchableOpacity>
-            </View>
+
             <View
               style={{
                 justifyContent: "flex-start",
@@ -197,11 +164,13 @@ const Profile = ({ navigation }) => {
                   name="location-history"
                 />
               </View>
-              <TouchableOpacity style={{ marginLeft: 10 }}>
+              <TouchableOpacity
+                style={{ marginLeft: 10 }}
+                onPress={() => navigation.navigate("TripHistory")}
+              >
                 <Text
                   style={{
                     fontSize: 15,
-                    color: theme.colors.accent,
                     fontWeight: "bold",
                   }}
                 >

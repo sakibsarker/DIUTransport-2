@@ -16,6 +16,8 @@ export const themeLight = {
     tabInactiveColor: "#dfe6e9",
     accentLight: "#b2bec3",
     White: "#FFFFFF",
+    surfaceToggle: "#F3F3F3",
+    cardToggle: "#FFFFFF",
   },
 };
 
@@ -30,5 +32,7 @@ export const themeDark = {
     tabActiveColor: "#FFF",
     tabInactiveColor: "#2C3A47",
     White: "#FFFFFF",
+    surfaceToggle: "#000",
+    cardToggle: "#272727",
   },
 };
