@@ -38,7 +38,7 @@ const StudentStack = () => {
       <Drawer.Navigator
         drawerContent={(props) => <CustomDrawer {...props} />}
         screenOptions={{
-          headerShown: false,
+          headerShown: true,
           drawerActiveBackgroundColor: theme.colors.accent,
           drawerActiveTintColor: "#fff",
           drawerInactiveTintColor: "#333",

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   View,
   StyleSheet,
@@ -8,12 +8,12 @@ import {
   ImageBackground,
   TouchableOpacity,
   ScrollView,
-} from 'react-native';
+} from "react-native";
 
-import SearchBar from '../../components/Home/SearchBar';
-import { useTheme, Divider, Button, Text } from 'react-native-paper';
-import RouteList from '../../components/Home/RouteList';
-import RecentTickets from '../../components/Home/RecentTickets';
+import SearchBar from "../../components/Home/SearchBar";
+import { useTheme, Divider, Button, Text } from "react-native-paper";
+import RouteList from "../../components/Home/RouteList";
+import RecentTickets from "../../components/Home/RecentTickets";
 
 const Home = ({ navigation }) => {
   const theme = useTheme();
@@ -22,20 +22,20 @@ const Home = ({ navigation }) => {
       style={{
         flex: 1,
         backgroundColor: theme?.colors.surface,
-        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+        paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
       }}
     >
       <ImageBackground
-        source={require('../../assets/images/dark-map.jpeg')}
+        source={require("../../assets/images/dark-map.jpeg")}
         style={{ padding: 60 }}
       />
       <ScrollView>
         <SafeAreaView>
           <SearchBar />
-
+          <Divider />
           <View style={styles.container}>
-            <Text>All Transports</Text>
-            <TouchableOpacity onPress={() => navigation.navigate('Routes')}>
+            <Text style={{ fontWeight: "bold" }}>All Transports</Text>
+            <TouchableOpacity onPress={() => navigation.navigate("Routes")}>
               <Text
                 style={{
                   backgroundColor: theme?.colors.accent,
@@ -55,14 +55,15 @@ const Home = ({ navigation }) => {
           <View style={styles.container}>
             <RouteList navigation={navigation} />
           </View>
-          <View style={{ marginBottom: 20 }}>
-            <Text
-              style={{ marginLeft: 25, fontWeight: 'bold', marginBottom: 15 }}
-            >
-              Your Recent Tickets
-            </Text>
-            <Divider />
-            <RecentTickets />
+
+          <Divider />
+          <View style={styles.container}>
+            <Text style={{ fontWeight: "bold" }}>Your Recent Journies</Text>
+          </View>
+          <Divider />
+
+          <View style={styles.container}>
+            <RecentTickets navigation={navigation} />
           </View>
         </SafeAreaView>
       </ScrollView>
@@ -72,10 +73,10 @@ const Home = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "center",
+    justifyContent: "space-between",
     marginTop: 15,
     paddingLeft: 25,
     paddingRight: 25,
