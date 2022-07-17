@@ -159,8 +159,8 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
   },
   item: {
-    width: "50%",
-    marginBottom: 25,
+    width: "44%",
+    margin: "3%",
   },
 });
 
