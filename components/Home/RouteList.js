@@ -21,7 +21,7 @@ const RouteList = ({ navigation, route }) => {
             <>
               <Text>DSC</Text>
               <MaterialIcons
-                size={25}
+                size={20}
                 color={theme.colors.White}
                 {...props}
                 name="alt-route"
@@ -44,7 +44,7 @@ const RouteList = ({ navigation, route }) => {
             <>
               <Text>DSC</Text>
               <MaterialIcons
-                size={25}
+                size={20}
                 color={theme.colors.White}
                 {...props}
                 name="alt-route"
@@ -67,7 +67,7 @@ const RouteList = ({ navigation, route }) => {
             <>
               <Text>DSC</Text>
               <MaterialIcons
-                size={25}
+                size={20}
                 color={theme.colors.White}
                 {...props}
                 name="alt-route"
@@ -90,7 +90,7 @@ const RouteList = ({ navigation, route }) => {
             <>
               <Text>DSC</Text>
               <MaterialIcons
-                size={25}
+                size={20}
                 color={theme.colors.White}
                 {...props}
                 name="alt-route"
@@ -113,7 +113,7 @@ const RouteList = ({ navigation, route }) => {
             <>
               <Text>DSC</Text>
               <MaterialIcons
-                size={25}
+                size={20}
                 color={theme.colors.White}
                 {...props}
                 name="alt-route"
@@ -136,7 +136,7 @@ const RouteList = ({ navigation, route }) => {
             <>
               <Text>DSC</Text>
               <MaterialIcons
-                size={25}
+                size={20}
                 color={theme.colors.White}
                 {...props}
                 name="alt-route"
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
   },
   item: {
     width: "50%",
-    marginBottom: 25,
+    marginBottom: 15,
   },
 });
 

@@ -387,7 +387,7 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
     container: {
       width: "100%",
       flex: 1,
-      flexDirection: "row",
+      flexDirection:"row",
       flexWrap: "wrap",
       alignItems: "flex-start",
     },
