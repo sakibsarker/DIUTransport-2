@@ -171,14 +171,8 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
   },
   item: {
-<<<<<<< HEAD
     width: "50%",
     marginBottom: 15,
-=======
-    width: "44%",
-    margin: "3%",
-    borderRadius: 15,
->>>>>>> 871a524e875a49639dfcbec674b7f50f9b5df6ac
   },
 });
 
