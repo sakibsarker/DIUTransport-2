@@ -378,7 +378,6 @@ const ViewAll = ({ navigation, route }) => {
           />
         </Surface>
       </View>
-<<<<<<< HEAD
       </ScrollView>
     );
   };
@@ -396,24 +395,5 @@ const ViewAll = ({ navigation, route }) => {
       marginBottom: 25,
     },
   });
-=======
-    </ScrollView>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    width: "100%",
-    flex: 1,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    alignItems: "flex-start",
-  },
-  item: {
-    width: "44%",
-    margin: "3%",
-  },
-});
->>>>>>> 871a524e875a49639dfcbec674b7f50f9b5df6ac
 
 export default ViewAll;
