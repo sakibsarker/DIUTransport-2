@@ -3,6 +3,7 @@ import React from "react";
 import { View, StyleSheet, ScrollView } from "react-native";
 import { Text, Surface, useTheme, Divider } from "react-native-paper";
 import EvilIcons from "react-native-vector-icons/EvilIcons";
+import Ionicons from "react-native-vector-icons/Ionicons";
 import { NavigationActions } from "react-navigation";
 
 const RecentTickets = ({ navigation }) => {
@@ -26,7 +27,7 @@ const RecentTickets = ({ navigation }) => {
             marginTop: 10,
             marginRight: 15,
             marginBottom: 15,
-            borderRadius: 20,
+            borderRadius: 10,
             backgroundColor: theme.colors.cardToggle,
             justifyContent: "center",
           }}
@@ -49,8 +50,8 @@ const RecentTickets = ({ navigation }) => {
               marginBottom: 15,
             }}
           >
-            <EvilIcons name="calendar" size={25} color={theme.colors.text} />
-            <Text style={{ fontWeight: "bold", marginLeft: 5 }}>25 TK</Text>
+            <Ionicons name="pricetags-outline" size={20} color={theme.colors.text} />
+            <Text style={{ fontWeight: "500", marginLeft: 10,fontStyle:"italic" }}>25 TK</Text>
           </View>
 
           <View
@@ -81,7 +82,7 @@ const RecentTickets = ({ navigation }) => {
             marginTop: 10,
             marginRight: 15,
             marginBottom: 15,
-            borderRadius: 20,
+            borderRadius: 10,
             backgroundColor: theme.colors.cardToggle,
             justifyContent: "center",
           }}
@@ -104,8 +105,8 @@ const RecentTickets = ({ navigation }) => {
               marginBottom: 15,
             }}
           >
-            <EvilIcons name="calendar" size={25} color={theme.colors.text} />
-            <Text style={{ fontWeight: "bold", marginLeft: 5 }}>25 TK</Text>
+            <Ionicons name="pricetags-outline" size={20} color={theme.colors.text} />
+            <Text style={{ fontWeight: "500", marginLeft: 10,fontStyle:"italic" }}>25 TK</Text>
           </View>
 
           <View
@@ -136,7 +137,7 @@ const RecentTickets = ({ navigation }) => {
             marginTop: 10,
             marginRight: 15,
             marginBottom: 15,
-            borderRadius: 20,
+            borderRadius: 10,
             backgroundColor: theme.colors.cardToggle,
             justifyContent: "center",
           }}
@@ -159,8 +160,8 @@ const RecentTickets = ({ navigation }) => {
               marginBottom: 15,
             }}
           >
-            <EvilIcons name="calendar" size={25} color={theme.colors.text} />
-            <Text style={{ fontWeight: "bold", marginLeft: 5 }}>25 TK</Text>
+            <Ionicons name="pricetags-outline" size={20} color={theme.colors.text} />
+            <Text style={{ fontWeight: "500", marginLeft: 10, fontStyle:"italic" }}>25 TK</Text>
           </View>
 
           <View

@@ -15,18 +15,18 @@ const Footer = () => {
                 backgroundColor: theme?.colors.accent,
                 flexDirection: "row",
                 justifyContent: "space-around",
-                borderTopLeftRadius:30,
-                borderTopRightRadius:30
+                borderTopLeftRadius:20,
+                borderTopRightRadius:20,
             }}
         >
             <TouchableOpacity onPress={() => navigation.navigate("mymap")}>
-                <Icon name="map" size={30} color={theme?.colors.surface} />
+                <Icon name="map" size={20} color={theme?.colors.surface} />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate("home")}>
-                <Icon name="home" size={30} color={theme?.colors.surface} />
+                <Icon name="home" size={20} color={theme?.colors.surface} />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate("profile")}>
-                <Icon name="user" size={30} color={theme?.colors.surface} />
+                <Icon name="user" size={20} color={theme?.colors.surface} />
             </TouchableOpacity>
         </View>
     )

@@ -21,7 +21,7 @@ const RouteList = ({ navigation, route }) => {
             <>
               <Text>DSC</Text>
               <MaterialIcons
-                size={25}
+                size={20}
                 color={theme.colors.White}
                 {...props}
                 name="alt-route"
@@ -46,7 +46,7 @@ const RouteList = ({ navigation, route }) => {
             <>
               <Text>DSC</Text>
               <MaterialIcons
-                size={25}
+                size={20}
                 color={theme.colors.White}
                 {...props}
                 name="alt-route"
@@ -71,7 +71,7 @@ const RouteList = ({ navigation, route }) => {
             <>
               <Text>DSC</Text>
               <MaterialIcons
-                size={25}
+                size={20}
                 color={theme.colors.White}
                 {...props}
                 name="alt-route"
@@ -96,7 +96,7 @@ const RouteList = ({ navigation, route }) => {
             <>
               <Text>DSC</Text>
               <MaterialIcons
-                size={25}
+                size={20}
                 color={theme.colors.White}
                 {...props}
                 name="alt-route"
@@ -121,7 +121,7 @@ const RouteList = ({ navigation, route }) => {
             <>
               <Text>DSC</Text>
               <MaterialIcons
-                size={25}
+                size={20}
                 color={theme.colors.White}
                 {...props}
                 name="alt-route"
@@ -146,7 +146,7 @@ const RouteList = ({ navigation, route }) => {
             <>
               <Text>DSC</Text>
               <MaterialIcons
-                size={25}
+                size={20}
                 color={theme.colors.White}
                 {...props}
                 name="alt-route"
@@ -171,9 +171,8 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
   },
   item: {
-    width: "44%",
-    margin: "3%",
-    borderRadius: 15,
+    width: "50%",
+    marginBottom: 15,
   },
 });
 
