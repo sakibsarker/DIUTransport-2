@@ -21,7 +21,7 @@ const Home = ({ navigation }) => {
     <View
       style={{
         flex: 1,
-        backgroundColor: theme?.colors.surface,
+        backgroundColor: theme?.colors.backcolor,
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
       }}
     >
@@ -44,7 +44,7 @@ const Home = ({ navigation }) => {
                   paddingRight: 15,
                   paddingTop: 5,
                   paddingBottom: 5,
-                  borderRadius:20,
+                  borderRadius:15,
                 }}
               >
                 View All

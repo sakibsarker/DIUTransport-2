@@ -81,7 +81,7 @@ const Profile = ({ navigation }) => {
                 borderRadius: 100,
               }}
             >
-              <Text style={{ display: "none" }}>dsfg</Text>
+              <Text style={{ display: "none" }}></Text>
             </View>
             <View
               style={{
@@ -127,7 +127,7 @@ const Profile = ({ navigation }) => {
                 <Text
                   style={{
                     fontSize: 15,
-                    fontWeight: "bold",
+                    fontWeight:"700",
                   }}
                 >
                   Personal Data
@@ -163,7 +163,7 @@ const Profile = ({ navigation }) => {
                 <Text
                   style={{
                     fontSize: 15,
-                    fontWeight: "bold",
+                    fontWeight:"700",
                   }}
                 >
                   My Trip
@@ -192,7 +192,7 @@ const Profile = ({ navigation }) => {
                 />
               </View>
               <View style={{ marginLeft: 10 }}>
-                <Text style={{ fontSize: 20, fontWeight: "bold" }}>Logout</Text>
+                <Text style={{ fontSize: 15, fontWeight:"700" }}>Logout</Text>
               </View>
             </TouchableOpacity>
           </View>

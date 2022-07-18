@@ -10,7 +10,7 @@ export const themeLight = {
   myOwnProperty: true,
   // Specify custom property in nested object
   colors: {
-    accent: "#182C61",
+    accent: "#2a529f",
     success: "#16a085",
     tabActiveColor: "#74b9ff",
     tabInactiveColor: "#dfe6e9",
@@ -19,6 +19,7 @@ export const themeLight = {
     surfaceToggle: "#F3F3F3",
     cardToggle: "#FFFFFF",
     btnToggle: "#182C61",
+    backcolor:"#ffffff",
   },
 };
 
