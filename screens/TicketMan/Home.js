@@ -69,7 +69,7 @@ const Home = ({ navigation }) => {
           <TouchableOpacity style={styles.centerCol}>
             <Text
               style={{
-                backgroundColor: theme.colors.primary,
+                backgroundColor: theme.colors.btnToggle,
                 color: theme.colors.White,
                 padding: 15,
               }}

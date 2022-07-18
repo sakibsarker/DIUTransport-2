@@ -9,24 +9,17 @@ import { StackActions } from "@react-navigation/native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import { PreferencesContext } from "../contexts/PreferencesContext ";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/Reducers/user";
 
 const CustomDrawer = (props) => {
+  const { user, loading, userType } = useSelector((state) => state.user);
   const theme = useTheme();
   const dispatch = useDispatch();
   const { toggleTheme, isThemeDark } = React.useContext(PreferencesContext);
 
   const handleLogout = () => {
     dispatch(logout());
-    props.navigation.reset({
-      index: 0,
-      routes: [
-        {
-          name: "login",
-        },
-      ],
-    });
   };
 
   return (
@@ -39,36 +32,59 @@ const CustomDrawer = (props) => {
           source={require("../assets/images/dark-bg.webp")}
           style={{ padding: 20 }}
         >
-          <Image
-            source={require("../assets/images/avatar.png")}
-            style={{
-              height: 80,
-              width: 80,
-              borderRadius: 40,
-              marginBottom: 10,
-            }}
-          />
-          <Text
-            style={{
-              color: "#fff",
-              fontSize: 18,
-              marginBottom: 5,
-            }}
+          {user?.photoURL ? (
+            <Image
+              source={{ uri: user?.photoURL }}
+              style={{
+                height: 80,
+                width: 80,
+                borderRadius: 40,
+                marginBottom: 10,
+              }}
+            />
+          ) : (
+            <Image
+              source={require("../assets/images/avatar.png")}
+              style={{
+                height: 80,
+                width: 80,
+                borderRadius: 40,
+                marginBottom: 10,
+              }}
+            />
+          )}
+          <TouchableOpacity
+            onPress={() => props.navigation.navigate("StuduentProfile")}
           >
-            SR Joy
-          </Text>
-          <View style={{ flexDirection: "row" }}>
             <Text
               style={{
                 color: "#fff",
-
-                marginRight: 5,
+                fontSize: 18,
+                marginBottom: 5,
               }}
             >
-              5 Tickets
+              {user?.displayName}
             </Text>
-            <FontAwesome5 name="coins" size={14} color={"#FFFFFF"} />
-          </View>
+          </TouchableOpacity>
+          {userType && userType === "student" ? (
+            <TouchableOpacity
+              onPress={() => props.navigation.navigate("Tickets")}
+              style={{ flexDirection: "row" }}
+            >
+              <Text
+                style={{
+                  color: "#fff",
+
+                  marginRight: 5,
+                }}
+              >
+                5 Tickets
+              </Text>
+              <FontAwesome5 name="coins" size={14} color={"#FFFFFF"} />
+            </TouchableOpacity>
+          ) : (
+            <></>
+          )}
         </ImageBackground>
         <View
           style={{

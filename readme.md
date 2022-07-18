@@ -2,7 +2,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![runs with expo](https://img.shields.io/badge/Runs%20with%20Expo-000.svg?style=flat-square&logo=EXPO&labelColor=f3f3f3&logoColor=000)](https://expo.io/)
 
-
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
@@ -21,17 +20,16 @@
   </p>
 </p>
 
-
 <!-- ABOUT THE PROJECT -->
 
 ## ℹ️ About The Project
 
 ![alt text](assets/images/AppP1.png "App P1")
+![alt text](assets/images/AppP2.png "App P2")
 
 It is made using React Native with Expo using firebase services (authentication, firestore and storage).
 The admin panel is made with ReactJS.
 The backend is all NodeJS
-
 
 ## 🆕 Getting Started
 
@@ -51,7 +49,6 @@ The backend is all NodeJS
 
   Run Project Locally: `yarn dev` or `yarn start`
 
-
 ## 🚧 Roadmap & Latest Features
 
 See the [open issues](https://github.com/srj101/DIUTransport/issues) for a list of proposed features (and known issues).
@@ -61,7 +58,6 @@ See the [open issues](https://github.com/srj101/DIUTransport/issues) for a list 
 - React Navigation v6
 - Ticket Booking
 - Real Time Updates
-
 
 <!-- CONTRIBUTING -->
 
@@ -77,7 +73,6 @@ Contributions are what make the open source community such an amazing place to b
 - `git push origin master`
 - Make Pull Request
 
-
 <!-- SCREENSHORTS -->
 
 ## 🔥 Screenshots
@@ -89,11 +84,9 @@ Contributions are what make the open source community such an amazing place to b
   <img src="https://i.ibb.co/8NycK1w/Simulator-Screen-Shot-i-Phone-13-Pro-Max-2022-07-16-at-14-18-00.png" width=200 height=400 />
 </p>
 
-
 ## 🌟 Show your support
 
 Give a ⭐️ if this project inspires you!
-
 
 ## 📝 License
 
@@ -105,7 +98,6 @@ This project is for Daffodil International University . All right reserved.
 
 ## 👤 Contact
 
-| **SR JOY** | **Sakib Sarkar** | **Sakir Hossain Faruqi** | **Sheikh Foysal** |
-| ---------- | ---------- | ---------- | ---------- |
-| - Facebook: [@srjoy01](https://facebook.com/srjoy01) | - Facebook: [@sakibsarkar](https://facebook.com/srjoy01) | - Facebook: [@sakirfaruqi](https://facebook.com/srjoy01) | - Facebook: [@sheikhfoysal](https://facebook.com/srjoy01)|
-
+| **SR JOY**                                           | **Sakib Sarkar**                                         | **Sakir Hossain Faruqi**                                 | **Sheikh Foysal**                                         |
+| ---------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | --------------------------------------------------------- |
+| - Facebook: [@srjoy01](https://facebook.com/srjoy01) | - Facebook: [@sakibsarkar](https://facebook.com/srjoy01) | - Facebook: [@sakirfaruqi](https://facebook.com/srjoy01) | - Facebook: [@sheikhfoysal](https://facebook.com/srjoy01) |

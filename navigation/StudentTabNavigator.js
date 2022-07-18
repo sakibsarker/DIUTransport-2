@@ -11,8 +11,8 @@ import { useTheme } from "react-native-paper";
 import NoticeBoard from "../screens/NoticeBoard";
 import BusDetails from "../screens/Student/BusDetails";
 import BusList from "../components/Home/BusList";
-import TicketHistory from "../screens/Student/TicketHistory";
 import ViewAll from "../screens/Student/ViewAll";
+import TicketHistory from "../screens/Student/TicketHistory";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -107,7 +107,7 @@ const StudentTabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="profile2"
+        name="StuduentProfile"
         component={ProfileStack}
         options={{
           tabBarIcon: ({ color, size }) => (
@@ -122,10 +122,10 @@ const StudentTabNavigator = () => {
 const getTabBarVisibility = (route) => {
   const routeName = getFocusedRouteNameFromRoute(route) ?? "Feed";
   console.log(routeName);
-  if (routeName == "home" || routeName == "Feed") {
-    return "flex";
-  }
-  return "none";
+  // if (routeName == "home" || routeName == "Feed") {
+  //   return "flex";
+  // }
+  return "flex";
 };
 
 export default StudentTabNavigator;

@@ -1,6 +1,13 @@
-import React, { useState } from "react";
-import { StyleSheet, View, ScrollView, SafeAreaView,StatusBar,Divider } from "react-native";
-import { useTheme, Surface, Text, Button } from "react-native-paper";
+import React from 'react';
+import {
+  StyleSheet,
+  View,
+  ScrollView,
+  SafeAreaView,
+  StatusBar,
+} from 'react-native';
+import { useTheme, Surface, Text, Button, Divider } from 'react-native-paper';
+
 const TicketHistory = () => {
   const theme = useTheme();
   return (
@@ -8,7 +15,7 @@ const TicketHistory = () => {
       style={{
         flex: 1,
         backgroundColor: theme?.colors.surface,
-        paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
       }}
     >
       <SafeAreaView>
@@ -24,7 +31,7 @@ const TicketHistory = () => {
                 <Text>19 June-2022</Text>
                 <Text
                   style={{
-                    fontWeight: "bold",
+                    fontWeight: 'bold',
                     fontSize: 18,
                     marginBottom: 15,
                     marginTop: 10,
@@ -75,7 +82,7 @@ const TicketHistory = () => {
                 <Text>19 June-2022</Text>
                 <Text
                   style={{
-                    fontWeight: "bold",
+                    fontWeight: 'bold',
                     fontSize: 18,
                     marginBottom: 15,
                     marginTop: 10,
@@ -127,7 +134,7 @@ const TicketHistory = () => {
                 <Text>19 June-2022</Text>
                 <Text
                   style={{
-                    fontWeight: "bold",
+                    fontWeight: 'bold',
                     fontSize: 18,
                     marginBottom: 15,
                     marginTop: 10,
@@ -179,27 +186,27 @@ const TicketHistory = () => {
 const styles = StyleSheet.create({
   body: {
     flex: 1,
-    alignItems: "center",
+    alignItems: 'center',
   },
   date: {
-    alignItems: "center",
+    alignItems: 'center',
   },
   ticket: {
-    height: "35%",
-    width: "80%",
+    height: '35%',
+    width: '80%',
     borderRadius: 20,
     padding: 20,
     marginBottom: 15,
   },
   timestus: {
-    flexDirection: "row",
+    flexDirection: 'row',
     marginBottom: 10,
   },
   timing: {
-    marginLeft: "40%",
+    marginLeft: '40%',
   },
   too: {
-    fontWeight: "800",
+    fontWeight: '800',
     marginTop: 20,
     marginBottom: 20,
   },
@@ -207,15 +214,14 @@ const styles = StyleSheet.create({
     marginTop: 80,
   },
   timerm: {
-    flexDirection: "row",
+    flexDirection: 'row',
     marginBottom: 10,
   },
   busname: {
     marginLeft: 20,
   },
   buttn: {
-    alignItems: "center",
+    alignItems: 'center',
   },
 });
-
 export default TicketHistory;

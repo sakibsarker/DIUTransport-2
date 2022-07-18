@@ -1,12 +1,12 @@
 import React from "react";
 import { List, useTheme, Surface, Text } from "react-native-paper";
-import { StyleSheet, View,ScrollView } from "react-native";
+import { StyleSheet, View, ScrollView } from "react-native";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
-  const ViewAll = ({ navigation, route }) => {
-    const theme = useTheme();
-    return (
-      <ScrollView>
+const ViewAll = ({ navigation, route }) => {
+  const theme = useTheme();
+  return (
+    <ScrollView>
       <View style={styles.container}>
         <Surface
           style={{ ...styles.item, backgroundColor: theme.colors.cardToggle }}
@@ -377,8 +377,8 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
             left={(props) => <List.Icon {...props} icon="bus" />}
           />
         </Surface>
-        
       </View>
+<<<<<<< HEAD
       </ScrollView>
     );
   };
@@ -396,5 +396,24 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
       marginBottom: 25,
     },
   });
+=======
+    </ScrollView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    width: "100%",
+    flex: 1,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "flex-start",
+  },
+  item: {
+    width: "44%",
+    margin: "3%",
+  },
+});
+>>>>>>> 871a524e875a49639dfcbec674b7f50f9b5df6ac
 
 export default ViewAll;

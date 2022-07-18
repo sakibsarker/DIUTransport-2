@@ -1,3 +1,4 @@
+import React from "react";
 import {
   View,
   StatusBar,
@@ -7,7 +8,6 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-import React from "react";
 import { useTheme, Text } from "react-native-paper";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
@@ -23,14 +23,6 @@ const Profile = ({ navigation }) => {
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(logout());
-    navigation.reset({
-      index: 0,
-      routes: [
-        {
-          name: "login",
-        },
-      ],
-    });
   };
 
   if (loading) {
