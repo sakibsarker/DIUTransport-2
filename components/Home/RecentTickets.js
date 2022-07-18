@@ -26,7 +26,7 @@ const RecentTickets = ({ navigation }) => {
             marginTop: 10,
             marginRight: 15,
             marginBottom: 15,
-            borderRadius: 20,
+            borderRadius: 10,
             backgroundColor: theme.colors.cardToggle,
             justifyContent: "center",
           }}
@@ -81,7 +81,7 @@ const RecentTickets = ({ navigation }) => {
             marginTop: 10,
             marginRight: 15,
             marginBottom: 15,
-            borderRadius: 20,
+            borderRadius: 10,
             backgroundColor: theme.colors.cardToggle,
             justifyContent: "center",
           }}
@@ -136,7 +136,7 @@ const RecentTickets = ({ navigation }) => {
             marginTop: 10,
             marginRight: 15,
             marginBottom: 15,
-            borderRadius: 20,
+            borderRadius: 10,
             backgroundColor: theme.colors.cardToggle,
             justifyContent: "center",
           }}

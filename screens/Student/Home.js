@@ -26,7 +26,7 @@ const Home = ({ navigation }) => {
       }}
     >
       <ImageBackground
-        source={require("../../assets/images/dark-map.jpeg")}
+        source={require("../../assets/images/diubanner.jpg")}
         style={{ padding: 60 }}
       />
       <ScrollView>
@@ -44,6 +44,7 @@ const Home = ({ navigation }) => {
                   paddingRight: 15,
                   paddingTop: 5,
                   paddingBottom: 5,
+                  borderRadius:20,
                 }}
               >
                 View All
