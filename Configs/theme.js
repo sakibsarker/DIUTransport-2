@@ -19,7 +19,8 @@ export const themeLight = {
     surfaceToggle: "#F3F3F3",
     cardToggle: "#FFFFFF",
     btnToggle: "#182C61",
-    backcolor:"#ffffff",
+    backcolor: "#ffffff",
+    accentToggle: "#2a529f",
   },
 };
 
@@ -29,7 +30,7 @@ export const themeDark = {
   myOwnProperty: true,
   // Specify custom property in nested object
   colors: {
-    accent: "#000",
+    accent: "#272727",
     success: "#16a085",
     tabActiveColor: "#FFF",
     tabInactiveColor: "#2C3A47",
@@ -37,5 +38,6 @@ export const themeDark = {
     surfaceToggle: "#000",
     cardToggle: "#272727",
     btnToggle: "#272727",
+    accentToggle: "#FFFFFF",
   },
 };

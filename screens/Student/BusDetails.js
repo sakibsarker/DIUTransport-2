@@ -12,8 +12,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchBusCurrentLocation } from "../../redux/ApiCalls/bus";
 import Loader from "../../components/Loader";
 import MapMarker from "../../components/MapMarker";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useNavigation } from "@react-navigation/native";
+import SelectPayment from "../../components/Payment/SelectPayment";
+import Payment from "../../components/Payment/Payment";
 
-const BusDetails = ({ navigation, route }) => {
+const Stack = createNativeStackNavigator();
+
+const BusDetails = ({ route }) => {
+  const navigation = useNavigation();
   const bottomSheetRef = useRef(null);
   const snapPoints = useMemo(() => ["50%", "13%"]);
   const theme = useTheme();
@@ -60,28 +67,32 @@ const BusDetails = ({ navigation, route }) => {
         source={require("../../assets/images/live.png")}
       />
 
-      <BottomSheet ref={bottomSheetRef} index={1} snapPoints={snapPoints}>
+      <BottomSheet
+        ref={bottomSheetRef}
+        style={{ flex: 1 }}
+        index={1}
+        snapPoints={snapPoints}
+      >
         <BottomSheetView
           style={{
             ...styles.contentContainer,
             backgroundColor: theme.colors.surface,
           }}
         >
-          <Text
-            variant="headlineLarge"
-            style={{ paddingTop: 60, paddingBottom: 50 }}
-          >
-            Ticket Price: 25 BDT
-          </Text>
-          <Divider />
-          <Text>Bus : {route.params?.busId}</Text>
-          <Text>Route : {route.params?.routeId}</Text>
-          <TouchableOpacity>
-            <Button>1: BKash</Button>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Button>2: OneCard</Button>
-          </TouchableOpacity>
+          <View style={{ flex: 1 }}>
+            <Text style={{ textAlign: "center" }} variant="headlineLarge">
+              Ticket Price: 25 BDT
+            </Text>
+            <Text style={{ textAlign: "center" }}>{route.params?.busId}</Text>
+            <Text style={{ textAlign: "center" }}>{route.params?.routeId}</Text>
+            <Divider style={{ marginBottom: 20, marginTop: 10 }} />
+            <View style={{}}>
+              <Stack.Navigator screenOptions={{ headerShown: false }}>
+                <Stack.Screen name="SelectPayment" component={SelectPayment} />
+                <Stack.Screen name="Payment" component={Payment} />
+              </Stack.Navigator>
+            </View>
+          </View>
         </BottomSheetView>
       </BottomSheet>
     </View>
@@ -90,8 +101,9 @@ const BusDetails = ({ navigation, route }) => {
 
 const styles = StyleSheet.create({
   contentContainer: {
+    flex: 1,
     alignItems: "center",
-    justifyContent: "center",
+    width: "100%",
   },
 });
 

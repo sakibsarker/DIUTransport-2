@@ -1,5 +1,11 @@
 import React from "react";
-import { View, ImageBackground, Image, TouchableOpacity } from "react-native";
+import {
+  View,
+  ImageBackground,
+  Image,
+  TouchableOpacity,
+  Share,
+} from "react-native";
 import {
   DrawerContentScrollView,
   DrawerItemList,
@@ -20,6 +26,30 @@ const CustomDrawer = (props) => {
 
   const handleLogout = () => {
     dispatch(logout());
+  };
+
+  const onShare = async () => {
+    try {
+      const result = await Share.share({
+        message: "DIU Transport developers are the best!",
+        url: "https://github.com/srj101/DIUTransport",
+        title: "DIU Transport App",
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+          console.log(result.activityType);
+        } else {
+          // shared
+          console.log(result);
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+        console.log(result.action);
+      }
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   return (
@@ -124,7 +154,10 @@ const CustomDrawer = (props) => {
       </View>
       <View style={{ padding: 20, borderTopWidth: 1, borderTopColor: "#ccc" }}>
         <TouchableOpacity onPress={() => {}} style={{ paddingVertical: 15 }}>
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <TouchableOpacity
+            style={{ flexDirection: "row", alignItems: "center" }}
+            onPress={onShare}
+          >
             <Ionicons
               name="share-social-outline"
               size={22}
@@ -139,7 +172,7 @@ const CustomDrawer = (props) => {
             >
               Tell a Friend
             </Text>
-          </View>
+          </TouchableOpacity>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={handleLogout}

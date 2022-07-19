@@ -44,7 +44,7 @@ const Home = ({ navigation }) => {
                   paddingRight: 15,
                   paddingTop: 5,
                   paddingBottom: 5,
-                  borderRadius:15,
+                  borderRadius: 15,
                 }}
               >
                 View All
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
     paddingLeft: 25,
     paddingRight: 25,
-    paddingBottom: 25,
+    paddingBottom: 15,
   },
 });
 

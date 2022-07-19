@@ -123,14 +123,17 @@ const Profile = ({ navigation }) => {
                   name="user"
                 />
               </View>
-              <TouchableOpacity style={{ marginLeft: 10 }}>
+              <TouchableOpacity
+                style={{ marginLeft: 10 }}
+                onPress={() => navigation.navigate("Tickets")}
+              >
                 <Text
                   style={{
                     fontSize: 15,
-                    fontWeight:"700",
+                    fontWeight: "700",
                   }}
                 >
-                  Personal Data
+                  Tickets
                 </Text>
               </TouchableOpacity>
             </View>
@@ -163,10 +166,10 @@ const Profile = ({ navigation }) => {
                 <Text
                   style={{
                     fontSize: 15,
-                    fontWeight:"700",
+                    fontWeight: "700",
                   }}
                 >
-                  My Trip
+                  History
                 </Text>
               </TouchableOpacity>
             </View>
@@ -192,7 +195,7 @@ const Profile = ({ navigation }) => {
                 />
               </View>
               <View style={{ marginLeft: 10 }}>
-                <Text style={{ fontSize: 15, fontWeight:"700" }}>Logout</Text>
+                <Text style={{ fontSize: 15, fontWeight: "700" }}>Logout</Text>
               </View>
             </TouchableOpacity>
           </View>

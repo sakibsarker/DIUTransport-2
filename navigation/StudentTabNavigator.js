@@ -13,6 +13,8 @@ import BusDetails from "../screens/Student/BusDetails";
 import BusList from "../components/Home/BusList";
 import ViewAll from "../screens/Student/ViewAll";
 import TicketHistory from "../screens/Student/TicketHistory";
+import TicketDetails from "../screens/Student/TicketDetails";
+import Tickets from "../screens/Student/Tickets";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -55,7 +57,31 @@ const ProfileStack = () => {
       <Stack.Screen
         name="TripHistory"
         component={TicketHistory}
-        options={{ title: "Trip History" }}
+        options={{ title: "History" }}
+      />
+      <Stack.Screen
+        name="Tickets"
+        component={TicketStack}
+        options={{
+          drawerIcon: ({ size, color }) => (
+            <Ionicons name="ios-pricetags" size={size} color={color} />
+          ),
+        }}
+      />
+    </Stack.Navigator>
+  );
+};
+
+const TicketStack = () => {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Your Tickets" component={Tickets} />
+      <Stack.Screen
+        name="TicketDetails"
+        component={TicketDetails}
+        options={({ route }) => ({
+          title: route.params?.value,
+        })}
       />
     </Stack.Navigator>
   );

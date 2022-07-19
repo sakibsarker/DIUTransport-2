@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import { List, useTheme, Text, Surface } from 'react-native-paper';
-import { ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
-import { fetchBuses } from '../../redux/ApiCalls/bus';
-import { useDispatch, useSelector } from 'react-redux';
-import Loader from '../../components/Loader';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import React, { useEffect } from "react";
+import { List, useTheme, Text, Surface } from "react-native-paper";
+import { ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
+import { fetchBuses } from "../../redux/ApiCalls/bus";
+import { useDispatch, useSelector } from "react-redux";
+import Loader from "../../components/Loader";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 const BusList = ({ navigation, route }) => {
   const theme = useTheme();
 
@@ -34,25 +34,25 @@ const BusList = ({ navigation, route }) => {
           margin: 15,
         }}
         onPress={() =>
-          navigation.navigate('BusDetails', {
-            busId: 'surjomukhi22',
+          navigation.navigate("BusDetails", {
+            busId: "surjomukhi22",
             routeId: route.params?.routeId,
           })
         }
       >
         <View
           style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
           }}
         >
-          <View style={{ alignItems: 'center' }}>
+          <View style={{ alignItems: "center" }}>
             <Text
               style={{
                 marginBottom: 7,
-                fontWeight: 'bold',
-                color: theme.colors.accent,
+                fontWeight: "bold",
+                color: theme.colors.accentToggle,
               }}
             >
               ShurjoMukhi17
@@ -71,8 +71,8 @@ const BusList = ({ navigation, route }) => {
           <View style={{}}>
             <View
               style={{
-                flexDirection: 'row',
-                alignItems: 'center',
+                flexDirection: "row",
+                alignItems: "center",
                 marginBottom: 5,
               }}
             >
@@ -85,8 +85,8 @@ const BusList = ({ navigation, route }) => {
             </View>
             <View
               style={{
-                flexDirection: 'row',
-                alignItems: 'center',
+                flexDirection: "row",
+                alignItems: "center",
                 marginBottom: 5,
               }}
             >
@@ -99,8 +99,8 @@ const BusList = ({ navigation, route }) => {
             </View>
             <View
               style={{
-                flexDirection: 'row',
-                alignItems: 'center',
+                flexDirection: "row",
+                alignItems: "center",
               }}
             >
               <FontAwesome5
@@ -122,25 +122,25 @@ const BusList = ({ navigation, route }) => {
           margin: 15,
         }}
         onPress={() =>
-          navigation.navigate('BusDetails', {
-            busId: 'surjomukhi22',
+          navigation.navigate("BusDetails", {
+            busId: "surjomukhi22",
             routeId: route.params?.routeId,
           })
         }
       >
         <View
           style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
           }}
         >
-          <View style={{ alignItems: 'center' }}>
+          <View style={{ alignItems: "center" }}>
             <Text
               style={{
                 marginBottom: 7,
-                fontWeight: 'bold',
-                color: theme.colors.accent,
+                fontWeight: "bold",
+                color: theme.colors.accentToggle,
               }}
             >
               ShurjoMukhi17
@@ -159,8 +159,8 @@ const BusList = ({ navigation, route }) => {
           <View style={{}}>
             <View
               style={{
-                flexDirection: 'row',
-                alignItems: 'center',
+                flexDirection: "row",
+                alignItems: "center",
                 marginBottom: 5,
               }}
             >
@@ -173,8 +173,8 @@ const BusList = ({ navigation, route }) => {
             </View>
             <View
               style={{
-                flexDirection: 'row',
-                alignItems: 'center',
+                flexDirection: "row",
+                alignItems: "center",
                 marginBottom: 5,
               }}
             >
@@ -187,8 +187,8 @@ const BusList = ({ navigation, route }) => {
             </View>
             <View
               style={{
-                flexDirection: 'row',
-                alignItems: 'center',
+                flexDirection: "row",
+                alignItems: "center",
               }}
             >
               <FontAwesome5
@@ -210,25 +210,25 @@ const BusList = ({ navigation, route }) => {
           margin: 15,
         }}
         onPress={() =>
-          navigation.navigate('BusDetails', {
-            busId: 'surjomukhi22',
+          navigation.navigate("BusDetails", {
+            busId: "surjomukhi22",
             routeId: route.params?.routeId,
           })
         }
       >
         <View
           style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
           }}
         >
-          <View style={{ alignItems: 'center' }}>
+          <View style={{ alignItems: "center" }}>
             <Text
               style={{
                 marginBottom: 7,
-                fontWeight: 'bold',
-                color: theme.colors.accent,
+                fontWeight: "bold",
+                color: theme.colors.accentToggle,
               }}
             >
               ShurjoMukhi17
@@ -247,8 +247,8 @@ const BusList = ({ navigation, route }) => {
           <View style={{}}>
             <View
               style={{
-                flexDirection: 'row',
-                alignItems: 'center',
+                flexDirection: "row",
+                alignItems: "center",
                 marginBottom: 5,
               }}
             >
@@ -261,8 +261,8 @@ const BusList = ({ navigation, route }) => {
             </View>
             <View
               style={{
-                flexDirection: 'row',
-                alignItems: 'center',
+                flexDirection: "row",
+                alignItems: "center",
                 marginBottom: 5,
               }}
             >
@@ -275,8 +275,8 @@ const BusList = ({ navigation, route }) => {
             </View>
             <View
               style={{
-                flexDirection: 'row',
-                alignItems: 'center',
+                flexDirection: "row",
+                alignItems: "center",
               }}
             >
               <FontAwesome5
@@ -298,25 +298,25 @@ const BusList = ({ navigation, route }) => {
           margin: 15,
         }}
         onPress={() =>
-          navigation.navigate('BusDetails', {
-            busId: 'surjomukhi22',
+          navigation.navigate("BusDetails", {
+            busId: "surjomukhi22",
             routeId: route.params?.routeId,
           })
         }
       >
         <View
           style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
           }}
         >
-          <View style={{ alignItems: 'center' }}>
+          <View style={{ alignItems: "center" }}>
             <Text
               style={{
                 marginBottom: 7,
-                fontWeight: 'bold',
-                color: theme.colors.accent,
+                fontWeight: "bold",
+                color: theme.colors.accentToggle,
               }}
             >
               ShurjoMukhi17
@@ -335,8 +335,8 @@ const BusList = ({ navigation, route }) => {
           <View style={{}}>
             <View
               style={{
-                flexDirection: 'row',
-                alignItems: 'center',
+                flexDirection: "row",
+                alignItems: "center",
                 marginBottom: 5,
               }}
             >
@@ -349,8 +349,8 @@ const BusList = ({ navigation, route }) => {
             </View>
             <View
               style={{
-                flexDirection: 'row',
-                alignItems: 'center',
+                flexDirection: "row",
+                alignItems: "center",
                 marginBottom: 5,
               }}
             >
@@ -363,8 +363,8 @@ const BusList = ({ navigation, route }) => {
             </View>
             <View
               style={{
-                flexDirection: 'row',
-                alignItems: 'center',
+                flexDirection: "row",
+                alignItems: "center",
               }}
             >
               <FontAwesome5
@@ -386,25 +386,25 @@ const BusList = ({ navigation, route }) => {
           margin: 15,
         }}
         onPress={() =>
-          navigation.navigate('BusDetails', {
-            busId: 'surjomukhi22',
+          navigation.navigate("BusDetails", {
+            busId: "surjomukhi22",
             routeId: route.params?.routeId,
           })
         }
       >
         <View
           style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
           }}
         >
-          <View style={{ alignItems: 'center' }}>
+          <View style={{ alignItems: "center" }}>
             <Text
               style={{
                 marginBottom: 7,
-                fontWeight: 'bold',
-                color: theme.colors.accent,
+                fontWeight: "bold",
+                color: theme.colors.accentToggle,
               }}
             >
               ShurjoMukhi17
@@ -423,8 +423,8 @@ const BusList = ({ navigation, route }) => {
           <View style={{}}>
             <View
               style={{
-                flexDirection: 'row',
-                alignItems: 'center',
+                flexDirection: "row",
+                alignItems: "center",
                 marginBottom: 5,
               }}
             >
@@ -437,8 +437,8 @@ const BusList = ({ navigation, route }) => {
             </View>
             <View
               style={{
-                flexDirection: 'row',
-                alignItems: 'center',
+                flexDirection: "row",
+                alignItems: "center",
                 marginBottom: 5,
               }}
             >
@@ -451,8 +451,8 @@ const BusList = ({ navigation, route }) => {
             </View>
             <View
               style={{
-                flexDirection: 'row',
-                alignItems: 'center',
+                flexDirection: "row",
+                alignItems: "center",
               }}
             >
               <FontAwesome5
@@ -474,25 +474,25 @@ const BusList = ({ navigation, route }) => {
           margin: 15,
         }}
         onPress={() =>
-          navigation.navigate('BusDetails', {
-            busId: 'surjomukhi22',
+          navigation.navigate("BusDetails", {
+            busId: "surjomukhi22",
             routeId: route.params?.routeId,
           })
         }
       >
         <View
           style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
           }}
         >
-          <View style={{ alignItems: 'center' }}>
+          <View style={{ alignItems: "center" }}>
             <Text
               style={{
                 marginBottom: 7,
-                fontWeight: 'bold',
-                color: theme.colors.accent,
+                fontWeight: "bold",
+                color: theme.colors.accentToggle,
               }}
             >
               ShurjoMukhi17
@@ -511,8 +511,8 @@ const BusList = ({ navigation, route }) => {
           <View style={{}}>
             <View
               style={{
-                flexDirection: 'row',
-                alignItems: 'center',
+                flexDirection: "row",
+                alignItems: "center",
                 marginBottom: 5,
               }}
             >
@@ -525,8 +525,8 @@ const BusList = ({ navigation, route }) => {
             </View>
             <View
               style={{
-                flexDirection: 'row',
-                alignItems: 'center',
+                flexDirection: "row",
+                alignItems: "center",
                 marginBottom: 5,
               }}
             >
@@ -539,8 +539,8 @@ const BusList = ({ navigation, route }) => {
             </View>
             <View
               style={{
-                flexDirection: 'row',
-                alignItems: 'center',
+                flexDirection: "row",
+                alignItems: "center",
               }}
             >
               <FontAwesome5
@@ -562,25 +562,25 @@ const BusList = ({ navigation, route }) => {
           margin: 15,
         }}
         onPress={() =>
-          navigation.navigate('BusDetails', {
-            busId: 'surjomukhi22',
+          navigation.navigate("BusDetails", {
+            busId: "surjomukhi22",
             routeId: route.params?.routeId,
           })
         }
       >
         <View
           style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
           }}
         >
-          <View style={{ alignItems: 'center' }}>
+          <View style={{ alignItems: "center" }}>
             <Text
               style={{
                 marginBottom: 7,
-                fontWeight: 'bold',
-                color: theme.colors.accent,
+                fontWeight: "bold",
+                color: theme.colors.accentToggle,
               }}
             >
               ShurjoMukhi17
@@ -599,8 +599,8 @@ const BusList = ({ navigation, route }) => {
           <View style={{}}>
             <View
               style={{
-                flexDirection: 'row',
-                alignItems: 'center',
+                flexDirection: "row",
+                alignItems: "center",
                 marginBottom: 5,
               }}
             >
@@ -613,8 +613,8 @@ const BusList = ({ navigation, route }) => {
             </View>
             <View
               style={{
-                flexDirection: 'row',
-                alignItems: 'center',
+                flexDirection: "row",
+                alignItems: "center",
                 marginBottom: 5,
               }}
             >
@@ -627,8 +627,8 @@ const BusList = ({ navigation, route }) => {
             </View>
             <View
               style={{
-                flexDirection: 'row',
-                alignItems: 'center',
+                flexDirection: "row",
+                alignItems: "center",
               }}
             >
               <FontAwesome5
