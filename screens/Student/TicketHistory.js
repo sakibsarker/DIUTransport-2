@@ -5,6 +5,7 @@ import {
   ScrollView,
   SafeAreaView,
   StatusBar,
+  TouchableOpacity,
 } from "react-native";
 import { useTheme, Surface, Text, Button, Divider } from "react-native-paper";
 
@@ -28,6 +29,9 @@ const TicketHistory = () => {
               }}
             >
               <View style={styles.date}>
+                <Text style={{ marginBottom: 5, fontWeight: "bold" }}>
+                  Surjomukhi 27
+                </Text>
                 <Text>19 June-2022</Text>
                 <Text
                   style={{
@@ -54,23 +58,24 @@ const TicketHistory = () => {
                   <Text style={styles.timingt2}>06:00 PM</Text>
                 </View>
               </View>
-              <View style={styles.timerm}>
-                <View>
-                  <Text style={styles.timeremin}>Time Remaing</Text>
-                  <Text style={styles.min}>12 Min</Text>
-                </View>
-                <View>
-                  <Text style={styles.busname}>Surjomukhi 27</Text>
-                </View>
-              </View>
-              <View style={styles.buttn}>
-                <Button
-                  style={{ backgroundColor: theme.colors.accent }}
-                  color="#FFFFFF"
+
+              <TouchableOpacity style={styles.buttn}>
+                <Text
+                  style={{
+                    backgroundColor: theme.colors.accent,
+                    color: theme.colors.White,
+                    paddingLeft: 20,
+                    paddingBottom: 10,
+                    paddingRight: 20,
+                    paddingTop: 10,
+                    borderRadius: 5,
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                  }}
                 >
                   Buy Again
-                </Button>
-              </View>
+                </Text>
+              </TouchableOpacity>
             </Surface>
             <Surface
               style={{
@@ -79,6 +84,9 @@ const TicketHistory = () => {
               }}
             >
               <View style={styles.date}>
+                <Text style={{ marginBottom: 5, fontWeight: "bold" }}>
+                  Surjomukhi 27
+                </Text>
                 <Text>19 June-2022</Text>
                 <Text
                   style={{
@@ -91,7 +99,6 @@ const TicketHistory = () => {
                   25.00 TK
                 </Text>
               </View>
-
               <Divider style={{ marginBottom: 15 }} />
               <View style={styles.timestus}>
                 <View style={styles.tilocation}>
@@ -106,23 +113,24 @@ const TicketHistory = () => {
                   <Text style={styles.timingt2}>06:00 PM</Text>
                 </View>
               </View>
-              <View style={styles.timerm}>
-                <View>
-                  <Text style={styles.timeremin}>Time Remaing</Text>
-                  <Text style={styles.min}>12 Min</Text>
-                </View>
-                <View>
-                  <Text style={styles.busname}>Surjomukhi 27</Text>
-                </View>
-              </View>
-              <View style={styles.buttn}>
-                <Button
-                  style={{ backgroundColor: theme.colors.accent }}
-                  color="#FFFFFF"
+
+              <TouchableOpacity style={styles.buttn}>
+                <Text
+                  style={{
+                    backgroundColor: theme.colors.accent,
+                    color: theme.colors.White,
+                    paddingLeft: 20,
+                    paddingBottom: 10,
+                    paddingRight: 20,
+                    paddingTop: 10,
+                    borderRadius: 5,
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                  }}
                 >
                   Buy Again
-                </Button>
-              </View>
+                </Text>
+              </TouchableOpacity>
             </Surface>
             <Surface
               style={{
@@ -131,6 +139,9 @@ const TicketHistory = () => {
               }}
             >
               <View style={styles.date}>
+                <Text style={{ marginBottom: 5, fontWeight: "bold" }}>
+                  Surjomukhi 27
+                </Text>
                 <Text>19 June-2022</Text>
                 <Text
                   style={{
@@ -143,7 +154,6 @@ const TicketHistory = () => {
                   25.00 TK
                 </Text>
               </View>
-
               <Divider style={{ marginBottom: 15 }} />
               <View style={styles.timestus}>
                 <View style={styles.tilocation}>
@@ -158,23 +168,24 @@ const TicketHistory = () => {
                   <Text style={styles.timingt2}>06:00 PM</Text>
                 </View>
               </View>
-              <View style={styles.timerm}>
-                <View>
-                  <Text style={styles.timeremin}>Time Remaing</Text>
-                  <Text style={styles.min}>12 Min</Text>
-                </View>
-                <View>
-                  <Text style={styles.busname}>Surjomukhi 27</Text>
-                </View>
-              </View>
-              <View style={styles.buttn}>
-                <Button
-                  style={{ backgroundColor: theme.colors.accent }}
-                  color="#FFFFFF"
+
+              <TouchableOpacity style={styles.buttn}>
+                <Text
+                  style={{
+                    backgroundColor: theme.colors.accent,
+                    color: theme.colors.White,
+                    paddingLeft: 20,
+                    paddingBottom: 10,
+                    paddingRight: 20,
+                    paddingTop: 10,
+                    borderRadius: 5,
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                  }}
                 >
                   Buy Again
-                </Button>
-              </View>
+                </Text>
+              </TouchableOpacity>
             </Surface>
           </View>
         </ScrollView>
@@ -192,8 +203,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   ticket: {
-    height: "35%",
-    width: "80%",
     borderRadius: 20,
     padding: 20,
     marginBottom: 15,
