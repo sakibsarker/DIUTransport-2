@@ -63,7 +63,9 @@ const CustomDrawer = (props) => {
                 marginBottom: 5,
               }}
             >
-              {user?.displayName}
+              {userType && userType === "student"
+                ? user?.displayName
+                : user?.name}
             </Text>
           </TouchableOpacity>
           {userType && userType === "student" ? (

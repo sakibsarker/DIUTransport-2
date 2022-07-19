@@ -378,22 +378,23 @@ const ViewAll = ({ navigation, route }) => {
           />
         </Surface>
       </View>
-      </ScrollView>
-    );
-  };
-  
-  const styles = StyleSheet.create({
-    container: {
-      width: "100%",
-      flex: 1,
-      flexDirection:"row",
-      flexWrap: "wrap",
-      alignItems: "flex-start",
-    },
-    item: {
-      width: "50%",
-      marginBottom: 25,
-    },
-  });
+    </ScrollView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    width: "100%",
+    flex: 1,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "flex-start",
+  },
+  item: {
+    width: "46%",
+    margin: "2%",
+    marginBottom: 25,
+  },
+});
 
 export default ViewAll;

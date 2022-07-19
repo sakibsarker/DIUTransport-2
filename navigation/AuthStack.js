@@ -1,11 +1,12 @@
-import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Login from '../screens/Login';
-import OnboardingScreen from '../screens/Student/OnboardingScreen';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import StudentStack from './StudentStack';
-import TicketManStack from './TicketManStack';
-import { Text } from 'react-native-paper';
+import React from "react";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Login from "../screens/Login";
+import OnboardingScreen from "../screens/Student/OnboardingScreen";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import StudentStack from "./StudentStack";
+import TicketManStack from "./TicketManStack";
+import { Text } from "react-native-paper";
+import Loader from "../components/Loader";
 
 const Stack = createNativeStackNavigator();
 
@@ -13,9 +14,9 @@ const AuthStack = () => {
   const [isFirstLaunch, setIsFirstLaunch] = React.useState(null);
 
   React.useEffect(() => {
-    AsyncStorage.getItem('alreadyLaunched').then((value) => {
+    AsyncStorage.getItem("alreadyLaunched").then((value) => {
       if (value == null) {
-        AsyncStorage.setItem('alreadyLaunched', 'true');
+        AsyncStorage.setItem("alreadyLaunched", "true");
         setIsFirstLaunch(true);
       } else {
         setIsFirstLaunch(false);
@@ -24,7 +25,7 @@ const AuthStack = () => {
   }, []);
 
   if (isFirstLaunch == null) {
-    return <Text>GG</Text>;
+    return <Loader />;
   } else if (isFirstLaunch === true) {
     return (
       <Stack.Navigator screenOptions={{ headerShown: false }}>

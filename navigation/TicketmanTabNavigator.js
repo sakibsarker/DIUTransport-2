@@ -89,11 +89,10 @@ const TicketmanTabNavigator = () => {
 
 const getTabBarVisibility = (route) => {
   const routeName = getFocusedRouteNameFromRoute(route) ?? "Feed";
-
-  if (routeName == "Home" || routeName == "Feed") {
+  console.log(routeName);
+  if (routeName == "Home" || routeName == "Feed" || routeName == "profile") {
     return "flex";
   }
   return "none";
 };
-
 export default TicketmanTabNavigator;

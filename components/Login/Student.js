@@ -3,25 +3,11 @@ import React from "react";
 import * as WebBrowser from "expo-web-browser";
 import { ResponseType } from "expo-auth-session";
 import * as Google from "expo-auth-session/providers/google";
-import { initializeApp } from "firebase/app";
-import {
-  getAuth,
-  GoogleAuthProvider,
-  signInWithCredential,
-} from "firebase/auth";
+import { GoogleAuthProvider, signInWithCredential } from "firebase/auth";
+import { auth } from "../../Configs/firebase";
 import { Text } from "react-native-paper";
 import { useDispatch } from "react-redux";
 import { googleLogin } from "../../redux/Reducers/user";
-// Initialize Firebase
-initializeApp({
-  apiKey: "AIzaSyAWvbCbhPSnXvgNrtTjgwaIUzNDp1pO8FM",
-  authDomain: "diutransport-355414.firebaseapp.com",
-  projectId: "diutransport-355414",
-  storageBucket: "diutransport-355414.appspot.com",
-  messagingSenderId: "856741678354",
-  appId: "1:856741678354:web:bfc638eed5437bf3c8f7cb",
-  measurementId: "G-PZSM95HX82",
-});
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -37,7 +23,6 @@ const Student = ({ navigation }) => {
     WebBrowser.warmUpAsync();
     if (response?.type === "success") {
       const { id_token } = response.params;
-      const auth = getAuth();
       const credential = GoogleAuthProvider.credential(id_token);
       signInWithCredential(auth, credential)
         .then((result) => {

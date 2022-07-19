@@ -23,7 +23,7 @@ const Home = ({ navigation }) => {
       }}
     >
       <ImageBackground
-        source={require("../../assets/images/dark-map.jpeg")}
+        source={require("../../assets/images/diubanner.jpg")}
         style={{ padding: 60 }}
       />
       <SafeAreaView>

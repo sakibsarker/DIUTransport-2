@@ -109,11 +109,15 @@ const StudentTabNavigator = () => {
       <Tab.Screen
         name="StuduentProfile"
         component={ProfileStack}
-        options={{
+        options={({ route }) => ({
+          tabBarStyle: {
+            display: getTabBarVisibility(route),
+            backgroundColor: theme.colors.accent,
+          },
           tabBarIcon: ({ color, size }) => (
-            <FontAwesome5 name="user" size={size} color={color} />
+            <FontAwesome5 name="user" color={color} size={size} />
           ),
-        }}
+        })}
       />
     </Tab.Navigator>
   );
@@ -122,10 +126,10 @@ const StudentTabNavigator = () => {
 const getTabBarVisibility = (route) => {
   const routeName = getFocusedRouteNameFromRoute(route) ?? "Feed";
   console.log(routeName);
-  // if (routeName == "home" || routeName == "Feed") {
-  //   return "flex";
-  // }
-  return "flex";
+  if (routeName == "home" || routeName == "Feed" || routeName == "Profile7") {
+    return "flex";
+  }
+  return "none";
 };
 
 export default StudentTabNavigator;

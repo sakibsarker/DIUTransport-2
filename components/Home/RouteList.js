@@ -171,7 +171,8 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
   },
   item: {
-    width: "50%",
+    width: "46%",
+    margin: "2%",
     marginBottom: 15,
   },
 });

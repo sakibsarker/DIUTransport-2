@@ -105,6 +105,7 @@ const MapMarker = ({ coordinates, title, contact }) => {
       <SafeAreaView>
         <View style={styles.container}>
           <MapView
+            mapType="mutedStandard"
             provider={PROVIDER_GOOGLE}
             showsTraffic={true}
             showsIndoorLevelPicker={true}

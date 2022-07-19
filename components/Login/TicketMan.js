@@ -1,10 +1,4 @@
-import {
-  View,
-  TextInput,
-  StyleSheet,
-  TouchableOpacity,
-  Alert,
-} from "react-native";
+import { View, TextInput, StyleSheet, Alert } from "react-native";
 import React, { useState } from "react";
 import { Button, useTheme, Text } from "react-native-paper";
 import { useDispatch, useSelector } from "react-redux";
@@ -67,7 +61,7 @@ const TicketMan = ({ navigation }) => {
           <Icon
             onPress={() => setShowPassword(!showPassword)}
             style={Styles.eye}
-            name={showPassword ? "md-eye-off" : "md-eye"}
+            name={showPassword ? "md-eye" : "md-eye-off"}
           />
         </View>
       </View>
