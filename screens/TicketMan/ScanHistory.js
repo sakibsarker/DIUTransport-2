@@ -80,7 +80,7 @@ const ScanHistory = ({ navigation }) => {
                       >
                         <Text
                           style={{
-                            color: theme.colors.White,
+                            color: theme.colors.cardToggle,
                           }}
                         >
                           Time
@@ -122,8 +122,15 @@ const ScanHistory = ({ navigation }) => {
                 alignItems: "center",
               }}
             >
-              <TouchableOpacity>
-                <Button>Sync</Button>
+              <TouchableOpacity
+                style={{
+                  backgroundColor: theme.colors.cardToggle,
+                  borderRadius: 40,
+                  paddingHorizontal: 10,
+                  paddingVertical: 3,
+                }}
+              >
+                <Button color={theme.colors.text}>Sync</Button>
               </TouchableOpacity>
             </View>
           </View>

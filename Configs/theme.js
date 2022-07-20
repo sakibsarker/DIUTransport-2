@@ -32,6 +32,7 @@ export const themeDark = {
   myOwnProperty: true,
   // Specify custom property in nested object
   colors: {
+    green: "#2ecc71",
     accent: "#272727",
     success: "#16a085",
     tabActiveColor: "#FFF",
@@ -41,5 +42,6 @@ export const themeDark = {
     cardToggle: "#272727",
     btnToggle: "#272727",
     accentToggle: "#FFFFFF",
+    black: "#000000",
   },
 };
