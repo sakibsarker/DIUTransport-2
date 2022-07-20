@@ -21,6 +21,8 @@ export const themeLight = {
     btnToggle: "#182C61",
     backcolor: "#ffffff",
     accentToggle: "#2a529f",
+    black: "#000000",
+    green: "#2ecc71",
   },
 };
 

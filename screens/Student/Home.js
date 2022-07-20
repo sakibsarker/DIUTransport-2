@@ -21,6 +21,7 @@ const Home = ({ navigation }) => {
     <View
       style={{
         flex: 1,
+        position: "relative",
         backgroundColor: theme?.colors.backcolor,
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
       }}
@@ -32,7 +33,7 @@ const Home = ({ navigation }) => {
       <ScrollView>
         <SafeAreaView>
           <SearchBar />
-          <Divider />
+          <Divider style={{ marginBottom: 40 }} />
           <View style={styles.container}>
             <Text style={{ fontWeight: "bold" }}>All Transports</Text>
             <TouchableOpacity onPress={() => navigation.navigate("Routes")}>
