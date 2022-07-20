@@ -1,20 +1,20 @@
-import React from "react";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
-import Home from "../screens/Student/Home";
-import MyMap from "../screens/Student/MyMap";
-import Profile from "../screens/Student/Profile";
-import Ionicons from "react-native-vector-icons/Ionicons";
-import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
-import { useTheme } from "react-native-paper";
-import NoticeBoard from "../screens/NoticeBoard";
-import BusDetails from "../screens/Student/BusDetails";
-import BusList from "../components/Home/BusList";
-import ViewAll from "../screens/Student/ViewAll";
-import TicketHistory from "../screens/Student/TicketHistory";
-import TicketDetails from "../screens/Student/TicketDetails";
-import Tickets from "../screens/Student/Tickets";
+import React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
+import Home from '../screens/Student/Home';
+import MyMap from '../screens/Student/MyMap';
+import Profile from '../screens/Student/Profile';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import { useTheme } from 'react-native-paper';
+import NoticeBoard from '../screens/NoticeBoard';
+import BusDetails from '../screens/Student/BusDetails';
+import BusList from '../components/Home/BusList';
+import ViewAll from '../screens/Student/ViewAll';
+import TicketHistory from '../screens/Student/TicketHistory';
+import TicketDetails from '../screens/Student/TicketDetails';
+import Tickets from '../screens/Student/Tickets';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -57,7 +57,7 @@ const ProfileStack = () => {
       <Stack.Screen
         name="TripHistory"
         component={TicketHistory}
-        options={{ title: "History" }}
+        options={{ title: 'History' }}
       />
       <Stack.Screen
         name="Tickets"
@@ -94,7 +94,9 @@ const StudentTabNavigator = () => {
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,
-        tabBarStyle: { backgroundColor: theme.colors.accent },
+        tabBarStyle: {
+          backgroundColor: theme.colors.accent,
+        },
         tabBarInactiveTintColor: theme.colors.tabInactiveColor,
         tabBarActiveTintColor: theme.colors.tabActiveColor,
       }}
@@ -126,7 +128,7 @@ const StudentTabNavigator = () => {
         component={NoticeBoard}
         options={{
           tabBarBadge: 7,
-          tabBarBadgeStyle: { backgroundColor: "tomato" },
+          tabBarBadgeStyle: { backgroundColor: 'tomato' },
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="notifications" size={size} color={color} />
           ),
@@ -150,12 +152,12 @@ const StudentTabNavigator = () => {
 };
 
 const getTabBarVisibility = (route) => {
-  const routeName = getFocusedRouteNameFromRoute(route) ?? "Feed";
+  const routeName = getFocusedRouteNameFromRoute(route) ?? 'Feed';
   console.log(routeName);
-  if (routeName == "home" || routeName == "Feed" || routeName == "Profile7") {
-    return "flex";
+  if (routeName == 'home' || routeName == 'Feed' || routeName == 'Profile7') {
+    return 'flex';
   }
-  return "none";
+  return 'none';
 };
 
 export default StudentTabNavigator;
