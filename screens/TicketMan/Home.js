@@ -18,6 +18,7 @@ const Home = ({ navigation }) => {
     <View
       style={{
         flex: 1,
+        position: "relative",
         backgroundColor: theme?.colors.surface,
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
       }}
@@ -28,6 +29,7 @@ const Home = ({ navigation }) => {
       />
       <SafeAreaView>
         <SearchBar />
+        <Divider style={{ marginBottom: 50 }} />
         <View style={styles.container}>
           <Text>Latest Scans</Text>
         </View>

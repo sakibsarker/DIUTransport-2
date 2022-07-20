@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Animated, TouchableOpacity } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Animated,
+  TouchableOpacity,
+  Alert,
+} from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 import { Text, Button } from "react-native-paper";
+import { isValidScanData } from "../../Utils/checkScanData";
 
 const TicketScan = () => {
   const [hasCameraPermission, setCameraPermission] = useState(null);
@@ -43,10 +50,16 @@ const TicketScan = () => {
   };
 
   const handleBarCodeScanned = ({ type, data }) => {
-    setScanned(true);
-    setValue(data);
-    setCount(count + 1);
-    console.log(`${data}`);
+    const isValid = isValidScanData(data);
+
+    if (isValid) {
+      setValue(isValid);
+      setCount(count + 1);
+      setScanned(true);
+    } else {
+      Alert.alert("Error", "Hey you cannot use that token, Maybe expired?");
+      setScanned(true);
+    }
   };
 
   if (hasCameraPermission === null) {
@@ -68,7 +81,7 @@ const TicketScan = () => {
     return (
       <View style={styles.container}>
         <View>
-          <Text>{value}</Text>
+          <Text>{JSON.stringify(value)}</Text>
           <Text>Count: {count}</Text>
         </View>
         <View>

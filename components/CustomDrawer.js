@@ -101,8 +101,12 @@ const CustomDrawer = (props) => {
           </TouchableOpacity>
           {userType && userType === 'student' ? (
             <TouchableOpacity
-              onPress={() => props.navigation.navigate('Tickets')}
-              style={{ flexDirection: 'row' }}
+              onPress={() => props.navigation.navigate("StuduentProfile", {
+                  screen: "Tickets",
+                })
+              }
+              style={{ flexDirection: "row" }}
+
             >
               <Text
                 style={{

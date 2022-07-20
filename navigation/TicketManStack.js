@@ -8,6 +8,7 @@ import { useTheme } from "react-native-paper";
 import NoticeBoard from "../screens/NoticeBoard";
 import TicketScan from "../screens/TicketMan/TicketScan";
 import TicketmanTabNavigator from "./TicketmanTabNavigator";
+import ScanHistory from "../screens/TicketMan/ScanHistory";
 
 const Drawer = createDrawerNavigator();
 
@@ -42,6 +43,17 @@ const TicketManStack = () => {
         <Drawer.Screen
           name="TicketScan"
           component={TicketScan}
+          options={{
+            drawerIcon: ({ size, color }) => (
+              <Ionicons name="ios-pricetags" size={size} color={color} />
+            ),
+          }}
+        />
+
+        <Drawer.Screen
+          name="ScanHistory"
+          title="Scan History"
+          component={ScanHistory}
           options={{
             drawerIcon: ({ size, color }) => (
               <Ionicons name="ios-pricetags" size={size} color={color} />
