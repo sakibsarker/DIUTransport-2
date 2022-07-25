@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { isValidScanData } from "../../Utils/checkScanData";
+import { syncTicketQueuee } from "../ApiCalls/ticketQueuee";
 
 const scanQueueeSlice = createSlice({
   name: "scanQueuee",

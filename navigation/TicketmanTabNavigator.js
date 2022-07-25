@@ -11,6 +11,7 @@ import Home from "../screens/TicketMan/Home";
 import MyMap from "../screens/Student/MyMap";
 import TicketScan from "../screens/TicketMan/TicketScan";
 import Profile from "../screens/TicketMan/Profile";
+import ScanHistory from "../screens/TicketMan/ScanHistory";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -28,20 +29,21 @@ const TicketmanTabNavigator = () => {
       }}
     >
       <Tab.Screen
-        name="Home4"
-        component={Home}
+        name="ScanHistory"
+        component={ScanHistory}
         options={({ route }) => ({
           tabBarStyle: {
             display: getTabBarVisibility(route),
             backgroundColor: theme.colors.accent,
           },
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home-outline" color={color} size={size} />
+            <FontAwesome5 name="book" color={color} size={size} />
           ),
         })}
       />
+
       <Tab.Screen
-        name="ticketScan"
+        name="TicketScan"
         component={TicketScan}
         options={({ route }) => ({
           tabBarStyle: {
@@ -49,11 +51,7 @@ const TicketmanTabNavigator = () => {
             backgroundColor: theme.colors.accent,
           },
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons
-              name="qrcode-scan"
-              color={color}
-              size={size}
-            />
+            <Ionicons name="scan" color={color} size={size} />
           ),
         })}
       />

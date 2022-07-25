@@ -19,7 +19,7 @@ const TicketManStack = () => {
       <Drawer.Navigator
         drawerContent={(props) => <CustomDrawer {...props} />}
         screenOptions={{
-          headerShown: false,
+          headerShown: true,
           drawerActiveBackgroundColor: theme.colors.accent,
           drawerActiveTintColor: "#fff",
           drawerInactiveTintColor: "#333",
@@ -31,7 +31,7 @@ const TicketManStack = () => {
         }}
       >
         <Drawer.Screen
-          name="Home3"
+          name="TicketManHome"
           component={TicketmanTabNavigator}
           options={{
             title: "Home",
@@ -40,23 +40,14 @@ const TicketManStack = () => {
             ),
           }}
         />
+
         <Drawer.Screen
           name="TicketScan"
           component={TicketScan}
           options={{
+            title: "Scan",
             drawerIcon: ({ size, color }) => (
-              <Ionicons name="ios-pricetags" size={size} color={color} />
-            ),
-          }}
-        />
-
-        <Drawer.Screen
-          name="ScanHistory"
-          title="Scan History"
-          component={ScanHistory}
-          options={{
-            drawerIcon: ({ size, color }) => (
-              <Ionicons name="ios-pricetags" size={size} color={color} />
+              <Ionicons name="scan" size={size} color={color} />
             ),
           }}
         />
@@ -65,8 +56,19 @@ const TicketManStack = () => {
           name="NoticeBoard"
           component={NoticeBoard}
           options={{
+            title: "Notice",
             drawerIcon: ({ size, color }) => (
               <Ionicons name="notifications" size={size} color={color} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="Settings"
+          component={NoticeBoard}
+          options={{
+            title: "Settings",
+            drawerIcon: ({ size, color }) => (
+              <Ionicons name="settings" size={size} color={color} />
             ),
           }}
         />

@@ -6,12 +6,14 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
+  Alert,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { useTheme, Text, Button } from "react-native-paper";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { useDispatch, useSelector } from "react-redux";
 import { removeItem } from "../../redux/Reducers/scanQueuee";
+import { SwipeListView } from "react-native-swipe-list-view";
+import ScanHistoryItem from "../../components/ScanHistory/ScanHistoryItem";
 
 const ScanHistory = ({ navigation }) => {
   const { q: queuee, count } = useSelector((state) => state.scanQueuee);
@@ -28,101 +30,94 @@ const ScanHistory = ({ navigation }) => {
       }}
     >
       <SafeAreaView>
-        <ScrollView>
-          <View style={styles.page}>
-            <View style={{ ...styles.justifySBTN, marginBottom: 20 }}>
-              <Text>History</Text>
-              <Text style={{ color: theme.colors.accent }}>
-                Total Students - {count}
-              </Text>
-            </View>
-            {queuee.length > 0 ? (
-              queuee.map((qi) => (
-                <TouchableOpacity
-                  key={qi["id"]}
-                  onLongPress={() => dispatch(removeItem(qi["id"]))}
+        <View style={styles.page}>
+          <View style={{ ...styles.justifySBTN, marginBottom: 20 }}>
+            <Text>Queuee</Text>
+            <Text style={{ color: theme.colors.accent }}>
+              Total Students - {count}
+            </Text>
+          </View>
+          {queuee.length > 0 ? (
+            <SwipeListView
+              data={queuee}
+              renderItem={(data, rowMap) => <ScanHistoryItem qi={data.item} />}
+              renderHiddenItem={(data, rowMap) => (
+                <View
+                  style={{
+                    flexDirection: "row",
+                    flex: 1,
+                    justifyContent: "flex-end",
+                    alignItems: "center",
+                    borderRadius: 25,
+                    marginTop: -15,
+                  }}
                 >
-                  <View
+                  <TouchableOpacity
+                    onPress={() => {
+                      Alert.alert(
+                        "Confirmation",
+                        "Are you sure want to delete ?",
+                        [
+                          {
+                            text: "Cancel",
+                            onPress: () => console.log("Cancel Pressed"),
+                            style: "cancel",
+                          },
+                          {
+                            text: "OK",
+                            onPress: () =>
+                              dispatch(removeItem(data.item["id"])),
+                          },
+                        ]
+                      );
+                    }}
                     style={{
-                      ...styles.justifySBTN,
-                      backgroundColor: theme.colors.cardToggle,
+                      backgroundColor: theme.colors.notification,
+                      padding: 25,
                       borderRadius: 15,
-                      paddingVertical: 15,
-                      paddingHorizontal: 20,
                     }}
                   >
-                    <View>
-                      <Text style={{ fontWeight: "bold" }}>{qi["id"]}</Text>
-                    </View>
-                    <View style={styles.justifySBTNCol}>
-                      <Text style={{ marginBottom: 5 }}>09:00 AM</Text>
-                      <View
-                        style={{
-                          borderRadius: 40,
-                          paddingHorizontal: 10,
-                          paddingVertical: 3,
-                          backgroundColor: theme.colors.accentToggle,
-                        }}
-                      >
-                        <Text
-                          style={{
-                            color: theme.colors.cardToggle,
-                          }}
-                        >
-                          Time
-                        </Text>
-                      </View>
-                    </View>
-                    <View style={styles.justifySBTNCol}>
-                      <Text style={{ marginBottom: 5 }}>09:00 AM</Text>
-                      <View
-                        style={{
-                          backgroundColor: theme.colors.black,
-                          borderRadius: 40,
-                          paddingHorizontal: 10,
-                          paddingVertical: 3,
-                        }}
-                      >
-                        <Text
-                          style={{
-                            color: theme.colors.White,
-                          }}
-                        >
-                          Route
-                        </Text>
-                      </View>
-                    </View>
-                    <View>
-                      <Icon
-                        name="checkbox-blank-circle"
-                        size={25}
-                        color={theme.colors.green}
-                      />
-                    </View>
-                  </View>
-                </TouchableOpacity>
-              ))
-            ) : (
-              <Text>Empty Queuee</Text>
-            )}
-            <View
+                    <Text
+                      style={{
+                        color: theme.colors.cardToggle,
+                      }}
+                    >
+                      Delete
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              )}
+              leftOpenValue={0}
+              rightOpenValue={-100}
+            />
+          ) : (
+            <Text
               style={{
-                alignItems: "center",
+                textAlign: "center",
+                marginVertical: 20,
+                backgroundColor: theme.colors.disabled,
               }}
             >
-              <TouchableOpacity
-                style={{
-                  backgroundColor: theme.colors.cardToggle,
-                  borderRadius: 40,
-                  paddingHorizontal: 10,
-                  paddingVertical: 3,
-                }}
-              >
-                <Button color={theme.colors.text}>Sync</Button>
-              </TouchableOpacity>
-            </View>
+              Empty Queuee
+            </Text>
+          )}
+          <View
+            style={{
+              alignItems: "center",
+            }}
+          >
+            <TouchableOpacity
+              style={{
+                backgroundColor: theme.colors.cardToggle,
+                borderRadius: 40,
+                paddingHorizontal: 10,
+                paddingVertical: 3,
+              }}
+            >
+              <Button color={theme.colors.text}>Sync</Button>
+            </TouchableOpacity>
           </View>
-        </ScrollView>
+        </View>
       </SafeAreaView>
     </View>
   );

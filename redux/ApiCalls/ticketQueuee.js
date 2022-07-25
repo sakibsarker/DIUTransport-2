@@ -1,3 +1,5 @@
+import { createAsyncThunk } from "@reduxjs/toolkit";
+
 export const syncTicketQueuee = createAsyncThunk(
   "tickets/sync",
   async ({}, { rejectWithValue }) => {
