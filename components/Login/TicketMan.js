@@ -1,6 +1,6 @@
 import { View, TextInput, StyleSheet, Alert } from "react-native";
 import React, { useState } from "react";
-import { Button, useTheme, Text } from "react-native-paper";
+import { Button, useTheme, Text, Divider } from "react-native-paper";
 import { useDispatch, useSelector } from "react-redux";
 import { loginEmployee } from "../../redux/ApiCalls/user";
 import Icon from "react-native-vector-icons/Ionicons";
@@ -20,11 +20,11 @@ const TicketMan = ({ navigation }) => {
     dispatch(loginEmployee({ employeeId: TicketManId, password }));
     if (loading) {
       console.log("Loading..");
+    } else if (error) {
+      Alert.alert("Error!", error);
     } else if (!loading && user) {
       console.log(user);
       navigation.replace("TicketManStack", { user });
-    } else if (error) {
-      Alert.alert("Error!", error);
     }
   };
 
@@ -33,37 +33,31 @@ const TicketMan = ({ navigation }) => {
   }
 
   return (
-    <View
-      style={{
-        width: "80%",
-      }}
-    >
-      <View>
-        <View style={Styles.field}>
-          <TextInput
-            name="employeeId"
-            style={Styles.input}
-            placeholder="TicketMan ID"
-            value={TicketManId}
-            onChangeText={setTicketManId}
-            keyboardType="number-pad"
-          />
-        </View>
-        <View style={Styles.field}>
-          <TextInput
-            secureTextEntry={!showPassword}
-            style={Styles.input}
-            placeholder="Password"
-            value={password}
-            onChangeText={setPassword}
-            autoCapitalize="none"
-          />
-          <Icon
-            onPress={() => setShowPassword(!showPassword)}
-            style={Styles.eye}
-            name={showPassword ? "md-eye" : "md-eye-off"}
-          />
-        </View>
+    <View style={{ backgroundColor: theme.colors.White }}>
+      <View style={Styles.field}>
+        <TextInput
+          name="employeeId"
+          style={Styles.input}
+          placeholder="TicketMan ID"
+          value={TicketManId}
+          onChangeText={setTicketManId}
+          keyboardType="number-pad"
+        />
+      </View>
+      <View style={Styles.field}>
+        <TextInput
+          secureTextEntry={!showPassword}
+          style={Styles.input}
+          placeholder="Password"
+          value={password}
+          onChangeText={setPassword}
+          autoCapitalize="none"
+        />
+        <Icon
+          onPress={() => setShowPassword(!showPassword)}
+          style={Styles.eye}
+          name={showPassword ? "md-eye" : "md-eye-off"}
+        />
       </View>
 
       <Button
@@ -79,25 +73,23 @@ const TicketMan = ({ navigation }) => {
 
 const Styles = StyleSheet.create({
   input: {
-    backgroundColor: "#fff",
     borderWidth: 1,
     borderColor: "#b5b5b5",
     padding: 10,
     paddingLeft: 15,
     borderRadius: 5,
-    marginVertical: 15,
     fontSize: 15,
   },
 
   btn: {
     padding: 5,
+    marginBottom: 25,
   },
   eye: {
     position: "absolute",
     right: 0,
-    bottom: 25,
+    bottom: 23,
     fontSize: 25,
-    padding: 10,
     paddingRight: 15,
   },
   field: {

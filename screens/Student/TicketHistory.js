@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { useTheme, Surface, Text, Button, Divider } from "react-native-paper";
 
-const TicketHistory = () => {
+const TicketHistory = ({ navigation }) => {
   const theme = useTheme();
   return (
     <View
@@ -59,7 +59,18 @@ const TicketHistory = () => {
                 </View>
               </View>
 
-              <TouchableOpacity style={styles.buttn}>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate("Home2", {
+                    screen: "BusDetails",
+                    params: {
+                      busId: "surjomukhi22",
+                      routeId: "রাস্তা ৪",
+                    },
+                  })
+                }
+                style={styles.buttn}
+              >
                 <Text
                   style={{
                     backgroundColor: theme.colors.accent,
@@ -114,7 +125,18 @@ const TicketHistory = () => {
                 </View>
               </View>
 
-              <TouchableOpacity style={styles.buttn}>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate("Home2", {
+                    screen: "BusDetails",
+                    params: {
+                      busId: "surjomukhi22",
+                      routeId: "রাস্তা ৪",
+                    },
+                  })
+                }
+                style={styles.buttn}
+              >
                 <Text
                   style={{
                     backgroundColor: theme.colors.accent,
@@ -169,7 +191,18 @@ const TicketHistory = () => {
                 </View>
               </View>
 
-              <TouchableOpacity style={styles.buttn}>
+              <TouchableOpacity
+                style={styles.buttn}
+                onPress={() =>
+                  navigation.navigate("Home2", {
+                    screen: "BusDetails",
+                    params: {
+                      busId: "surjomukhi22",
+                      routeId: "রাস্তা ৪",
+                    },
+                  })
+                }
+              >
                 <Text
                   style={{
                     backgroundColor: theme.colors.accent,

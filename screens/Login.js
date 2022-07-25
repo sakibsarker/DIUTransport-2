@@ -1,113 +1,118 @@
-import { View, StyleSheet } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Image,
+  Touchable,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
-import { useTheme, Text } from "react-native-paper";
-import { Tab, TabView } from "@rneui/themed";
+import { useTheme, Text, Divider } from "react-native-paper";
 import Student from "../components/Login/Student";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import TicketMan from "../components/Login/TicketMan";
-
+import Icon from "react-native-vector-icons/FontAwesome5";
+const Stack = createNativeStackNavigator();
 const Login = ({ navigation }) => {
   const theme = useTheme();
   const [index, setIndex] = React.useState(0);
+  const [loginStack, setLoginStack] = React.useState("Student");
 
   return (
-    <View style={{ flex: 1 }}>
-      <Text
-        style={{
-          textAlign: "center",
-          marginBottom: 10,
-          fontSize: 22,
-          fontWeight: "bold",
-          paddingTop: "30%",
-        }}
-      >
-        DIU Smart Transport
-      </Text>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        paddingVertical: 25,
+        marginHorizontal: 30,
+        position: "relative",
+      }}
+    >
       <View
         style={{
-          height: "55%",
-          marginBottom: "25%",
+          borderRadius: 25,
+          paddingVertical: 25,
+          alignItems: "center",
           backgroundColor: "#FFFFFF",
-          marginLeft: "10%",
-          marginRight: "10%",
-          width: "80%",
-          borderRadius: 30,
         }}
       >
-        <View
-          style={{
-            flex: 1,
-            overflow: "hidden",
-          }}
-        >
-          <Tab
-            indicatorStyle={{
-              backgroundColor: theme.colors.accent,
-              height: 5,
-            }}
-            containerStyle={(active) => ({
-              color: theme.colors.text,
-              borderTopLeftRadius: 30,
-              borderTopRightRadius: 30,
-            })}
-            value={index}
-            onChange={(e) => setIndex(e)}
-            variant="default"
-          >
-            <Tab.Item
-              title="Student"
+        <View style={{ height: "50%" }}>
+          <View style={{ alignItems: "center" }}>
+            <Image
+              source={require("../assets/images/tlogo.png")}
               style={{
-                borderTopLeftRadius: 35,
-                borderTopRightRadius: 35,
+                height: 80,
+                width: 80,
+                borderRadius: 40,
+                marginBottom: 25,
               }}
-              containerStyle={(active) => ({
-                backgroundColor: active
-                  ? theme.colors.accent
-                  : theme.colors.surface,
-                borderTopLeftRadius: 35,
-              })}
-              titleStyle={(active) => ({
-                color: active ? theme.colors.White : theme.colors.accent,
-              })}
             />
-            <Tab.Item
+            <Text
               style={{
-                borderTopLeftRadius: 35,
-                borderTopRightRadius: 35,
-              }}
-              containerStyle={(active) => ({
-                backgroundColor: active
-                  ? theme.colors.accent
-                  : theme.colors.surface,
-                borderTopRightRadius: 35,
-              })}
-              title="TicketMan"
-              titleStyle={(active) => ({
-                color: active ? theme.colors.White : theme.colors.accent,
-              })}
-            />
-          </Tab>
-
-          <TabView value={index} onChange={setIndex} animationType="spring">
-            <TabView.Item
-              style={{
-                justifyContent: "center",
-                flex: 1,
-                alignItems: "center",
+                textAlign: "center",
+                marginBottom: 25,
+                fontSize: 22,
+                fontWeight: "bold",
+                borderBottomColor: theme.colors.accent,
+                borderBottomWidth: 5,
               }}
             >
-              <Student navigation={navigation} />
-            </TabView.Item>
-            <TabView.Item
-              style={{
-                justifyContent: "center",
-                flex: 1,
-                alignItems: "center",
+              DIU Smart Transport
+            </Text>
+          </View>
+          <View style={{ justifyContent: "center" }}>
+            <Stack.Navigator
+              screenOptions={{
+                headerShown: false,
               }}
             >
-              <TicketMan navigation={navigation} />
-            </TabView.Item>
-          </TabView>
+              <Stack.Screen name="Student" component={Student} />
+              <Stack.Screen name="TicketMan" component={TicketMan} />
+            </Stack.Navigator>
+          </View>
         </View>
+      </View>
+      <View style={{ position: "absolute", bottom: "10%", right: "10%" }}>
+        {loginStack === "Student" ? (
+          <TouchableOpacity
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+            onPress={() => {
+              navigation.navigate("TicketMan");
+              setLoginStack("TicketMan");
+            }}
+          >
+            <Text style={{ marginRight: 10, fontWeight: "bold" }}>
+              TicketMan
+            </Text>
+            <Icon
+              name="sign-in-alt"
+              size={25}
+              color={theme.colors.accent}
+            ></Icon>
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+            onPress={() => {
+              navigation.navigate("Student");
+              setLoginStack("Student");
+            }}
+          >
+            <Text style={{ marginRight: 10, fontWeight: "bold" }}>Student</Text>
+            <Icon
+              name="sign-in-alt"
+              size={25}
+              color={theme.colors.accent}
+            ></Icon>
+          </TouchableOpacity>
+        )}
       </View>
     </View>
   );

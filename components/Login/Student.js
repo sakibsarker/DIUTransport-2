@@ -5,13 +5,14 @@ import { ResponseType } from "expo-auth-session";
 import * as Google from "expo-auth-session/providers/google";
 import { GoogleAuthProvider, signInWithCredential } from "firebase/auth";
 import { auth } from "../../Configs/firebase";
-import { Text } from "react-native-paper";
+import { Text, useTheme } from "react-native-paper";
 import { useDispatch } from "react-redux";
 import { googleLogin } from "../../redux/Reducers/user";
 
 WebBrowser.maybeCompleteAuthSession();
 
 const Student = ({ navigation }) => {
+  const theme = useTheme();
   const dispatch = useDispatch();
   const [request, response, promptAsync] = Google.useIdTokenAuthRequest({
     clientId:
@@ -52,15 +53,18 @@ const Student = ({ navigation }) => {
   }, [response]);
 
   return (
-    <View
-      style={{
-        justifyContent: "center",
-        flex: 1,
-        alignItems: "center",
-      }}
-    >
-      <Text>Only University Email is allowed</Text>
+    <View style={{ alignItems: "center", backgroundColor: "#fff", flex: 1 }}>
+      <Text style={{ marginBottom: 30 }}>Only University Email is allowed</Text>
       <TouchableOpacity
+        style={{
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: theme.colors.accent,
+          borderRadius: 20,
+          paddingHorizontal: 20,
+          paddingVertical: 5,
+        }}
         onPress={() => {
           promptAsync({
             useProxy: true,
@@ -69,12 +73,15 @@ const Student = ({ navigation }) => {
       >
         <Image
           source={{
-            uri: "https://onymos.com/wp-content/uploads/2020/10/google-signin-button.png",
-            width: 273,
-            height: 70,
-            resizeMode: "center",
+            uri: "https://resources.finalsite.net/images/f_auto,q_auto,t_image_size_1/v1533665793/ogdensdorg/p6ckkwxkxi8zd03ja8h0/GoogleButton.png",
+            width: 60,
+            height: 60,
+            resizeMode: "stretch",
           }}
         />
+        <Text style={{ color: theme.colors.cardToggle }}>
+          Sign In With Google
+        </Text>
       </TouchableOpacity>
     </View>
   );

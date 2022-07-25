@@ -10,7 +10,7 @@ export default {
     splash: {
       image: "./assets/splash.png",
       resizeMode: "contain",
-      backgroundColor: "#2a529f",
+      backgroundColor: "#000000",
     },
     scheme: "com.diu.transport",
     updates: {
