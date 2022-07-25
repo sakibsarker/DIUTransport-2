@@ -16,6 +16,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useNavigation } from "@react-navigation/native";
 import SelectPayment from "../../components/Payment/SelectPayment";
 import Payment from "../../components/Payment/Payment";
+import Map from "../../components/Map/Map";
 
 const Stack = createNativeStackNavigator();
 
@@ -51,9 +52,14 @@ const BusDetails = ({ route }) => {
         position: "relative",
       }}
     >
-      <MapMarker
+      {/* <MapMarker
         title={route.params["busId"]}
         coordinates={currentBusLocation?.location?.coordinates}
+      /> */}
+      <Map
+        title={route.params["busId"]}
+        details={currentBusLocation}
+        location={currentBusLocation?.location}
       />
 
       <Image

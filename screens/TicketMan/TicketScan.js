@@ -7,13 +7,21 @@ import {
   Alert,
 } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
-import { Text, Button } from "react-native-paper";
+import { Text, Button, useTheme } from "react-native-paper";
 import { isValidScanData } from "../../Utils/checkScanData";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  clearMessage,
+  enqueuee,
+  removeEverything,
+} from "../../redux/Reducers/scanQueuee";
 
-const TicketScan = () => {
+const TicketScan = ({ navigation }) => {
+  const theme = useTheme();
+  const dispatch = useDispatch();
+  const { q, count, message } = useSelector((state) => state.scanQueuee);
   const [hasCameraPermission, setCameraPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
-  const [count, setCount] = useState(0);
 
   const [value, setValue] = useState(null);
 
@@ -21,6 +29,13 @@ const TicketScan = () => {
   const [focusLineAnimation, setFocusLineAnimation] = useState(
     new Animated.Value(0)
   );
+
+  useEffect(() => {
+    if (message) {
+      Alert.alert("Info", message);
+      dispatch(clearMessage());
+    }
+  }, [dispatch, message]);
 
   useEffect(() => {
     getPermissionsAsync();
@@ -50,16 +65,8 @@ const TicketScan = () => {
   };
 
   const handleBarCodeScanned = ({ type, data }) => {
-    const isValid = isValidScanData(data);
-
-    if (isValid) {
-      setValue(isValid);
-      setCount(count + 1);
-      setScanned(true);
-    } else {
-      Alert.alert("Error", "Hey you cannot use that token, Maybe expired?");
-      setScanned(true);
-    }
+    dispatch(enqueuee(data));
+    setScanned(true);
   };
 
   if (hasCameraPermission === null) {
@@ -77,13 +84,25 @@ const TicketScan = () => {
     );
   }
 
-  if (value && scanned) {
+  if (q && scanned) {
     return (
       <View style={styles.container}>
-        <View>
-          <Text>{JSON.stringify(value)}</Text>
-          <Text>Count: {count}</Text>
-        </View>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("ScanHistory")}
+          style={{
+            backgroundColor: theme.colors.accent,
+            borderRadius: 360,
+          }}
+        >
+          <Text
+            style={{
+              color: theme.colors.cardToggle,
+              padding: 30,
+            }}
+          >
+            {count}
+          </Text>
+        </TouchableOpacity>
         <View>
           <TouchableOpacity onPress={() => setScanned(false)}>
             <Button>Tap to Scan Again ?</Button>

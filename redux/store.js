@@ -8,11 +8,13 @@ import autoMergeLevel2 from "redux-persist/lib/stateReconciler/autoMergeLevel2";
 import usersReducer from "./Reducers/user";
 import busesReducer from "./Reducers/bus";
 import navReducer from "./Reducers/navigation";
+import scanQueueeReducer from "./Reducers/scanQueuee";
 
 const rootReducer = combineReducers({
   user: usersReducer,
   bus: busesReducer,
   nav: navReducer,
+  scanQueuee: scanQueueeReducer,
 });
 
 // persist config

@@ -7,18 +7,18 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTheme, Text, Button } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import JiggleDeleteView from "react-native-jiggle-delete-view";
+import { useDispatch, useSelector } from "react-redux";
+import { removeItem } from "../../redux/Reducers/scanQueuee";
 
 const ScanHistory = ({ navigation }) => {
-  const [a, setA] = React.useState([
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-    22, 23,
-  ]);
+  const { q: queuee, count } = useSelector((state) => state.scanQueuee);
+
+  const dispatch = useDispatch();
+
   const theme = useTheme();
-  const [showDeleteJiggle, setShowDeleteJiggle] = React.useState(false);
   return (
     <View
       style={{
@@ -33,28 +33,14 @@ const ScanHistory = ({ navigation }) => {
             <View style={{ ...styles.justifySBTN, marginBottom: 20 }}>
               <Text>History</Text>
               <Text style={{ color: theme.colors.accent }}>
-                Total Students - {a.length}
+                Total Students - {count}
               </Text>
             </View>
-            {a.map((aa) => (
-              <TouchableOpacity
-                onLongPress={() => setShowDeleteJiggle(!showDeleteJiggle)}
-                onPress={() => setShowDeleteJiggle(false)}
-                key={aa}
-              >
-                <JiggleDeleteView
-                  showDeleteJiggle={showDeleteJiggle}
-                  showDeletingAnimation={true}
-                  onDelete={() => {
-                    let s = a;
-                    for (var i = 0; i < s.length; i++) {
-                      if (s[i] === aa) {
-                        s.splice(i, 1);
-                      }
-                    }
-                    console.log(s);
-                    setA(s);
-                  }}
+            {queuee.length > 0 ? (
+              queuee.map((qi) => (
+                <TouchableOpacity
+                  key={qi["id"]}
+                  onLongPress={() => dispatch(removeItem(qi["id"]))}
                 >
                   <View
                     style={{
@@ -66,7 +52,7 @@ const ScanHistory = ({ navigation }) => {
                     }}
                   >
                     <View>
-                      <Text style={{ fontWeight: "bold" }}>201-15-311{aa}</Text>
+                      <Text style={{ fontWeight: "bold" }}>{qi["id"]}</Text>
                     </View>
                     <View style={styles.justifySBTNCol}>
                       <Text style={{ marginBottom: 5 }}>09:00 AM</Text>
@@ -114,9 +100,11 @@ const ScanHistory = ({ navigation }) => {
                       />
                     </View>
                   </View>
-                </JiggleDeleteView>
-              </TouchableOpacity>
-            ))}
+                </TouchableOpacity>
+              ))
+            ) : (
+              <Text>Empty Queuee</Text>
+            )}
             <View
               style={{
                 alignItems: "center",

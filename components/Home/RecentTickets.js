@@ -71,9 +71,7 @@ const RecentTickets = ({ navigation }) => {
           justifyContent: "flex-end",
           alignItems: "center",
         }}
-        onPress={() => navigation.navigate("StuduentProfile", {
-          screen: "TripHistory"
-       })}
+        onPress={() => navigation.navigate("StuduentProfile")}
       >
         <FontAwesome5
           name="arrow-right"
