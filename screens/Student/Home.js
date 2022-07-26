@@ -60,7 +60,7 @@ const Home = ({ navigation }) => {
 
           <Divider />
           <View style={styles.container}>
-            <Text style={{ fontWeight: "bold" }}>Your Recent Journies</Text>
+            <Text style={{ fontWeight: "bold" }}>Your Last Ticket</Text>
           </View>
           <Divider />
 
