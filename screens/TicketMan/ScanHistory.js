@@ -82,7 +82,7 @@ const ScanHistory = ({ navigation }) => {
                         color: theme.colors.cardToggle,
                       }}
                     >
-                      Delete
+                      Remove
                     </Text>
                   </TouchableOpacity>
                 </View>
