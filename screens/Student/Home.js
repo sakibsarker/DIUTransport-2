@@ -48,7 +48,7 @@ const Home = ({ navigation }) => {
                   borderRadius: 15,
                 }}
               >
-                View All
+                sakib
               </Text>
             </TouchableOpacity>
           </View>
