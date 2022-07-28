@@ -9,7 +9,7 @@ const Seat = ({ props, navigation }) => {
   return (
     <TouchableOpacity
       onPress={() => navigation.navigate("selectMethod")}
-      style={{ marginVertical: 15, flexDirection: "row" }}
+      style={{ marginVertical: 15, flexDirection: "row", padding: 10 }}
     >
       <MIcon
         name="airline-seat-recline-extra"
