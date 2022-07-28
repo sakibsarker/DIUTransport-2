@@ -1,4 +1,5 @@
 import React from "react";
+import { Platform } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
@@ -142,18 +143,8 @@ const StudentTabNavigator = () => {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarShowLabel: false,
-        tabBarIcon: {},
         tabBarStyle: {
-          height: 80,
-          position: "absolute",
-          bottom: 16,
-          right: 16,
-          left: 16,
-          borderRadius: 15,
-          display: getTabBarVisibility(route),
-          borderTopWidth: 0,
-          elevation: 0,
-          backgroundColor: theme.colors.transparent,
+          backgroundColor: theme.colors.cardToggle,
         },
         tabBarInactiveTintColor: theme.colors.tabInactiveColor,
         tabBarActiveTintColor: theme.colors.tabActiveColor,
