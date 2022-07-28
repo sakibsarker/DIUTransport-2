@@ -111,7 +111,6 @@ const Home = ({ navigation }) => {
           style={{
             paddingHorizontal: 25,
             backgroundColor: theme.colors.gray,
-
           }}
         >
           <SearchBar />
@@ -140,7 +139,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginTop: 15,
     paddingHorizontal: 25,
-    paddingVertical: 20,
+    paddingVertical: 25,
   },
 });
 

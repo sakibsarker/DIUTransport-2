@@ -47,7 +47,9 @@ const Ticket = ({ props, navigation }) => {
           paddingVertical: 50,
         }}
       >
-        <Text style={{ fontSize: 16, fontWeight: "bold" }}>{busName}</Text>
+        <Text style={{ fontSize: 16, fontWeight: "bold", marginBottom: 5 }}>
+          {busName}
+        </Text>
         <Text>{destination}</Text>
         <Divider style={{ marginVertical: 10 }} />
         <View
@@ -58,12 +60,12 @@ const Ticket = ({ props, navigation }) => {
           }}
         >
           <View>
-            <Text>Time</Text>
-            <Text>{time}</Text>
+            <Text style={{ marginBottom: 5 }}>⏱ Time</Text>
+            <Text style={{ marginLeft: 25 }}>{time}</Text>
           </View>
           <View>
-            <Text>Date</Text>
-            <Text>{date}</Text>
+            <Text style={{ marginBottom: 5 }}>🗓 Date</Text>
+            <Text style={{ marginLeft: 25 }}>{date}</Text>
           </View>
           <View>
             <Image

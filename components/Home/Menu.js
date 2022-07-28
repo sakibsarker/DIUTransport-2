@@ -11,7 +11,7 @@ const Menu = ({ props, navigation }) => {
         backgroundColor: backgroundColor,
         justifyContent: "center",
         alignItems: "center",
-        padding: 45,
+        padding: 40,
         borderRadius: 40,
         marginVertical: 10,
       }}

@@ -23,6 +23,7 @@ import SelectMethod from "../screens/Payment/SelectMethod";
 import Confirmations from "../screens/Payment/Confirmations";
 import PaymentProcess from "../screens/Payment/PaymentProcess";
 import NoticeDetails from "../screens/Notice/NoticeDetails";
+import SelectSchedule from "../screens/Payment/SelectSchedule";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -34,6 +35,8 @@ const PaymentStack = () => {
         headerShown: false,
       }}
     >
+      <Stack.Screen name="selectSchedule" component={SelectSchedule} />
+
       <Stack.Screen name="selectSeat" component={SelectSeat} />
       <Stack.Screen name="selectMethod" component={SelectMethod} />
       <Stack.Screen name="confirmation" component={Confirmations} />
