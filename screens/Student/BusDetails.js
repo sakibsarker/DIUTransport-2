@@ -13,6 +13,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchBusCurrentLocation } from "../../redux/ApiCalls/bus";
 import Loader from "../../components/Loader";
 import MapMarker from "../../components/MapMarker";
+import Map from "../../components/Map/Map";
+import useSWR from "swr";
 
 const BusDetails = ({ route, navigation }) => {
   const bottomSheetRef = useRef(null);
@@ -20,19 +22,25 @@ const BusDetails = ({ route, navigation }) => {
   const theme = useTheme();
   const dispatch = useDispatch();
 
-  const { currentBusLocation, loading, error } = useSelector(
-    (state) => state.bus
-  );
+  // const { currentBusLocation, loading, error } = useSelector(
+  //   (state) => state.bus
+  // );
 
-  useEffect(() => {
-    dispatch(fetchBusCurrentLocation(route.params["busId"]));
-    if (error) {
-      console.log(error);
-    }
-    console.log(currentBusLocation);
-  }, []);
+  const busFetcher = async () => {
+    const response = await fetch(
+      `https://boiling-escarpment-76670.herokuapp.com/api/v1/bus/${route.params?.busId}`
+    );
 
-  if (loading && currentBusLocation?.location?.coordinates == undefined) {
+    return response.json();
+  };
+
+  const { data } = useSWR("/bus/location", busFetcher, {
+    refreshInterval: 1000,
+  });
+
+  console.log(data?.location);
+
+  if (!data && !error && data?.location?.coordinates == undefined) {
     return <Loader />;
   }
 
@@ -45,15 +53,15 @@ const BusDetails = ({ route, navigation }) => {
         position: "relative",
       }}
     >
-      <MapMarker
+      {/* <MapMarker
         title={route.params["busId"]}
         coordinates={currentBusLocation?.location?.coordinates}
-      />
-      {/* <Map
-        title={route.params["busId"]}
-        details={currentBusLocation}
-        location={currentBusLocation?.location}
       /> */}
+      <Map
+        title={route.params["busId"]}
+        details={data}
+        location={data?.location}
+      />
 
       <Image
         style={{

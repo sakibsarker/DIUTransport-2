@@ -23,7 +23,7 @@ const Map = (props) => {
         5000
       );
     }
-  }, []);
+  }, [props]);
 
   return (
     <View style={styles.container}>
