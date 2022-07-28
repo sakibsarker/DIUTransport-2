@@ -55,6 +55,7 @@ const NoticeBoard = ({ navigation }) => {
                   justifyContent: "flex-end",
                   alignItems: "center",
                   borderRadius: 25,
+                  marginHorizontal: 25,
                 }}
                 onPress={() => {
                   Alert.alert("Confirmation", "Are you sure want to delete ?", [
@@ -69,7 +70,15 @@ const NoticeBoard = ({ navigation }) => {
                   ]);
                 }}
               >
-                <Text>Remove</Text>
+                <Text
+                  style={{
+                    backgroundColor: theme.colors.notification,
+                    color: theme.colors.White,
+                    padding: 25,
+                  }}
+                >
+                  Remove
+                </Text>
               </TouchableOpacity>
             )}
             leftOpenValue={0}
