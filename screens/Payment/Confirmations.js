@@ -1,23 +1,9 @@
-import { View, SafeAreaView, StatusBar } from "react-native";
+import { StatusBar, TouchableOpacity, View } from "react-native";
+import { Divider, Surface, Text, useTheme } from "react-native-paper";
 import React from "react";
-import QRCode from "react-native-qrcode-svg";
-import { useTheme, Text, List, Surface, Divider } from "react-native-paper";
 
-const TicketDetails = ({ route }) => {
+const Confirmations = ({ navigation }) => {
   const theme = useTheme();
-
-  const {
-    time,
-    price,
-    id,
-    date,
-    busName,
-    name,
-    paymentVia,
-    destination,
-    backgroundColor,
-    token,
-  } = route.params?.info;
   return (
     <View
       style={{
@@ -57,7 +43,7 @@ const TicketDetails = ({ route }) => {
           }}
         >
           <Text style={{}}>Full Name:</Text>
-          <Text>{name}</Text>
+          <Text>SR Joy</Text>
         </View>
         <View
           style={{
@@ -72,7 +58,7 @@ const TicketDetails = ({ route }) => {
           }}
         >
           <Text style={{}}>Payment Via:</Text>
-          <Text>{paymentVia}</Text>
+          <Text>Bkash</Text>
         </View>
         <View
           style={{
@@ -87,7 +73,7 @@ const TicketDetails = ({ route }) => {
           }}
         >
           <Text style={{}}>Bus Name:</Text>
-          <Text>{busName}</Text>
+          <Text>Surjomukhi 1</Text>
         </View>
         <View
           style={{
@@ -102,7 +88,7 @@ const TicketDetails = ({ route }) => {
           }}
         >
           <Text style={{}}>Destination:</Text>
-          <Text>{destination}</Text>
+          <Text>Narayanganj</Text>
         </View>
         <View
           style={{
@@ -117,9 +103,7 @@ const TicketDetails = ({ route }) => {
           }}
         >
           <Text style={{}}>Date &amp; Time:</Text>
-          <Text>
-            {date} ⚡️ {time}
-          </Text>
+          <Text>28 Jul ⚡️ 7:08 AM</Text>
         </View>
         <View
           style={{
@@ -133,17 +117,27 @@ const TicketDetails = ({ route }) => {
             paddingVertical: 20,
           }}
         >
-          <Text style={{}}>Price:</Text>
-          <Text>{price} BDT.</Text>
+          <Text style={{}}>Amount to Pay:</Text>
+          <Text>25 BDT.</Text>
         </View>
 
         <Divider style={{ marginBottom: 25 }} />
         <View style={{ justifyContent: "center", flexDirection: "row" }}>
-          <QRCode value={token} size={150} />
+          <TouchableOpacity
+            onPress={() => navigation.navigate("paymentProcess")}
+            style={{
+              backgroundColor: theme.colors.green,
+              borderRadius: 20,
+              paddingHorizontal: 25,
+              paddingVertical: 10,
+            }}
+          >
+            <Text>Confirm</Text>
+          </TouchableOpacity>
         </View>
       </Surface>
     </View>
   );
 };
 
-export default TicketDetails;
+export default Confirmations;

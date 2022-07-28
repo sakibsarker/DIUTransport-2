@@ -7,10 +7,11 @@ import {
 } from "react-native";
 import React from "react";
 import { useTheme, Text, Divider } from "react-native-paper";
-import Student from "../components/Login/Student";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import TicketMan from "../components/Login/TicketMan";
 import Icon from "react-native-vector-icons/FontAwesome5";
+import Student from "../../components/Login/Student";
+import TicketMan from "../../components/Login/TicketMan";
+import Register from "./Register";
 const Stack = createNativeStackNavigator();
 const Login = ({ navigation }) => {
   const theme = useTheme();
@@ -38,7 +39,7 @@ const Login = ({ navigation }) => {
         <View style={{ height: "50%" }}>
           <View style={{ alignItems: "center" }}>
             <Image
-              source={require("../assets/images/tlogo.png")}
+              source={require("../../assets/images/tlogo.png")}
               style={{
                 height: 80,
                 width: 80,
@@ -66,6 +67,7 @@ const Login = ({ navigation }) => {
               }}
             >
               <Stack.Screen name="Student" component={Student} />
+              <Stack.Screen name="StudentRegister" component={Register} />
               <Stack.Screen name="TicketMan" component={TicketMan} />
             </Stack.Navigator>
           </View>
@@ -80,7 +82,7 @@ const Login = ({ navigation }) => {
               justifyContent: "center",
             }}
             onPress={() => {
-              navigation.navigate("TicketMan");
+              navigation.replace("TicketMan");
               setLoginStack("TicketMan");
             }}
           >
@@ -101,7 +103,7 @@ const Login = ({ navigation }) => {
               justifyContent: "center",
             }}
             onPress={() => {
-              navigation.navigate("Student");
+              navigation.replace("Student");
               setLoginStack("Student");
             }}
           >

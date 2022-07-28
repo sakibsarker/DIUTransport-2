@@ -13,7 +13,7 @@ export const themeLight = {
     accent: "#2a529f",
     success: "#16a085",
     tabActiveColor: "#74b9ff",
-    tabInactiveColor: "#dfe6e9",
+    tabInactiveColor: "#000",
     accentLight: "#b2bec3",
     White: "#FFFFFF",
     surfaceToggle: "#F3F3F3",
@@ -23,6 +23,19 @@ export const themeLight = {
     accentToggle: "#2a529f",
     black: "#000000",
     green: "#2ecc71",
+    red: "#FFF1F0",
+
+    purple: "#F3EFFF",
+
+    yellow: "#FFF9EC",
+
+    black: "#1E1F20",
+    white: "#FFFFFF",
+
+    gray: "#FCFBFC",
+    darkRed: "#FF4134",
+    darkPurple: "#6B3CE9",
+    transparent: "transparent",
   },
 };
 
@@ -43,5 +56,18 @@ export const themeDark = {
     btnToggle: "#272727",
     accentToggle: "#FFFFFF",
     black: "#000000",
+    red: "#FF4134",
+    lightRed: "#FFF1F0",
+    darkRed: "#FF4134",
+    purple: "#6B3CE9",
+    darkPurple: "#6B3CE9",
+    yellow: "#FFC664",
+
+    black: "#1E1F20",
+    white: "#FFFFFF",
+
+    gray: "#C3C6C7",
+
+    transparent: "transparent",
   },
 };
