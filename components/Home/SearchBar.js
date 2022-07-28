@@ -14,6 +14,7 @@ const SearchBar = () => {
     const data = await placesAutoComplete(query);
     setOptions(data.placesNames);
     console.log(query);
+    console.log(options);
   };
 
   const renderItem = ({ item }) => (
@@ -40,27 +41,13 @@ const SearchBar = () => {
   );
 
   return (
-    <View
-      style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "auto",
-        backgroundColor: theme.colors.cardToggle,
-        zIndex: 20,
-      }}
-    >
-      <Searchbar
-        placeholder="Search your trip"
-        onChangeText={onChangeSearch}
-        value={searchQuery}
-      />
+    <View>
+      <Searchbar onChangeText={onChangeSearch} value={searchQuery} />
       {options?.length > 0 ? (
         <FlatList
           data={options}
           renderItem={renderItem}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.value}
         />
       ) : (
         <></>

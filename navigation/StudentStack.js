@@ -27,7 +27,8 @@ const StudentStack = () => {
         }}
       >
         <Drawer.Screen
-          name="Home"
+          name="Main"
+          title="Home"
           component={StudentTabNavigator}
           options={{
             drawerIcon: ({ size, color }) => (

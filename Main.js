@@ -10,7 +10,7 @@ import { PreferencesContext } from "./contexts/PreferencesContext ";
 import { themeLight, themeDark } from "./Configs/theme";
 import Root from "./navigation/Root";
 import { KeyboardAvoidingView, Platform } from "react-native";
-
+import { NativeBaseProvider } from "native-base";
 const CombinedDefaultTheme = merge(themeLight, NavigationDefaultTheme);
 const CombinedDarkTheme = merge(themeDark, NavigationDarkTheme);
 
@@ -32,17 +32,19 @@ const Main = () => {
 
   return (
     <PreferencesContext.Provider value={preferences}>
-      <PaperProvider theme={theme}>
-        <NavigationContainer theme={theme} independent={true}>
-          <KeyboardAvoidingView
-            behavior={Platform.OS === "ios" ? "padding" : "height"}
-            style={{ flex: 1 }}
-            keyboardVerticalOffset={Platform.OS === "ios" ? -64 : 0}
-          >
-            <Root />
-          </KeyboardAvoidingView>
-        </NavigationContainer>
-      </PaperProvider>
+      <NativeBaseProvider>
+        <PaperProvider theme={theme}>
+          <NavigationContainer theme={theme} independent={true}>
+            <KeyboardAvoidingView
+              behavior={Platform.OS === "ios" ? "padding" : "height"}
+              style={{ flex: 1 }}
+              keyboardVerticalOffset={Platform.OS === "ios" ? -64 : 0}
+            >
+              <Root />
+            </KeyboardAvoidingView>
+          </NavigationContainer>
+        </PaperProvider>
+      </NativeBaseProvider>
     </PreferencesContext.Provider>
   );
 };

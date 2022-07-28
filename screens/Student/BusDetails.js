@@ -4,26 +4,19 @@ import {
   TouchableOpacity,
   StatusBar,
   Image,
+  Text,
 } from "react-native";
 import React, { useMemo, useRef, useEffect } from "react";
-import { useTheme, Text, Divider, Button } from "react-native-paper";
+import { useTheme, Divider } from "react-native-paper";
 import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchBusCurrentLocation } from "../../redux/ApiCalls/bus";
 import Loader from "../../components/Loader";
 import MapMarker from "../../components/MapMarker";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { useNavigation } from "@react-navigation/native";
-import SelectPayment from "../../components/Payment/SelectPayment";
-import Payment from "../../components/Payment/Payment";
-import Map from "../../components/Map/Map";
 
-const Stack = createNativeStackNavigator();
-
-const BusDetails = ({ route }) => {
-  const navigation = useNavigation();
+const BusDetails = ({ route, navigation }) => {
   const bottomSheetRef = useRef(null);
-  const snapPoints = useMemo(() => ["50%", "13%"]);
+  const snapPoints = useMemo(() => ["25%", "13%"]);
   const theme = useTheme();
   const dispatch = useDispatch();
 
@@ -52,15 +45,15 @@ const BusDetails = ({ route }) => {
         position: "relative",
       }}
     >
-      {/* <MapMarker
+      <MapMarker
         title={route.params["busId"]}
         coordinates={currentBusLocation?.location?.coordinates}
-      /> */}
-      <Map
+      />
+      {/* <Map
         title={route.params["busId"]}
         details={currentBusLocation}
         location={currentBusLocation?.location}
-      />
+      /> */}
 
       <Image
         style={{
@@ -85,19 +78,40 @@ const BusDetails = ({ route }) => {
             backgroundColor: theme.colors.surface,
           }}
         >
-          <View style={{ flex: 1 }}>
-            <Text style={{ textAlign: "center" }} variant="headlineLarge">
-              Ticket Price: 25 BDT
-            </Text>
-            <Text style={{ textAlign: "center" }}>{route.params?.busId}</Text>
-            <Text style={{ textAlign: "center" }}>{route.params?.routeId}</Text>
-            <Divider style={{ marginBottom: 20, marginTop: 10 }} />
-            <View style={{}}>
-              <Stack.Navigator screenOptions={{ headerShown: false }}>
-                <Stack.Screen name="SelectPayment" component={SelectPayment} />
-                <Stack.Screen name="Payment" component={Payment} />
-              </Stack.Navigator>
+          <View style={{ paddingHorizontal: 40 }}>
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <Text variant="headlineLarge">Available Seats:</Text>
+              <Text>25</Text>
             </View>
+            <Divider style={{ marginBottom: 20, marginTop: 10 }} />
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <Text variant="headlineLarge">Resereved Seats:</Text>
+              <Text>9</Text>
+            </View>
+            <Divider style={{ marginBottom: 20, marginTop: 10 }} />
+
+            <TouchableOpacity
+              style={{
+                backgroundColor: theme.colors.accent,
+                padding: 15,
+                borderRadius: 35,
+                alignItems: "center",
+                marginHorizontal: "22%",
+              }}
+              onPress={() => navigation.navigate("Payment")}
+            >
+              <Text style={{ color: theme.colors.White }}>Buy Ticket Now!</Text>
+            </TouchableOpacity>
           </View>
         </BottomSheetView>
       </BottomSheet>
@@ -108,7 +122,6 @@ const BusDetails = ({ route }) => {
 const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
-    alignItems: "center",
     width: "100%",
   },
 });

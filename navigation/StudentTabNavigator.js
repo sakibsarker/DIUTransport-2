@@ -1,23 +1,59 @@
-import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
-import Home from '../screens/Student/Home';
-import MyMap from '../screens/Student/MyMap';
-import Profile from '../screens/Student/Profile';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { useTheme } from 'react-native-paper';
-import NoticeBoard from '../screens/NoticeBoard';
-import BusDetails from '../screens/Student/BusDetails';
-import BusList from '../components/Home/BusList';
-import ViewAll from '../screens/Student/ViewAll';
-import TicketHistory from '../screens/Student/TicketHistory';
-import TicketDetails from '../screens/Student/TicketDetails';
-import Tickets from '../screens/Student/Tickets';
+import React from "react";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
+import Home from "../screens/Student/Home";
+import MyMap from "../screens/Student/MyMap";
+import Profile from "../screens/Student/Profile";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
+import { useTheme } from "react-native-paper";
+import NoticeBoard from "../screens/Notice/NoticeBoard";
+import RouteDetails from "../components/Home/RouteDetails";
+import ViewAll from "../screens/Student/ViewAll";
+import TicketHistory from "../screens/Student/TicketHistory";
+import TicketDetails from "../screens/Student/TicketDetails";
+import Tickets from "../screens/Student/Tickets";
+import Help from "../screens/HelpPage/Help";
+import UpdateProfile from "../screens/Auth/UpdateProfile";
+import Favourites from "../screens/Student/Favourites";
+import BusDetails from "../screens/Student/BusDetails";
+import SelectSeat from "../screens/Payment/SelectSeat";
+import SelectMethod from "../screens/Payment/SelectMethod";
+import Confirmations from "../screens/Payment/Confirmations";
+import PaymentProcess from "../screens/Payment/PaymentProcess";
+import NoticeDetails from "../screens/Notice/NoticeDetails";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
+
+const PaymentStack = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name="selectSeat" component={SelectSeat} />
+      <Stack.Screen name="selectMethod" component={SelectMethod} />
+      <Stack.Screen name="confirmation" component={Confirmations} />
+      <Stack.Screen name="paymentProcess" component={PaymentProcess} />
+    </Stack.Navigator>
+  );
+};
+
+const NoticeStack = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name="NoticeBoard" component={NoticeBoard} />
+      <Stack.Screen name="NoticeDetails" component={NoticeDetails} />
+    </Stack.Navigator>
+  );
+};
 
 const HomeStack = () => {
   return (
@@ -34,14 +70,27 @@ const HomeStack = () => {
           title: route.params?.busId,
         })}
       />
+      <Stack.Screen name="Payment" component={PaymentStack} />
       <Stack.Screen
-        name="BusList"
-        component={BusList}
+        name="RouteDetails"
+        component={RouteDetails}
         options={({ route }) => ({
           title: route.params?.routeId,
         })}
       />
       <Stack.Screen name="Routes" component={ViewAll} />
+      <Stack.Screen
+        name="THistory"
+        component={TicketHistory}
+        options={{ title: "History" }}
+      />
+      <Stack.Screen
+        name="Tickets"
+        screenOptions={{ title: "Tickets", headerShown: false }}
+        component={TicketStack}
+      />
+      <Stack.Screen name="Notifications" component={NoticeStack} />
+      <Stack.Screen name="Help" component={Help} />
     </Stack.Navigator>
   );
 };
@@ -54,11 +103,8 @@ const ProfileStack = () => {
         component={Profile}
         options={{ headerShown: false }}
       />
-      <Stack.Screen
-        name="TripHistory"
-        component={TicketHistory}
-        options={{ title: 'History' }}
-      />
+      <Stack.Screen name="updateProfile" component={UpdateProfile} />
+      <Stack.Screen name="favourites" component={Favourites} />
       <Stack.Screen
         name="Tickets"
         component={TicketStack}
@@ -91,59 +137,72 @@ const StudentTabNavigator = () => {
   const theme = useTheme();
   return (
     <Tab.Navigator
-      screenOptions={{
-        headerShown: false,
+      screenOptions={({ route }) => ({
         tabBarShowLabel: false,
+        tabBarIcon: {},
         tabBarStyle: {
-          backgroundColor: theme.colors.accent,
+          height: 80,
+          position: "absolute",
+          bottom: 20,
+          right: 16,
+          left: 16,
+          borderRadius: 15,
+          display: getTabBarVisibility(route),
+          borderTopWidth: 0,
+          elevation: 0,
+          backgroundColor: theme.colors.transparent,
         },
         tabBarInactiveTintColor: theme.colors.tabInactiveColor,
         tabBarActiveTintColor: theme.colors.tabActiveColor,
-      }}
+      })}
     >
       <Tab.Screen
-        name="Home2"
+        name="Home"
         component={HomeStack}
         options={({ route }) => ({
-          tabBarStyle: {
-            display: getTabBarVisibility(route),
-            backgroundColor: theme.colors.accent,
-          },
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home-outline" color={color} size={size} />
+          headerShown: false,
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons
+              name="home-outline"
+              color={color}
+              size={focused ? 35 : 27}
+            />
           ),
         })}
       />
       <Tab.Screen
-        name="mymap"
+        name="Map"
         component={MyMap}
         options={{
-          tabBarIcon: ({ color, size }) => (
-            <FontAwesome5 name="map" size={size} color={color} />
+          headerShown: false,
+          tabBarIcon: ({ color, size, focused }) => (
+            <FontAwesome5 name="map" size={focused ? 35 : 27} color={color} />
           ),
         }}
       />
       <Tab.Screen
-        name="notices"
-        component={NoticeBoard}
+        name="Tickets"
+        component={Tickets}
         options={{
           tabBarBadge: 7,
-          tabBarBadgeStyle: { backgroundColor: 'tomato' },
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="notifications" size={size} color={color} />
+          tabBarBadgeStyle: { backgroundColor: "tomato" },
+          tabBarIcon: ({ color, size, focused }) => (
+            <FontAwesome5
+              name="ticket-alt"
+              size={focused ? 35 : 27}
+              color={color}
+            />
           ),
         }}
       />
+
       <Tab.Screen
-        name="StuduentProfile"
+        name="Profile"
         component={ProfileStack}
         options={({ route }) => ({
-          tabBarStyle: {
-            display: getTabBarVisibility(route),
-            backgroundColor: theme.colors.accent,
-          },
-          tabBarIcon: ({ color, size }) => (
-            <FontAwesome5 name="user" color={color} size={size} />
+          headerShown: false,
+          tabBarIcon: ({ color, size, focused }) => (
+            <FontAwesome5 name="user" color={color} size={focused ? 35 : 27} />
           ),
         })}
       />
@@ -152,12 +211,12 @@ const StudentTabNavigator = () => {
 };
 
 const getTabBarVisibility = (route) => {
-  const routeName = getFocusedRouteNameFromRoute(route) ?? 'Feed';
+  const routeName = getFocusedRouteNameFromRoute(route) ?? "Feed";
   console.log(routeName);
-  if (routeName == 'home' || routeName == 'Feed' || routeName == 'Profile7') {
-    return 'flex';
+  if (routeName == "home" || routeName == "Feed" || routeName == "Profile7") {
+    return "flex";
   }
-  return 'none';
+  return "none";
 };
 
 export default StudentTabNavigator;

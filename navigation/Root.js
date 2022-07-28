@@ -15,10 +15,10 @@ const root = () => {
 
   React.useEffect(() => {
     if (userType && token && userType == "employee") {
-      // dispatch(employeeProfile({ token: token && token }));
-      // if (error) {
-      //   Alert.alert("Error", error);
-      // }
+      dispatch(employeeProfile({ token: token && token }));
+      if (error) {
+        Alert.alert("Error", error);
+      }
       dispatch(clearErrors());
     } else if (token && userType && userType == "student") {
       dispatch(studentProfile());

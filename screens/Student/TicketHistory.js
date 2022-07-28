@@ -61,12 +61,9 @@ const TicketHistory = ({ navigation }) => {
 
               <TouchableOpacity
                 onPress={() =>
-                  navigation.navigate("Home2", {
-                    screen: "BusDetails",
-                    params: {
-                      busId: "surjomukhi22",
-                      routeId: "রাস্তা ৪",
-                    },
+                  navigation.navigate("BusDetails", {
+                    busId: "surjomukhi22",
+                    routeId: "রাস্তা ৪",
                   })
                 }
                 style={styles.buttn}
@@ -127,12 +124,9 @@ const TicketHistory = ({ navigation }) => {
 
               <TouchableOpacity
                 onPress={() =>
-                  navigation.navigate("Home2", {
-                    screen: "BusDetails",
-                    params: {
-                      busId: "surjomukhi22",
-                      routeId: "রাস্তা ৪",
-                    },
+                  navigation.navigate("BusDetails", {
+                    busId: "surjomukhi22",
+                    routeId: "রাস্তা ৪",
                   })
                 }
                 style={styles.buttn}
@@ -194,12 +188,9 @@ const TicketHistory = ({ navigation }) => {
               <TouchableOpacity
                 style={styles.buttn}
                 onPress={() =>
-                  navigation.navigate("Home2", {
-                    screen: "BusDetails",
-                    params: {
-                      busId: "surjomukhi22",
-                      routeId: "রাস্তা ৪",
-                    },
+                  navigation.navigate("BusDetails", {
+                    busId: "surjomukhi22",
+                    routeId: "রাস্তা ৪",
                   })
                 }
               >

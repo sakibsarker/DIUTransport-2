@@ -5,7 +5,7 @@ import CustomDrawer from "../components/CustomDrawer";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useTheme } from "react-native-paper";
 
-import NoticeBoard from "../screens/NoticeBoard";
+import NoticeBoard from "../screens/Notice/NoticeBoard";
 import TicketScan from "../screens/TicketMan/TicketScan";
 import TicketmanTabNavigator from "./TicketmanTabNavigator";
 import ScanHistory from "../screens/TicketMan/ScanHistory";
