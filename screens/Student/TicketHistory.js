@@ -227,9 +227,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   ticket: {
-    borderRadius: 20,
     padding: 20,
-    marginBottom: 15,
+    marginBottom: 40,
   },
   timestus: {
     flexDirection: "row",

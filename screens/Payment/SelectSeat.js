@@ -277,7 +277,7 @@ const SelectSeat = ({ navigation }) => {
             size={25}
             color={theme.colors.darkPurple}
           />
-          <Text>Teachers</Text>
+          <Text>Faculty</Text>
         </View>
         <View
           style={{
@@ -313,7 +313,7 @@ const SelectSeat = ({ navigation }) => {
         />
       </View>
       <View>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={{
             backgroundColor: theme.colors.cardToggle,
             alignItems: "center",
@@ -324,7 +324,7 @@ const SelectSeat = ({ navigation }) => {
           onPress={() => navigation.navigate("selectMethod")}
         >
           <Text>Skip</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </View>
   );

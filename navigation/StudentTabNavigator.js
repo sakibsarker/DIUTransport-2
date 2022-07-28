@@ -121,7 +121,7 @@ const ProfileStack = () => {
 const TicketStack = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Your Tickets" component={Tickets} />
+      <Stack.Screen name="Tickets" component={Tickets} />
       <Stack.Screen
         name="TicketDetails"
         component={TicketDetails}
@@ -143,7 +143,7 @@ const StudentTabNavigator = () => {
         tabBarStyle: {
           height: 80,
           position: "absolute",
-          bottom: 20,
+          bottom: 16,
           right: 16,
           left: 16,
           borderRadius: 15,
@@ -181,9 +181,10 @@ const StudentTabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="Tickets"
-        component={Tickets}
+        name="YTickets"
+        component={TicketStack}
         options={{
+          title: "Your Tickets",
           tabBarBadge: 7,
           tabBarBadgeStyle: { backgroundColor: "tomato" },
           tabBarIcon: ({ color, size, focused }) => (
@@ -213,7 +214,12 @@ const StudentTabNavigator = () => {
 const getTabBarVisibility = (route) => {
   const routeName = getFocusedRouteNameFromRoute(route) ?? "Feed";
   console.log(routeName);
-  if (routeName == "home" || routeName == "Feed" || routeName == "Profile7") {
+  if (
+    routeName == "home" ||
+    routeName == "Feed" ||
+    routeName == "Profile7" ||
+    routeName == "TicketDetails"
+  ) {
     return "flex";
   }
   return "none";
