@@ -141,7 +141,7 @@ const StudentTabNavigator = () => {
         tabBarShowLabel: false,
         tabBarIcon: {},
         tabBarStyle: {
-          height: 40,
+          height: 80,
           position: "absolute",
           bottom: 16,
           right: 16,
@@ -214,7 +214,12 @@ const StudentTabNavigator = () => {
 const getTabBarVisibility = (route) => {
   const routeName = getFocusedRouteNameFromRoute(route) ?? "Feed";
   console.log(routeName);
-  if (routeName == "home" || routeName == "Feed" || routeName == "Profile7") {
+  if (
+    routeName == "home" ||
+    routeName == "Feed" ||
+    routeName == "Profile7" ||
+    routeName == "TicketDetails"
+  ) {
     return "flex";
   }
   return "none";

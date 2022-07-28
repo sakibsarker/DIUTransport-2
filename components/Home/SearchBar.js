@@ -42,7 +42,13 @@ const SearchBar = () => {
 
   return (
     <View>
-      <Searchbar onChangeText={onChangeSearch} value={searchQuery} />
+      <Searchbar
+        style={{
+          borderRadius: 40,
+        }}
+        onChangeText={onChangeSearch}
+        value={searchQuery}
+      />
       {options?.length > 0 ? (
         <FlatList
           data={options}

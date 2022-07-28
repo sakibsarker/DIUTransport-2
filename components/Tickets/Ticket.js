@@ -24,28 +24,30 @@ const Ticket = ({ props, navigation }) => {
         })
       }
       style={{
-        marginVertical: 30,
+        marginVertical: 15,
         position: "relative",
+        paddingHorizontal: 15,
       }}
     >
-      <View
+      {/* <View
         style={{
           backgroundColor: backgroundColor,
           width: "100%",
           height: 40,
           zIndex: 1,
+          borderRadius: 30,
         }}
-      ></View>
+      ></View> */}
       <View
         style={{
           zIndex: 3,
           backgroundColor: theme.colors.cardToggle,
-          marginHorizontal: 20,
-          paddingHorizontal: 20,
-          paddingVertical: 20,
+          borderRadius: 15,
+          paddingHorizontal: 30,
+          paddingVertical: 50,
         }}
       >
-        <Text>{busName}</Text>
+        <Text style={{ fontSize: 16, fontWeight: "bold" }}>{busName}</Text>
         <Text>{destination}</Text>
         <Divider style={{ marginVertical: 10 }} />
         <View

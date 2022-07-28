@@ -23,7 +23,7 @@ const Tickets = ({ navigation, route }) => {
       busName: "Surjomukhi 1",
       busId: "surjomukhi22",
       destination: "Baipayl, Dhaka",
-      backgroundColor: theme.colors.yellow,
+      backgroundColor: theme.colors.green,
       token:
         "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE2NTg3NjE5MDMsImV4cCI6MTY5MDI5NzkwMywiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoianJvY2tldEBleGFtcGxlLmNvbSIsIkdpdmVuTmFtZSI6IkpvaG5ueSIsIlN1cm5hbWUiOiJSb2NrZXQiLCJlbWFpbCI6Impyb2NrZXRAZXhhbXBsZS5jb20iLCJpZCI6IjIwMS0xNS0zMTE3In0.3lqSk1Wa1pFHTCm5sWxvwMr6AlT_qqZPUs03tn24tmU",
     },
@@ -37,7 +37,7 @@ const Tickets = ({ navigation, route }) => {
       busId: "surjomukhi10",
       busName: "Surjomukhi 8",
       destination: "Uttara, Dhaka",
-      backgroundColor: theme.colors.red,
+      backgroundColor: theme.colors.green,
       token:
         "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJESVUgU21hcnQgQ2l0eSIsImlhdCI6MTY1ODM0MjM2NywiZXhwIjoxNjg5ODc4MzY1LCJhdWQiOiJkYWZmb2RpbFRyYW5zcG9ydC5jb20iLCJzdWIiOiJzdXBwb3J0X3RyYW5zcG9ydEBkaXUuZWR1LmJkIiwiR2l2ZW5OYW1lIjoiU1IiLCJTdXJuYW1lIjoiSm95IiwiRW1haWwiOiJzYWtpYkBzYXJrYXIuY29tIiwiVGlja2V0UHJpY2UiOiIzNSJ9.9-JnJeFePf4OfakhkDNDbX-7leR0ObiGRlG43p-vB1k",
     },
@@ -51,7 +51,7 @@ const Tickets = ({ navigation, route }) => {
       busName: "Surjomukhi 7",
       busId: "surjomukhi10",
       destination: "Narayanganj, Dhaka",
-      backgroundColor: theme.colors.gray,
+      backgroundColor: theme.colors.green,
       token:
         "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJESVUgU21hcnQgQ2l0eSIsImlhdCI6MTY1ODc1OTMyOSwiZXhwIjoxNjkwMjk1MzI5LCJhdWQiOiJkYWZmb2RpbFRyYW5zcG9ydCIsInN1YiI6ImRhZmZvZGlsVHJhbnNwb3J0QHN1cHBydC5jb20iLCJHaXZlbk5hbWUiOiJKb2hubnkiLCJTdXJuYW1lIjoiSm9obnkiLCJFbWFpbCI6Inllc0BwYXBhLmNvbSIsIlRpY2tldFByaWNlIjoiMjUifQ.tuuDttTMMXPyDsd2UtiL3vLKSqO-otwypdxqVGL-dts",
     },
@@ -65,7 +65,7 @@ const Tickets = ({ navigation, route }) => {
       busName: "Surjomukhi 3",
       busId: "surjomukhi22",
       destination: "Dhanmondi, Dhaka",
-      backgroundColor: theme.colors.purple,
+      backgroundColor: theme.colors.green,
       token:
         "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJESVUgU21hcnQgQ2l0eSIsImlhdCI6MTY1ODc1OTMyOSwiZXhwIjoxNjkwMjk1MzI5LCJhdWQiOiJkYWZmb2RpbFRyYW5zcG9ydCIsInN1YiI6ImRhZmZvZGlsVHJhbnNwb3J0QHN1cHBydC5jb20iLCJHaXZlbk5hbWUiOiJKb2hubnkiLCJTdXJuYW1lIjoiSm9obnkiLCJFbWFpbCI6Inllc0BwYXBhLmNvbSIsIlRpY2tldFByaWNlIjoiMjUifQ.tuuDttTMMXPyDsd2UtiL3vLKSqO-otwypdxqVGL-dts",
     },
