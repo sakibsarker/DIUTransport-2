@@ -1,23 +1,23 @@
-import React from 'react';
+import React from "react";
 import {
   View,
   ImageBackground,
   Image,
   TouchableOpacity,
   Share,
-} from 'react-native';
+} from "react-native";
 import {
   DrawerContentScrollView,
   DrawerItemList,
-} from '@react-navigation/drawer';
-import { useTheme, Text, Switch } from 'react-native-paper';
-import { StackActions } from '@react-navigation/native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { PreferencesContext } from '../contexts/PreferencesContext ';
-import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../redux/Reducers/user';
-import { NameFormat } from '../Utils/NameFormat';
+} from "@react-navigation/drawer";
+import { useTheme, Text, Switch } from "react-native-paper";
+import { StackActions } from "@react-navigation/native";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
+import { PreferencesContext } from "../contexts/PreferencesContext ";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../redux/Reducers/user";
+import { NameFormat } from "../Utils/NameFormat";
 
 const CustomDrawer = (props) => {
   const { user, loading, userType } = useSelector((state) => state.user);
@@ -32,9 +32,9 @@ const CustomDrawer = (props) => {
   const onShare = async () => {
     try {
       const result = await Share.share({
-        message: 'DIU Transport developers are the best!',
-        url: 'https://github.com/srj101/DIUTransport',
-        title: 'DIU Transport App',
+        message: "DIU Transport developers are the best!",
+        url: "https://github.com/srj101/DIUTransport",
+        title: "DIU Transport App",
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
@@ -60,7 +60,7 @@ const CustomDrawer = (props) => {
         contentContainerStyle={{ backgroundColor: theme.colors.background }}
       >
         <ImageBackground
-          source={require('../assets/images/dark-bg.webp')}
+          source={require("../assets/images/dark-bg.webp")}
           style={{ padding: 20 }}
         >
           {user?.photoURL ? (
@@ -75,7 +75,7 @@ const CustomDrawer = (props) => {
             />
           ) : (
             <Image
-              source={require('../assets/images/avatar.png')}
+              source={require("../assets/images/avatar.png")}
               style={{
                 height: 80,
                 width: 80,
@@ -85,39 +85,39 @@ const CustomDrawer = (props) => {
             />
           )}
           <TouchableOpacity
-            onPress={() => props.navigation.navigate('StuduentProfile')}
+            onPress={() => props.navigation.navigate("Profile")}
           >
             <Text
               style={{
-                color: '#fff',
+                color: "#fff",
                 fontSize: 18,
                 marginBottom: 5,
               }}
             >
-              {userType && userType === 'student'
+              {userType && userType === "student"
                 ? NameFormat(user?.displayName)
                 : NameFormat(user?.name)}
             </Text>
           </TouchableOpacity>
-          {userType && userType === 'student' ? (
+          {userType && userType === "student" ? (
             <TouchableOpacity
-              onPress={() => props.navigation.navigate("StuduentProfile", {
+              onPress={() =>
+                props.navigation.navigate("Profile", {
                   screen: "Tickets",
                 })
               }
               style={{ flexDirection: "row" }}
-
             >
               <Text
                 style={{
-                  color: '#fff',
+                  color: "#fff",
 
                   marginRight: 5,
                 }}
               >
                 5 Tickets
               </Text>
-              <FontAwesome5 name="coins" size={14} color={'#FFFFFF'} />
+              <FontAwesome5 name="coins" size={14} color={"#FFFFFF"} />
             </TouchableOpacity>
           ) : (
             <></>
@@ -133,13 +133,13 @@ const CustomDrawer = (props) => {
           <DrawerItemList {...props} />
         </View>
       </DrawerContentScrollView>
-      <View style={{ padding: 20, borderTopWidth: 1, borderTopColor: '#ccc' }}>
+      <View style={{ padding: 20, borderTopWidth: 1, borderTopColor: "#ccc" }}>
         <View
           style={{
             padding: 5,
             marginBottom: 10,
             borderBottomWidth: 1,
-            borderBottomColor: '#ccc',
+            borderBottomColor: "#ccc",
           }}
         >
           <Text>Preferences</Text>
@@ -157,10 +157,10 @@ const CustomDrawer = (props) => {
           />
         </TouchableOpacity>
       </View>
-      <View style={{ padding: 20, borderTopWidth: 1, borderTopColor: '#ccc' }}>
+      <View style={{ padding: 20, borderTopWidth: 1, borderTopColor: "#ccc" }}>
         <TouchableOpacity onPress={() => {}} style={{ paddingVertical: 15 }}>
           <TouchableOpacity
-            style={{ flexDirection: 'row', alignItems: 'center' }}
+            style={{ flexDirection: "row", alignItems: "center" }}
             onPress={onShare}
           >
             <Ionicons
@@ -183,7 +183,7 @@ const CustomDrawer = (props) => {
           onPress={handleLogout}
           style={{ paddingVertical: 15 }}
         >
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
             <Ionicons name="exit-outline" size={22} color={theme.colors.text} />
             <Text
               style={{

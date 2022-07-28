@@ -36,7 +36,6 @@ const Student = ({ navigation }) => {
               token: user.stsTokenManager.accessToken,
             })
           );
-          navigation.replace("StudentStack");
         })
         .catch((error) => {
           dispatch(

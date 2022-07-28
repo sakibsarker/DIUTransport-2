@@ -87,6 +87,21 @@ const Confirmations = ({ navigation }) => {
             paddingVertical: 20,
           }}
         >
+          <Text style={{}}>Seat:</Text>
+          <Text>E1</Text>
+        </View>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            borderColor: theme.colors.accent,
+            borderWidth: 0,
+            borderBottomWidth: 1,
+            borderStyle: "solid",
+            marginHorizontal: 25,
+            paddingVertical: 20,
+          }}
+        >
           <Text style={{}}>Destination:</Text>
           <Text>Narayanganj</Text>
         </View>
