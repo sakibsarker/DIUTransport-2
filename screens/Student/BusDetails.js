@@ -20,11 +20,6 @@ const BusDetails = ({ route, navigation }) => {
   const bottomSheetRef = useRef(null);
   const snapPoints = useMemo(() => ["25%", "13%"]);
   const theme = useTheme();
-  const dispatch = useDispatch();
-
-  // const { currentBusLocation, loading, error } = useSelector(
-  //   (state) => state.bus
-  // );
 
   const busFetcher = async () => {
     const response = await fetch(
@@ -34,11 +29,13 @@ const BusDetails = ({ route, navigation }) => {
     return response.json();
   };
 
-  const { data } = useSWR("/bus/location", busFetcher, {
+  const { data, error } = useSWR("/bus/location", busFetcher, {
     refreshInterval: 1000,
   });
 
-  console.log(data?.location);
+  useEffect(() => {
+    console.log(data?.location?.coordinates);
+  }, [data?.location]);
 
   if (!data && !error && data?.location?.coordinates == undefined) {
     return <Loader />;

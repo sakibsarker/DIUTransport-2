@@ -277,7 +277,7 @@ const SelectSeat = ({ navigation }) => {
             size={25}
             color={theme.colors.darkPurple}
           />
-          <Text>Teachers</Text>
+          <Text>Faculty</Text>
         </View>
         <View
           style={{

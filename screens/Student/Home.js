@@ -72,7 +72,6 @@ const Home = ({ navigation }) => {
     <View
       style={{
         flex: 1,
-        position: "relative",
         backgroundColor: theme?.colors.backcolor,
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
       }}

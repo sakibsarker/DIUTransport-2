@@ -121,7 +121,7 @@ const ProfileStack = () => {
 const TicketStack = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Your Tickets" component={Tickets} />
+      <Stack.Screen name="Tickets" component={Tickets} />
       <Stack.Screen
         name="TicketDetails"
         component={TicketDetails}
@@ -141,11 +141,8 @@ const StudentTabNavigator = () => {
         tabBarShowLabel: false,
         tabBarIcon: {},
         tabBarStyle: {
-          height: 80,
-          position: "absolute",
-          bottom: 20,
-          right: 16,
-          left: 16,
+          height: 65,
+
           borderRadius: 15,
           display: getTabBarVisibility(route),
           borderTopWidth: 0,
@@ -181,9 +178,10 @@ const StudentTabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="Tickets"
-        component={Tickets}
+        name="YTickets"
+        component={TicketStack}
         options={{
+          title: "Your Tickets",
           tabBarBadge: 7,
           tabBarBadgeStyle: { backgroundColor: "tomato" },
           tabBarIcon: ({ color, size, focused }) => (
