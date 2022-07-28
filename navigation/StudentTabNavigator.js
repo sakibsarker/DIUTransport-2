@@ -141,13 +141,11 @@ const StudentTabNavigator = () => {
         tabBarShowLabel: false,
         tabBarIcon: {},
         tabBarStyle: {
-          height: 65,
-
           borderRadius: 15,
           display: getTabBarVisibility(route),
           borderTopWidth: 0,
           elevation: 0,
-          backgroundColor: theme.colors.transparent,
+          backgroundColor: "transparent",
         },
         tabBarInactiveTintColor: theme.colors.tabInactiveColor,
         tabBarActiveTintColor: theme.colors.tabActiveColor,

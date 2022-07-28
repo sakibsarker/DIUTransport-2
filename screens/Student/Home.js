@@ -76,11 +76,11 @@ const Home = ({ navigation }) => {
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
       }}
     >
-      <ImageBackground
-        source={require("../../assets/images/diubanner.jpg")}
-        style={{ padding: 60 }}
-      />
       <SafeAreaView>
+        <ImageBackground
+          source={require("../../assets/images/diubanner.jpg")}
+          style={{ padding: 40 }}
+        />
         <View style={styles.container}>
           <View>
             <Text style={{ fontWeight: "bold", fontSize: 30 }}>
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginTop: 15,
     paddingHorizontal: 25,
-    paddingVertical: 40,
+    paddingVertical: 20,
   },
 });
 
