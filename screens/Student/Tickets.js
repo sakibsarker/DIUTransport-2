@@ -21,6 +21,7 @@ const Tickets = ({ navigation, route }) => {
       time: "7:45am",
       date: "27 Jul 2022",
       busName: "Surjomukhi 1",
+      busId: "surjomukhi22",
       destination: "Baipayl, Dhaka",
       backgroundColor: theme.colors.yellow,
       token:
@@ -33,6 +34,7 @@ const Tickets = ({ navigation, route }) => {
       paymentVia: "Bkash",
       time: "2.45pm",
       date: "27 Jul 2022",
+      busId: "surjomukhi10",
       busName: "Surjomukhi 8",
       destination: "Uttara, Dhaka",
       backgroundColor: theme.colors.red,
@@ -47,6 +49,7 @@ const Tickets = ({ navigation, route }) => {
       time: "5.20pm",
       date: "27 Jul 2022",
       busName: "Surjomukhi 7",
+      busId: "surjomukhi10",
       destination: "Narayanganj, Dhaka",
       backgroundColor: theme.colors.gray,
       token:
@@ -60,6 +63,7 @@ const Tickets = ({ navigation, route }) => {
       time: "2.45pm",
       date: "27 Jul 2022",
       busName: "Surjomukhi 3",
+      busId: "surjomukhi22",
       destination: "Dhanmondi, Dhaka",
       backgroundColor: theme.colors.purple,
       token:

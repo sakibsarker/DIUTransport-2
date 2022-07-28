@@ -1,9 +1,9 @@
-import { View, SafeAreaView, StatusBar } from "react-native";
+import { View, SafeAreaView, StatusBar, TouchableOpacity } from "react-native";
 import React from "react";
 import QRCode from "react-native-qrcode-svg";
 import { useTheme, Text, List, Surface, Divider } from "react-native-paper";
 
-const TicketDetails = ({ route }) => {
+const TicketDetails = ({ route, navigation }) => {
   const theme = useTheme();
 
   const {
@@ -16,6 +16,7 @@ const TicketDetails = ({ route }) => {
     paymentVia,
     destination,
     backgroundColor,
+    busId,
     token,
   } = route.params?.info;
   return (
@@ -87,7 +88,15 @@ const TicketDetails = ({ route }) => {
           }}
         >
           <Text style={{}}>Bus Name:</Text>
-          <Text>{busName}</Text>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate("BusDetails", {
+                busId: busId,
+              })
+            }
+          >
+            <Text>{busName}</Text>
+          </TouchableOpacity>
         </View>
         <View
           style={{
