@@ -15,10 +15,11 @@ import Loader from "../../components/Loader";
 import MapMarker from "../../components/MapMarker";
 import Map from "../../components/Map/Map";
 import useSWR from "swr";
+import DestinationToggle from "../../components/Bus/DestinationToggle";
 
 const BusDetails = ({ route, navigation }) => {
   const bottomSheetRef = useRef(null);
-  const snapPoints = useMemo(() => ["25%", "13%"]);
+  const snapPoints = useMemo(() => ["55%", "21%"]);
   const theme = useTheme();
 
   const busFetcher = async () => {
@@ -84,6 +85,7 @@ const BusDetails = ({ route, navigation }) => {
           }}
         >
           <View style={{ paddingHorizontal: 40 }}>
+         
             <View
               style={{
                 flexDirection: "row",
@@ -103,8 +105,9 @@ const BusDetails = ({ route, navigation }) => {
               <Text variant="headlineLarge">Resereved Seats:</Text>
               <Text>9</Text>
             </View>
-            <Divider style={{ marginBottom: 20, marginTop: 10 }} />
-
+            
+            <DestinationToggle/>
+            <Divider style={{  marginVertical:10 }} />
             <TouchableOpacity
               style={{
                 backgroundColor: theme.colors.accent,
@@ -117,6 +120,7 @@ const BusDetails = ({ route, navigation }) => {
             >
               <Text style={{ color: theme.colors.White }}>Buy Ticket Now!</Text>
             </TouchableOpacity>
+            
           </View>
         </BottomSheetView>
       </BottomSheet>
