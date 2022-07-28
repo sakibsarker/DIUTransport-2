@@ -111,6 +111,7 @@ const Home = ({ navigation }) => {
           style={{
             paddingHorizontal: 25,
             backgroundColor: theme.colors.gray,
+
           }}
         >
           <SearchBar />

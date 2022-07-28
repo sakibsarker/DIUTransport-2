@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
     flex: 1,
-    flexDirection: "row",
+    flexDirection:"row",
     flexWrap: "wrap",
     alignItems: "flex-start",
   },
