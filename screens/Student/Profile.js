@@ -11,7 +11,7 @@ import {
 import { useTheme, Text } from "react-native-paper";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import { NameFormat } from "../../Utils/NameFormat";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/Reducers/user";
 import Loader from "../../components/Loader";
@@ -83,14 +83,16 @@ const Profile = ({ navigation }) => {
               }}
             >
               <Text style={{ fontWeight: "bold", paddingHorizontal: 50 }}>
-                Date:{" "}
+                {NameFormat(user?.displayName)}
+              </Text>
+              {/* <Text style={{ paddingHorizontal: 50 }}>
                 {new Date().toLocaleDateString("en-US", {
                   weekday: "long",
                   year: "numeric",
                   month: "long",
                   day: "numeric",
                 })}
-              </Text>
+              </Text> */}
             </View>
 
             <TouchableOpacity

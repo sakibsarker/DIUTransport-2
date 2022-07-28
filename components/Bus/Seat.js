@@ -6,9 +6,14 @@ import MIcon from "react-native-vector-icons/MaterialIcons";
 const Seat = ({ props, navigation }) => {
   const theme = useTheme();
   const { id, available, seatId, booked, sold } = props;
+  const handlePress = () => {
+    if (available && !booked && !sold) {
+      navigation.navigate("selectMethod");
+    }
+  };
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate("selectMethod")}
+      onPress={handlePress}
       style={{ marginVertical: 15, flexDirection: "row", padding: 10 }}
     >
       <MIcon

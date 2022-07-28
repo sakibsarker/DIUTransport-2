@@ -38,7 +38,7 @@ const Home = ({ navigation }) => {
     {
       id: 2,
       color: theme.colors.purple,
-      backgroundColor: theme.colors.yellow,
+      backgroundColor: theme.colors.gray,
       name: "Recent",
       description: "Recent Journies",
       icon: "history",
@@ -47,7 +47,7 @@ const Home = ({ navigation }) => {
     {
       id: 3,
       color: theme.colors.primary,
-      backgroundColor: theme.colors.gray,
+      backgroundColor: theme.colors.yellow,
       name: "Tickets",
       description: "Your Tickets",
       icon: "ticket-alt",
