@@ -11,7 +11,6 @@ import {
   DrawerItemList,
 } from "@react-navigation/drawer";
 import { useTheme, Text, Switch } from "react-native-paper";
-import { StackActions } from "@react-navigation/native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import { PreferencesContext } from "../contexts/PreferencesContext ";
@@ -20,7 +19,7 @@ import { logout } from "../redux/Reducers/user";
 import { NameFormat } from "../Utils/NameFormat";
 
 const CustomDrawer = (props) => {
-  const { user, loading, userType } = useSelector((state) => state.user);
+  const { user, userType } = useSelector((state) => state.user);
   const theme = useTheme();
   const dispatch = useDispatch();
   const { toggleTheme, isThemeDark } = React.useContext(PreferencesContext);
@@ -85,7 +84,11 @@ const CustomDrawer = (props) => {
             />
           )}
           <TouchableOpacity
-            onPress={() => props.navigation.navigate("Profile")}
+            onPress={() =>
+              props.navigation.navigate("Settings", {
+                screen: "Profile",
+              })
+            }
           >
             <Text
               style={{
@@ -99,29 +102,6 @@ const CustomDrawer = (props) => {
                 : NameFormat(user?.name)}
             </Text>
           </TouchableOpacity>
-          {userType && userType === "student" ? (
-            <TouchableOpacity
-              onPress={() =>
-                props.navigation.navigate("Profile", {
-                  screen: "Tickets",
-                })
-              }
-              style={{ flexDirection: "row" }}
-            >
-              <Text
-                style={{
-                  color: "#fff",
-
-                  marginRight: 5,
-                }}
-              >
-                5 Tickets
-              </Text>
-              <FontAwesome5 name="coins" size={14} color={"#FFFFFF"} />
-            </TouchableOpacity>
-          ) : (
-            <></>
-          )}
         </ImageBackground>
         <View
           style={{

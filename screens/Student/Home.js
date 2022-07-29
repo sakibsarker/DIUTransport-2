@@ -76,28 +76,32 @@ const Home = ({ navigation }) => {
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
       }}
     >
-      <SafeAreaView>
-        <ImageBackground
-          source={require("../../assets/images/diubanner.jpg")}
-          style={{ padding: 40 }}
-        />
-        <View style={styles.container}>
-          <View>
-            <Text style={{ fontWeight: "bold", fontSize: 30 }}>
-              Hello {NameFormat(user?.displayName)}
-            </Text>
-            <Text>{GreetingsToUser(new Date(), { showName: false })}!</Text>
-          </View>
+      <ImageBackground
+        source={require("../../assets/images/diubanner.jpg")}
+        style={{ padding: 60 }}
+      />
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+          paddingHorizontal: 25,
+          paddingVertical: 40,
+        }}
+      >
+        <View>
+          <Text style={{ fontWeight: "bold", fontSize: 30 }}>
+            Hello {NameFormat(user?.displayName)}
+          </Text>
+          <Text>{GreetingsToUser(new Date(), { showName: false })}!</Text>
+        </View>
 
+        <View>
           <TouchableOpacity
             onPress={() => navigation.navigate("Notifications")}
           >
             <Icon
               style={{
-                paddingLeft: 15,
-                paddingRight: 15,
-                paddingTop: 5,
-                paddingBottom: 5,
                 borderRadius: 15,
               }}
               name="notifications"
@@ -106,41 +110,27 @@ const Home = ({ navigation }) => {
             />
           </TouchableOpacity>
         </View>
+      </View>
 
-        <View
-          style={{
-            paddingHorizontal: 25,
-            backgroundColor: theme.colors.gray,
-          }}
-        >
-          <SearchBar />
-        </View>
+      <View
+        style={{
+          paddingHorizontal: 25,
+          backgroundColor: theme.colors.gray,
+        }}
+      >
+        <SearchBar />
+      </View>
 
-        <View style={{ paddingHorizontal: 25 }}>
-          <FlatList
-            data={menuData}
-            numColumns={2}
-            columnWrapperStyle={{ justifyContent: "space-between" }}
-            keyExtractor={(item) => `${item.id}`}
-            renderItem={renderItem}
-            showsVerticalScrollIndicator={false}
-          />
-        </View>
-      </SafeAreaView>
+      <FlatList
+        data={menuData}
+        numColumns={2}
+        columnWrapperStyle={{ justifyContent: "space-between", padding: 25 }}
+        keyExtractor={(item) => `${item.id}`}
+        renderItem={renderItem}
+        showsVerticalScrollIndicator={false}
+      />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginTop: 15,
-    paddingHorizontal: 25,
-    paddingVertical: 25,
-  },
-});
 
 export default Home;

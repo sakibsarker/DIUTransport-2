@@ -25,6 +25,7 @@ import Confirmations from "../screens/Payment/Confirmations";
 import PaymentProcess from "../screens/Payment/PaymentProcess";
 import NoticeDetails from "../screens/Notice/NoticeDetails";
 import SelectSchedule from "../screens/Payment/SelectSchedule";
+import Settings from "../screens/Student/Settings/Settings";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -35,13 +36,43 @@ const PaymentStack = () => {
       screenOptions={{
         headerShown: false,
       }}
+      initialRouteName="selectSchedule"
     >
-      <Stack.Screen name="selectSchedule" component={SelectSchedule} />
-
-      <Stack.Screen name="selectSeat" component={SelectSeat} />
-      <Stack.Screen name="selectMethod" component={SelectMethod} />
-      <Stack.Screen name="confirmation" component={Confirmations} />
-      <Stack.Screen name="paymentProcess" component={PaymentProcess} />
+      <Stack.Screen
+        name="selectSchedule"
+        component={SelectSchedule}
+        options={{
+          title: "Schedule Selection",
+        }}
+      />
+      <Stack.Screen
+        name="selectSeat"
+        component={SelectSeat}
+        options={{
+          title: "Select A Seat",
+        }}
+      />
+      <Stack.Screen
+        name="selectMethod"
+        component={SelectMethod}
+        options={{
+          title: "Payment Method",
+        }}
+      />
+      <Stack.Screen
+        name="confirmation"
+        component={Confirmations}
+        options={{
+          title: "Confirmation",
+        }}
+      />
+      <Stack.Screen
+        name="paymentProcess"
+        component={PaymentProcess}
+        options={{
+          title: "Processing",
+        }}
+      />
     </Stack.Navigator>
   );
 };
@@ -90,7 +121,7 @@ const HomeStack = () => {
       />
       <Stack.Screen
         name="Tickets"
-        screenOptions={{ title: "Tickets", headerShown: false }}
+        screenOptions={{ headerShown: false }}
         component={TicketStack}
       />
       <Stack.Screen name="Notifications" component={NoticeStack} />
@@ -105,7 +136,7 @@ const ProfileStack = () => {
       <Stack.Screen
         name="Profile7"
         component={Profile}
-        options={{ headerShown: false }}
+        options={{ headerShown: false, title: "Profile" }}
       />
       <Stack.Screen name="updateProfile" component={UpdateProfile} />
       <Stack.Screen name="favourites" component={Favourites} />
@@ -122,16 +153,36 @@ const ProfileStack = () => {
   );
 };
 
+const SettingsStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Settingss"
+        component={Settings}
+        options={{ title: "Settings" }}
+      />
+
+      <Stack.Screen name="Account" component={ProfileStack} />
+    </Stack.Navigator>
+  );
+};
+
 const TicketStack = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Tickets" component={Tickets} />
+      <Stack.Screen
+        name="tickets"
+        component={Tickets}
+        options={{
+          title: "Tickets",
+        }}
+      />
       <Stack.Screen
         name="TicketDetails"
         component={TicketDetails}
-        options={({ route }) => ({
-          title: route.params?.value,
-        })}
+        options={{
+          title: "Ticket",
+        }}
       />
     </Stack.Navigator>
   );
@@ -145,9 +196,11 @@ const StudentTabNavigator = () => {
         tabBarShowLabel: false,
         tabBarStyle: {
           backgroundColor: theme.colors.cardToggle,
+          display: getTabBarVisibility(route),
         },
         tabBarInactiveTintColor: theme.colors.tabInactiveColor,
         tabBarActiveTintColor: theme.colors.tabActiveColor,
+        tabBarHideOnKeyboard: true,
       })}
     >
       <Tab.Screen
@@ -192,8 +245,8 @@ const StudentTabNavigator = () => {
       />
 
       <Tab.Screen
-        name="Profile"
-        component={ProfileStack}
+        name="Settings"
+        component={SettingsStack}
         options={({ route }) => ({
           headerShown: false,
           tabBarIcon: ({ color, size, focused }) => (
@@ -208,11 +261,14 @@ const StudentTabNavigator = () => {
 const getTabBarVisibility = (route) => {
   const routeName = getFocusedRouteNameFromRoute(route) ?? "Feed";
   console.log(routeName);
+
   if (
     routeName == "home" ||
     routeName == "Feed" ||
     routeName == "Profile7" ||
-    routeName == "TicketDetails"
+    routeName == "TicketDetails" ||
+    routeName == "Home" ||
+    routeName == "Settingss"
   ) {
     return "flex";
   }

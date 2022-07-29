@@ -13,7 +13,6 @@ const Menu = ({ props, navigation }) => {
         alignItems: "center",
         padding: 40,
         borderRadius: 40,
-        marginVertical: 10,
       }}
     >
       <Icon size={30} name={icon} color={theme.colors.text} />
