@@ -8,10 +8,9 @@ const SwitchSetting = ({ navigation, props }) => {
   const { toggleTheme, isThemeDark } = React.useContext(PreferencesContext);
 
   const theme = useTheme();
-  const { icon, title, link } = props;
+  const { icon, title } = props;
   return (
-    <TouchableOpacity
-      onPress={() => navigation.navigate(link)}
+    <View
       style={{ ...styles.setting, backgroundColor: theme.colors.cardToggle }}
     >
       <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -26,7 +25,7 @@ const SwitchSetting = ({ navigation, props }) => {
           value={isThemeDark}
         />
       </TouchableOpacity>
-    </TouchableOpacity>
+    </View>
   );
 };
 

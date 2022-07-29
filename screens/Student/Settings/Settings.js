@@ -68,7 +68,6 @@ const Settings = ({ navigation }) => {
       id: 1,
       icon: "moon",
       title: "Dark Mode",
-      link: "Account",
     },
   ];
 
@@ -86,6 +85,56 @@ const Settings = ({ navigation }) => {
     <SwitchSetting props={item} navigation={navigation} />
   );
 
+  const rendePage = () => (
+    <>
+      <View style={{ marginVertical: 30 }}>
+        <FlatList
+          ListHeaderComponent={<ListHeader title="Account Settings" />}
+          data={accountSettingsData}
+          listKey={1}
+          numColumns={1}
+          keyExtractor={(item) => `${item.id}`}
+          renderItem={renderItem}
+          showsVerticalScrollIndicator={false}
+        />
+      </View>
+      <View style={{ marginVertical: 30 }}>
+        <FlatList
+          ListHeaderComponent={<ListHeader title="Contact Details" />}
+          data={contactDetailsData}
+          numColumns={1}
+          listKey={2}
+          keyExtractor={(item) => `${item.id}`}
+          renderItem={renderItem}
+          showsVerticalScrollIndicator={false}
+        />
+      </View>
+
+      <View style={{ marginVertical: 30 }}>
+        <FlatList
+          ListHeaderComponent={<ListHeader title="Preferences" />}
+          data={preferencesData}
+          numColumns={1}
+          listKey={3}
+          keyExtractor={(item) => `${item.id}`}
+          renderItem={renderSwitchItem}
+          showsVerticalScrollIndicator={false}
+        />
+      </View>
+
+      <View style={{ marginVertical: 30 }}>
+        <FlatList
+          ListHeaderComponent={<ListHeader title="Sign Out" />}
+          data={signOutData}
+          numColumns={1}
+          keyExtractor={(item) => `${item.id}`}
+          renderItem={renderItem}
+          showsVerticalScrollIndicator={false}
+        />
+      </View>
+    </>
+  );
+
   return (
     <View
       style={{
@@ -95,48 +144,12 @@ const Settings = ({ navigation }) => {
       }}
     >
       <SafeAreaView>
-        <View style={{ marginVertical: 30 }}>
-          <FlatList
-            ListHeaderComponent={<ListHeader title="Account Settings" />}
-            data={accountSettingsData}
-            numColumns={1}
-            keyExtractor={(item) => `${item.id}`}
-            renderItem={renderItem}
-            showsVerticalScrollIndicator={false}
-          />
-        </View>
-        <View style={{ marginVertical: 30 }}>
-          <FlatList
-            ListHeaderComponent={<ListHeader title="Contact Details" />}
-            data={contactDetailsData}
-            numColumns={1}
-            keyExtractor={(item) => `${item.id}`}
-            renderItem={renderItem}
-            showsVerticalScrollIndicator={false}
-          />
-        </View>
-
-        <View style={{ marginVertical: 30 }}>
-          <FlatList
-            ListHeaderComponent={<ListHeader title="Preferences" />}
-            data={preferencesData}
-            numColumns={1}
-            keyExtractor={(item) => `${item.id}`}
-            renderItem={renderSwitchItem}
-            showsVerticalScrollIndicator={false}
-          />
-        </View>
-
-        <View style={{ marginVertical: 30 }}>
-          <FlatList
-            ListHeaderComponent={<ListHeader title="Sign Out" />}
-            data={signOutData}
-            numColumns={1}
-            keyExtractor={(item) => `${item.id}`}
-            renderItem={renderItem}
-            showsVerticalScrollIndicator={false}
-          />
-        </View>
+        <FlatList
+          data={[{}]}
+          renderItem={rendePage}
+          numColumns={1}
+          showsVerticalScrollIndicator={false}
+        />
       </SafeAreaView>
     </View>
   );
