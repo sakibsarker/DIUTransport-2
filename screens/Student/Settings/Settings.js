@@ -24,14 +24,14 @@ const Settings = ({ navigation }) => {
       id: 2,
       icon: "unlock",
       title: "Change Password",
-      link: "Account",
+      link: "ChangePassword",
       showArrow: true,
     },
     {
       id: 3,
       icon: "heart",
       title: "Favourites",
-      link: "Account",
+      link: "Favourites",
       showArrow: true,
     },
   ];
@@ -41,14 +41,14 @@ const Settings = ({ navigation }) => {
       id: 1,
       icon: "phone",
       title: "Phone",
-      link: "Account",
+      link: "Phone",
       showArrow: true,
     },
     {
       id: 2,
       icon: "address-card",
       title: "Address",
-      link: "Account",
+      link: "Address",
       showArrow: true,
     },
   ];
