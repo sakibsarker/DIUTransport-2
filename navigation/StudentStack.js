@@ -5,6 +5,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { useTheme } from "react-native-paper";
 import StudentTabNavigator from "./StudentTabNavigator";
 import Settings from "../screens/Student/Settings/Settings";
+import SettingsStack from "./Settings/SettingsStack";
 
 const Drawer = createDrawerNavigator();
 
@@ -39,7 +40,7 @@ const StudentStack = () => {
 
         <Drawer.Screen
           name="Settings"
-          component={Settings}
+          component={SettingsStack}
           options={{
             drawerIcon: ({ color }) => (
               <Ionicons name="settings" size={22} color={color} />

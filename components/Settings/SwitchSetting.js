@@ -1,31 +1,36 @@
 import { StyleSheet, TouchableOpacity, View } from "react-native";
-import { useTheme, Text } from "react-native-paper";
+import { useTheme, Text, Switch } from "react-native-paper";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import React from "react";
-import { useDispatch } from "react-redux";
-import { logout } from "../../redux/Reducers/user";
+import { PreferencesContext } from "../../contexts/PreferencesContext ";
 
-const Setting = ({ navigation, props }) => {
+const SwitchSetting = ({ navigation, props }) => {
+  const { toggleTheme, isThemeDark } = React.useContext(PreferencesContext);
+
   const theme = useTheme();
-  const dispatch = useDispatch();
-  const { id, icon, title, link, showArrow } = props;
+  const { icon, title, link } = props;
   return (
     <TouchableOpacity
-      onPress={() =>
-        link === "Sign-Out" ? dispatch(logout()) : navigation.navigate(link)
-      }
+      onPress={() => navigation.navigate(link)}
       style={{ ...styles.setting, backgroundColor: theme.colors.cardToggle }}
     >
       <View style={{ flexDirection: "row", alignItems: "center" }}>
         <Icon name={icon} size={25} color={theme.colors.text} />
         <Text style={{ marginHorizontal: 25 }}>{title}</Text>
       </View>
-      {showArrow && <Icon name="angle-right" />}
+      <TouchableOpacity>
+        <Switch
+          onChange={() => toggleTheme()}
+          style={[{ color: theme.colors.accent }]}
+          color={theme.colors.accent}
+          value={isThemeDark}
+        />
+      </TouchableOpacity>
     </TouchableOpacity>
   );
 };
 
-export default Setting;
+export default SwitchSetting;
 
 const styles = StyleSheet.create({
   setting: {
