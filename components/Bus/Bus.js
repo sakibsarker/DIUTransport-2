@@ -1,7 +1,6 @@
 import { TouchableOpacity, View } from "react-native";
 import React from "react";
-import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
-import { Surface, Text, useTheme } from "react-native-paper";
+import { Text, useTheme } from "react-native-paper";
 
 const Bus = ({ navigation, props }) => {
   const theme = useTheme();
@@ -17,6 +16,11 @@ const Bus = ({ navigation, props }) => {
       onPress={() =>
         navigation.navigate("BusDetails", {
           busId: busId,
+          info: {
+            status,
+            name,
+            location,
+          },
         })
       }
     >
