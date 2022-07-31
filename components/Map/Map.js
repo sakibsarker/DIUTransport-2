@@ -86,7 +86,7 @@ const Map = ({ busId, location, info }) => {
           latitudeDelta: LATITUDE_DELTA,
           longitudeDelta: LONGITUDE_DELTA,
         },
-        500
+        3000
       );
     }
   };
@@ -95,7 +95,7 @@ const Map = ({ busId, location, info }) => {
     const newCoordinate = { latitude, longitude };
     if (Platform.OS == "android") {
       if (markerRef.current) {
-        markerRef.current.animateMarkerToCoordinate(newCoordinate, 7000);
+        markerRef.current.animateMarkerToCoordinate(newCoordinate, 3000);
       }
     } else {
       coordinate.timing(newCoordinate).start();
@@ -139,7 +139,7 @@ const Map = ({ busId, location, info }) => {
           borderRadius: 100,
           padding: 15,
         }}
-        onPress={onCenter}
+        onPress={onCenter(curLoc?.latitude, curLoc?.longitude)}
       >
         <Icon name="pin" size={35} color={theme.colors.text} />
       </TouchableOpacity>
