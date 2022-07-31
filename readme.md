@@ -24,8 +24,8 @@
 
 ## ℹ️ About The Project
 
-![alt text](assets/images/AppP1.png "App P1")
-![alt text](assets/images/AppP2.png "App P2")
+<!-- ![alt text](assets/images/AppP1.png "App P1")
+![alt text](assets/images/AppP2.png "App P2") -->
 
 It is made using React Native with Expo using firebase services (authentication, firestore and storage).
 The admin panel is made with ReactJS.
@@ -78,7 +78,11 @@ Contributions are what make the open source community such an amazing place to b
 ## 🔥 Screenshots
 
 <p align="center">
-  <img src="assets/images/Git/1.png" width=200 height=400 />
+  <!-- <img src="https://i.ibb.co/XVkJkgR/ezgif-com-gif-maker.gif" width=200 height=400 />
+  <img src="https://i.ibb.co/VTKdmbh/Simulator-Screen-Shot-i-Phone-13-Pro-Max-2022-07-16-at-14-16-25.png" width=200 height=400 />
+  <img src="https://i.ibb.co/1mX58gY/Simulator-Screen-Shot-i-Phone-13-Pro-Max-2022-07-16-at-14-11-54.png" width=200 height=400 />
+  <img src="https://i.ibb.co/8NycK1w/Simulator-Screen-Shot-i-Phone-13-Pro-Max-2022-07-16-at-14-18-00.png" width=200 height=400 />
+    <img src="assets/images/Git/1.png" width=200 height=400 />
   <img src="assets/images/Git/2.png" width=200 height=400 />
   <img src="assets/images/Git/3.png" width=200 height=400 />
   <img src="assets/images/Git/4.png" width=200 height=400 />
@@ -87,7 +91,7 @@ Contributions are what make the open source community such an amazing place to b
   <img src="assets/images/Git/7.png" width=200 height=400 />
   <img src="assets/images/Git/8.png" width=200 height=400 />
   <img src="assets/images/Git/9.png" width=200 height=400 />
-  <img src="assets/images/Git/10.png" width=200 height=400 />
+  <img src="assets/images/Git/10.png" width=200 height=400 /> -->
 </p>
 
 ## 🌟 Show your support
