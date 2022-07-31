@@ -1,30 +1,12 @@
 import React, { useEffect } from "react";
 import { List, useTheme, Text, Surface } from "react-native-paper";
-import {
-  FlatList,
-  ImageBackground,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { FlatList, ImageBackground, SafeAreaView, View } from "react-native";
 import Bus from "../Bus/Bus";
 const BusList = ({ navigation, route }) => {
   const theme = useTheme();
 
-  const {
-    id,
-    routeId,
-    routeName,
-    startTimes,
-    routeDetails,
-    departureTimes,
-    noOfBuses,
-    image,
-    duration,
-    distance,
-  } = route.params?.info;
+  const { startTimes, routeDetails, departureTimes, image } =
+    route.params?.info;
 
   const busData = [
     {
@@ -34,7 +16,7 @@ const BusList = ({ navigation, route }) => {
       busId: "surjomukhi22",
       status: "Returning",
       location: {
-        coordinates: [1, 2],
+        coordinates: [90.269018, 23.936878],
       },
     },
     {
@@ -43,7 +25,7 @@ const BusList = ({ navigation, route }) => {
       busId: "surjomukhi10",
       status: "Started",
       location: {
-        coordinates: [1, 2],
+        coordinates: [90.269018, 23.936878],
       },
       backgroundColor: theme.colors.yellow,
     },
@@ -53,7 +35,7 @@ const BusList = ({ navigation, route }) => {
       busId: "surjomukhi1",
       status: "Standby",
       location: {
-        coordinates: [1, 2],
+        coordinates: [90.269018, 23.936878],
       },
       backgroundColor: theme.colors.red,
     },
@@ -66,8 +48,9 @@ const BusList = ({ navigation, route }) => {
       <Text style={{ fontSize: 15, fontWeight: "bold" }}>Available Buses</Text>
     </View>
   );
-  return (
-    <SafeAreaView>
+
+  const renderPage = () => (
+    <>
       <ImageBackground source={{ uri: image }} style={{ padding: 50 }} />
 
       <View style={{ paddingHorizontal: 25, marginTop: 25 }}>
@@ -106,6 +89,7 @@ const BusList = ({ navigation, route }) => {
         <FlatList
           ListHeaderComponent={renderPromoHeader}
           data={busData}
+          listKey={1}
           numColumns={2}
           columnWrapperStyle={{ justifyContent: "space-between" }}
           keyExtractor={(item) => `${item.id}`}
@@ -113,6 +97,17 @@ const BusList = ({ navigation, route }) => {
           showsVerticalScrollIndicator={false}
         />
       </View>
+    </>
+  );
+
+  return (
+    <SafeAreaView>
+      <FlatList
+        data={[{}]}
+        numColumns={1}
+        renderItem={renderPage}
+        showsVerticalScrollIndicator={false}
+      />
     </SafeAreaView>
   );
 };
