@@ -1,6 +1,6 @@
-import { View, Image, TouchableOpacity } from "react-native";
-import React from "react";
-import { Divider, useTheme, Text } from "react-native-paper";
+import { View, Image, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { Divider, useTheme, Text } from 'react-native-paper';
 
 const Ticket = ({ props, navigation }) => {
   const theme = useTheme();
@@ -19,13 +19,13 @@ const Ticket = ({ props, navigation }) => {
   return (
     <TouchableOpacity
       onPress={() =>
-        navigation.navigate("TicketDetails", {
+        navigation.navigate('TicketDetails', {
           info: props,
         })
       }
       style={{
         marginVertical: 15,
-        position: "relative",
+        position: 'relative',
         paddingHorizontal: 15,
       }}
     >
@@ -47,25 +47,25 @@ const Ticket = ({ props, navigation }) => {
           paddingVertical: 50,
         }}
       >
-        <Text style={{ fontSize: 16, fontWeight: "bold", marginBottom: 5 }}>
+        <Text style={{ fontSize: 16, fontWeight: 'bold', marginBottom: 5 }}>
           {busName}
         </Text>
         <Text>{destination}</Text>
         <Divider style={{ marginVertical: 10 }} />
         <View
           style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
+            flexDirection: 'row',
+            justifyContent: 'space-between',
             paddingVertical: 5,
           }}
         >
           <View>
             <Text style={{ marginBottom: 5 }}>⏱ Time</Text>
-            <Text style={{ marginLeft: 25 }}>{time}</Text>
+            <Text style={{}}>{time}</Text>
           </View>
           <View>
             <Text style={{ marginBottom: 5 }}>🗓 Date</Text>
-            <Text style={{ marginLeft: 25 }}>{date}</Text>
+            <Text style={{}}>{date}</Text>
           </View>
           <View>
             <Image
@@ -73,7 +73,7 @@ const Ticket = ({ props, navigation }) => {
                 width: 30,
                 height: 30,
               }}
-              source={require("../../assets/images/qr-code-scan.png")}
+              source={require('../../assets/images/qr-code-scan.png')}
             />
           </View>
         </View>

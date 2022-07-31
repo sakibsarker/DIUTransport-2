@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   View,
   StatusBar,
@@ -10,22 +10,22 @@ import {
   TextInput,
   KeyboardAvoidingView,
   ScrollView,
-} from "react-native";
-import { useTheme, Text } from "react-native-paper";
-import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
-import { NameFormat } from "../../Utils/NameFormat";
-import { useDispatch, useSelector } from "react-redux";
-import Loader from "../../components/Loader";
+} from 'react-native';
+import { useTheme, Text } from 'react-native-paper';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { NameFormat } from '../../Utils/NameFormat';
+import { useDispatch, useSelector } from 'react-redux';
+import Loader from '../../components/Loader';
 
 const Profile = ({ navigation }) => {
   const { user, loading } = useSelector((state) => state.user);
   const theme = useTheme();
 
-  const [firstname, setFirstname] = useState("SR");
-  const [lastname, setLastname] = useState("Joy");
-  const [phone, setPhone] = useState("+8801616346835");
-  const [address, setAddress] = useState("Baipayl, Dhaka , Bangladesh");
+  const [firstname, setFirstname] = useState('SR');
+  const [lastname, setLastname] = useState('Joy');
+  const [phone, setPhone] = useState('+8801616346835');
+  const [address, setAddress] = useState('Baipayl, Dhaka , Bangladesh');
 
   if (loading) {
     return <Loader />;
@@ -36,13 +36,13 @@ const Profile = ({ navigation }) => {
       style={{
         flex: 1,
         backgroundColor: theme?.colors.surface,
-        paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
       }}
     >
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <SafeAreaView>
           <View style={styles.container}>
-            <View style={{ alignItems: "center" }}>
+            <View style={{ alignItems: 'center' }}>
               <Image
                 source={{ uri: user?.photoURL }}
                 style={{
@@ -52,7 +52,7 @@ const Profile = ({ navigation }) => {
                 }}
               />
               <TouchableOpacity style={{ paddingVertical: 25 }}>
-                <Text style={{ fontWeight: "bold", fontSize: 16 }}>
+                <Text style={{ fontWeight: 'bold', fontSize: 16 }}>
                   Change Profile Picture
                 </Text>
               </TouchableOpacity>
@@ -65,7 +65,7 @@ const Profile = ({ navigation }) => {
                   ...styles.inputField,
                 }}
               >
-                <Text style={{ fontWeight: "bold" }}>First Name</Text>
+                <Text style={{ fontWeight: 'bold' }}>First Name</Text>
                 <TextInput
                   style={{
                     color: theme.colors.text,
@@ -84,7 +84,7 @@ const Profile = ({ navigation }) => {
                   ...styles.inputField,
                 }}
               >
-                <Text style={{ fontWeight: "bold" }}>Last Name</Text>
+                <Text style={{ fontWeight: 'bold' }}>Last Name</Text>
                 <TextInput
                   style={{
                     color: theme.colors.text,
@@ -103,7 +103,7 @@ const Profile = ({ navigation }) => {
                   ...styles.inputField,
                 }}
               >
-                <Text style={{ fontWeight: "bold" }}>Phone</Text>
+                <Text style={{ fontWeight: 'bold' }}>Phone</Text>
                 <TextInput
                   style={{
                     color: theme.colors.text,
@@ -123,7 +123,7 @@ const Profile = ({ navigation }) => {
                   ...styles.inputField,
                 }}
               >
-                <Text style={{ fontWeight: "bold" }}>Address</Text>
+                <Text style={{ fontWeight: 'bold' }}>Address</Text>
                 <TextInput
                   style={{
                     color: theme.colors.text,
