@@ -105,19 +105,14 @@ const Home = ({ navigation }) => {
                 borderRadius: 15,
               }}
               name="notifications"
-              color={theme.colors.accent}
+              color={theme.colors.text}
               size={40}
             />
           </TouchableOpacity>
         </View>
       </View>
 
-      <View
-        style={{
-          paddingHorizontal: 25,
-          backgroundColor: theme.colors.gray,
-        }}
-      >
+      <View>
         <SearchBar />
       </View>
 

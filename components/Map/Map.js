@@ -15,6 +15,8 @@ import {
 import Icon from "react-native-vector-icons/Octicons";
 import useSWR from "swr";
 import Loader from "../Loader";
+import { PreferencesContext } from "../../contexts/PreferencesContext ";
+import { mapNight } from "../../Configs/MapNightStyle";
 
 const screen = Dimensions.get("window");
 const ASPECT_RATIO = screen.width / screen.height;
@@ -22,6 +24,8 @@ const LATITUDE_DELTA = 0.04;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
 const Map = ({ busId, location, info }) => {
+  const { isThemeDark } = React.useContext(PreferencesContext);
+
   const theme = useTheme();
   const mapRef = useRef(null);
   const markerRef = useRef();
@@ -113,6 +117,7 @@ const Map = ({ busId, location, info }) => {
         provider={PROVIDER_GOOGLE}
         showsTraffic
         ref={mapRef}
+        customMapStyle={isThemeDark ? mapNight : null}
         initialRegion={{
           ...curLoc,
           latitudeDelta: LATITUDE_DELTA,

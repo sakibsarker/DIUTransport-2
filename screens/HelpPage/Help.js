@@ -25,6 +25,26 @@ const CONTENT = [
     content:
       "Our Return & Refund Policy template lets you get started with a Return and Refund Policy agreement. This template is free to download and use.According to TrueShip study, over 60% of customers review a Return/Refund Policy before they make a purchasing decision.",
   },
+  {
+    title: "How do I turn on notifications?",
+    content:
+      "Our Return & Refund Policy template lets you get started with a Return and Refund Policy agreement. This template is free to download and use.According to TrueShip study, over 60% of customers review a Return/Refund Policy before they make a purchasing decision.",
+  },
+  {
+    title: "Who else can use my ticket token ?",
+    content:
+      "Our Return & Refund Policy template lets you get started with a Return and Refund Policy agreement. This template is free to download and use.According to TrueShip study, over 60% of customers review a Return/Refund Policy before they make a purchasing decision.",
+  },
+  {
+    title: "How do I update my profile?",
+    content:
+      "Our Return & Refund Policy template lets you get started with a Return and Refund Policy agreement. This template is free to download and use.According to TrueShip study, over 60% of customers review a Return/Refund Policy before they make a purchasing decision.",
+  },
+  {
+    title: "How do I give Five star rating to the App?",
+    content:
+      "Our Return & Refund Policy template lets you get started with a Return and Refund Policy agreement. This template is free to download and use.According to TrueShip study, over 60% of customers review a Return/Refund Policy before they make a purchasing decision.",
+  },
 ];
 import { useTheme, Text } from "react-native-paper";
 

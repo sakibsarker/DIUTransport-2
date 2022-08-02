@@ -12,7 +12,7 @@ const BusList = ({ navigation, route }) => {
     {
       id: 1,
       backgroundColor: theme.colors.gray,
-      name: "Surjomukhi 1",
+      name: "সূর্যমুখি ২২",
       busId: "surjomukhi22",
       status: "Returning",
       location: {
@@ -21,7 +21,7 @@ const BusList = ({ navigation, route }) => {
     },
     {
       id: 2,
-      name: "Surjomukhi 2",
+      name: "সূর্যমুখী ১০",
       busId: "surjomukhi10",
       status: "Started",
       location: {
@@ -31,7 +31,7 @@ const BusList = ({ navigation, route }) => {
     },
     {
       id: 3,
-      name: "Surjomukhi 2",
+      name: "সূর্যমুখী ১",
       busId: "surjomukhi1",
       status: "Standby",
       location: {
@@ -45,7 +45,7 @@ const BusList = ({ navigation, route }) => {
 
   const renderPromoHeader = () => (
     <View style={{ marginTop: 40 }}>
-      <Text style={{ fontSize: 15, fontWeight: "bold" }}>Available Buses</Text>
+      <Text style={{ fontSize: 18, fontWeight: "bold" }}>Available Buses</Text>
     </View>
   );
 

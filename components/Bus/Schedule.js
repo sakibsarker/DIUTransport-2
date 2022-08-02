@@ -12,13 +12,13 @@ const Schedule = ({ props, navigation }) => {
         justifyContent: "flex-start",
         backgroundColor: theme.colors.cardToggle,
         marginBottom: 3,
-        paddingHorizontal: 25,
-        paddingVertical: 15,
+        borderRadius: 20,
+        padding: 20,
         alignItems: "center",
       }}
       onPress={() => navigation.navigate("selectSeat")}
     >
-      <Text style={{ fontWeight: "bold" }}>{time}</Text>
+      <Text style={{ fontWeight: "bold" }}>⏱ {time}</Text>
     </TouchableOpacity>
   );
 };

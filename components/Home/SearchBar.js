@@ -14,7 +14,6 @@ const SearchBar = () => {
     const data = await placesAutoComplete(query);
     setOptions(data.placesNames);
     console.log(query);
-    console.log(options);
   };
 
   const renderItem = ({ item }) => (
@@ -44,7 +43,7 @@ const SearchBar = () => {
     <View>
       <Searchbar
         style={{
-          borderRadius: 40,
+          borderRadius: 15,
         }}
         onChangeText={onChangeSearch}
         value={searchQuery}

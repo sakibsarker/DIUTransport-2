@@ -2,9 +2,11 @@ import React from "react";
 import { View, SafeAreaView, StatusBar, FlatList } from "react-native";
 import { useTheme, Text } from "react-native-paper";
 import History from "../../components/Tickets/History";
+import DatePicker, { getFormatedDate } from "react-native-modern-datepicker";
 
 const TicketHistory = ({ navigation }) => {
   const theme = useTheme();
+  const [date, setDate] = React.useState("");
   const HistoryData = [
     {
       id: 1,
@@ -27,6 +29,36 @@ const TicketHistory = ({ navigation }) => {
   const renderItem = ({ item }) => (
     <History props={item} navigation={navigation} />
   );
+
+  const renderPage = () => (
+    <>
+      <View style={{ paddingHorizontal: 25, marginVertical: 10 }}>
+        <DatePicker
+          options={{
+            mainColor: theme.colors.accent,
+            backgroundColor: theme.colors.cardToggle,
+            textDefaultColor: theme.colors.text,
+            textHeaderColor: theme.colors.text,
+          }}
+          mode="monthYear"
+          selectorStartingYear={2022}
+          minimumDate={getFormatedDate(new Date(), "YYYY/MM/DD")}
+          onMonthYearChange={(selectedDate) => setDate(selectedDate)}
+        />
+      </View>
+      <View style={{ paddingHorizontal: 25 }}>
+        <FlatList
+          listKey={1}
+          data={HistoryData}
+          numColumns={1}
+          keyExtractor={(item) => `${item.id}`}
+          renderItem={renderItem}
+          showsVerticalScrollIndicator={false}
+        />
+      </View>
+    </>
+  );
+
   return (
     <View
       style={{
@@ -36,20 +68,12 @@ const TicketHistory = ({ navigation }) => {
       }}
     >
       <SafeAreaView>
-        <View style={{ paddingHorizontal: 25, marginVertical: 10 }}>
-          <Text style={{ textAlign: "center", fontWeight: "bold" }}>
-            June , 2022
-          </Text>
-        </View>
-        <View style={{ paddingHorizontal: 25 }}>
-          <FlatList
-            data={HistoryData}
-            numColumns={1}
-            keyExtractor={(item) => `${item.id}`}
-            renderItem={renderItem}
-            showsVerticalScrollIndicator={false}
-          />
-        </View>
+        <FlatList
+          data={[{}]}
+          numColumns={1}
+          renderItem={renderPage}
+          showsVerticalScrollIndicator={false}
+        />
       </SafeAreaView>
     </View>
   );

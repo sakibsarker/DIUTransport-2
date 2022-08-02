@@ -23,7 +23,7 @@ const HomeStack = () => {
         name="BusDetails"
         component={BusDetails}
         options={({ route }) => ({
-          title: route.params?.busId,
+          title: route.params?.info?.name,
         })}
       />
       <Stack.Screen name="Payment" component={PaymentStack} />

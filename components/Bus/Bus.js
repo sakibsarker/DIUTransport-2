@@ -32,19 +32,27 @@ const Bus = ({ navigation, props }) => {
           alignItems: "center",
         }}
       >
-        <Text style={{ textTransform: "uppercase" }}>{name}</Text>
+        <Text
+          style={{
+            textTransform: "uppercase",
+            fontWeight: "bold",
+            fontSize: 18,
+          }}
+        >
+          {name}
+        </Text>
       </View>
 
       <View
         style={{
           justifyContent: "center",
           alignItems: "center",
-          paddingVertical: 25,
-          paddingHorizontal: 45,
+          paddingVertical: 15,
+          paddingHorizontal: 30,
         }}
       >
-        <Text>{name}</Text>
-        <Text>{status}</Text>
+        <Text style={{ marginVertical: 10 }}>{name}</Text>
+        <Text>Status : {status}</Text>
       </View>
     </TouchableOpacity>
   );

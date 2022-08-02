@@ -4,10 +4,9 @@ import {
   TouchableOpacity,
   StatusBar,
   Image,
-  Text,
 } from "react-native";
 import React, { useMemo, useRef } from "react";
-import { useTheme, Divider } from "react-native-paper";
+import { useTheme, Divider, Text } from "react-native-paper";
 import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
 
 import Map from "../../components/Map/Map";
@@ -23,7 +22,7 @@ const BusDetails = ({ route, navigation }) => {
     <View
       style={{
         flex: 1,
-        backgroundColor: theme?.colors.surface,
+        backgroundColor: theme?.colors.cardToggle,
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
         position: "relative",
       }}
@@ -59,11 +58,18 @@ const BusDetails = ({ route, navigation }) => {
         style={{ flex: 1 }}
         index={1}
         snapPoints={snapPoints}
+        handleStyle={{
+          backgroundColor: theme.colors.cardToggle,
+        }}
+        handleIndicatorStyle={{
+          backgroundColor: theme.colors.text,
+        }}
       >
         <BottomSheetView
           style={{
-            ...styles.contentContainer,
-            backgroundColor: theme.colors.surface,
+            backgroundColor: theme.colors.cardToggle,
+            flex: 1,
+            paddingVertical: 25,
           }}
         >
           <View style={{ paddingHorizontal: 40 }}>
@@ -86,9 +92,9 @@ const BusDetails = ({ route, navigation }) => {
               <Text variant="headlineLarge">Resereved Seats:</Text>
               <Text>9</Text>
             </View>
-
+            <Divider style={{ marginVertical: 15 }} />
             <DestinationToggle />
-            <Divider style={{ marginVertical: 10 }} />
+            <Divider style={{ marginBottom: 15 }} />
             <TouchableOpacity
               style={{
                 backgroundColor: theme.colors.accent,
@@ -107,12 +113,5 @@ const BusDetails = ({ route, navigation }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  contentContainer: {
-    flex: 1,
-    width: "100%",
-  },
-});
 
 export default BusDetails;
