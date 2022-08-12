@@ -4,7 +4,7 @@ import { Text, useTheme } from "react-native-paper";
 
 const Bus = ({ navigation, props }) => {
   const theme = useTheme();
-  const { id, backgroundColor, name, busId, status, location } = props;
+  const { busNo, backgroundColor, name, busId, status, location } = props;
 
   return (
     <TouchableOpacity
@@ -17,6 +17,7 @@ const Bus = ({ navigation, props }) => {
         navigation.navigate("BusDetails", {
           busId: busId,
           info: {
+            busNo,
             status,
             name,
             location,

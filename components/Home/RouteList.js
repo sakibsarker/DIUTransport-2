@@ -14,7 +14,7 @@ const RouteList = ({ navigation, route }) => {
       routeDetails:
         "Dhanmondi - Sobhanbag <> Shyamoli Square <> Technical Mor > Majar Road Gabtoli <> Konabari Bus Stop <> Eastern Housing Rup Nogor <> Birulia Bus Stand <> Daffodil Smart City",
       departureTimes: ["1:45 AM", "3:00 PM", "4:30 PM", "5:45 PM"],
-      image: "https://i.ibb.co/wKBxXz4/r1.png",
+      image: "assets/images/r1.png",
     },
     {
       id: 2,
@@ -24,7 +24,7 @@ const RouteList = ({ navigation, route }) => {
       routeDetails:
         "Uttara - Rajlokkhi <> House building <> Grand Zomzom Tower <>  Diyabari Bridge <> Beribadh <> Birulia <> Khagan <> Daffodil Smart City",
       departureTimes: ["1:45 AM", "4:30 PM", "5:45 PM"],
-      image: "https://i.ibb.co/hZqBXzV/r2.png",
+      image: "assets/images/r2.png",
     },
     {
       id: 3,
@@ -34,7 +34,7 @@ const RouteList = ({ navigation, route }) => {
       routeDetails:
         "Dhanmondi - Sobhanbag <> Shyamoli Square <> Technical Mor > Majar Road Gabtoli <> Konabari Bus Stop <> Eastern Housing Rup Nogor <> Birulia Bus Stand <> Daffodil Smart City",
       departureTimes: ["1:45 AM", "4:30 PM", "5:45 PM"],
-      image: "https://i.ibb.co/KrBSgGZ/r3.png",
+      image: "assets/images/r3.png",
     },
   ];
 
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
     flex: 1,
-    flexDirection:"row",
+    flexDirection: "row",
     flexWrap: "wrap",
     alignItems: "flex-start",
   },

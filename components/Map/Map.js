@@ -90,8 +90,16 @@ const Map = ({ busId, location, info }) => {
           latitudeDelta: LATITUDE_DELTA,
           longitudeDelta: LONGITUDE_DELTA,
         },
-        3000
+        1000
       );
+      mapRef.current?.animateCamera({
+        center: {
+          latitude: latitude,
+          longitude: longitude,
+        },
+        heading: 0,
+        pitch: 90,
+      });
     }
   };
 
@@ -127,11 +135,22 @@ const Map = ({ busId, location, info }) => {
       >
         <Marker.Animated
           ref={markerRef}
+          icon={{
+            url: "https://cdn.mindbowser.com/custom_marker_pin.svg",
+          }}
           coordinate={coordinate}
           title={info?.title || "সূর্যমুখি - ১"}
           description={info?.contact || "ড্রাইভার: ০১৬১৬৩৪৬৮৩৫"}
         >
-          <Image source={require("../../assets/images/bus.png")} />
+          <View
+            style={{
+              backgroundColor: theme.colors.green,
+              borderRadius: 100,
+              padding: 8,
+            }}
+          >
+            <Text style={{ color: theme.colors.White }}>{info?.busNo}</Text>
+          </View>
         </Marker.Animated>
       </MapView.Animated>
 

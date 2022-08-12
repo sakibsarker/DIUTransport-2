@@ -15,6 +15,7 @@ const BusList = ({ navigation, route }) => {
       name: "সূর্যমুখি ২২",
       busId: "surjomukhi22",
       status: "Returning",
+      busNo: 22,
       location: {
         coordinates: [90.269018, 23.936878],
       },
@@ -23,6 +24,7 @@ const BusList = ({ navigation, route }) => {
       id: 2,
       name: "সূর্যমুখী ১০",
       busId: "surjomukhi10",
+      busNo: 10,
       status: "Started",
       location: {
         coordinates: [90.269018, 23.936878],
@@ -33,6 +35,7 @@ const BusList = ({ navigation, route }) => {
       id: 3,
       name: "সূর্যমুখী ১",
       busId: "surjomukhi1",
+      busNo: 1,
       status: "Standby",
       location: {
         coordinates: [90.269018, 23.936878],
