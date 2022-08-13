@@ -1,15 +1,16 @@
 import { FlatList, View } from "react-native";
 import { Divider, Text, useTheme } from "react-native-paper";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Schedule from "../../components/Bus/Schedule";
 import RNDateTimePicker from "@react-native-community/datetimepicker";
 import { PreferencesContext } from "../../contexts/PreferencesContext ";
 import { checkTimeHasPassed } from "../../Utils/CheckTime";
+import Icon from "react-native-vector-icons/FontAwesome5";
 
 const SelectSchedule = ({ navigation }) => {
   const theme = useTheme();
   const { isThemeDark } = React.useContext(PreferencesContext);
-  const [data, setDate] = React.useState(new Date(Date.now()));
+  const [date, setDate] = React.useState(new Date());
 
   const [scheduleData, setScheduleData] = React.useState([
     {
@@ -24,27 +25,48 @@ const SelectSchedule = ({ navigation }) => {
       id: 3,
       time: "2:20 PM",
     },
+    {
+      id: 4,
+      time: "9:20 PM",
+    },
+    {
+      id: 5,
+      time: "9:11 PM",
+    },
   ]);
-
-  React.useEffect(() => {
-    setScheduleData(scheduleData.filter((x) => checkTimeHasPassed(x.time)));
-  }, []);
 
   const renderItem = ({ item }) => (
     <Schedule props={item} navigation={navigation} />
   );
 
   return (
-    <View style={{ alignItems: "center" }}>
-      <View style={{ marginVertical: 20 }}>
+    <View style={{ marginHorizontal: 25 }}>
+      <View
+        style={{
+          marginVertical: 20,
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Icon name="calendar-alt" color={theme.colors.text} size={25} />
         <RNDateTimePicker
           style={{ width: 134 }}
-          onChange={setDate}
+          onChange={(event, date) => {
+            setDate(date);
+            setScheduleData(
+              scheduleData.filter((x) => {
+                checkTimeHasPassed(x.time, date && date);
+              })
+            );
+          }}
           themeVariant={isThemeDark ? "dark" : "light"}
-          value={new Date()}
+          value={date}
           minimumDate={new Date(Date.now())}
           maximumDate={new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)}
+          display="compact"
         />
+        <Icon name="arrow-down" color={theme.colors.text} size={25} />
       </View>
 
       <FlatList
