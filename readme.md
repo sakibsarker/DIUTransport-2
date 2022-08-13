@@ -28,10 +28,10 @@
 ![alt text](assets/images/AppP2.png "App P2")
 
 <p align="center">
-  <img src="assets/images/git/11.gif" />
+  <img src="assets/images/git/11.gif" height=400/>
 </p>
 <p align="center">
-  <img src="assets/images/git/12.gif"  />
+  <img src="assets/images/git/12.gif"  height=400 />
 </p>
 
 It is made using React Native with Expo using firebase services (authentication, firestore and storage).
