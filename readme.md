@@ -26,13 +26,8 @@
 
 ![alt text](assets/images/AppP1.png "App P1")
 ![alt text](assets/images/AppP2.png "App P2")
-
-<p align="center">
-  <img src="assets/images/git/11.gif" height=400/>
-</p>
-<p align="center">
-  <img src="assets/images/git/12.gif"  height=400 />
-</p>
+![alt text](assets/images/git/11.gif "App P3")
+![alt text](assets/images/git/12.gif "App P4")
 
 It is made using React Native with Expo using firebase services (authentication, firestore and storage).
 The admin panel is made with ReactJS.
