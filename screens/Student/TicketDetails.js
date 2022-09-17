@@ -98,8 +98,9 @@ const TicketDetails = ({ route, navigation }) => {
             <Text style={{}}>Bus Name:</Text>
             <TouchableOpacity
               onPress={() =>
-                navigation.navigate("BusDetails", {
+                navigation.navigate("BusLocate", {
                   busId: busId,
+                  info: route.params?.info,
                 })
               }
             >

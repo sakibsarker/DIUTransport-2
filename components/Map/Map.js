@@ -157,7 +157,7 @@ const Map = ({ busId, location, info }) => {
       <TouchableOpacity
         style={{
           position: "absolute",
-          bottom: "25%",
+          bottom: "10%",
           right: "5%",
           backgroundColor: theme.colors.cardToggle,
           borderRadius: 100,

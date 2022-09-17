@@ -13,22 +13,22 @@ const PaymentStack = () => {
       screenOptions={{
         headerShown: false,
       }}
-      initialRouteName="selectSchedule"
+      initialRouteName="selectMethod"
     >
-      <Stack.Screen
+      {/* <Stack.Screen
         name="selectSchedule"
         component={SelectSchedule}
         options={{
           title: "Schedule Selection",
         }}
-      />
-      <Stack.Screen
+      /> */}
+      {/* <Stack.Screen
         name="selectSeat"
         component={SelectSeat}
         options={{
           title: "Select A Seat",
         }}
-      />
+      /> */}
       <Stack.Screen
         name="selectMethod"
         component={SelectMethod}

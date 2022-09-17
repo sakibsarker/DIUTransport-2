@@ -19,11 +19,11 @@ const SelectMethod = ({ navigation }) => {
       name: "One Card",
       icon: images.oneCard,
     },
-    {
-      id: 2,
-      name: "Bkash",
-      icon: images.bkash,
-    },
+    // {
+    //   id: 2,
+    //   name: "Bkash",
+    //   icon: images.bkash,
+    // },
   ];
 
   const renderItem = ({ item }) => (

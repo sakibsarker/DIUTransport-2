@@ -59,7 +59,7 @@ const Confirmations = ({ navigation }) => {
             }}
           >
             <Text style={{}}>Payment Via:</Text>
-            <Text>Bkash</Text>
+            <Text>One Card</Text>
           </View>
           <View
             style={{
