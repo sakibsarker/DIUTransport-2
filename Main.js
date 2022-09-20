@@ -8,11 +8,14 @@ import { Provider as PaperProvider } from "react-native-paper";
 import merge from "deepmerge";
 import { PreferencesContext } from "./contexts/PreferencesContext ";
 import { themeLight, themeDark } from "./Configs/theme";
+import { Amplify } from "aws-amplify";
+import awsconfig from "./src/aws-exports";
 import Root from "./navigation/Root";
 import { KeyboardAvoidingView, Platform } from "react-native";
 import { NativeBaseProvider } from "native-base";
 const CombinedDefaultTheme = merge(themeLight, NavigationDefaultTheme);
 const CombinedDarkTheme = merge(themeDark, NavigationDarkTheme);
+Amplify.configure(awsconfig);
 
 const Main = () => {
   const [isThemeDark, setIsThemeDark] = React.useState(false);

@@ -5,6 +5,7 @@ import {
   Image,
   TouchableOpacity,
   Share,
+  Alert,
 } from "react-native";
 import {
   DrawerContentScrollView,
@@ -12,11 +13,11 @@ import {
 } from "@react-navigation/drawer";
 import { useTheme, Text, Switch } from "react-native-paper";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import { PreferencesContext } from "../contexts/PreferencesContext ";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/Reducers/user";
 import { NameFormat } from "../Utils/NameFormat";
+import { Auth } from "aws-amplify";
 
 const CustomDrawer = (props) => {
   const { user, userType } = useSelector((state) => state.user);
@@ -25,7 +26,12 @@ const CustomDrawer = (props) => {
   const { toggleTheme, isThemeDark } = React.useContext(PreferencesContext);
 
   const handleLogout = () => {
-    dispatch(logout());
+    try {
+      Auth.signOut();
+      dispatch(logout());
+    } catch (error) {
+      Alert.alert(error);
+    }
   };
 
   const onShare = async () => {

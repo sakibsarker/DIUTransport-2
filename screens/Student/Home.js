@@ -1,20 +1,15 @@
 import React from "react";
 import {
   View,
-  StyleSheet,
-  SafeAreaView,
   Platform,
   StatusBar,
   ImageBackground,
   TouchableOpacity,
-  ScrollView,
   FlatList,
 } from "react-native";
 
 import SearchBar from "../../components/Home/SearchBar";
-import { useTheme, Divider, Button, Text } from "react-native-paper";
-import RouteList from "../../components/Home/RouteList";
-import RecentTickets from "../../components/Home/RecentTickets";
+import { useTheme, Text } from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
 import Menu from "../../components/Home/Menu";
 import { GreetingsToUser } from "greetingstouser";
@@ -23,6 +18,7 @@ import { NameFormat } from "../../Utils/NameFormat";
 
 const Home = ({ navigation }) => {
   const { user } = useSelector((state) => state.user);
+  console.log(user);
   const theme = useTheme();
 
   const menuData = [
@@ -91,7 +87,7 @@ const Home = ({ navigation }) => {
       >
         <View>
           <Text style={{ fontWeight: "bold", fontSize: 30 }}>
-            Hello {NameFormat(user?.displayName)}
+            Hello {NameFormat(user.name)}
           </Text>
           <Text>{GreetingsToUser(new Date(), { showName: false })}!</Text>
         </View>

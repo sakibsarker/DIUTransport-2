@@ -21,11 +21,30 @@ const Route = ({ props, navigation }) => {
       onPress={() => navigation.navigate("RouteDetails", { info: props })}
       style={{ marginVertical: 40 }}
     >
-      <ImageBackground source={{ uri: image }} style={{ padding: 50 }} />
+      <View
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: theme.colors.darkPurple,
+          padding: 20,
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 18,
+            fontWeight: "bold",
+            color: theme.colors.White,
+          }}
+        >
+          {routeName}
+        </Text>
+      </View>
+      {/* <ImageBackground source={{ uri: image }} style={{ padding: 50 }} /> */}
       <View
         style={{
           backgroundColor: theme.colors.cardToggle,
-          marginTop: -20,
+
           padding: 20,
         }}
       >

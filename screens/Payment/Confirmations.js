@@ -1,6 +1,6 @@
+import React from "react";
 import { ScrollView, StatusBar, TouchableOpacity, View } from "react-native";
 import { Divider, Surface, Text, useTheme } from "react-native-paper";
-import React from "react";
 
 const Confirmations = ({ navigation }) => {
   const theme = useTheme();

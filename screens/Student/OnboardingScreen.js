@@ -1,5 +1,6 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Image, TouchableOpacity, StyleSheet } from "react-native";
+import { Text } from "react-native-paper";
 
 import Onboarding from "react-native-onboarding-swiper";
 
@@ -45,8 +46,8 @@ const OnboardingScreen = ({ navigation }) => {
       NextButtonComponent={Next}
       DoneButtonComponent={Done}
       DotComponent={Dots}
-      onSkip={() => navigation.replace("login")}
-      onDone={() => navigation.navigate("login")}
+      onSkip={() => navigation.replace("SignIn")}
+      onDone={() => navigation.navigate("SignIn")}
       pages={[
         {
           backgroundColor: "#a6e4d0",

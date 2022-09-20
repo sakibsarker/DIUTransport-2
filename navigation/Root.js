@@ -1,40 +1,57 @@
-import { Alert } from "react-native";
-import { useTheme } from "react-native-paper";
+import { Alert, View } from "react-native";
 import React, { useEffect, useState } from "react";
 import AuthStack from "./AuthStack";
 import StudentStack from "./StudentStack";
 import TicketManStack from "./TicketManStack";
-import { useDispatch, useSelector } from "react-redux";
-import Loader from "../components/Loader";
-import { employeeProfile, studentProfile } from "../redux/ApiCalls/user";
-import { clearErrors } from "../redux/Reducers/user";
+import { Auth, Hub } from "aws-amplify";
+import { ActivityIndicator } from "react-native-paper";
 
 const root = () => {
-  const dispatch = useDispatch();
-  const { token, userType, error } = useSelector((state) => state.user);
+  const [user, setUser] = useState(undefined);
+  const [group, setGroup] = useState(undefined);
 
-  React.useEffect(() => {
-    if (userType && token && userType == "employee") {
-      dispatch(employeeProfile({ token: token && token }));
-      if (error) {
-        Alert.alert("Error", error);
+  const checkUser = async () => {
+    try {
+      const authUser = await Auth.currentAuthenticatedUser({
+        bypassCache: true,
+      });
+      setUser(authUser);
+      setGroup(authUser.signInUserSession.accessToken["cognito:groups"]);
+    } catch (e) {
+      setUser(null);
+    }
+  };
+
+  useEffect(() => {
+    checkUser();
+  }, []);
+
+  useEffect(() => {
+    const listener = (data) => {
+      if (data.payload.event === "signIn" || data.payload.event === "signOut") {
+        checkUser();
       }
-      dispatch(clearErrors());
-    } else if (token && userType && userType == "student") {
-      dispatch(studentProfile());
+    };
 
-      dispatch(clearErrors());
-    }
-  }, [dispatch]);
+    Hub.listen("auth", listener);
+    return () => Hub.remove("auth", listener);
+  }, []);
 
-  if (token == null || userType == null) {
-    return <AuthStack />;
-  } else {
-    if (userType && userType == "student") {
-      return <StudentStack />;
-    } else if (userType == "employee") {
+  if (user === undefined) {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <ActivityIndicator />
+      </View>
+    );
+  }
+  if (user) {
+    if (group && group.includes("TicketChecker")) {
       return <TicketManStack />;
+    } else {
+      return <StudentStack />;
     }
+  } else {
+    return <AuthStack />;
   }
 };
 

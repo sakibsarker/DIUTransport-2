@@ -4,38 +4,25 @@ import {
   employeeProfile,
   studentProfile,
 } from "../ApiCalls/user";
-import { getAuth, signOut } from "firebase/auth";
 
 const usersSlice = createSlice({
   name: "user",
   initialState: {
     token: null,
     user: null,
-    userType: null,
-    loading: false,
+    group: null,
     error: null,
   },
   reducers: {
     logout: (state, action) => {
-      state.loading = false;
       state.token = null;
       state.user = null;
-      state.userType = null;
-      const auth = getAuth();
-      signOut(auth)
-        .then(() => {
-          console.log("You loggeed out");
-        })
-        .catch((error) => {
-          state.error = error;
-        });
+      state.group = null;
     },
-    googleLogin: (state, action) => {
-      state.loading = false;
+    Login: (state, action) => {
       state.token = action.payload.token;
       state.user = action.payload.user;
-      state.userType = "student";
-      state.error = action.payload.error;
+      state.group = action.payload.group;
     },
     clearErrors: (state, action) => {
       state.error = null;
@@ -86,6 +73,6 @@ const usersSlice = createSlice({
     });
   },
 });
-export const { logout, googleLogin, clearErrors } = usersSlice.actions;
+export const { logout, Login, clearErrors } = usersSlice.actions;
 
 export default usersSlice.reducer;

@@ -5,11 +5,46 @@ import OnboardingScreen from "../screens/Student/OnboardingScreen";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import StudentStack from "./StudentStack";
 import TicketManStack from "./TicketManStack";
-import { Text } from "react-native-paper";
 import Loader from "../components/Loader";
-import Register from "../screens/Auth/Register";
+import SignInScreen from "../screens/Auth/SignInScreen/SignInScreen";
+import SignUpScreen from "../screens/Auth/SignUpScreen/SignUpScreen";
+import ConfirmEmailScreen from "../screens/Auth/ConfirmEmailScreen/ConfirmEmailScreen";
+import ForgotPasswordScreen from "../screens/Auth/ForgotPasswordScreen/ForgotPasswordScreen";
+import NewPasswordScreen from "../screens/Auth/NewPasswordScreen/NewPasswordScreen";
 
 const Stack = createNativeStackNavigator();
+
+const AuthFlow = () => {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen
+        name="SignIn"
+        component={SignInScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="SignUp"
+        component={SignUpScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="ConfirmEmail"
+        component={ConfirmEmailScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="ForgotPassword"
+        component={ForgotPasswordScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="NewPassword"
+        component={NewPasswordScreen}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
+  );
+};
 
 const AuthStack = () => {
   const [isFirstLaunch, setIsFirstLaunch] = React.useState(null);
@@ -36,13 +71,8 @@ const AuthStack = () => {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="login"
-          component={Login}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="register"
-          component={Register}
+          name="AuthFlow"
+          component={AuthFlow}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
@@ -51,8 +81,8 @@ const AuthStack = () => {
     return (
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen
-          name="login"
-          component={Login}
+          name="AuthFlow"
+          component={AuthFlow}
           options={{ headerShown: false }}
         />
         <Stack.Screen
