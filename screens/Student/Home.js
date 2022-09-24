@@ -87,7 +87,7 @@ const Home = ({ navigation }) => {
       >
         <View>
           <Text style={{ fontWeight: "bold", fontSize: 30 }}>
-            Hello {NameFormat(user.name)}
+            Hi {user && NameFormat(user?.name)}
           </Text>
           <Text>{GreetingsToUser(new Date(), { showName: false })}!</Text>
         </View>
@@ -107,10 +107,10 @@ const Home = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </View>
-
+      {/* 
       <View>
         <SearchBar />
-      </View>
+      </View> */}
 
       <FlatList
         data={menuData}

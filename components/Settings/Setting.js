@@ -20,6 +20,8 @@ const Setting = ({ navigation, props }) => {
           } catch (error) {
             Alert.alert(error);
           }
+        } else {
+          navigation.navigate(link);
         }
       }}
       style={{ ...styles.setting, backgroundColor: theme.colors.cardToggle }}

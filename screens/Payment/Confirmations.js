@@ -1,9 +1,25 @@
 import React from "react";
 import { ScrollView, StatusBar, TouchableOpacity, View } from "react-native";
 import { Divider, Surface, Text, useTheme } from "react-native-paper";
+import { useSelector } from "react-redux";
 
-const Confirmations = ({ navigation }) => {
+const Confirmations = ({ navigation, route }) => {
+  const { user } = useSelector((state) => state.user);
+  const {
+    busId,
+    routeId,
+    userId,
+    method,
+    scheduleId,
+    routeName,
+    ticketId,
+    busName,
+    ticketName,
+    price,
+  } = useSelector((state) => state.payment);
+  console.log(busId, routeId, userId, method, scheduleId, ticketId);
   const theme = useTheme();
+
   return (
     <View
       style={{
@@ -44,7 +60,7 @@ const Confirmations = ({ navigation }) => {
             }}
           >
             <Text style={{}}>Full Name:</Text>
-            <Text>SR Joy</Text>
+            <Text>{user?.name}</Text>
           </View>
           <View
             style={{
@@ -59,7 +75,7 @@ const Confirmations = ({ navigation }) => {
             }}
           >
             <Text style={{}}>Payment Via:</Text>
-            <Text>One Card</Text>
+            <Text>{method}</Text>
           </View>
           <View
             style={{
@@ -74,9 +90,9 @@ const Confirmations = ({ navigation }) => {
             }}
           >
             <Text style={{}}>Bus Name:</Text>
-            <Text>Surjomukhi 1</Text>
+            <Text>{busName}</Text>
           </View>
-          <View
+          {/* <View
             style={{
               flexDirection: "row",
               justifyContent: "space-between",
@@ -90,6 +106,21 @@ const Confirmations = ({ navigation }) => {
           >
             <Text style={{}}>Seat:</Text>
             <Text>E1</Text>
+          </View> */}
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              borderColor: theme.colors.accent,
+              borderWidth: 0,
+              borderBottomWidth: 1,
+              borderStyle: "solid",
+              marginHorizontal: 25,
+              paddingVertical: 20,
+            }}
+          >
+            <Text style={{}}>Route:</Text>
+            <Text>{routeName}</Text>
           </View>
           <View
             style={{
@@ -103,23 +134,8 @@ const Confirmations = ({ navigation }) => {
               paddingVertical: 20,
             }}
           >
-            <Text style={{}}>Destination:</Text>
-            <Text>Narayanganj</Text>
-          </View>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              borderColor: theme.colors.accent,
-              borderWidth: 0,
-              borderBottomWidth: 1,
-              borderStyle: "solid",
-              marginHorizontal: 25,
-              paddingVertical: 20,
-            }}
-          >
-            <Text style={{}}>Date &amp; Time:</Text>
-            <Text>28 Jul ⚡️ 7:08 AM</Text>
+            <Text style={{}}>Ticket Name:</Text>
+            <Text>{ticketName}</Text>
           </View>
           <View
             style={{
@@ -134,7 +150,7 @@ const Confirmations = ({ navigation }) => {
             }}
           >
             <Text style={{}}>Amount to Pay:</Text>
-            <Text>25 BDT.</Text>
+            <Text>{price} BDT.</Text>
           </View>
 
           <Divider style={{ marginBottom: 25 }} />
@@ -148,7 +164,7 @@ const Confirmations = ({ navigation }) => {
                 paddingVertical: 10,
               }}
             >
-              <Text>Confirm</Text>
+              <Text style={{ color: theme.colors.White }}>Pay Now!</Text>
             </TouchableOpacity>
           </View>
         </Surface>

@@ -4,7 +4,7 @@ import { useTheme } from "react-native-paper";
 
 import Map from "../../components/Map/Map";
 
-const BusLocate = ({ route, navigation }) => {
+const BusLocate = ({ route }) => {
   const theme = useTheme();
   const { info } = route?.params;
   return (
@@ -19,12 +19,11 @@ const BusLocate = ({ route, navigation }) => {
       <Map
         title={route.params["busId"]}
         busId={route.params["busId"]}
+        trackingID={route?.params?.trackingID}
         info={info && info}
-        location={
-          info?.location || {
-            coordinates: [90.269018, 23.936878],
-          }
-        }
+        location={{
+          coordinates: [90.269018, 23.936878],
+        }}
       />
 
       <Image

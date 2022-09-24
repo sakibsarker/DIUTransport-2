@@ -20,7 +20,7 @@ import { NameFormat } from "../Utils/NameFormat";
 import { Auth } from "aws-amplify";
 
 const CustomDrawer = (props) => {
-  const { user, userType } = useSelector((state) => state.user);
+  const { user, userType, group } = useSelector((state) => state.user);
   const theme = useTheme();
   const dispatch = useDispatch();
   const { toggleTheme, isThemeDark } = React.useContext(PreferencesContext);
@@ -103,9 +103,7 @@ const CustomDrawer = (props) => {
                 marginBottom: 5,
               }}
             >
-              {userType && userType === "student"
-                ? NameFormat(user?.displayName)
-                : NameFormat(user?.name)}
+              {NameFormat(user?.name)}
             </Text>
           </TouchableOpacity>
         </ImageBackground>

@@ -55,19 +55,7 @@ const TicketmanTabNavigator = () => {
           ),
         })}
       />
-      <Tab.Screen
-        name="map"
-        component={MyMap}
-        options={({ route }) => ({
-          tabBarStyle: {
-            display: getTabBarVisibility(route),
-            backgroundColor: theme.colors.accent,
-          },
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="map" color={color} size={size} />
-          ),
-        })}
-      />
+
       <Tab.Screen
         name="profile"
         component={Profile}

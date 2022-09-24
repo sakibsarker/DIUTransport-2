@@ -22,6 +22,7 @@ const TicketDetails = ({ route, navigation }) => {
     paymentVia,
     destination,
     backgroundColor,
+    trackingID,
     busId,
     token,
   } = route.params?.info;
@@ -100,6 +101,7 @@ const TicketDetails = ({ route, navigation }) => {
               onPress={() =>
                 navigation.navigate("BusLocate", {
                   busId: busId,
+                  trackingID: trackingID,
                   info: route.params?.info,
                 })
               }

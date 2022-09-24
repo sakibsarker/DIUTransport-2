@@ -9,12 +9,14 @@ import usersReducer from "./Reducers/user";
 import busesReducer from "./Reducers/bus";
 import navReducer from "./Reducers/navigation";
 import scanQueueeReducer from "./Reducers/scanQueuee";
+import paymentReducer from "./Reducers/payment";
 
 const rootReducer = combineReducers({
   user: usersReducer,
   bus: busesReducer,
   nav: navReducer,
   scanQueuee: scanQueueeReducer,
+  payment: paymentReducer,
 });
 
 // persist config

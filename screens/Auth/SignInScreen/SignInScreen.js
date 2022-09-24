@@ -38,13 +38,26 @@ const SignInScreen = ({ navigation }) => {
       const response = await Auth.signIn(data.username, data.password);
       dispatch(
         Login({
-          group:
+          groups:
             response.signInUserSession.accessToken.payload["cognito:groups"],
           token: response.signInUserSession.refreshToken.token,
           user: response.attributes,
         })
       );
-      navigation.replace("StudentStack");
+      // console.log(
+      //   response.signInUserSession.accessToken.payload["cognito:groups"]
+      // );
+
+      if (
+        response.signInUserSession.accessToken.payload["cognito:groups"] &&
+        response.signInUserSession.accessToken.payload[
+          "cognito:groups"
+        ].includes("TicketChecker")
+      ) {
+        navigation.replace("TicketManStack");
+      } else {
+        navigation.replace("StudentStack");
+      }
     } catch (e) {
       Alert.alert("Oops", e.message);
     }

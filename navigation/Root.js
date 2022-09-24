@@ -1,24 +1,47 @@
-import { Alert, View } from "react-native";
 import React, { useEffect, useState } from "react";
 import AuthStack from "./AuthStack";
 import StudentStack from "./StudentStack";
 import TicketManStack from "./TicketManStack";
 import { Auth, Hub } from "aws-amplify";
-import { ActivityIndicator } from "react-native-paper";
+import Loader from "../components/Loader";
+import { useDispatch, useSelector } from "react-redux";
+import { Login } from "../redux/Reducers/user";
 
 const root = () => {
-  const [user, setUser] = useState(undefined);
-  const [group, setGroup] = useState(undefined);
+  const { user, groups } = useSelector((state) => state.user);
+
+  const [grp, setGrp] = useState(null);
+
+  const dispatch = useDispatch();
 
   const checkUser = async () => {
     try {
       const authUser = await Auth.currentAuthenticatedUser({
         bypassCache: true,
       });
-      setUser(authUser);
-      setGroup(authUser.signInUserSession.accessToken["cognito:groups"]);
+
+      dispatch(
+        Login({
+          groups:
+            authUser.signInUserSession.accessToken.payload["cognito:groups"],
+          token: authUser.signInUserSession.refreshToken.token,
+          user: authUser.attributes,
+        })
+      );
+      setGrp(
+        authUser.signInUserSession.accessToken.payload["cognito:groups"] || [
+          "student",
+        ]
+      );
     } catch (e) {
-      setUser(null);
+      setGrp(null);
+      dispatch(
+        Login({
+          groups: null,
+          token: null,
+          user: null,
+        })
+      );
     }
   };
 
@@ -38,18 +61,17 @@ const root = () => {
   }, []);
 
   if (user === undefined) {
-    return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <ActivityIndicator />
-      </View>
-    );
+    return <Loader />;
   }
   if (user) {
-    if (group && group.includes("TicketChecker")) {
-      return <TicketManStack />;
-    } else {
-      return <StudentStack />;
+    if (grp === null) {
+      return <Loader />;
     }
+
+    if (grp.includes("TicketChecker")) {
+      return <TicketManStack />;
+    }
+    return <StudentStack />;
   } else {
     return <AuthStack />;
   }

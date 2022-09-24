@@ -75,6 +75,11 @@ const AuthStack = () => {
           component={AuthFlow}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="TicketManStack"
+          component={TicketManStack}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     );
   } else {

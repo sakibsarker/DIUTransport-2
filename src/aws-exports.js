@@ -11,6 +11,7 @@ import {
   AWS_FED_TARGET,
   AWS_AUTH_SIGN_IN,
   AWS_AUTH_LOGOUT,
+  AWS_USER_IDENTITY_POOL,
 } from "@env";
 
 const awsmobile = {
@@ -18,6 +19,7 @@ const awsmobile = {
   aws_cognito_region: AWS_REGION,
   aws_user_pools_id: AWS_USER_POOL_ID,
   aws_user_pools_web_client_id: AWS_USER_POOL_WEB_CLIENT,
+  aws_cognito_identity_pool_id: AWS_USER_IDENTITY_POOL,
   oauth: {
     domain: AWS_OATH_DOMAIN,
     scope: ["phone", "email", "openid", "profile", AWS_OATH_USER_SEC_ATTR],

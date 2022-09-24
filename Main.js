@@ -8,14 +8,37 @@ import { Provider as PaperProvider } from "react-native-paper";
 import merge from "deepmerge";
 import { PreferencesContext } from "./contexts/PreferencesContext ";
 import { themeLight, themeDark } from "./Configs/theme";
-import { Amplify } from "aws-amplify";
+import { Amplify, Analytics, PubSub } from "aws-amplify";
+import { AWSIoTProvider } from "@aws-amplify/pubsub";
 import awsconfig from "./src/aws-exports";
 import Root from "./navigation/Root";
 import { KeyboardAvoidingView, Platform } from "react-native";
 import { NativeBaseProvider } from "native-base";
+import { AWS_REGION, AWS_PUBSUB_ENDPOINT } from "@env";
 const CombinedDefaultTheme = merge(themeLight, NavigationDefaultTheme);
 const CombinedDarkTheme = merge(themeDark, NavigationDarkTheme);
+
 Amplify.configure(awsconfig);
+
+// Analytics.disable();
+
+Amplify.addPluggable(
+  new AWSIoTProvider({
+    aws_pubsub_region: AWS_REGION,
+    aws_pubsub_endpoint: AWS_PUBSUB_ENDPOINT,
+  })
+);
+
+// Remove plugin using the provider name
+Amplify.PubSub.removePluggable("AWSIoTProvider");
+
+// Apply plugin with new configuration
+Amplify.addPluggable(
+  new AWSIoTProvider({
+    aws_pubsub_region: AWS_REGION,
+    aws_pubsub_endpoint: AWS_PUBSUB_ENDPOINT,
+  })
+);
 
 const Main = () => {
   const [isThemeDark, setIsThemeDark] = React.useState(false);

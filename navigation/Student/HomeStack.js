@@ -11,6 +11,7 @@ import Help from "../../screens/HelpPage/Help";
 import RouteDetails from "../../components/Home/RouteDetails";
 import TicketHistory from "../../screens/Student/TicketHistory";
 import BusLocate from "../../components/Bus/BusLocate";
+import ScheduleList from "../../components/Bus/Schedules/ScheduleList";
 const Stack = createNativeStackNavigator();
 const HomeStack = () => {
   return (
@@ -30,6 +31,13 @@ const HomeStack = () => {
       <Stack.Screen
         name="BusDetails"
         component={BusDetails}
+        options={({ route }) => ({
+          title: route.params?.info?.name,
+        })}
+      />
+      <Stack.Screen
+        name="ScheduleList"
+        component={ScheduleList}
         options={({ route }) => ({
           title: route.params?.info?.name,
         })}

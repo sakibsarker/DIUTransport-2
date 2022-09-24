@@ -1,28 +1,18 @@
 import { View, TouchableOpacity, StatusBar, ScrollView } from "react-native";
-import React, { useMemo, useRef } from "react";
+import React from "react";
 import { useTheme, Divider, Text } from "react-native-paper";
-import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
-import DestinationToggle from "../../components/Bus/DestinationToggle";
 import Drivers from "../../components/Bus/Drivers/Drivers";
 import Conductor from "../../components/Bus/Conductor/Conductor";
-
-const driver = {
-  licenseExpiry: "2023-09-15",
-  licenseNumber: "177SDFGDF47GG",
-  name: "Foysal Sheikh",
-  phone: "+01816118534",
-};
-
-const conductor = {
-  name: "SR Joy",
-  phone: "+88011561515",
-};
+import { useDispatch, useSelector } from "react-redux";
+import Schedules from "../../components/Bus/Schedules/Schedules";
+import { setBus, setRoute, setUserId } from "../../redux/Reducers/payment";
 
 const BusDetails = ({ route, navigation }) => {
-  const bottomSheetRef = useRef(null);
-  const snapPoints = useMemo(() => ["15%", "55%"]);
+  const dispatch = useDispatch();
+  const { group, user } = useSelector((state) => state.user);
   const theme = useTheme();
-  const { info, busId } = route?.params;
+  const { info, busId, routeInfo } = route?.params;
+  console.log(info);
   return (
     <ScrollView>
       <View
@@ -67,7 +57,8 @@ const BusDetails = ({ route, navigation }) => {
             Driver
           </Text>
           <Divider />
-          <Drivers driver={driver} />
+
+          <Drivers driver={info?.Driver} />
           <Divider style={{ marginVertical: 20 }} />
           <Text
             style={{ fontWeight: "bold", fontSize: 18, paddingVertical: 15 }}
@@ -75,11 +66,11 @@ const BusDetails = ({ route, navigation }) => {
             Conductor
           </Text>
           <Divider />
-          <Conductor conductor={conductor} />
+          <Conductor conductor={info?.Conductor} />
         </View>
 
         <View style={{ paddingHorizontal: 25, paddingVertical: 35 }}>
-          <View
+          {/* <View
             style={{
               flexDirection: "row",
               justifyContent: "space-between",
@@ -100,19 +91,54 @@ const BusDetails = ({ route, navigation }) => {
           </View>
           <Divider style={{ marginVertical: 15 }} />
           <DestinationToggle />
-          <Divider style={{ marginBottom: 15 }} />
-          <TouchableOpacity
-            style={{
-              backgroundColor: theme.colors.accent,
-              padding: 15,
-              borderRadius: 35,
-              alignItems: "center",
-              marginHorizontal: "22%",
-            }}
-            onPress={() => navigation.navigate("Payment")}
-          >
-            <Text style={{ color: theme.colors.White }}>Buy Ticket Now!</Text>
-          </TouchableOpacity>
+          <Divider style={{ marginBottom: 15 }} /> */}
+
+          <Schedules schedules={info?.Schedules} busInfo={info} busId={busId} />
+
+          {group && group.includes("Faculty") ? (
+            <TouchableOpacity
+              style={{
+                backgroundColor: theme.colors.accent,
+                padding: 15,
+                borderRadius: 35,
+                alignItems: "center",
+                marginHorizontal: "22%",
+              }}
+              onPress={() =>
+                navigation.navigate("BusLocate", {
+                  busId: busId,
+                  info,
+                })
+              }
+            >
+              <Text style={{ color: theme.colors.White }}>View Location!</Text>
+            </TouchableOpacity>
+          ) : (
+            <TouchableOpacity
+              style={{
+                backgroundColor: theme.colors.accent,
+                padding: 15,
+                borderRadius: 35,
+                alignItems: "center",
+                marginHorizontal: "22%",
+              }}
+              onPress={() => {
+                dispatch(setBus({ busId: busId, busName: info?.name }));
+                dispatch(
+                  setRoute({
+                    routeId: routeInfo?.id,
+                    routeName: routeInfo?.routeName,
+                  })
+                );
+                dispatch(setUserId({ userId: user?.preferred_username }));
+                navigation.navigate("Payment", {
+                  busId,
+                });
+              }}
+            >
+              <Text style={{ color: theme.colors.White }}>Buy Ticket Now!</Text>
+            </TouchableOpacity>
+          )}
         </View>
       </View>
     </ScrollView>

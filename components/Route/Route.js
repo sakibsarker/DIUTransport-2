@@ -1,4 +1,4 @@
-import { ImageBackground, TouchableOpacity, View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 import React from "react";
 import { useTheme, Text, Divider } from "react-native-paper";
 
@@ -8,12 +8,9 @@ const Route = ({ props, navigation }) => {
     id,
     routeId,
     routeName,
-    startTimes,
-    routeDetails,
-    departureTimes,
-    noOfBuses,
-    image,
-    duration,
+    Buses,
+    pickupPoints,
+    avg_duration,
     distance,
   } = props;
   return (
@@ -55,17 +52,19 @@ const Route = ({ props, navigation }) => {
         <Divider style={{ marginVertical: 10 }} />
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
           <Text>Available Buses: </Text>
-          <Text>{noOfBuses}</Text>
+          <Text>{Buses.items.length}</Text>
         </View>
         <Divider style={{ marginVertical: 10 }} />
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
           <Text>Distance: </Text>
-          <Text>{distance}</Text>
+          <Text>{distance ? `${distance} KM` : "Not Mesasured!"}</Text>
         </View>
         <Divider style={{ marginVertical: 10 }} />
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
           <Text>Average Duration: </Text>
-          <Text>{duration}</Text>
+          <Text>
+            {avg_duration ? `${avg_duration} Minutes` : "Not Mesasured!"}
+          </Text>
         </View>
       </View>
     </TouchableOpacity>

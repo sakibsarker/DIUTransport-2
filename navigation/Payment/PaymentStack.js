@@ -6,6 +6,7 @@ import SelectSeat from "../../screens/Payment/SelectSeat";
 import SelectMethod from "../../screens/Payment/SelectMethod";
 import Confirmations from "../../screens/Payment/Confirmations";
 import PaymentProcess from "../../screens/Payment/PaymentProcess";
+import SelectTicket from "../../screens/Payment/SelectTicket";
 const Stack = createNativeStackNavigator();
 const PaymentStack = () => {
   return (
@@ -13,7 +14,7 @@ const PaymentStack = () => {
       screenOptions={{
         headerShown: false,
       }}
-      initialRouteName="selectMethod"
+      initialRouteName="selectTicket"
     >
       {/* <Stack.Screen
         name="selectSchedule"
@@ -30,25 +31,32 @@ const PaymentStack = () => {
         }}
       /> */}
       <Stack.Screen
+        name="selectTicket"
+        component={SelectTicket}
+        options={{
+          title: "Select Ticket",
+        }}
+      />
+      <Stack.Screen
         name="selectMethod"
         component={SelectMethod}
-        options={{
+        options={({ route }) => ({
           title: "Payment Method",
-        }}
+        })}
       />
       <Stack.Screen
         name="confirmation"
         component={Confirmations}
-        options={{
+        options={({ route }) => ({
           title: "Confirmation",
-        }}
+        })}
       />
       <Stack.Screen
         name="paymentProcess"
         component={PaymentProcess}
-        options={{
+        options={({ route }) => ({
           title: "Processing",
-        }}
+        })}
       />
     </Stack.Navigator>
   );

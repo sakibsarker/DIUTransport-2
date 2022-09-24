@@ -2,10 +2,20 @@ import { TouchableOpacity, View } from "react-native";
 import React from "react";
 import { Text, useTheme } from "react-native-paper";
 
-const Bus = ({ navigation, props }) => {
+const Bus = ({ navigation, props, info }) => {
   const theme = useTheme();
-  const { busNo, backgroundColor, name, busId, status, location } = props;
-
+  const { bus } = props;
+  const {
+    Conductor,
+    Driver,
+    Schedules,
+    id,
+    name,
+    status_on,
+    trackingID,
+    updatedAt,
+    Tickets,
+  } = bus;
   return (
     <TouchableOpacity
       style={{
@@ -15,20 +25,26 @@ const Bus = ({ navigation, props }) => {
       }}
       onPress={() =>
         navigation.navigate("BusDetails", {
-          busId: busId,
+          busId: id,
           info: {
-            busNo,
-            status,
+            Conductor,
+            Driver,
+            Schedules,
+            id,
             name,
-            location,
+            status_on,
+            trackingID,
+            updatedAt,
+            Tickets,
           },
+          routeInfo: info,
         })
       }
     >
       <View
         style={{
           height: 50,
-          backgroundColor: backgroundColor,
+          backgroundColor: theme.colors.darkPurple,
           justifyContent: "center",
           alignItems: "center",
         }}
@@ -38,6 +54,7 @@ const Bus = ({ navigation, props }) => {
             textTransform: "uppercase",
             fontWeight: "bold",
             fontSize: 18,
+            color: theme.colors.White,
           }}
         >
           {name}
@@ -53,7 +70,7 @@ const Bus = ({ navigation, props }) => {
         }}
       >
         <Text style={{ marginVertical: 10 }}>{name}</Text>
-        <Text>Status : {status}</Text>
+        <Text>Status : {status_on ? "Available" : "Not Available"}</Text>
       </View>
     </TouchableOpacity>
   );

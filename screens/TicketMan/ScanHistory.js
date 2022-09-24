@@ -32,7 +32,7 @@ const ScanHistory = ({ navigation }) => {
       <SafeAreaView>
         <View style={styles.page}>
           <View style={{ ...styles.justifySBTN, marginBottom: 20 }}>
-            <Text>Queuee</Text>
+            <Text>Tickets</Text>
             <Text style={{ color: theme.colors.accent }}>
               Total Students - {count}
             </Text>
@@ -98,7 +98,7 @@ const ScanHistory = ({ navigation }) => {
                 backgroundColor: theme.colors.disabled,
               }}
             >
-              Empty Queuee
+              No Ticket Sales
             </Text>
           )}
           <View

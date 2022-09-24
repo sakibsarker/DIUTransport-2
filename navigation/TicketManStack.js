@@ -9,6 +9,7 @@ import NoticeBoard from "../screens/Notice/NoticeBoard";
 import TicketScan from "../screens/TicketMan/TicketScan";
 import TicketmanTabNavigator from "./TicketmanTabNavigator";
 import ScanHistory from "../screens/TicketMan/ScanHistory";
+import Settings from "../screens/TicketMan/Settings/Settings";
 
 const Drawer = createDrawerNavigator();
 
@@ -64,7 +65,7 @@ const TicketManStack = () => {
         />
         <Drawer.Screen
           name="Settings"
-          component={NoticeBoard}
+          component={Settings}
           options={{
             title: "Settings",
             drawerIcon: ({ size, color }) => (

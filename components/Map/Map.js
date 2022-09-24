@@ -17,13 +17,35 @@ import useSWR from "swr";
 import Loader from "../Loader";
 import { PreferencesContext } from "../../contexts/PreferencesContext ";
 import { mapNight } from "../../Configs/MapNightStyle";
+import { PubSub } from "aws-amplify";
 
 const screen = Dimensions.get("window");
 const ASPECT_RATIO = screen.width / screen.height;
 const LATITUDE_DELTA = 0.04;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
-const Map = ({ busId, location, info }) => {
+const Map = ({ busId, location, info, trackingID }) => {
+  console.log(trackingID);
+  const [error, setError] = useState();
+  const [loccc, setLoccc] = useState(null);
+
+  useEffect(() => {
+    console.log(error);
+  }, [error]);
+
+  useEffect(() => {
+    const subscription = PubSub.subscribe(trackingID).subscribe({
+      next: (data) => setLoccc(data),
+      error: (error) => setError(error),
+      close: () => setMessage("Done"),
+    });
+    return () => subscription.unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    console.log(loccc?.value);
+  }, [loccc]);
+
   const { isThemeDark } = React.useContext(PreferencesContext);
 
   const theme = useTheme();
@@ -46,21 +68,21 @@ const Map = ({ busId, location, info }) => {
   const { curLoc, coordinate } = state;
   const updateState = (data) => setState((state) => ({ ...state, ...data }));
 
-  const busFetcher = async () => {
-    const response = await fetch(
-      `https://boiling-escarpment-76670.herokuapp.com/api/v1/bus/${busId}`
-    );
-    return response.json();
-  };
+  // const busFetcher = async () => {
+  //   const response = await fetch(
+  //     `https://boiling-escarpment-76670.herokuapp.com/api/v1/bus/${busId}`
+  //   );
+  //   return response.json();
+  // };
 
-  const { data, error } = useSWR("/bus/location", busFetcher, {
-    refreshInterval: 1000,
-  });
+  // const { data, error } = useSWR("/bus/location", busFetcher, {
+  //   refreshInterval: 1000,
+  // });
 
   useEffect(() => {
-    console.log(data?.location?.coordinates);
-    const latitude = data?.location?.coordinates[1];
-    const longitude = data?.location?.coordinates[0];
+    console.log(loccc?.value);
+    const latitude = loccc?.value?.latitude;
+    const longitude = loccc?.value?.longitude;
 
     if (latitude && longitude) {
       animate(latitude, longitude);
@@ -75,7 +97,7 @@ const Map = ({ busId, location, info }) => {
         }),
       });
     }
-  }, [data]);
+  }, [loccc]);
 
   useEffect(() => {
     onCenter(curLoc?.latitude, curLoc?.longitude);
@@ -114,7 +136,7 @@ const Map = ({ busId, location, info }) => {
     }
   };
 
-  if (!data || error) {
+  if (!loccc || error) {
     return <Loader />;
   }
 

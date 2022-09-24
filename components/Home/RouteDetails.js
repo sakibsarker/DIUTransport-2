@@ -5,46 +5,12 @@ import Bus from "../Bus/Bus";
 const BusList = ({ navigation, route }) => {
   const theme = useTheme();
 
-  const { startTimes, routeDetails, departureTimes, image } =
-    route.params?.info;
+  const { routeId, routeName, Buses, pickupPoints, avg_duration, distance } =
+    route?.params?.info;
 
-  const busData = [
-    {
-      id: 1,
-      backgroundColor: theme.colors.gray,
-      name: "সূর্যমুখি ২২",
-      busId: "surjomukhi22",
-      status: "ON",
-      busNo: 22,
-      location: {
-        coordinates: [90.269018, 23.936878],
-      },
-    },
-    {
-      id: 2,
-      name: "সূর্যমুখী ১০",
-      busId: "surjomukhi10",
-      busNo: 10,
-      status: "OFF",
-      location: {
-        coordinates: [90.269018, 23.936878],
-      },
-      backgroundColor: theme.colors.yellow,
-    },
-    {
-      id: 3,
-      name: "সূর্যমুখী ১",
-      busId: "surjomukhi1",
-      busNo: 1,
-      status: "ON",
-      location: {
-        coordinates: [90.269018, 23.936878],
-      },
-      backgroundColor: theme.colors.red,
-    },
-  ];
-
-  const renderItem = ({ item }) => <Bus props={item} navigation={navigation} />;
+  const renderItem = ({ item }) => (
+    <Bus props={item} navigation={navigation} info={route?.params?.info} />
+  );
 
   const renderPromoHeader = () => (
     <View style={{ marginTop: 40 }}>
@@ -54,16 +20,19 @@ const BusList = ({ navigation, route }) => {
 
   const renderPage = () => (
     <>
-      <ImageBackground source={{ uri: image }} style={{ padding: 50 }} />
+      {/* <ImageBackground source={{ uri: image }} style={{ padding: 50 }} /> */}
 
       <View style={{ paddingHorizontal: 25, marginTop: 25 }}>
         <Text style={{ fontSize: 15, fontWeight: "bold", marginBottom: 15 }}>
           Route Details
         </Text>
-        <Text>{routeDetails}</Text>
+
+        <Text style={{ lineHeight: 25, fontSize: 18 }}>
+          {pickupPoints.join(" ⚡️ ")}
+        </Text>
       </View>
 
-      <View style={{ paddingHorizontal: 25, marginTop: 25 }}>
+      {/* <View style={{ paddingHorizontal: 25, marginTop: 25 }}>
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
           <View>
             <Text
@@ -71,9 +40,7 @@ const BusList = ({ navigation, route }) => {
             >
               Starting Times
             </Text>
-            {startTimes.map((stime) => (
-              <Text key={stime}>{stime}</Text>
-            ))}
+            <Text>No schedule available!</Text>
           </View>
           <View>
             <Text
@@ -81,24 +48,26 @@ const BusList = ({ navigation, route }) => {
             >
               Departure Times
             </Text>
-            {departureTimes.map((stime) => (
-              <Text key={stime}>{stime}</Text>
-            ))}
+            <Text>No schedule available!</Text>
           </View>
         </View>
-      </View>
+      </View> */}
 
-      <View style={{ paddingHorizontal: 25 }}>
-        <FlatList
-          ListHeaderComponent={renderPromoHeader}
-          data={busData}
-          listKey={1}
-          numColumns={2}
-          columnWrapperStyle={{ justifyContent: "space-between" }}
-          keyExtractor={(item) => `${item.id}`}
-          renderItem={renderItem}
-          showsVerticalScrollIndicator={false}
-        />
+      <View style={{ paddingHorizontal: 25, marginVertical: 15 }}>
+        {Buses.items.length > 0 ? (
+          <FlatList
+            ListHeaderComponent={renderPromoHeader}
+            data={Buses.items}
+            listKey={1}
+            numColumns={2}
+            columnWrapperStyle={{ justifyContent: "space-between" }}
+            keyExtractor={(item) => `${item.id}`}
+            renderItem={renderItem}
+            showsVerticalScrollIndicator={false}
+          />
+        ) : (
+          <Text style={{ fontWeight: "bold" }}>No Buses Available</Text>
+        )}
       </View>
     </>
   );
