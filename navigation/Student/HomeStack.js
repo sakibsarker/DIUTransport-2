@@ -24,9 +24,7 @@ const HomeStack = () => {
       <Stack.Screen
         name="BusLocate"
         component={BusLocate}
-        options={({ route }) => ({
-          title: route.params?.info?.name,
-        })}
+        title="LIVE LOCATION"
       />
       <Stack.Screen
         name="BusDetails"

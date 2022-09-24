@@ -97,19 +97,38 @@ const TicketDetails = ({ route, navigation }) => {
             }}
           >
             <Text style={{}}>Bus Name:</Text>
+
+            <Text>{busName}</Text>
+          </View>
+
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              borderColor: theme.colors.accent,
+              borderWidth: 0,
+              borderBottomWidth: 1,
+              borderStyle: "solid",
+              marginHorizontal: 25,
+              paddingVertical: 20,
+            }}
+          >
+            <Text style={{ color: theme.colors.darkRed }}>Live Location: </Text>
             <TouchableOpacity
               onPress={() =>
                 navigation.navigate("BusLocate", {
                   busId: busId,
                   trackingID: trackingID,
                   info: route.params?.info,
+                  name: route?.params?.info?.name,
                 })
               }
             >
-              <Text>{busName}</Text>
+              <Text style={{ fontWeight: "bold" }}>View</Text>
             </TouchableOpacity>
           </View>
-          <View
+
+          {/* <View
             style={{
               flexDirection: "row",
               justifyContent: "space-between",
@@ -123,7 +142,7 @@ const TicketDetails = ({ route, navigation }) => {
           >
             <Text style={{}}>Seat:</Text>
             <Text>E1</Text>
-          </View>
+          </View> */}
           <View
             style={{
               flexDirection: "row",

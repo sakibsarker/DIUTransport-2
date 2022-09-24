@@ -41,16 +41,7 @@ const StudentTabNavigator = () => {
           ),
         })}
       />
-      <Tab.Screen
-        name="Map"
-        component={MyMap}
-        options={{
-          headerShown: false,
-          tabBarIcon: ({ color, size, focused }) => (
-            <FontAwesome5 name="map" size={focused ? 35 : 27} color={color} />
-          ),
-        }}
-      />
+
       <Tab.Screen
         name="YTickets"
         component={TicketStack}
