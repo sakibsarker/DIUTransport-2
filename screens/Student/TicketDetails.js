@@ -8,23 +8,26 @@ import {
 import React from "react";
 import QRCode from "react-native-qrcode-svg";
 import { useTheme, Text, List, Surface, Divider } from "react-native-paper";
+import { useSelector } from "react-redux";
 
 const TicketDetails = ({ route, navigation }) => {
   const theme = useTheme();
+  const { user } = useSelector((state) => state.user);
 
   const {
-    time,
-    price,
-    id,
-    date,
-    busName,
+    Bus: { name: busName, trackingID },
     name,
     paymentVia,
-    destination,
-    backgroundColor,
-    trackingID,
-    busId,
+    price,
+    id,
+    Route: { routeName },
+    routeID,
+    userID,
     token,
+    expired,
+    createdAt,
+    updatedAt,
+    busID,
   } = route.params?.info;
   return (
     <View
@@ -67,7 +70,7 @@ const TicketDetails = ({ route, navigation }) => {
             }}
           >
             <Text style={{}}>Full Name:</Text>
-            <Text>{name}</Text>
+            <Text>{user?.name}</Text>
           </View>
           <View
             style={{
@@ -117,7 +120,7 @@ const TicketDetails = ({ route, navigation }) => {
             <TouchableOpacity
               onPress={() =>
                 navigation.navigate("BusLocate", {
-                  busId: busId,
+                  busId: trackingID,
                   trackingID: trackingID,
                   info: route.params?.info,
                   name: route?.params?.info?.name,
@@ -155,10 +158,10 @@ const TicketDetails = ({ route, navigation }) => {
               paddingVertical: 20,
             }}
           >
-            <Text style={{}}>Destination:</Text>
-            <Text>{destination}</Text>
+            <Text style={{}}>Route:</Text>
+            <Text>{routeName}</Text>
           </View>
-          <View
+          {/* <View
             style={{
               flexDirection: "row",
               justifyContent: "space-between",
@@ -174,7 +177,7 @@ const TicketDetails = ({ route, navigation }) => {
             <Text>
               {date} ⚡️ {time}
             </Text>
-          </View>
+          </View> */}
           <View
             style={{
               flexDirection: "row",

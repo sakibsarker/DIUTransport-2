@@ -5,17 +5,19 @@ import { Divider, useTheme, Text } from "react-native-paper";
 const Ticket = ({ props, navigation }) => {
   const theme = useTheme();
   const {
-    time,
-    price,
-    id,
-    date,
-    busName,
+    Bus: { name: busName, trackingID },
     name,
     paymentVia,
-    destination,
-    backgroundColor,
-    trackingID,
+    price,
+    id,
+    Route: { routeName },
+    routeID,
+    userID,
     token,
+    expired,
+    createdAt,
+    updatedAt,
+    busID,
   } = props;
   return (
     <TouchableOpacity
@@ -30,15 +32,6 @@ const Ticket = ({ props, navigation }) => {
         paddingHorizontal: 15,
       }}
     >
-      {/* <View
-        style={{
-          backgroundColor: backgroundColor,
-          width: "100%",
-          height: 40,
-          zIndex: 1,
-          borderRadius: 30,
-        }}
-      ></View> */}
       <View
         style={{
           zIndex: 3,
@@ -49,9 +42,9 @@ const Ticket = ({ props, navigation }) => {
         }}
       >
         <Text style={{ fontSize: 16, fontWeight: "bold", marginBottom: 5 }}>
-          {busName}
+          {name}
         </Text>
-        <Text>{destination}</Text>
+        <Text>{busName}</Text>
         <Divider style={{ marginVertical: 10 }} />
         <View
           style={{
@@ -61,12 +54,12 @@ const Ticket = ({ props, navigation }) => {
           }}
         >
           <View>
-            <Text style={{ marginBottom: 5 }}>⏱ Time</Text>
-            <Text style={{}}>{time}</Text>
+            <Text style={{ marginBottom: 5 }}>Route </Text>
+            <Text style={{}}>{routeName}</Text>
           </View>
           <View>
-            <Text style={{ marginBottom: 5 }}>🗓 Date</Text>
-            <Text style={{}}>{date}</Text>
+            <Text style={{ marginBottom: 5 }}>Bus</Text>
+            <Text style={{}}>{busName}</Text>
           </View>
           <View>
             <Image

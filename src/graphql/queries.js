@@ -1257,46 +1257,12 @@ export const listTickets = /* GraphQL */ `
   ) {
     listTickets(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
-        id
-        expired
-        token
-        userID
-        busID
-        routeID
-        Route {
-          id
-          routeName
-          pickupPoints
-          image
-          distance
-          avg_duration
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        Bus {
-          id
-          name
-          trackingID
-          status_on
-          routeID
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-          busDriverId
-          busConductorId
-        }
         price
-        name
-        createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
+        name
+        id
+        createdAt
+        busID
       }
       nextToken
       startedAt
@@ -1566,6 +1532,43 @@ export const syncBusSchedules = /* GraphQL */ `
     }
   }
 `;
+
+export const listTicketSales = /* GraphQL */ `
+  query ListTicketSales(
+    $filter: ModelTicketSaleFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listTicketSales(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        expired
+        token
+        userID
+        paymentVia
+        busID
+        routeID
+        Route {
+          id
+          routeName
+        }
+        Bus {
+          id
+          name
+          trackingID
+          status_on
+        }
+        price
+        name
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+
 export const getDriverSchedule = /* GraphQL */ `
   query GetDriverSchedule($id: ID!) {
     getDriverSchedule(id: $id) {

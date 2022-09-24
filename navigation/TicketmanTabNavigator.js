@@ -12,6 +12,7 @@ import MyMap from "../screens/Student/MyMap";
 import TicketScan from "../screens/TicketMan/TicketScan";
 import Profile from "../screens/TicketMan/Profile";
 import ScanHistory from "../screens/TicketMan/ScanHistory";
+import Settings from "../screens/TicketMan/Settings/Settings";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -57,15 +58,15 @@ const TicketmanTabNavigator = () => {
       />
 
       <Tab.Screen
-        name="profile"
-        component={Profile}
+        name="settings"
+        component={Settings}
         options={({ route }) => ({
           tabBarStyle: {
             display: getTabBarVisibility(route),
             backgroundColor: theme.colors.accent,
           },
           tabBarIcon: ({ color, size }) => (
-            <FontAwesome5 name="user" color={color} size={size} />
+            <Ionicons name="settings" size={size} color={color} />
           ),
         })}
       />

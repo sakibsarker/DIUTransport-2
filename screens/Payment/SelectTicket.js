@@ -29,18 +29,25 @@ const SelectTicket = ({ navigation }) => {
 
   useEffect(() => {
     setLoading(true);
+
+    let filter = {
+      busID: {
+        eq: busId,
+      },
+    };
+
     API.graphql({
-      query: queries.getBus,
+      query: queries.listTickets,
       authMode: "AMAZON_COGNITO_USER_POOLS",
-      variables: { id: busId },
+      variables: { filter: filter },
     })
       .then(({ data }) => {
-        setTickets(data.getBus.Tickets.items);
+        setTickets(data.listTickets.items);
         // console.log(data.listRoutes.items);
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err.errors[0].message);
+        console.log(err);
         setLoading(false);
       });
   }, []);
