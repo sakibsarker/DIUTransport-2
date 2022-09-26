@@ -1,30 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, SafeAreaView, StatusBar, FlatList } from "react-native";
-import { useTheme, Text } from "react-native-paper";
+import { Text, useTheme } from "react-native-paper";
 import History from "../../components/Tickets/History";
-import DatePicker, { getFormatedDate } from "react-native-modern-datepicker";
+import * as queries from "../../src/graphql/queries";
+import { API } from "aws-amplify";
+import { useSelector } from "react-redux";
 
 const TicketHistory = ({ navigation }) => {
   const theme = useTheme();
-  const [date, setDate] = React.useState("");
-  const HistoryData = [
-    {
-      id: 1,
-      busName: "Surjomukhi 27",
-      date: "19 June 2022",
-      price: "25.00 BDT",
-      route: "R1",
-      time: "5.37 PM",
-    },
-    {
-      id: 2,
-      busName: "Surjomukhi 7",
-      date: "22 June 2022",
-      price: "35.00 BDT",
-      route: "R3",
-      time: "5.30 PM",
-    },
-  ];
+  const { user } = useSelector((state) => state.user);
+
+  const [tickets, setTickets] = useState([]);
+
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    let filter = {
+      userID: {
+        eq: user.sub,
+      },
+      expired: {
+        eq: false,
+      },
+    };
+    API.graphql({
+      query: queries.listTicketSales,
+      authMode: "AMAZON_COGNITO_USER_POOLS",
+      variables: { filter: filter },
+    })
+      .then(({ data }) => {
+        setTickets(data.listTicketSales.items);
+        console.log(data.listTicketSales.items);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err.errors[0]);
+        setLoading(false);
+      });
+  }, []);
 
   const renderItem = ({ item }) => (
     <History props={item} navigation={navigation} />
@@ -32,7 +46,7 @@ const TicketHistory = ({ navigation }) => {
 
   const renderPage = () => (
     <>
-      <View style={{ paddingHorizontal: 25, marginVertical: 10 }}>
+      {/* <View style={{ paddingHorizontal: 25, marginVertical: 10 }}>
         <DatePicker
           options={{
             mainColor: theme.colors.accent,
@@ -45,16 +59,28 @@ const TicketHistory = ({ navigation }) => {
           minimumDate={getFormatedDate(new Date(), "YYYY/MM/DD")}
           onMonthYearChange={(selectedDate) => setDate(selectedDate)}
         />
-      </View>
+      </View> */}
       <View style={{ paddingHorizontal: 25 }}>
-        <FlatList
-          listKey={1}
-          data={HistoryData}
-          numColumns={1}
-          keyExtractor={(item) => `${item.id}`}
-          renderItem={renderItem}
-          showsVerticalScrollIndicator={false}
-        />
+        {tickets.length > 0 ? (
+          <FlatList
+            listKey={1}
+            data={tickets}
+            numColumns={1}
+            keyExtractor={(item) => `${item.id}`}
+            renderItem={renderItem}
+            showsVerticalScrollIndicator={false}
+          />
+        ) : (
+          <Text
+            style={{
+              fontWeight: "bold",
+              textAlign: "center",
+              marginVertical: 25,
+            }}
+          >
+            No History Data Available!
+          </Text>
+        )}
       </View>
     </>
   );

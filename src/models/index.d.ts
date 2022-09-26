@@ -1,8 +1,4 @@
-import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplify/datastore";
-
-
-
-
+import { ModelInit, MutableModel } from "@aws-amplify/datastore";
 
 type ScheduleMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
@@ -21,6 +17,10 @@ type ConductorMetaData = {
 }
 
 type BusImageMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+type TicketSaleMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
@@ -48,6 +48,10 @@ type ConductorScheduleMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
+type RouteBusMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
 export declare class Schedule {
   readonly id: string;
   readonly name?: string | null;
@@ -71,10 +75,11 @@ export declare class Bus {
   readonly Conductor?: Conductor | null;
   readonly BusImages?: (BusImage | null)[] | null;
   readonly status_on?: boolean | null;
-  readonly Route?: Route | null;
-  readonly Tickets?: (Ticket | null)[] | null;
+  readonly TicketSales?: (TicketSale | null)[] | null;
   readonly Schedules?: (BusSchedule | null)[] | null;
   readonly routeID: string;
+  readonly routes?: (RouteBus | null)[] | null;
+  readonly Tickets?: (Ticket | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   readonly busDriverId?: string | null;
@@ -122,14 +127,32 @@ export declare class BusImage {
   static copyOf(source: BusImage, mutator: (draft: MutableModel<BusImage, BusImageMetaData>) => MutableModel<BusImage, BusImageMetaData> | void): BusImage;
 }
 
+export declare class TicketSale {
+  readonly id: string;
+  readonly expired?: boolean | null;
+  readonly token: string;
+  readonly userID: string;
+  readonly busID: string;
+  readonly routeID: string;
+  readonly Route?: Route | null;
+  readonly Bus?: Bus | null;
+  readonly price: number;
+  readonly name: string;
+  readonly paymentVia?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  constructor(init: ModelInit<TicketSale, TicketSaleMetaData>);
+  static copyOf(source: TicketSale, mutator: (draft: MutableModel<TicketSale, TicketSaleMetaData>) => MutableModel<TicketSale, TicketSaleMetaData> | void): TicketSale;
+}
+
 export declare class Route {
   readonly id: string;
   readonly routeName: string;
   readonly pickupPoints?: (string | null)[] | null;
   readonly image?: string | null;
   readonly RouteImages?: (RouteImage | null)[] | null;
-  readonly Buses?: (Bus | null)[] | null;
-  readonly Tickets?: (Ticket | null)[] | null;
+  readonly Buses?: (RouteBus | null)[] | null;
+  readonly TicketSales?: (TicketSale | null)[] | null;
   readonly distance?: number | null;
   readonly avg_duration?: number | null;
   readonly createdAt?: string | null;
@@ -153,12 +176,7 @@ export declare class RouteImage {
 
 export declare class Ticket {
   readonly id: string;
-  readonly expired?: boolean | null;
-  readonly token: string;
-  readonly userID: string;
   readonly busID: string;
-  readonly routeID: string;
-  readonly Route?: Route | null;
   readonly Bus?: Bus | null;
   readonly price: number;
   readonly name: string;
@@ -196,4 +214,14 @@ export declare class ConductorSchedule {
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<ConductorSchedule, ConductorScheduleMetaData>);
   static copyOf(source: ConductorSchedule, mutator: (draft: MutableModel<ConductorSchedule, ConductorScheduleMetaData>) => MutableModel<ConductorSchedule, ConductorScheduleMetaData> | void): ConductorSchedule;
+}
+
+export declare class RouteBus {
+  readonly id: string;
+  readonly bus: Bus;
+  readonly route: Route;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  constructor(init: ModelInit<RouteBus, RouteBusMetaData>);
+  static copyOf(source: RouteBus, mutator: (draft: MutableModel<RouteBus, RouteBusMetaData>) => MutableModel<RouteBus, RouteBusMetaData> | void): RouteBus;
 }

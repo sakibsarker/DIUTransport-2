@@ -15,6 +15,32 @@ export const onCreateSchedule = /* GraphQL */ `
           id
           scheduleID
           busID
+          schedule {
+            id
+            name
+            time
+            type
+            day
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
           createdAt
           updatedAt
           _version
@@ -29,6 +55,31 @@ export const onCreateSchedule = /* GraphQL */ `
           id
           scheduleID
           driverID
+          schedule {
+            id
+            name
+            time
+            type
+            day
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          driver {
+            id
+            name
+            licenseNumber
+            phone
+            licenseExpiry
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            driverBusId
+          }
           createdAt
           updatedAt
           _version
@@ -43,6 +94,29 @@ export const onCreateSchedule = /* GraphQL */ `
           id
           scheduleID
           conductorID
+          schedule {
+            id
+            name
+            time
+            type
+            day
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          conductor {
+            id
+            name
+            phone
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            conductorBusId
+          }
           createdAt
           updatedAt
           _version
@@ -73,6 +147,32 @@ export const onUpdateSchedule = /* GraphQL */ `
           id
           scheduleID
           busID
+          schedule {
+            id
+            name
+            time
+            type
+            day
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
           createdAt
           updatedAt
           _version
@@ -87,6 +187,31 @@ export const onUpdateSchedule = /* GraphQL */ `
           id
           scheduleID
           driverID
+          schedule {
+            id
+            name
+            time
+            type
+            day
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          driver {
+            id
+            name
+            licenseNumber
+            phone
+            licenseExpiry
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            driverBusId
+          }
           createdAt
           updatedAt
           _version
@@ -101,6 +226,29 @@ export const onUpdateSchedule = /* GraphQL */ `
           id
           scheduleID
           conductorID
+          schedule {
+            id
+            name
+            time
+            type
+            day
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          conductor {
+            id
+            name
+            phone
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            conductorBusId
+          }
           createdAt
           updatedAt
           _version
@@ -131,6 +279,32 @@ export const onDeleteSchedule = /* GraphQL */ `
           id
           scheduleID
           busID
+          schedule {
+            id
+            name
+            time
+            type
+            day
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
           createdAt
           updatedAt
           _version
@@ -145,6 +319,31 @@ export const onDeleteSchedule = /* GraphQL */ `
           id
           scheduleID
           driverID
+          schedule {
+            id
+            name
+            time
+            type
+            day
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          driver {
+            id
+            name
+            licenseNumber
+            phone
+            licenseExpiry
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            driverBusId
+          }
           createdAt
           updatedAt
           _version
@@ -159,6 +358,29 @@ export const onDeleteSchedule = /* GraphQL */ `
           id
           scheduleID
           conductorID
+          schedule {
+            id
+            name
+            time
+            type
+            day
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          conductor {
+            id
+            name
+            phone
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            conductorBusId
+          }
           createdAt
           updatedAt
           _version
@@ -192,8 +414,52 @@ export const onCreateBus = /* GraphQL */ `
           id
           name
           trackingID
+          Driver {
+            id
+            name
+            licenseNumber
+            phone
+            licenseExpiry
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            driverBusId
+          }
+          Conductor {
+            id
+            name
+            phone
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            conductorBusId
+          }
+          BusImages {
+            nextToken
+            startedAt
+          }
           status_on
+          TicketSales {
+            nextToken
+            startedAt
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           routeID
+          routes {
+            nextToken
+            startedAt
+          }
+          Tickets {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -203,6 +469,16 @@ export const onCreateBus = /* GraphQL */ `
           busConductorId
         }
         Schedules {
+          items {
+            id
+            scheduleID
+            driverID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
@@ -221,8 +497,52 @@ export const onCreateBus = /* GraphQL */ `
           id
           name
           trackingID
+          Driver {
+            id
+            name
+            licenseNumber
+            phone
+            licenseExpiry
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            driverBusId
+          }
+          Conductor {
+            id
+            name
+            phone
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            conductorBusId
+          }
+          BusImages {
+            nextToken
+            startedAt
+          }
           status_on
+          TicketSales {
+            nextToken
+            startedAt
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           routeID
+          routes {
+            nextToken
+            startedAt
+          }
+          Tickets {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -232,6 +552,16 @@ export const onCreateBus = /* GraphQL */ `
           busConductorId
         }
         Schedules {
+          items {
+            id
+            scheduleID
+            conductorID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
@@ -249,42 +579,32 @@ export const onCreateBus = /* GraphQL */ `
           caption
           url
           busID
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
           createdAt
           updatedAt
           _version
           _deleted
           _lastChangedAt
+          busBusImagesId
         }
         nextToken
         startedAt
       }
       status_on
-      Route {
-        id
-        routeName
-        pickupPoints
-        image
-        RouteImages {
-          nextToken
-          startedAt
-        }
-        Buses {
-          nextToken
-          startedAt
-        }
-        Tickets {
-          nextToken
-          startedAt
-        }
-        distance
-        avg_duration
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      Tickets {
+      TicketSales {
         items {
           id
           expired
@@ -292,13 +612,43 @@ export const onCreateBus = /* GraphQL */ `
           userID
           busID
           routeID
+          Route {
+            id
+            routeName
+            pickupPoints
+            image
+            distance
+            avg_duration
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
           price
           name
+          paymentVia
           createdAt
           updatedAt
           _version
           _deleted
           _lastChangedAt
+          busTicketSalesId
+          routeTicketSalesId
         }
         nextToken
         startedAt
@@ -308,6 +658,32 @@ export const onCreateBus = /* GraphQL */ `
           id
           scheduleID
           busID
+          schedule {
+            id
+            name
+            time
+            type
+            day
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
           createdAt
           updatedAt
           _version
@@ -318,6 +694,77 @@ export const onCreateBus = /* GraphQL */ `
         startedAt
       }
       routeID
+      routes {
+        items {
+          id
+          busID
+          routeID
+          bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          route {
+            id
+            routeName
+            pickupPoints
+            image
+            distance
+            avg_duration
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
+        nextToken
+        startedAt
+      }
+      Tickets {
+        items {
+          id
+          busID
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          price
+          name
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+          busTicketsId
+        }
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -344,8 +791,52 @@ export const onUpdateBus = /* GraphQL */ `
           id
           name
           trackingID
+          Driver {
+            id
+            name
+            licenseNumber
+            phone
+            licenseExpiry
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            driverBusId
+          }
+          Conductor {
+            id
+            name
+            phone
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            conductorBusId
+          }
+          BusImages {
+            nextToken
+            startedAt
+          }
           status_on
+          TicketSales {
+            nextToken
+            startedAt
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           routeID
+          routes {
+            nextToken
+            startedAt
+          }
+          Tickets {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -355,6 +846,16 @@ export const onUpdateBus = /* GraphQL */ `
           busConductorId
         }
         Schedules {
+          items {
+            id
+            scheduleID
+            driverID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
@@ -373,8 +874,52 @@ export const onUpdateBus = /* GraphQL */ `
           id
           name
           trackingID
+          Driver {
+            id
+            name
+            licenseNumber
+            phone
+            licenseExpiry
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            driverBusId
+          }
+          Conductor {
+            id
+            name
+            phone
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            conductorBusId
+          }
+          BusImages {
+            nextToken
+            startedAt
+          }
           status_on
+          TicketSales {
+            nextToken
+            startedAt
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           routeID
+          routes {
+            nextToken
+            startedAt
+          }
+          Tickets {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -384,6 +929,16 @@ export const onUpdateBus = /* GraphQL */ `
           busConductorId
         }
         Schedules {
+          items {
+            id
+            scheduleID
+            conductorID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
@@ -401,42 +956,32 @@ export const onUpdateBus = /* GraphQL */ `
           caption
           url
           busID
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
           createdAt
           updatedAt
           _version
           _deleted
           _lastChangedAt
+          busBusImagesId
         }
         nextToken
         startedAt
       }
       status_on
-      Route {
-        id
-        routeName
-        pickupPoints
-        image
-        RouteImages {
-          nextToken
-          startedAt
-        }
-        Buses {
-          nextToken
-          startedAt
-        }
-        Tickets {
-          nextToken
-          startedAt
-        }
-        distance
-        avg_duration
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      Tickets {
+      TicketSales {
         items {
           id
           expired
@@ -444,13 +989,43 @@ export const onUpdateBus = /* GraphQL */ `
           userID
           busID
           routeID
+          Route {
+            id
+            routeName
+            pickupPoints
+            image
+            distance
+            avg_duration
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
           price
           name
+          paymentVia
           createdAt
           updatedAt
           _version
           _deleted
           _lastChangedAt
+          busTicketSalesId
+          routeTicketSalesId
         }
         nextToken
         startedAt
@@ -460,6 +1035,32 @@ export const onUpdateBus = /* GraphQL */ `
           id
           scheduleID
           busID
+          schedule {
+            id
+            name
+            time
+            type
+            day
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
           createdAt
           updatedAt
           _version
@@ -470,6 +1071,77 @@ export const onUpdateBus = /* GraphQL */ `
         startedAt
       }
       routeID
+      routes {
+        items {
+          id
+          busID
+          routeID
+          bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          route {
+            id
+            routeName
+            pickupPoints
+            image
+            distance
+            avg_duration
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
+        nextToken
+        startedAt
+      }
+      Tickets {
+        items {
+          id
+          busID
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          price
+          name
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+          busTicketsId
+        }
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -496,8 +1168,52 @@ export const onDeleteBus = /* GraphQL */ `
           id
           name
           trackingID
+          Driver {
+            id
+            name
+            licenseNumber
+            phone
+            licenseExpiry
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            driverBusId
+          }
+          Conductor {
+            id
+            name
+            phone
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            conductorBusId
+          }
+          BusImages {
+            nextToken
+            startedAt
+          }
           status_on
+          TicketSales {
+            nextToken
+            startedAt
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           routeID
+          routes {
+            nextToken
+            startedAt
+          }
+          Tickets {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -507,6 +1223,16 @@ export const onDeleteBus = /* GraphQL */ `
           busConductorId
         }
         Schedules {
+          items {
+            id
+            scheduleID
+            driverID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
@@ -525,8 +1251,52 @@ export const onDeleteBus = /* GraphQL */ `
           id
           name
           trackingID
+          Driver {
+            id
+            name
+            licenseNumber
+            phone
+            licenseExpiry
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            driverBusId
+          }
+          Conductor {
+            id
+            name
+            phone
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            conductorBusId
+          }
+          BusImages {
+            nextToken
+            startedAt
+          }
           status_on
+          TicketSales {
+            nextToken
+            startedAt
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           routeID
+          routes {
+            nextToken
+            startedAt
+          }
+          Tickets {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -536,6 +1306,16 @@ export const onDeleteBus = /* GraphQL */ `
           busConductorId
         }
         Schedules {
+          items {
+            id
+            scheduleID
+            conductorID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
@@ -553,42 +1333,32 @@ export const onDeleteBus = /* GraphQL */ `
           caption
           url
           busID
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
           createdAt
           updatedAt
           _version
           _deleted
           _lastChangedAt
+          busBusImagesId
         }
         nextToken
         startedAt
       }
       status_on
-      Route {
-        id
-        routeName
-        pickupPoints
-        image
-        RouteImages {
-          nextToken
-          startedAt
-        }
-        Buses {
-          nextToken
-          startedAt
-        }
-        Tickets {
-          nextToken
-          startedAt
-        }
-        distance
-        avg_duration
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      Tickets {
+      TicketSales {
         items {
           id
           expired
@@ -596,13 +1366,43 @@ export const onDeleteBus = /* GraphQL */ `
           userID
           busID
           routeID
+          Route {
+            id
+            routeName
+            pickupPoints
+            image
+            distance
+            avg_duration
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
           price
           name
+          paymentVia
           createdAt
           updatedAt
           _version
           _deleted
           _lastChangedAt
+          busTicketSalesId
+          routeTicketSalesId
         }
         nextToken
         startedAt
@@ -612,6 +1412,32 @@ export const onDeleteBus = /* GraphQL */ `
           id
           scheduleID
           busID
+          schedule {
+            id
+            name
+            time
+            type
+            day
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
           createdAt
           updatedAt
           _version
@@ -622,6 +1448,77 @@ export const onDeleteBus = /* GraphQL */ `
         startedAt
       }
       routeID
+      routes {
+        items {
+          id
+          busID
+          routeID
+          bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          route {
+            id
+            routeName
+            pickupPoints
+            image
+            distance
+            avg_duration
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
+        nextToken
+        startedAt
+      }
+      Tickets {
+        items {
+          id
+          busID
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          price
+          name
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+          busTicketsId
+        }
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -646,11 +1543,25 @@ export const onCreateRoute = /* GraphQL */ `
           tags
           caption
           routeID
+          Route {
+            id
+            routeName
+            pickupPoints
+            image
+            distance
+            avg_duration
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           createdAt
           updatedAt
           _version
           _deleted
           _lastChangedAt
+          routeRouteImagesId
         }
         nextToken
         startedAt
@@ -658,22 +1569,45 @@ export const onCreateRoute = /* GraphQL */ `
       Buses {
         items {
           id
-          name
-          trackingID
-          status_on
+          busID
           routeID
+          bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          route {
+            id
+            routeName
+            pickupPoints
+            image
+            distance
+            avg_duration
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           createdAt
           updatedAt
           _version
           _deleted
           _lastChangedAt
-          busDriverId
-          busConductorId
         }
         nextToken
         startedAt
       }
-      Tickets {
+      TicketSales {
         items {
           id
           expired
@@ -681,13 +1615,43 @@ export const onCreateRoute = /* GraphQL */ `
           userID
           busID
           routeID
+          Route {
+            id
+            routeName
+            pickupPoints
+            image
+            distance
+            avg_duration
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
           price
           name
+          paymentVia
           createdAt
           updatedAt
           _version
           _deleted
           _lastChangedAt
+          busTicketSalesId
+          routeTicketSalesId
         }
         nextToken
         startedAt
@@ -716,11 +1680,25 @@ export const onUpdateRoute = /* GraphQL */ `
           tags
           caption
           routeID
+          Route {
+            id
+            routeName
+            pickupPoints
+            image
+            distance
+            avg_duration
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           createdAt
           updatedAt
           _version
           _deleted
           _lastChangedAt
+          routeRouteImagesId
         }
         nextToken
         startedAt
@@ -728,22 +1706,45 @@ export const onUpdateRoute = /* GraphQL */ `
       Buses {
         items {
           id
-          name
-          trackingID
-          status_on
+          busID
           routeID
+          bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          route {
+            id
+            routeName
+            pickupPoints
+            image
+            distance
+            avg_duration
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           createdAt
           updatedAt
           _version
           _deleted
           _lastChangedAt
-          busDriverId
-          busConductorId
         }
         nextToken
         startedAt
       }
-      Tickets {
+      TicketSales {
         items {
           id
           expired
@@ -751,13 +1752,43 @@ export const onUpdateRoute = /* GraphQL */ `
           userID
           busID
           routeID
+          Route {
+            id
+            routeName
+            pickupPoints
+            image
+            distance
+            avg_duration
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
           price
           name
+          paymentVia
           createdAt
           updatedAt
           _version
           _deleted
           _lastChangedAt
+          busTicketSalesId
+          routeTicketSalesId
         }
         nextToken
         startedAt
@@ -786,11 +1817,25 @@ export const onDeleteRoute = /* GraphQL */ `
           tags
           caption
           routeID
+          Route {
+            id
+            routeName
+            pickupPoints
+            image
+            distance
+            avg_duration
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           createdAt
           updatedAt
           _version
           _deleted
           _lastChangedAt
+          routeRouteImagesId
         }
         nextToken
         startedAt
@@ -798,22 +1843,45 @@ export const onDeleteRoute = /* GraphQL */ `
       Buses {
         items {
           id
-          name
-          trackingID
-          status_on
+          busID
           routeID
+          bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          route {
+            id
+            routeName
+            pickupPoints
+            image
+            distance
+            avg_duration
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           createdAt
           updatedAt
           _version
           _deleted
           _lastChangedAt
-          busDriverId
-          busConductorId
         }
         nextToken
         startedAt
       }
-      Tickets {
+      TicketSales {
         items {
           id
           expired
@@ -821,13 +1889,43 @@ export const onDeleteRoute = /* GraphQL */ `
           userID
           busID
           routeID
+          Route {
+            id
+            routeName
+            pickupPoints
+            image
+            distance
+            avg_duration
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
           price
           name
+          paymentVia
           createdAt
           updatedAt
           _version
           _deleted
           _lastChangedAt
+          busTicketSalesId
+          routeTicketSalesId
         }
         nextToken
         startedAt
@@ -856,14 +1954,55 @@ export const onCreateRouteImage = /* GraphQL */ `
         pickupPoints
         image
         RouteImages {
+          items {
+            id
+            url
+            tags
+            caption
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            routeRouteImagesId
+          }
           nextToken
           startedAt
         }
         Buses {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
-        Tickets {
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
           nextToken
           startedAt
         }
@@ -880,6 +2019,7 @@ export const onCreateRouteImage = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
+      routeRouteImagesId
     }
   }
 `;
@@ -897,14 +2037,55 @@ export const onUpdateRouteImage = /* GraphQL */ `
         pickupPoints
         image
         RouteImages {
+          items {
+            id
+            url
+            tags
+            caption
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            routeRouteImagesId
+          }
           nextToken
           startedAt
         }
         Buses {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
-        Tickets {
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
           nextToken
           startedAt
         }
@@ -921,6 +2102,7 @@ export const onUpdateRouteImage = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
+      routeRouteImagesId
     }
   }
 `;
@@ -938,14 +2120,55 @@ export const onDeleteRouteImage = /* GraphQL */ `
         pickupPoints
         image
         RouteImages {
+          items {
+            id
+            url
+            tags
+            caption
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            routeRouteImagesId
+          }
           nextToken
           startedAt
         }
         Buses {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
-        Tickets {
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
           nextToken
           startedAt
         }
@@ -962,6 +2185,7 @@ export const onDeleteRouteImage = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
+      routeRouteImagesId
     }
   }
 `;
@@ -983,6 +2207,24 @@ export const onCreateBusImage = /* GraphQL */ `
           licenseNumber
           phone
           licenseExpiry
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -994,6 +2236,24 @@ export const onCreateBusImage = /* GraphQL */ `
           id
           name
           phone
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -1002,32 +2262,90 @@ export const onCreateBusImage = /* GraphQL */ `
           conductorBusId
         }
         BusImages {
+          items {
+            id
+            tags
+            caption
+            url
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busBusImagesId
+          }
           nextToken
           startedAt
         }
         status_on
-        Route {
-          id
-          routeName
-          pickupPoints
-          image
-          distance
-          avg_duration
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        Tickets {
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
           nextToken
           startedAt
         }
         Schedules {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         routeID
+        routes {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        Tickets {
+          items {
+            id
+            busID
+            price
+            name
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketsId
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -1041,6 +2359,7 @@ export const onCreateBusImage = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
+      busBusImagesId
     }
   }
 `;
@@ -1062,6 +2381,24 @@ export const onUpdateBusImage = /* GraphQL */ `
           licenseNumber
           phone
           licenseExpiry
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -1073,6 +2410,24 @@ export const onUpdateBusImage = /* GraphQL */ `
           id
           name
           phone
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -1081,32 +2436,90 @@ export const onUpdateBusImage = /* GraphQL */ `
           conductorBusId
         }
         BusImages {
+          items {
+            id
+            tags
+            caption
+            url
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busBusImagesId
+          }
           nextToken
           startedAt
         }
         status_on
-        Route {
-          id
-          routeName
-          pickupPoints
-          image
-          distance
-          avg_duration
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        Tickets {
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
           nextToken
           startedAt
         }
         Schedules {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         routeID
+        routes {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        Tickets {
+          items {
+            id
+            busID
+            price
+            name
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketsId
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -1120,6 +2533,7 @@ export const onUpdateBusImage = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
+      busBusImagesId
     }
   }
 `;
@@ -1141,6 +2555,24 @@ export const onDeleteBusImage = /* GraphQL */ `
           licenseNumber
           phone
           licenseExpiry
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -1152,6 +2584,24 @@ export const onDeleteBusImage = /* GraphQL */ `
           id
           name
           phone
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -1160,32 +2610,90 @@ export const onDeleteBusImage = /* GraphQL */ `
           conductorBusId
         }
         BusImages {
+          items {
+            id
+            tags
+            caption
+            url
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busBusImagesId
+          }
           nextToken
           startedAt
         }
         status_on
-        Route {
-          id
-          routeName
-          pickupPoints
-          image
-          distance
-          avg_duration
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        Tickets {
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
           nextToken
           startedAt
         }
         Schedules {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         routeID
+        routes {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        Tickets {
+          items {
+            id
+            busID
+            price
+            name
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketsId
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -1199,6 +2707,7 @@ export const onDeleteBusImage = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
+      busBusImagesId
     }
   }
 `;
@@ -1220,6 +2729,24 @@ export const onCreateDriver = /* GraphQL */ `
           licenseNumber
           phone
           licenseExpiry
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -1231,6 +2758,24 @@ export const onCreateDriver = /* GraphQL */ `
           id
           name
           phone
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -1239,32 +2784,90 @@ export const onCreateDriver = /* GraphQL */ `
           conductorBusId
         }
         BusImages {
+          items {
+            id
+            tags
+            caption
+            url
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busBusImagesId
+          }
           nextToken
           startedAt
         }
         status_on
-        Route {
-          id
-          routeName
-          pickupPoints
-          image
-          distance
-          avg_duration
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        Tickets {
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
           nextToken
           startedAt
         }
         Schedules {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         routeID
+        routes {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        Tickets {
+          items {
+            id
+            busID
+            price
+            name
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketsId
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -1278,6 +2881,31 @@ export const onCreateDriver = /* GraphQL */ `
           id
           scheduleID
           driverID
+          schedule {
+            id
+            name
+            time
+            type
+            day
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          driver {
+            id
+            name
+            licenseNumber
+            phone
+            licenseExpiry
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            driverBusId
+          }
           createdAt
           updatedAt
           _version
@@ -1314,6 +2942,24 @@ export const onUpdateDriver = /* GraphQL */ `
           licenseNumber
           phone
           licenseExpiry
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -1325,6 +2971,24 @@ export const onUpdateDriver = /* GraphQL */ `
           id
           name
           phone
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -1333,32 +2997,90 @@ export const onUpdateDriver = /* GraphQL */ `
           conductorBusId
         }
         BusImages {
+          items {
+            id
+            tags
+            caption
+            url
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busBusImagesId
+          }
           nextToken
           startedAt
         }
         status_on
-        Route {
-          id
-          routeName
-          pickupPoints
-          image
-          distance
-          avg_duration
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        Tickets {
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
           nextToken
           startedAt
         }
         Schedules {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         routeID
+        routes {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        Tickets {
+          items {
+            id
+            busID
+            price
+            name
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketsId
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -1372,6 +3094,31 @@ export const onUpdateDriver = /* GraphQL */ `
           id
           scheduleID
           driverID
+          schedule {
+            id
+            name
+            time
+            type
+            day
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          driver {
+            id
+            name
+            licenseNumber
+            phone
+            licenseExpiry
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            driverBusId
+          }
           createdAt
           updatedAt
           _version
@@ -1408,6 +3155,24 @@ export const onDeleteDriver = /* GraphQL */ `
           licenseNumber
           phone
           licenseExpiry
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -1419,6 +3184,24 @@ export const onDeleteDriver = /* GraphQL */ `
           id
           name
           phone
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -1427,32 +3210,90 @@ export const onDeleteDriver = /* GraphQL */ `
           conductorBusId
         }
         BusImages {
+          items {
+            id
+            tags
+            caption
+            url
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busBusImagesId
+          }
           nextToken
           startedAt
         }
         status_on
-        Route {
-          id
-          routeName
-          pickupPoints
-          image
-          distance
-          avg_duration
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        Tickets {
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
           nextToken
           startedAt
         }
         Schedules {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         routeID
+        routes {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        Tickets {
+          items {
+            id
+            busID
+            price
+            name
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketsId
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -1466,6 +3307,31 @@ export const onDeleteDriver = /* GraphQL */ `
           id
           scheduleID
           driverID
+          schedule {
+            id
+            name
+            time
+            type
+            day
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          driver {
+            id
+            name
+            licenseNumber
+            phone
+            licenseExpiry
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            driverBusId
+          }
           createdAt
           updatedAt
           _version
@@ -1500,6 +3366,24 @@ export const onCreateConductor = /* GraphQL */ `
           licenseNumber
           phone
           licenseExpiry
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -1511,6 +3395,24 @@ export const onCreateConductor = /* GraphQL */ `
           id
           name
           phone
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -1519,32 +3421,90 @@ export const onCreateConductor = /* GraphQL */ `
           conductorBusId
         }
         BusImages {
+          items {
+            id
+            tags
+            caption
+            url
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busBusImagesId
+          }
           nextToken
           startedAt
         }
         status_on
-        Route {
-          id
-          routeName
-          pickupPoints
-          image
-          distance
-          avg_duration
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        Tickets {
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
           nextToken
           startedAt
         }
         Schedules {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         routeID
+        routes {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        Tickets {
+          items {
+            id
+            busID
+            price
+            name
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketsId
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -1558,6 +3518,29 @@ export const onCreateConductor = /* GraphQL */ `
           id
           scheduleID
           conductorID
+          schedule {
+            id
+            name
+            time
+            type
+            day
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          conductor {
+            id
+            name
+            phone
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            conductorBusId
+          }
           createdAt
           updatedAt
           _version
@@ -1592,6 +3575,24 @@ export const onUpdateConductor = /* GraphQL */ `
           licenseNumber
           phone
           licenseExpiry
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -1603,6 +3604,24 @@ export const onUpdateConductor = /* GraphQL */ `
           id
           name
           phone
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -1611,32 +3630,90 @@ export const onUpdateConductor = /* GraphQL */ `
           conductorBusId
         }
         BusImages {
+          items {
+            id
+            tags
+            caption
+            url
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busBusImagesId
+          }
           nextToken
           startedAt
         }
         status_on
-        Route {
-          id
-          routeName
-          pickupPoints
-          image
-          distance
-          avg_duration
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        Tickets {
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
           nextToken
           startedAt
         }
         Schedules {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         routeID
+        routes {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        Tickets {
+          items {
+            id
+            busID
+            price
+            name
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketsId
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -1650,6 +3727,29 @@ export const onUpdateConductor = /* GraphQL */ `
           id
           scheduleID
           conductorID
+          schedule {
+            id
+            name
+            time
+            type
+            day
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          conductor {
+            id
+            name
+            phone
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            conductorBusId
+          }
           createdAt
           updatedAt
           _version
@@ -1684,6 +3784,24 @@ export const onDeleteConductor = /* GraphQL */ `
           licenseNumber
           phone
           licenseExpiry
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -1695,6 +3813,24 @@ export const onDeleteConductor = /* GraphQL */ `
           id
           name
           phone
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -1703,32 +3839,90 @@ export const onDeleteConductor = /* GraphQL */ `
           conductorBusId
         }
         BusImages {
+          items {
+            id
+            tags
+            caption
+            url
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busBusImagesId
+          }
           nextToken
           startedAt
         }
         status_on
-        Route {
-          id
-          routeName
-          pickupPoints
-          image
-          distance
-          avg_duration
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        Tickets {
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
           nextToken
           startedAt
         }
         Schedules {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         routeID
+        routes {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        Tickets {
+          items {
+            id
+            busID
+            price
+            name
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketsId
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -1742,6 +3936,29 @@ export const onDeleteConductor = /* GraphQL */ `
           id
           scheduleID
           conductorID
+          schedule {
+            id
+            name
+            time
+            type
+            day
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          conductor {
+            id
+            name
+            phone
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            conductorBusId
+          }
           createdAt
           updatedAt
           _version
@@ -1760,9 +3977,9 @@ export const onDeleteConductor = /* GraphQL */ `
     }
   }
 `;
-export const onCreateTicket = /* GraphQL */ `
-  subscription OnCreateTicket {
-    onCreateTicket {
+export const onCreateTicketSale = /* GraphQL */ `
+  subscription OnCreateTicketSale {
+    onCreateTicketSale {
       id
       expired
       token
@@ -1775,14 +3992,55 @@ export const onCreateTicket = /* GraphQL */ `
         pickupPoints
         image
         RouteImages {
+          items {
+            id
+            url
+            tags
+            caption
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            routeRouteImagesId
+          }
           nextToken
           startedAt
         }
         Buses {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
-        Tickets {
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
           nextToken
           startedAt
         }
@@ -1804,6 +4062,24 @@ export const onCreateTicket = /* GraphQL */ `
           licenseNumber
           phone
           licenseExpiry
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -1815,6 +4091,24 @@ export const onCreateTicket = /* GraphQL */ `
           id
           name
           phone
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -1823,32 +4117,755 @@ export const onCreateTicket = /* GraphQL */ `
           conductorBusId
         }
         BusImages {
+          items {
+            id
+            tags
+            caption
+            url
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busBusImagesId
+          }
           nextToken
           startedAt
         }
         status_on
-        Route {
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
+          nextToken
+          startedAt
+        }
+        Schedules {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        routeID
+        routes {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        Tickets {
+          items {
+            id
+            busID
+            price
+            name
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketsId
+          }
+          nextToken
+          startedAt
+        }
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        busDriverId
+        busConductorId
+      }
+      price
+      name
+      paymentVia
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      busTicketSalesId
+      routeTicketSalesId
+    }
+  }
+`;
+export const onUpdateTicketSale = /* GraphQL */ `
+  subscription OnUpdateTicketSale {
+    onUpdateTicketSale {
+      id
+      expired
+      token
+      userID
+      busID
+      routeID
+      Route {
+        id
+        routeName
+        pickupPoints
+        image
+        RouteImages {
+          items {
+            id
+            url
+            tags
+            caption
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            routeRouteImagesId
+          }
+          nextToken
+          startedAt
+        }
+        Buses {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
+          nextToken
+          startedAt
+        }
+        distance
+        avg_duration
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      Bus {
+        id
+        name
+        trackingID
+        Driver {
           id
-          routeName
-          pickupPoints
-          image
-          distance
-          avg_duration
+          name
+          licenseNumber
+          phone
+          licenseExpiry
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
           _deleted
           _lastChangedAt
+          driverBusId
         }
-        Tickets {
+        Conductor {
+          id
+          name
+          phone
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+          conductorBusId
+        }
+        BusImages {
+          items {
+            id
+            tags
+            caption
+            url
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busBusImagesId
+          }
+          nextToken
+          startedAt
+        }
+        status_on
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
           nextToken
           startedAt
         }
         Schedules {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         routeID
+        routes {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        Tickets {
+          items {
+            id
+            busID
+            price
+            name
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketsId
+          }
+          nextToken
+          startedAt
+        }
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        busDriverId
+        busConductorId
+      }
+      price
+      name
+      paymentVia
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      busTicketSalesId
+      routeTicketSalesId
+    }
+  }
+`;
+export const onDeleteTicketSale = /* GraphQL */ `
+  subscription OnDeleteTicketSale {
+    onDeleteTicketSale {
+      id
+      expired
+      token
+      userID
+      busID
+      routeID
+      Route {
+        id
+        routeName
+        pickupPoints
+        image
+        RouteImages {
+          items {
+            id
+            url
+            tags
+            caption
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            routeRouteImagesId
+          }
+          nextToken
+          startedAt
+        }
+        Buses {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
+          nextToken
+          startedAt
+        }
+        distance
+        avg_duration
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      Bus {
+        id
+        name
+        trackingID
+        Driver {
+          id
+          name
+          licenseNumber
+          phone
+          licenseExpiry
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+          driverBusId
+        }
+        Conductor {
+          id
+          name
+          phone
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+          conductorBusId
+        }
+        BusImages {
+          items {
+            id
+            tags
+            caption
+            url
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busBusImagesId
+          }
+          nextToken
+          startedAt
+        }
+        status_on
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
+          nextToken
+          startedAt
+        }
+        Schedules {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        routeID
+        routes {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        Tickets {
+          items {
+            id
+            busID
+            price
+            name
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketsId
+          }
+          nextToken
+          startedAt
+        }
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        busDriverId
+        busConductorId
+      }
+      price
+      name
+      paymentVia
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      busTicketSalesId
+      routeTicketSalesId
+    }
+  }
+`;
+export const onCreateTicket = /* GraphQL */ `
+  subscription OnCreateTicket {
+    onCreateTicket {
+      id
+      busID
+      Bus {
+        id
+        name
+        trackingID
+        Driver {
+          id
+          name
+          licenseNumber
+          phone
+          licenseExpiry
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+          driverBusId
+        }
+        Conductor {
+          id
+          name
+          phone
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+          conductorBusId
+        }
+        BusImages {
+          items {
+            id
+            tags
+            caption
+            url
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busBusImagesId
+          }
+          nextToken
+          startedAt
+        }
+        status_on
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
+          nextToken
+          startedAt
+        }
+        Schedules {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        routeID
+        routes {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        Tickets {
+          items {
+            id
+            busID
+            price
+            name
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketsId
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -1864,6 +4881,7 @@ export const onCreateTicket = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
+      busTicketsId
     }
   }
 `;
@@ -1871,36 +4889,7 @@ export const onUpdateTicket = /* GraphQL */ `
   subscription OnUpdateTicket {
     onUpdateTicket {
       id
-      expired
-      token
-      userID
       busID
-      routeID
-      Route {
-        id
-        routeName
-        pickupPoints
-        image
-        RouteImages {
-          nextToken
-          startedAt
-        }
-        Buses {
-          nextToken
-          startedAt
-        }
-        Tickets {
-          nextToken
-          startedAt
-        }
-        distance
-        avg_duration
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
       Bus {
         id
         name
@@ -1911,6 +4900,24 @@ export const onUpdateTicket = /* GraphQL */ `
           licenseNumber
           phone
           licenseExpiry
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -1922,6 +4929,24 @@ export const onUpdateTicket = /* GraphQL */ `
           id
           name
           phone
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -1930,32 +4955,90 @@ export const onUpdateTicket = /* GraphQL */ `
           conductorBusId
         }
         BusImages {
+          items {
+            id
+            tags
+            caption
+            url
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busBusImagesId
+          }
           nextToken
           startedAt
         }
         status_on
-        Route {
-          id
-          routeName
-          pickupPoints
-          image
-          distance
-          avg_duration
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        Tickets {
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
           nextToken
           startedAt
         }
         Schedules {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         routeID
+        routes {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        Tickets {
+          items {
+            id
+            busID
+            price
+            name
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketsId
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -1971,6 +5054,7 @@ export const onUpdateTicket = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
+      busTicketsId
     }
   }
 `;
@@ -1978,36 +5062,7 @@ export const onDeleteTicket = /* GraphQL */ `
   subscription OnDeleteTicket {
     onDeleteTicket {
       id
-      expired
-      token
-      userID
       busID
-      routeID
-      Route {
-        id
-        routeName
-        pickupPoints
-        image
-        RouteImages {
-          nextToken
-          startedAt
-        }
-        Buses {
-          nextToken
-          startedAt
-        }
-        Tickets {
-          nextToken
-          startedAt
-        }
-        distance
-        avg_duration
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
       Bus {
         id
         name
@@ -2018,6 +5073,24 @@ export const onDeleteTicket = /* GraphQL */ `
           licenseNumber
           phone
           licenseExpiry
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -2029,6 +5102,24 @@ export const onDeleteTicket = /* GraphQL */ `
           id
           name
           phone
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -2037,32 +5128,90 @@ export const onDeleteTicket = /* GraphQL */ `
           conductorBusId
         }
         BusImages {
+          items {
+            id
+            tags
+            caption
+            url
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busBusImagesId
+          }
           nextToken
           startedAt
         }
         status_on
-        Route {
-          id
-          routeName
-          pickupPoints
-          image
-          distance
-          avg_duration
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        Tickets {
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
           nextToken
           startedAt
         }
         Schedules {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         routeID
+        routes {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        Tickets {
+          items {
+            id
+            busID
+            price
+            name
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketsId
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -2078,6 +5227,7 @@ export const onDeleteTicket = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
+      busTicketsId
     }
   }
 `;
@@ -2094,14 +5244,44 @@ export const onCreateBusSchedule = /* GraphQL */ `
         type
         day
         buss {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         drivers {
+          items {
+            id
+            scheduleID
+            driverID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         conductors {
+          items {
+            id
+            scheduleID
+            conductorID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
@@ -2121,6 +5301,24 @@ export const onCreateBusSchedule = /* GraphQL */ `
           licenseNumber
           phone
           licenseExpiry
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -2132,6 +5330,24 @@ export const onCreateBusSchedule = /* GraphQL */ `
           id
           name
           phone
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -2140,32 +5356,90 @@ export const onCreateBusSchedule = /* GraphQL */ `
           conductorBusId
         }
         BusImages {
+          items {
+            id
+            tags
+            caption
+            url
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busBusImagesId
+          }
           nextToken
           startedAt
         }
         status_on
-        Route {
-          id
-          routeName
-          pickupPoints
-          image
-          distance
-          avg_duration
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        Tickets {
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
           nextToken
           startedAt
         }
         Schedules {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         routeID
+        routes {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        Tickets {
+          items {
+            id
+            busID
+            price
+            name
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketsId
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -2195,14 +5469,44 @@ export const onUpdateBusSchedule = /* GraphQL */ `
         type
         day
         buss {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         drivers {
+          items {
+            id
+            scheduleID
+            driverID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         conductors {
+          items {
+            id
+            scheduleID
+            conductorID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
@@ -2222,6 +5526,24 @@ export const onUpdateBusSchedule = /* GraphQL */ `
           licenseNumber
           phone
           licenseExpiry
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -2233,6 +5555,24 @@ export const onUpdateBusSchedule = /* GraphQL */ `
           id
           name
           phone
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -2241,32 +5581,90 @@ export const onUpdateBusSchedule = /* GraphQL */ `
           conductorBusId
         }
         BusImages {
+          items {
+            id
+            tags
+            caption
+            url
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busBusImagesId
+          }
           nextToken
           startedAt
         }
         status_on
-        Route {
-          id
-          routeName
-          pickupPoints
-          image
-          distance
-          avg_duration
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        Tickets {
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
           nextToken
           startedAt
         }
         Schedules {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         routeID
+        routes {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        Tickets {
+          items {
+            id
+            busID
+            price
+            name
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketsId
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -2296,14 +5694,44 @@ export const onDeleteBusSchedule = /* GraphQL */ `
         type
         day
         buss {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         drivers {
+          items {
+            id
+            scheduleID
+            driverID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         conductors {
+          items {
+            id
+            scheduleID
+            conductorID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
@@ -2323,6 +5751,24 @@ export const onDeleteBusSchedule = /* GraphQL */ `
           licenseNumber
           phone
           licenseExpiry
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -2334,6 +5780,24 @@ export const onDeleteBusSchedule = /* GraphQL */ `
           id
           name
           phone
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -2342,32 +5806,90 @@ export const onDeleteBusSchedule = /* GraphQL */ `
           conductorBusId
         }
         BusImages {
+          items {
+            id
+            tags
+            caption
+            url
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busBusImagesId
+          }
           nextToken
           startedAt
         }
         status_on
-        Route {
-          id
-          routeName
-          pickupPoints
-          image
-          distance
-          avg_duration
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        Tickets {
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
           nextToken
           startedAt
         }
         Schedules {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         routeID
+        routes {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        Tickets {
+          items {
+            id
+            busID
+            price
+            name
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketsId
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -2397,14 +5919,44 @@ export const onCreateDriverSchedule = /* GraphQL */ `
         type
         day
         buss {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         drivers {
+          items {
+            id
+            scheduleID
+            driverID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         conductors {
+          items {
+            id
+            scheduleID
+            conductorID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
@@ -2424,8 +5976,52 @@ export const onCreateDriverSchedule = /* GraphQL */ `
           id
           name
           trackingID
+          Driver {
+            id
+            name
+            licenseNumber
+            phone
+            licenseExpiry
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            driverBusId
+          }
+          Conductor {
+            id
+            name
+            phone
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            conductorBusId
+          }
+          BusImages {
+            nextToken
+            startedAt
+          }
           status_on
+          TicketSales {
+            nextToken
+            startedAt
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           routeID
+          routes {
+            nextToken
+            startedAt
+          }
+          Tickets {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -2435,6 +6031,16 @@ export const onCreateDriverSchedule = /* GraphQL */ `
           busConductorId
         }
         Schedules {
+          items {
+            id
+            scheduleID
+            driverID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
@@ -2466,14 +6072,44 @@ export const onUpdateDriverSchedule = /* GraphQL */ `
         type
         day
         buss {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         drivers {
+          items {
+            id
+            scheduleID
+            driverID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         conductors {
+          items {
+            id
+            scheduleID
+            conductorID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
@@ -2493,8 +6129,52 @@ export const onUpdateDriverSchedule = /* GraphQL */ `
           id
           name
           trackingID
+          Driver {
+            id
+            name
+            licenseNumber
+            phone
+            licenseExpiry
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            driverBusId
+          }
+          Conductor {
+            id
+            name
+            phone
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            conductorBusId
+          }
+          BusImages {
+            nextToken
+            startedAt
+          }
           status_on
+          TicketSales {
+            nextToken
+            startedAt
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           routeID
+          routes {
+            nextToken
+            startedAt
+          }
+          Tickets {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -2504,6 +6184,16 @@ export const onUpdateDriverSchedule = /* GraphQL */ `
           busConductorId
         }
         Schedules {
+          items {
+            id
+            scheduleID
+            driverID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
@@ -2535,14 +6225,44 @@ export const onDeleteDriverSchedule = /* GraphQL */ `
         type
         day
         buss {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         drivers {
+          items {
+            id
+            scheduleID
+            driverID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         conductors {
+          items {
+            id
+            scheduleID
+            conductorID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
@@ -2562,8 +6282,52 @@ export const onDeleteDriverSchedule = /* GraphQL */ `
           id
           name
           trackingID
+          Driver {
+            id
+            name
+            licenseNumber
+            phone
+            licenseExpiry
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            driverBusId
+          }
+          Conductor {
+            id
+            name
+            phone
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            conductorBusId
+          }
+          BusImages {
+            nextToken
+            startedAt
+          }
           status_on
+          TicketSales {
+            nextToken
+            startedAt
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           routeID
+          routes {
+            nextToken
+            startedAt
+          }
+          Tickets {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -2573,6 +6337,16 @@ export const onDeleteDriverSchedule = /* GraphQL */ `
           busConductorId
         }
         Schedules {
+          items {
+            id
+            scheduleID
+            driverID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
@@ -2604,14 +6378,44 @@ export const onCreateConductorSchedule = /* GraphQL */ `
         type
         day
         buss {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         drivers {
+          items {
+            id
+            scheduleID
+            driverID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         conductors {
+          items {
+            id
+            scheduleID
+            conductorID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
@@ -2629,8 +6433,52 @@ export const onCreateConductorSchedule = /* GraphQL */ `
           id
           name
           trackingID
+          Driver {
+            id
+            name
+            licenseNumber
+            phone
+            licenseExpiry
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            driverBusId
+          }
+          Conductor {
+            id
+            name
+            phone
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            conductorBusId
+          }
+          BusImages {
+            nextToken
+            startedAt
+          }
           status_on
+          TicketSales {
+            nextToken
+            startedAt
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           routeID
+          routes {
+            nextToken
+            startedAt
+          }
+          Tickets {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -2640,6 +6488,16 @@ export const onCreateConductorSchedule = /* GraphQL */ `
           busConductorId
         }
         Schedules {
+          items {
+            id
+            scheduleID
+            conductorID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
@@ -2671,14 +6529,44 @@ export const onUpdateConductorSchedule = /* GraphQL */ `
         type
         day
         buss {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         drivers {
+          items {
+            id
+            scheduleID
+            driverID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         conductors {
+          items {
+            id
+            scheduleID
+            conductorID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
@@ -2696,8 +6584,52 @@ export const onUpdateConductorSchedule = /* GraphQL */ `
           id
           name
           trackingID
+          Driver {
+            id
+            name
+            licenseNumber
+            phone
+            licenseExpiry
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            driverBusId
+          }
+          Conductor {
+            id
+            name
+            phone
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            conductorBusId
+          }
+          BusImages {
+            nextToken
+            startedAt
+          }
           status_on
+          TicketSales {
+            nextToken
+            startedAt
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           routeID
+          routes {
+            nextToken
+            startedAt
+          }
+          Tickets {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -2707,6 +6639,16 @@ export const onUpdateConductorSchedule = /* GraphQL */ `
           busConductorId
         }
         Schedules {
+          items {
+            id
+            scheduleID
+            conductorID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
@@ -2738,14 +6680,44 @@ export const onDeleteConductorSchedule = /* GraphQL */ `
         type
         day
         buss {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         drivers {
+          items {
+            id
+            scheduleID
+            driverID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
         conductors {
+          items {
+            id
+            scheduleID
+            conductorID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
@@ -2763,8 +6735,52 @@ export const onDeleteConductorSchedule = /* GraphQL */ `
           id
           name
           trackingID
+          Driver {
+            id
+            name
+            licenseNumber
+            phone
+            licenseExpiry
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            driverBusId
+          }
+          Conductor {
+            id
+            name
+            phone
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            conductorBusId
+          }
+          BusImages {
+            nextToken
+            startedAt
+          }
           status_on
+          TicketSales {
+            nextToken
+            startedAt
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
           routeID
+          routes {
+            nextToken
+            startedAt
+          }
+          Tickets {
+            nextToken
+            startedAt
+          }
           createdAt
           updatedAt
           _version
@@ -2774,6 +6790,16 @@ export const onDeleteConductorSchedule = /* GraphQL */ `
           busConductorId
         }
         Schedules {
+          items {
+            id
+            scheduleID
+            conductorID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
           nextToken
           startedAt
         }
@@ -2783,6 +6809,717 @@ export const onDeleteConductorSchedule = /* GraphQL */ `
         _deleted
         _lastChangedAt
         conductorBusId
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onCreateRouteBus = /* GraphQL */ `
+  subscription OnCreateRouteBus {
+    onCreateRouteBus {
+      id
+      busID
+      routeID
+      bus {
+        id
+        name
+        trackingID
+        Driver {
+          id
+          name
+          licenseNumber
+          phone
+          licenseExpiry
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+          driverBusId
+        }
+        Conductor {
+          id
+          name
+          phone
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+          conductorBusId
+        }
+        BusImages {
+          items {
+            id
+            tags
+            caption
+            url
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busBusImagesId
+          }
+          nextToken
+          startedAt
+        }
+        status_on
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
+          nextToken
+          startedAt
+        }
+        Schedules {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        routeID
+        routes {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        Tickets {
+          items {
+            id
+            busID
+            price
+            name
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketsId
+          }
+          nextToken
+          startedAt
+        }
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        busDriverId
+        busConductorId
+      }
+      route {
+        id
+        routeName
+        pickupPoints
+        image
+        RouteImages {
+          items {
+            id
+            url
+            tags
+            caption
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            routeRouteImagesId
+          }
+          nextToken
+          startedAt
+        }
+        Buses {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
+          nextToken
+          startedAt
+        }
+        distance
+        avg_duration
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onUpdateRouteBus = /* GraphQL */ `
+  subscription OnUpdateRouteBus {
+    onUpdateRouteBus {
+      id
+      busID
+      routeID
+      bus {
+        id
+        name
+        trackingID
+        Driver {
+          id
+          name
+          licenseNumber
+          phone
+          licenseExpiry
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+          driverBusId
+        }
+        Conductor {
+          id
+          name
+          phone
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+          conductorBusId
+        }
+        BusImages {
+          items {
+            id
+            tags
+            caption
+            url
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busBusImagesId
+          }
+          nextToken
+          startedAt
+        }
+        status_on
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
+          nextToken
+          startedAt
+        }
+        Schedules {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        routeID
+        routes {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        Tickets {
+          items {
+            id
+            busID
+            price
+            name
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketsId
+          }
+          nextToken
+          startedAt
+        }
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        busDriverId
+        busConductorId
+      }
+      route {
+        id
+        routeName
+        pickupPoints
+        image
+        RouteImages {
+          items {
+            id
+            url
+            tags
+            caption
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            routeRouteImagesId
+          }
+          nextToken
+          startedAt
+        }
+        Buses {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
+          nextToken
+          startedAt
+        }
+        distance
+        avg_duration
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onDeleteRouteBus = /* GraphQL */ `
+  subscription OnDeleteRouteBus {
+    onDeleteRouteBus {
+      id
+      busID
+      routeID
+      bus {
+        id
+        name
+        trackingID
+        Driver {
+          id
+          name
+          licenseNumber
+          phone
+          licenseExpiry
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+          driverBusId
+        }
+        Conductor {
+          id
+          name
+          phone
+          Bus {
+            id
+            name
+            trackingID
+            status_on
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busDriverId
+            busConductorId
+          }
+          Schedules {
+            nextToken
+            startedAt
+          }
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+          conductorBusId
+        }
+        BusImages {
+          items {
+            id
+            tags
+            caption
+            url
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busBusImagesId
+          }
+          nextToken
+          startedAt
+        }
+        status_on
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
+          nextToken
+          startedAt
+        }
+        Schedules {
+          items {
+            id
+            scheduleID
+            busID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        routeID
+        routes {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        Tickets {
+          items {
+            id
+            busID
+            price
+            name
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketsId
+          }
+          nextToken
+          startedAt
+        }
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        busDriverId
+        busConductorId
+      }
+      route {
+        id
+        routeName
+        pickupPoints
+        image
+        RouteImages {
+          items {
+            id
+            url
+            tags
+            caption
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            routeRouteImagesId
+          }
+          nextToken
+          startedAt
+        }
+        Buses {
+          items {
+            id
+            busID
+            routeID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        TicketSales {
+          items {
+            id
+            expired
+            token
+            userID
+            busID
+            routeID
+            price
+            name
+            paymentVia
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            busTicketSalesId
+            routeTicketSalesId
+          }
+          nextToken
+          startedAt
+        }
+        distance
+        avg_duration
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
       }
       createdAt
       updatedAt

@@ -17,6 +17,7 @@ const Confirmations = ({ navigation, route }) => {
     ticketName,
     price,
   } = useSelector((state) => state.payment);
+
   console.log(busId, routeId, userId, method, scheduleId, ticketId);
   const theme = useTheme();
 

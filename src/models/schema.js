@@ -190,7 +190,7 @@ export const schema = {
                     "isArrayNullable": true,
                     "association": {
                         "connectionType": "HAS_MANY",
-                        "associatedWith": "busID"
+                        "associatedWith": "busBusImagesId"
                     }
                 },
                 "status_on": {
@@ -200,31 +200,18 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "Route": {
-                    "name": "Route",
-                    "isArray": false,
-                    "type": {
-                        "model": "Route"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "association": {
-                        "connectionType": "BELONGS_TO",
-                        "targetName": "routeBusesId"
-                    }
-                },
-                "Tickets": {
-                    "name": "Tickets",
+                "TicketSales": {
+                    "name": "TicketSales",
                     "isArray": true,
                     "type": {
-                        "model": "Ticket"
+                        "model": "TicketSale"
                     },
                     "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true,
                     "association": {
                         "connectionType": "HAS_MANY",
-                        "associatedWith": "busID"
+                        "associatedWith": "busTicketSalesId"
                     }
                 },
                 "Schedules": {
@@ -247,6 +234,34 @@ export const schema = {
                     "type": "ID",
                     "isRequired": true,
                     "attributes": []
+                },
+                "routes": {
+                    "name": "routes",
+                    "isArray": true,
+                    "type": {
+                        "model": "RouteBus"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "bus"
+                    }
+                },
+                "Tickets": {
+                    "name": "Tickets",
+                    "isArray": true,
+                    "type": {
+                        "model": "Ticket"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "busTicketsId"
+                    }
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -285,15 +300,6 @@ export const schema = {
                 {
                     "type": "model",
                     "properties": {}
-                },
-                {
-                    "type": "key",
-                    "properties": {
-                        "name": "byRoute",
-                        "fields": [
-                            "routeID"
-                        ]
-                    }
                 },
                 {
                     "type": "auth",
@@ -605,13 +611,143 @@ export const schema = {
                     "properties": {}
                 },
                 {
-                    "type": "key",
+                    "type": "auth",
                     "properties": {
-                        "name": "byBus",
-                        "fields": [
-                            "busID"
+                        "rules": [
+                            {
+                                "groupClaim": "cognito:groups",
+                                "provider": "userPools",
+                                "allow": "groups",
+                                "groups": [
+                                    "Admins"
+                                ],
+                                "operations": [
+                                    "read",
+                                    "create",
+                                    "update",
+                                    "delete"
+                                ]
+                            }
                         ]
                     }
+                }
+            ]
+        },
+        "TicketSale": {
+            "name": "TicketSale",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "expired": {
+                    "name": "expired",
+                    "isArray": false,
+                    "type": "Boolean",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "token": {
+                    "name": "token",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "userID": {
+                    "name": "userID",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "busID": {
+                    "name": "busID",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "routeID": {
+                    "name": "routeID",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "Route": {
+                    "name": "Route",
+                    "isArray": false,
+                    "type": {
+                        "model": "Route"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "routeTicketSalesId"
+                    }
+                },
+                "Bus": {
+                    "name": "Bus",
+                    "isArray": false,
+                    "type": {
+                        "model": "Bus"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "busTicketSalesId"
+                    }
+                },
+                "price": {
+                    "name": "price",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "name": {
+                    "name": "name",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "paymentVia": {
+                    "name": "paymentVia",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "TicketSales",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
                 },
                 {
                     "type": "auth",
@@ -679,35 +815,35 @@ export const schema = {
                     "isArrayNullable": true,
                     "association": {
                         "connectionType": "HAS_MANY",
-                        "associatedWith": "routeID"
+                        "associatedWith": "routeRouteImagesId"
                     }
                 },
                 "Buses": {
                     "name": "Buses",
                     "isArray": true,
                     "type": {
-                        "model": "Bus"
+                        "model": "RouteBus"
                     },
                     "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true,
                     "association": {
                         "connectionType": "HAS_MANY",
-                        "associatedWith": "routeID"
+                        "associatedWith": "route"
                     }
                 },
-                "Tickets": {
-                    "name": "Tickets",
+                "TicketSales": {
+                    "name": "TicketSales",
                     "isArray": true,
                     "type": {
-                        "model": "Ticket"
+                        "model": "TicketSale"
                     },
                     "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true,
                     "association": {
                         "connectionType": "HAS_MANY",
-                        "associatedWith": "routeID"
+                        "associatedWith": "routeTicketSalesId"
                     }
                 },
                 "distance": {
@@ -853,15 +989,6 @@ export const schema = {
                     "properties": {}
                 },
                 {
-                    "type": "key",
-                    "properties": {
-                        "name": "byRoute",
-                        "fields": [
-                            "routeID"
-                        ]
-                    }
-                },
-                {
                     "type": "auth",
                     "properties": {
                         "rules": [
@@ -894,53 +1021,12 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "expired": {
-                    "name": "expired",
-                    "isArray": false,
-                    "type": "Boolean",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "token": {
-                    "name": "token",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "userID": {
-                    "name": "userID",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": true,
-                    "attributes": []
-                },
                 "busID": {
                     "name": "busID",
                     "isArray": false,
                     "type": "ID",
                     "isRequired": true,
                     "attributes": []
-                },
-                "routeID": {
-                    "name": "routeID",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "Route": {
-                    "name": "Route",
-                    "isArray": false,
-                    "type": {
-                        "model": "Route"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "association": {
-                        "connectionType": "BELONGS_TO",
-                        "targetName": "routeTicketsId"
-                    }
                 },
                 "Bus": {
                     "name": "Bus",
@@ -994,24 +1080,6 @@ export const schema = {
                     "properties": {}
                 },
                 {
-                    "type": "key",
-                    "properties": {
-                        "name": "byBus",
-                        "fields": [
-                            "busID"
-                        ]
-                    }
-                },
-                {
-                    "type": "key",
-                    "properties": {
-                        "name": "byRoute",
-                        "fields": [
-                            "routeID"
-                        ]
-                    }
-                },
-                {
                     "type": "auth",
                     "properties": {
                         "rules": [
@@ -1027,6 +1095,12 @@ export const schema = {
                                     "create",
                                     "update",
                                     "delete"
+                                ]
+                            },
+                            {
+                                "allow": "private",
+                                "operations": [
+                                    "read"
                                 ]
                             }
                         ]
@@ -1273,9 +1347,89 @@ export const schema = {
                     }
                 }
             ]
+        },
+        "RouteBus": {
+            "name": "RouteBus",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "bus": {
+                    "name": "bus",
+                    "isArray": false,
+                    "type": {
+                        "model": "Bus"
+                    },
+                    "isRequired": true,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "busID"
+                    }
+                },
+                "route": {
+                    "name": "route",
+                    "isArray": false,
+                    "type": {
+                        "model": "Route"
+                    },
+                    "isRequired": true,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "routeID"
+                    }
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "RouteBuses",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byBus",
+                        "fields": [
+                            "busID"
+                        ]
+                    }
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byRoute",
+                        "fields": [
+                            "routeID"
+                        ]
+                    }
+                }
+            ]
         }
     },
     "enums": {},
     "nonModels": {},
-    "version": "56d668655f69765f2e6a7a5aaf624e1a"
+    "version": "e4409a21ff4455f1ef4e1428e68ab784"
 };

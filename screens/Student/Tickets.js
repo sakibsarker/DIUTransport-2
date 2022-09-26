@@ -28,7 +28,7 @@ const Tickets = ({ navigation, route }) => {
         eq: user.sub,
       },
       expired: {
-        eq: false,
+        ne: true,
       },
     };
     API.graphql({
@@ -38,7 +38,7 @@ const Tickets = ({ navigation, route }) => {
     })
       .then(({ data }) => {
         setTickets(data.listTicketSales.items);
-        console.log(data.listTicketSales.items);
+        // console.log(data.listTicketSales.items);
         setLoading(false);
       })
       .catch((err) => {
